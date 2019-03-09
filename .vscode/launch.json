@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Partida",
+            "request": "launch",
+            "mainClass": "Partida",
+            "projectName": "PROP-Chess_60b1ca0b"
+        }
+    ]
+}
