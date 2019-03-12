@@ -1,4 +1,4 @@
-package domini.java.Partida;
+package domini.java;
 
 import java.io.Console;
 
