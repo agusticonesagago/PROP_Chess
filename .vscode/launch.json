@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - DriverPartida",
+            "request": "launch",
+            "mainClass": "DriverPartida",
+            "projectName": "PROP-Chess_60b1ca0b"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - Partida",
             "request": "launch",
             "mainClass": "Partida",

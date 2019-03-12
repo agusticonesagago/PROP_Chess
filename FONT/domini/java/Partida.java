@@ -1,4 +1,8 @@
+package domini.java.Partida;
+
 import java.io.Console;
+
+
 
 public class Partida {
     private Boolean Guanyador;
