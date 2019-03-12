@@ -30,6 +30,8 @@ public class Partida {
         Torn = Character.getNumericValue(FEN.charAt(endOfBoard+9));
           System.out.println("TORN: " + Torn);
 
+          /* TEST */
+
     }
 
 
