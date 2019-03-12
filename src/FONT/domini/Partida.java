@@ -1,4 +1,4 @@
-package domini.java;
+package domini;
 
 import java.io.Console;
 
