@@ -6,7 +6,6 @@ public class Pawn extends Peça {
 
 
   public bool espotmoure(pair<int,int> posinicial, pair<int,int> posfinal){
-    boolean adversario = false;
     int ic = posinicial.getKey();
     int jc = posinicial.getValue();
     int ifi = posfinal.getKey();
