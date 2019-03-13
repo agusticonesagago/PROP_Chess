@@ -15,13 +15,13 @@ public class Rook extends Peça {
 
       if(difi!=0 && difj==0){
         if(difi>0){
-          while(not obstaculo){
+          while(not obstaculo && (ifi+plus)<8){
             if(not (Taulell[ifi+plus][jfi].existeix() && Taulell[ifi+plus][jfi].getcolor()!=blanca)||not Taulell[ifi+plus][jfi].existeix()) obstaculo = true;
             ++plus;
           }
         }
         else{
-          while(not obstaculo){
+          while(not obstaculo && (ifi-plus)>=0){
             if(not (Taulell[ifi-plus][jfi].existeix() && Taulell[ifi-plus][jfi].getcolor()!=blanca)||not Taulell[ifi-plus][jfi].existeix()) obstaculo = true;
             ++plus;
           }
@@ -29,13 +29,13 @@ public class Rook extends Peça {
       }
       else if(difj!=0 && difi==0 ){
         if(difj>0){
-          while(not obstaculo){
+          while(not obstaculo && (jfi-plus)<8){
             if(not (Taulell[ifi][jfi+plus].existeix() && Taulell[ifi][jfi+plus].getcolor()!=blanca)||not Taulell[ifi][jfi+plus].existeix()) obstaculo = true;
             ++plus;
           }
         }
         else{
-          while(not obstaculo){
+          while(not obstaculo && (jfi-plus)>=0){
             if(not (Taulell[ifi][jfi-plus].existeix() && Taulell[ifi][jfi-plus].getcolor()!=blanca)||not Taulell[ifi][jfi-plus].existeix()) obstaculo = true;
             ++plus;
           }
