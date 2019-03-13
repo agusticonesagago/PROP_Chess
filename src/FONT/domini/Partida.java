@@ -1,8 +1,7 @@
 package domini;
 
-import java.io.Console;
 
-
+import com.sun.org.apache.xpath.internal.operations.Bool;
 
 public class Partida {
     private Boolean Guanyador;
@@ -13,39 +12,51 @@ public class Partida {
     //  private Jugador Blanques;
     //  private Jugador Negres;
  
-    public Partida(/*Problema P, Jugador b, Jugador n*/) {
-    //    this.Problem = P;
-    //    this.Blanques = b;
-    //    this.Negres = n;
-        String FEN = "1N1b4/6nr/R5n1/2Ppk2r/K2p2qR/8/2N1PQ2/B6B w - - 0 1"; // falta saber com serà nom de func getFEN
-        
-        // Decomposition of FEN
-        /* TAULELL PART  */
+    public Partida() {
+        String FEN = "1N1b4/6nr/R5n1/2Ppk2r/K2p2qR/8/2N1PQ2/B6B w - - 0 1";
+
         int  endOfBoard = FEN.indexOf(" ");
         String Taulell_FEN = FEN.substring(0, endOfBoard);
-          System.out.println("BOARD: " + Taulell_FEN);
-        /* A QUI LI TOCA EN AQUEST TORN */
+
+
         char PlayerTurn = FEN.charAt(endOfBoard+1);
-          System.out.println("COLOR PLAYER: " + PlayerTurn);
-        /* HalfMove -> Desde que s'ha matat algu o mogut un peó */
+        if (PlayerTurn == 'w') QuiJuga = true;
+        else QuiJuga = false;
+
+        // Pot ser que ho fem servir mes tard
         int halfmove = Character.getNumericValue(FEN.charAt(endOfBoard+7));
-          System.out.println("Half Move: " + halfmove);       
-        /* FullTurn -> ++ Each time black moves */
+
         Torn = Character.getNumericValue(FEN.charAt(endOfBoard+9));
-          System.out.println("TORN: " + Torn);
 
-          /* TEST */
-
+        /* No winner yet */
+        Guanyador = null;
     }
 
 
+    /* GETTERS */
+    public Integer getTorn () {
+        return Torn;
+    }
+
+    public Boolean getQuiJuga () {
+        return QuiJuga;
+    }
+
+    public Boolean getGuanyador () {
+        return Guanyador;
+    }
 
 
+    /* SETTERS */
+    public void setTorn(Integer t) {
+        Torn = t;
+    }
 
+    public void setQuiJuga(Boolean qj) {
+        QuiJuga = qj;
+    }
 
-
-
-    public static void main(String[] args) {
-        new Partida();
+    public void setGuanyador (Boolean guanya) {
+        Guanyador = guanya;
     }
 }
