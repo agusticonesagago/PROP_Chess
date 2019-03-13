@@ -47,7 +47,7 @@ public class Pawn extends Peça {
           else return false;
         }
         else if((ic+1==ifi && jc-1==jfi) || (ic+1==ifi && jc+1==jfi)){ //cas de tirar en diagonal
-           if(Taulell[ifi][jfi].existeix() && Taulell[ifi][jfi].getcolor()!=blanca) return true;
+           if(Taulell[ifi][jfi].existeix() && Taulell[ifi][jfi].getcolor()!=blanca)return true;
            else return false;
         }
       }
