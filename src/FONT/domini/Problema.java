@@ -16,7 +16,6 @@ public class Problema {
 
     public Problema cercaProblema(String fen) {
         //return CtrlD.getProblema(fen);
-        return null;
     }
 
     public void eliminarProblema(String fen) {
@@ -33,7 +32,7 @@ public class Problema {
     }
 
     public boolean teSolucio() {
-        return true;
+        FEN;
     }
 
     /* GETTERS */
