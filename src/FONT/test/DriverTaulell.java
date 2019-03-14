@@ -9,8 +9,7 @@ public class DriverTaulell {
         Taulell t = new Taulell(FEN);
         t.PrintBoard();
 
-        Pair<Integer, Integer> Pos = new Pair<Integer, Integer> (0, 1);
-        Boolean ocupat = t.PosOcupada(Pos);
+        Boolean ocupat = t.PosOcupada(0,0);
         if (ocupat) System.out.println("OCUPAT");
         else System.out.println("LLIURE");
     }

@@ -7,26 +7,27 @@ import javafx.util.Pair;
 public class Peça{
 
 
-    private boolean color; // true(blanc) i false(negre)
-    private pair<int,int> posactual;
+    protected boolean color; // true(blanc) i false(negre)
+    protected Pair<Integer,Integer> posactual;
+    protected Taulell Taulell;
 
-    public Peça(boolean color, pair<int,int> posactual) {
+    public Peça(boolean color, Pair<Integer,Integer> posactual) {
       this.color = color;
       this.posactual = posactual;
     }
 
-    public bool caselladins(pair<int,int> pos){
+    protected Boolean caselladins(Pair<Integer,Integer> pos){
       int i = pos.getKey();
       int j = pos.getValue();
       if(i<0 || i>8 || j<0 || j>8 ) return false;
       else return true;
     } /////////////////////////////////////////////////Potser hauria de ser del taulell
 
-    public bool espotmoure(pair<int,int> posinicial, pair<int,int> posfinal){ //potser nomes fa falta posfinal
-
+    public Boolean espotmoure(Pair<Integer,Integer> posinicial, Pair<Integer,Integer> posfinal){ //potser nomes fa falta posfinal
+        return false;
     }
 
-    public ajudamoviment(Peça escollida){ //no sé com implementar-la
+    public void ajudamoviment(Peça escollida){ //no sé com implementar-la
 
     }
 
@@ -35,13 +36,13 @@ public class Peça{
       return color;
     }
 
-    public pair<int,int> getposicioactual () {
+    public Pair<Integer,Integer> getposicioactual () {
       return posactual;
     }
 
     /* SETTERS */
 
-    public mourepeça(pair<int,int> posfinal) {
+    public void mourepeça(Pair<Integer,Integer> posfinal) {
       this.posactual = posfinal;
     }
 }
