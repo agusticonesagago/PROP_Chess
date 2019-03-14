@@ -4,6 +4,10 @@ import com.sun.org.apache.xpath.internal.operations.Bool;
 import javafx.util.Pair;
 
 public class King extends Peça {
+  public King(boolean color, Pair<Integer, Integer> posactual) {
+    super(color, posactual);
+  }
+
   public Boolean espotmoure(Pair<Integer,Integer> posinicial, Pair<Integer,Integer> posfinal){
     int ic = posinicial.getKey();
     int jc = posinicial.getValue();
