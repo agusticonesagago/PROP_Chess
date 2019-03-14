@@ -11,7 +11,7 @@ public class Taulell {
 
     /* 1N1b4/6nr/R5n1/2Ppk2r/K2p2qR/8/2N1PQ2/B6B */
     public Taulell (String Taula_FEN) {
-        Board = new Character[8][8];
+        Board = new Peça[8][8];
         int i = 0;
         while (!Taula_FEN.isEmpty()){
             int ir = Taula_FEN.indexOf("/");
@@ -26,7 +26,7 @@ public class Taulell {
                 if (f>= '1' && f <='8') {
                     int pos = Character.getNumericValue(f);
                     while (pos != 0) {
-                        Board[i][board_pointer] = '-';
+                        Board[i][board_pointer] = null;
                         ++board_pointer;
                         --pos;
                     }
@@ -34,22 +34,23 @@ public class Taulell {
                 // todo MODIFY WHEN PECA FET
                 /* MAYUS -> white ? */
                 else {
+                    Pair<Integer, Integer> Pos = new Pair<>(i,board_pointer);
                     if (f.equals('K')) { // REI
-                        Board[i][board_pointer] = 'K';
+                        Board[i][board_pointer] = new King(true, Pos);
                     } else if (f.equals('Q')) { // REINA
-                        Board[i][board_pointer] = 'Q';
+                        Board[i][board_pointer] = new Queen(true, Pos);
                     } else if (f.equals('R')) { // TORRE
-                        Board[i][board_pointer] = 'R';
+                        Board[i][board_pointer] = new Rook(true, Pos);
                     } else if (f.equals('N')) { // CABALL
-                        Board[i][board_pointer] = 'N';
+                        Board[i][board_pointer] = new Knight(true, Pos);
                     } else if (f.equals('B')) { // ALFIL
-                        Board[i][board_pointer] = 'B';
+                        Board[i][board_pointer] = new Bishop(true, Pos);
                     } else if (f.equals('P')) { // PEO
-                        Board[i][board_pointer] = 'P';
+                        Board[i][board_pointer] = new Pawn(true, Pos);
                     }
                     /* minus -> black ?*/
                     else if (f.equals('k')) { //rei
-                        Board[i][board_pointer] = 'k';
+                        Board[i][board_pointer] = new King(false, Pos);
                     } else if (f.equals('q')) { //reina
                         Board[i][board_pointer] = 'q';
                     } else if (f.equals('r')) { //torre
