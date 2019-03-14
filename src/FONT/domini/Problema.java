@@ -5,6 +5,7 @@ public class Problema {
     protected String Tema;
     protected String Dificultat;
     protected String FEN;
+    //protected Partida Tester
     //protected CtrlDades CtrlD
 
     public Problema (String t, String dif, String fen) {
@@ -27,12 +28,13 @@ public class Problema {
         FEN = fen;
         Dificultat = dif;
         Tema = t;
-
-        //
     }
-
-    public boolean teSolucio() {
-        FEN;
+        /* Work In Progress */
+    public boolean teSolucio(String fen) {
+        fen;
+        if() return false;
+        else 
+        //return Tester.comprova_solució(fen);
     }
 
     /* GETTERS */
