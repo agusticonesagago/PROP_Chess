@@ -1,11 +1,13 @@
 package domini;
 
+import javafx.util.Pair;
+
 import java.util.ArrayList;
 
 public class Taulell {
 
     // falta canviar Character -> Peca
-    private Character[][] Board;
+    private Peça[][] Board;
 
     /* 1N1b4/6nr/R5n1/2Ppk2r/K2p2qR/8/2N1PQ2/B6B */
     public Taulell (String Taula_FEN) {
@@ -80,5 +82,10 @@ public class Taulell {
         }
     }
 
+    public Boolean PosOcupada(Integer i, Integer j) {
+        if (Board[i][j] == '-') return false;
+        else return true;
+    }
 
+    public
 }
