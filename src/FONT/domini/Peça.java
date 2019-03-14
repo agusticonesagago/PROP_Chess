@@ -11,9 +11,10 @@ public class Peça{
     protected Pair<Integer,Integer> posactual;
     protected Taulell Taulell;
 
-    public Peça(boolean color, Pair<Integer,Integer> posactual) {
+    public Peça(boolean color, Pair<Integer,Integer> posactual, Taulell t) {
       this.color = color;
       this.posactual = posactual;
+      Taulell = t;
     }
 
     protected Boolean caselladins(Pair<Integer,Integer> pos){

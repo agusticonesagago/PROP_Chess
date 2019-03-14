@@ -36,31 +36,31 @@ public class Taulell {
                 else {
                     Pair<Integer, Integer> Pos = new Pair<>(i,board_pointer);
                     if (f.equals('K')) { // REI
-                        Board[i][board_pointer] = new King(true, Pos);
+                        Board[i][board_pointer] = new King(true, Pos, this);
                     } else if (f.equals('Q')) { // REINA
-                        Board[i][board_pointer] = new Queen(true, Pos);
+                        Board[i][board_pointer] = null;//new Queen(true, Pos, this)
                     } else if (f.equals('R')) { // TORRE
-                        Board[i][board_pointer] = new Rook(true, Pos);
+                        Board[i][board_pointer] = new Rook(true, Pos, this);
                     } else if (f.equals('N')) { // CABALL
-                        Board[i][board_pointer] = new Knight(true, Pos);
+                        Board[i][board_pointer] = new Knight(true, Pos, this);
                     } else if (f.equals('B')) { // ALFIL
-                        Board[i][board_pointer] = new Bishop(true, Pos);
+                        Board[i][board_pointer] = null;//new Bishop(true, Pos, this);
                     } else if (f.equals('P')) { // PEO
-                        Board[i][board_pointer] = new Pawn(true, Pos);
+                        Board[i][board_pointer] = new Pawn(true, Pos, this);
                     }
                     /* minus -> black ?*/
                     else if (f.equals('k')) { //rei
-                        Board[i][board_pointer] = new King(false, Pos);
+                        Board[i][board_pointer] = new King(false, Pos, this);
                     } else if (f.equals('q')) { //reina
-                        Board[i][board_pointer] = 'q';
+                        Board[i][board_pointer] = null;//new Queen(false, Pos, this);
                     } else if (f.equals('r')) { //torre
-                        Board[i][board_pointer] = 'r';
+                        Board[i][board_pointer] = new Rook(false, Pos, this);
                     } else if (f.equals('n')) { // caball
-                        Board[i][board_pointer] = 'n';
+                        Board[i][board_pointer] = new Knight(false, Pos, this);
                     } else if (f.equals('b')) { // alfil
-                        Board[i][board_pointer] = 'b';
+                        Board[i][board_pointer] = null;// new Bishop(false, Pos, this);
                     } else if (f.equals('p')) { // peo
-                        Board[i][board_pointer] = 'p';
+                        Board[i][board_pointer] = new Pawn(false, Pos, this);
                     }
                     ++board_pointer;
                 }
@@ -77,16 +77,21 @@ public class Taulell {
     public void PrintBoard () {
         for(int i=0; i < 8; ++i ){
             for (int j = 0; j < 8; ++j) {
-                System.out.print(Board[i][j] + " ");
+                if (Board[i][j] != null)System.out.print(Board[i][j].getClass().getName()+ " ");
+                else System.out.print("Null ");
             }
             System.out.println(" ");
         }
     }
 
+    public Peça[][] getBoard () {
+        return Board;
+    }
+
     public Boolean PosOcupada(Integer i, Integer j) {
-        if (Board[i][j] == '-') return false;
+        if (Board[i][j] == null) return false;
         else return true;
     }
 
-    public
+
 }
