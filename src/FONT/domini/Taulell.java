@@ -1,5 +1,7 @@
 package domini;
 
+import javafx.util.Pair;
+
 import java.util.ArrayList;
 
 public class Taulell {
@@ -78,6 +80,11 @@ public class Taulell {
             }
             System.out.println(" ");
         }
+    }
+
+    public Boolean PosOcupada(Pair<Integer, Integer> Pos) {
+        if (Board[Pos.getKey()][Pos.getValue()] == '-') return false;
+        else return true;
     }
 
 
