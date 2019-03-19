@@ -9,21 +9,29 @@ public class Huma extends Jugador {
         super(id);
     }
 
-    public Void consultarTutorial() {}
+    public void consultarTutorial() {}
 
-    public Void escollirTutorial() {}
+    public void escollirTutorial() {}
 
-    public Boolean registrar() {}
-
-    protected Void getPosini() {
-        //llegir de teclat
-        int i, j;
-        return new Pair<>(i, j);
+    public Boolean registrar() {
+        return false;
     }
 
-    protected Void getPosfi() {
+    protected Pair getPosini() {
         //llegir de teclat
+        /*
         int i, j;
-        return new Pair<>(i, j);
+        return new Pair<Integer, Integer>(i, j);
+        */
+        return null;
+    }
+
+    protected Pair getPosfi() {
+        //llegir de teclat
+        /*
+        int i, j;
+        return new Pair<Integer,Integer>(i, j);
+        */
+        return null;
     }
 }

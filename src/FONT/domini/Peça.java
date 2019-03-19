@@ -24,7 +24,7 @@ public class Peça{
       else return true;
     } /////////////////////////////////////////////////Potser hauria de ser del taulell
 
-    public Boolean espotmoure(Pair<Integer,Integer> posinicial, Pair<Integer,Integer> posfinal){ //potser nomes fa falta posfinal
+    public Boolean espotmoure(Pair<Integer,Integer> posfinal){ //potser nomes fa falta posfinal
         return false;
     }
 

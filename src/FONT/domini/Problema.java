@@ -18,6 +18,7 @@ public class Problema {
 
     public Problema cercaProblema(String fen) {
         //return CtrlD.getProblema(fen);
+        return null;
     }
 
     public void eliminarProblema(String fen) {
@@ -33,7 +34,7 @@ public class Problema {
         //
     }
 
-    public boolean teSolucio(fen) {
+    public boolean teSolucio(String fen) {
         int cK, cQ, cR, cN, cB, cP, ck, cq, cr, cn, cb, cp;
         cK = 0;
         cQ = 0;
@@ -48,7 +49,7 @@ public class Problema {
         cb = 0;
         cp = 0;
 
-        for (int row_pointer = 0; row_pointer < fen.lenght(); row_pointer++){
+        for (int row_pointer = 0; row_pointer < fen.length(); row_pointer++){
             Character f = fen.charAt(row_pointer);
             /* MAYUS -> white ? */
             if (f.equals('K')) { // REI

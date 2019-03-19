@@ -8,7 +8,8 @@ public class Bishop extends Peça {
     super(color, posactual, t);
   }
 
-  public Boolean espotmoure(Pair<Integer,Integer> posinicial, Pair<Integer,Integer> posfinal){
+  public Boolean espotmoure(Pair<Integer, Integer> posfinal) {
+    /*
     int ic = posinicial.getKey();
     int jc = posinicial.getValue();
     int ifi = posfinal.getKey();
@@ -93,5 +94,8 @@ public class Bishop extends Peça {
        }
     }
     else return false;
+  }
+  */
+    return false;
   }
 }

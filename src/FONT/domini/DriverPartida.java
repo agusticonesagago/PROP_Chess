@@ -1,7 +1,7 @@
-
+package domini;
 
 public class DriverPartida {
     public static void main(String[] args) {
-        Partida P = new Partida();
+        src.FONT.domini.Partida P = new src.FONT.domini.Partida();
     }
 }

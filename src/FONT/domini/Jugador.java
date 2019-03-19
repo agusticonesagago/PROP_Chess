@@ -13,15 +13,19 @@ public class Jugador {
         Winrate = 0;
     }
 
-    public Void moureFitxa() {
+    public void moureFitxa() {
         //llegir les variales de teclat
         Pair<Integer, Integer> posini = getPosini();
         Pair<Integer, Integer> posfi = getPosfi();
     }
 
-    protected Pair getPosini() {}
+    protected Pair getPosini() {
+        return null;
+    }
 
-    protected Pair getPosfi() {}
+    protected Pair getPosfi() {
+        return null;
+    }
 
     /* GETTERS */
     public Integer getID() {
@@ -33,11 +37,11 @@ public class Jugador {
     }
 
     /* SETTERS */
-    public Void setID(Integer id) {
+    public void setID(Integer id) {
         ID = id;
     }
 
-    public Void setWintate(Integer wr) {
+    public void setWintate(Integer wr) {
         Winrate = wr;
     }
 }

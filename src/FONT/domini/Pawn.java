@@ -15,12 +15,12 @@ public class Pawn extends Peça {
 
 
 
-  public Boolean espotmoure(Pair<Integer,Integer> posinicial, Pair<Integer,Integer> posfinal){
-    int ic = posinicial.getKey();
-    int jc = posinicial.getValue();
+  public Boolean espotmoure(Pair<Integer,Integer> posfinal){
+    int ic = posactual.getKey();
+    int jc = posactual.getValue();
     int ifi = posfinal.getKey();
     int jfi = posfinal.getValue();
-    boolean blanca = Taulell.getBoard()[ic][jc].getcolor();
+    boolean blanca = color;
 
     //no se sap on les blanques i negres comencen
 
