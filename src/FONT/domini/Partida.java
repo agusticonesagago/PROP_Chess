@@ -1,4 +1,4 @@
-package domini;
+package src.FONT.domini;
 
 import java.io.Console;
 
@@ -18,7 +18,6 @@ public class Partida {
     //    this.Blanques = b;
     //    this.Negres = n;
         String FEN = "1N1b4/6nr/R5n1/2Ppk2r/K2p2qR/8/2N1PQ2/B6B w - - 0 1"; // falta saber com serà nom de func getFEN
-        
         // Decomposition of FEN
         /* TAULELL PART  */
         int  endOfBoard = FEN.indexOf(" ");
