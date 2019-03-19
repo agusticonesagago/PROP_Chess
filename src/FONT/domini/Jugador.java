@@ -1,5 +1,7 @@
 package domini;
 
+import javafx.util.Pair;
+
 
 public class Jugador {
     protected Integer ID;
@@ -12,13 +14,14 @@ public class Jugador {
     }
 
     public Void moureFitxa() {
-        int inix;
-        int iniy;
-        int fix;
-        int fiy;
-        Pair<Integer, Integer> posini = new Pair<>(inix, iniy);
-        Pair<Integer, Integer> posfi = new Pair<>(fix, fiy);
+        //llegir les variales de teclat
+        Pair<Integer, Integer> posini = getPosini();
+        Pair<Integer, Integer> posfi = getPosfi();
     }
+
+    protected Pair getPosini() {}
+
+    protected Pair getPosfi() {}
 
     /* GETTERS */
     public Integer getID() {
