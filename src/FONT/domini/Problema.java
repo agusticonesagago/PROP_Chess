@@ -77,11 +77,12 @@ public class Problema {
                 ++cp;
             }
         }
-        if ( (cK >= 2) || (cQ >= 2) || (cR >= 2) || (cN >= 2) || (cB >= 2 ) || (cP >= 2) || 
-             (ck >= 2) || (cq >= 2) || (cr >= 2) || (cn >= 2) || (cb >= 2) || (cp >= 2) ) {
+        if ( (cK > 2) || (cQ > 2) || (cR > 2) || (cN > 2) || (cB > 2 ) || (cP > 8) || 
+             (ck > 2) || (cq > 2) || (cr > 2) || (cn > 2) || (cb > 2) || (cp > 8) ) {
             return false;
         }
         else {
+            //crida a simular el problema per comprobar si te solucio
             return true;
         }
     }
