@@ -3,7 +3,7 @@ package domini;
 import com.sun.org.apache.xpath.internal.operations.Bool;
 import javafx.util.Pair;
 
-public class Bishop extends Peça {
+public class Bishop extends Peca {
   public Bishop(boolean color, Pair<Integer, Integer> posactual, Taulell t) {
     super(color, posactual, t);
   }

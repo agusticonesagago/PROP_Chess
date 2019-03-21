@@ -1,6 +1,6 @@
 package test;
 
-import domini.Peça;
+import domini.Peca;
 import domini.Taulell;
 
 public class StubTaulell extends Taulell {
@@ -25,7 +25,7 @@ public class StubTaulell extends Taulell {
     }
 
     @Override
-    public Peça[][] getBoard() {
+    public Peca[][] getBoard() {
         return super.getBoard();
     }
 }

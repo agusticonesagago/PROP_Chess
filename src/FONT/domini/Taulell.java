@@ -2,16 +2,17 @@ package domini;
 
 import javafx.util.Pair;
 
-import java.util.ArrayList;
+
+
 
 public class Taulell {
 
     // falta canviar Character -> Peca
-    private Peça[][] Board;
+    private Peca[][] Board;
 
     /* 1N1b4/6nr/R5n1/2Ppk2r/K2p2qR/8/2N1PQ2/B6B */
     public Taulell (String Taula_FEN) {
-        Board = new Peça[8][8];
+        Board = new Peca[8][8];
         int i = 0;
         while (!Taula_FEN.isEmpty()){
             int ir = Taula_FEN.indexOf("/");
@@ -77,14 +78,19 @@ public class Taulell {
     public void PrintBoard () {
         for(int i=0; i < 8; ++i ){
             for (int j = 0; j < 8; ++j) {
-                if (Board[i][j] != null)System.out.print(Board[i][j].getClass().getName()+ " ");
+                if (Board[i][j] != null){
+                    String name = Board[i][j].getClass().getName();
+                    int until = name.indexOf(".");
+                    name = name.substring(until+1);
+                    System.out.print(name+ " ");
+                }
                 else System.out.print("Null ");
             }
             System.out.println(" ");
         }
     }
 
-    public Peça[][] getBoard () {
+    public Peca[][] getBoard () {
         return Board;
     }
 
@@ -92,6 +98,8 @@ public class Taulell {
         if (Board[i][j] == null) return false;
         else return true;
     }
+
+
 
 
 }

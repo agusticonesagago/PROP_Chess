@@ -3,7 +3,7 @@ package domini;
 import com.sun.org.apache.xpath.internal.operations.Bool;
 import javafx.util.Pair;
 
-public class Knight extends Peça {
+public class Knight extends Peca {
 
   public Knight(boolean color, Pair<Integer, Integer> posactual, Taulell t) {
     super(color, posactual, t);

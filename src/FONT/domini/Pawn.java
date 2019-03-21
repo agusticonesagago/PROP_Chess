@@ -1,11 +1,9 @@
 package domini;
-
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import javafx.util.Pair;
 
 import java.util.ArrayList;
 
-public class Pawn extends Peça {
+public class Pawn extends Peca {
 
     public Pawn(boolean color, Pair<Integer, Integer> posactual, Taulell t) {
         super(color, posactual, t);
