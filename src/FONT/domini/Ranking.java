@@ -5,7 +5,7 @@ public class Ranking {
     //Jugador
     //Problema
 
-    public Ranking (Integer t, /*identificador problema, identificador jugador*/) {
+    public Ranking (Integer t /*identificador problema, identificador jugador*/) {
         temps = t;
     }
 
