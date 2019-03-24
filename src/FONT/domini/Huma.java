@@ -27,7 +27,6 @@ public class Huma extends Jugador {
         teclat = escaner.nextLine ();
         int posicioY = Integer.parseInt(teclat);
         //System.out.println ("Entrada recibida por teclado es: \"" + entradaTeclado +"\"");
-        int i, j;
         return new Pair<Integer, Integer>(posicioX, posicioY);
         //return null;
     }

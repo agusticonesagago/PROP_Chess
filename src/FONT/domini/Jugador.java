@@ -13,9 +13,10 @@ public class Jugador {
         Winrate = 0;
     }
 
-    // Operació abstracta
-    public Pair<Pair<Integer, Integer>, Pair<Integer, Integer>> moureFitxa(Taulell t, boolean jugantCom) {
-        return null;
+    public void moureFitxa() {
+        //llegir les variales de teclat
+        Pair<Integer, Integer> posini = getPosini();
+        Pair<Integer, Integer> posfi = getPosfi();
     }
 
     protected Pair getPosini() {
@@ -40,7 +41,7 @@ public class Jugador {
         ID = id;
     }
 
-    public void setWinrate(Integer wr) {
+    public void setWintate(Integer wr) {
         Winrate = wr;
     }
 }

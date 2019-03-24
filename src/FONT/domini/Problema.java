@@ -3,38 +3,44 @@ package domini;
 import com.sun.org.apache.xpath.internal.operations.Bool;
 
 
+
 public class Problema {
     protected String Tema;
     protected String Dificultat;
     protected String FEN;
-    //protected CtrlDades CtrlD
+    protected CtrlDades CtrlD;
+    protected Partida Sim;
 
-    public Problema (String t, String dif, String fen) {
+    public Problema (String t, String fen) {
         Tema = t;
-        Dificultat = dif;
+        Dificultat = "facil";
         FEN = fen;
-        //deixar constancia a la base de dades
+        if (teSolucio(this)) {
+            CtrlD = new CtrlDades();
+            CtrlD.add(fen, dif, t);//deixar constancia a la base de dades
+        }
+        //mostrar error;
     }
 
     public Problema cercaProblema(String fen) {
-        //return CtrlD.getProblema(fen);
-        return null;
+        if (CtrlD.find(fen)) {//return CtrlD.getProblema(fen);
+            return CtrlD.giveme(fen);
+        }
+        else null;
     }
 
     public void eliminarProblema(String fen) {
-        //CtrlD.destroyProblema(fen);
+        CtrlD.destroyProblema(fen);
     }
 
-    public void modificarProblema (String fen, String t, String dif) {
-        //CtrlD.modify(fen)
+    public void modificarProblema (String fen, String t) {
         FEN = fen;
         Dificultat = dif;
         Tema = t;
-
-        //
+        CtrlD.modifica(fen, t, dif);
     }
 
-    public boolean teSolucio(String fen) {
+    public boolean teSolucio(Problema prob) {
         int cK, cQ, cR, cN, cB, cP, ck, cq, cr, cn, cb, cp;
         cK = 0;
         cQ = 0;
@@ -48,10 +54,9 @@ public class Problema {
         cn = 0;
         cb = 0;
         cp = 0;
-
+        String fen = prob.getFEN();
         for (int row_pointer = 0; row_pointer < fen.length(); row_pointer++){
             Character f = fen.charAt(row_pointer);
-            /* MAYUS -> white ? */
             if (f.equals('K')) { // REI
                 ++cK;
             } else if (f.equals('Q')) { // REINA
@@ -65,7 +70,6 @@ public class Problema {
             } else if (f.equals('P')) { // PEO
                 ++cP;
             }
-            /* minus -> black ?*/
             else if (f.equals('k')) { //rei
                 ++ck;
             } else if (f.equals('q')) { //reina
@@ -85,8 +89,11 @@ public class Problema {
             return false;
         }
         else {
-            //crida a simular el problema per comprobar si te solucio
-            return true;
+            Sim = new Partida(prob, null, null);
+            if (Sim.simulacorrecte(fen)) {
+                return true;
+            }
+            return false;
         }
     }
 
