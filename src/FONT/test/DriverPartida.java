@@ -12,8 +12,18 @@ public class DriverPartida {
         Tests_2();
     }
 
-    private static void Tests_2() {
-        Partida t2 = new Partida(new StubProblem("","",""), null, null);
+    private static void Tests_2() { // TODO test de Jugar Torn
+        Partida t2 = new Partida(new StubProblem("","","rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w - - 0 1"), new StubJugador(1), new StubJugador(2));
+        t2.getTaulell().PrintBoard();
+        System.out.println("\n");
+        t2.jugarTorn();
+        t2.getTaulell().PrintBoard();
+        System.out.println("\n");
+        t2.jugarTorn();
+        t2.getTaulell().PrintBoard();
+        t2.jugarTorn();
+        t2.getTaulell().PrintBoard();
+
     }
 
     private static void Tests_1() {

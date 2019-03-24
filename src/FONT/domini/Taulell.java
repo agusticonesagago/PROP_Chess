@@ -39,13 +39,13 @@ public class Taulell {
                     if (f.equals('K')) { // REI
                         Board[i][board_pointer] = new King(true, Pos, this);
                     } else if (f.equals('Q')) { // REINA
-                        Board[i][board_pointer] = null;//new Queen(true, Pos, this)
+                        Board[i][board_pointer] = new Queen(true, Pos, this);
                     } else if (f.equals('R')) { // TORRE
                         Board[i][board_pointer] = new Rook(true, Pos, this);
                     } else if (f.equals('N')) { // CABALL
                         Board[i][board_pointer] = new Knight(true, Pos, this);
                     } else if (f.equals('B')) { // ALFIL
-                        Board[i][board_pointer] = null;//new Bishop(true, Pos, this);
+                        Board[i][board_pointer] = new Bishop(true, Pos, this);
                     } else if (f.equals('P')) { // PEO
                         Board[i][board_pointer] = new Pawn(true, Pos, this);
                     }
@@ -53,13 +53,13 @@ public class Taulell {
                     else if (f.equals('k')) { //rei
                         Board[i][board_pointer] = new King(false, Pos, this);
                     } else if (f.equals('q')) { //reina
-                        Board[i][board_pointer] = null;//new Queen(false, Pos, this);
+                        Board[i][board_pointer] = new Queen(false, Pos, this);
                     } else if (f.equals('r')) { //torre
                         Board[i][board_pointer] = new Rook(false, Pos, this);
                     } else if (f.equals('n')) { // caball
                         Board[i][board_pointer] = new Knight(false, Pos, this);
                     } else if (f.equals('b')) { // alfil
-                        Board[i][board_pointer] = null;// new Bishop(false, Pos, this);
+                        Board[i][board_pointer] = new Bishop(false, Pos, this);
                     } else if (f.equals('p')) { // peo
                         Board[i][board_pointer] = new Pawn(false, Pos, this);
                     }
@@ -84,7 +84,7 @@ public class Taulell {
                     name = name.substring(until+1);
                     System.out.print(name+ " ");
                 }
-                else System.out.print("Null ");
+                else System.out.print(" -");
             }
             System.out.println(" ");
         }
@@ -99,7 +99,32 @@ public class Taulell {
         else return true;
     }
 
+    // Todo TO TEST -> Preguntar si modo STRING BONA IDEA
+    public String ferMoviment(Pair<Integer, Integer> posini, Pair<Integer,Integer> posfi) {
+        Peca p = null;
+        if (posini != null) p = Board[posini.getKey()][posini.getValue()];
+        if (p != null) {
+            if (p.espotmoure(posfi)) { // if ok
+                p.mourepeca(posfi);
+                Board[posini.getKey()][posini.getValue()] = null;
+                Board[posfi.getKey()][posfi.getValue()] = p;
+                return "";
+            }
+            // mov no legal
+            String name = p.getClass().getName();
+            int until = name.indexOf(".");
+            name = name.substring(until+1);
+            String res = "No es pot moure " + name + "de [" + posini.getKey()+","+posini.getValue()+"] a ["+posfi.getKey()+","+posfi.getValue()+"]";
+            return res;
+        }
+        // pos ini sense peca
+        return "No hi ha ningu a ["+posini.getKey()+","+posini.getValue()+"]";
+    }
 
+    // todo IMPLEMENT + TEST
+    public boolean checkMate () {
+        return false;
+    }
 
 
 }

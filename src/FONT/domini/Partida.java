@@ -5,6 +5,9 @@ package domini;
 // TODO -> FROM BOARD TO FEN
 
 
+import javafx.util.Pair;
+import sun.font.GlyphLayout;
+
 public class Partida {
     private Boolean Guanyador;
     private Integer Torn;
@@ -29,27 +32,48 @@ public class Partida {
             if (PlayerTurn == 'w') QuiJuga = true;
             else QuiJuga = false;
             Guanyador = null;
-            // int halfmove = Character.getNumericValue(FEN.charAt(endOfBoard + 7));
             Torn = Character.getNumericValue(FEN.charAt(endOfBoard + 9));
         }
     }
 
+    // TODO FALTA TESTING
     public void jugarTorn() {
-        if (QuiJuga) {       // Torn Blanques
-            System.out.println("TORN BLANQUES");
-            // Blanques moure fitxa
-            // Board actualitzar
-            // ++Torn ja que son les blanques
-            // Check if end of Game
+        if (QuiJuga) {          // Torn Blanques
+            boolean LegalMoves = false;
+            while (!LegalMoves) {
+                LegalMoves = true;
+                Pair<Pair<Integer,Integer>, Pair<Integer, Integer> > mov = Blanques.moureFitxa(this.Board, true);
+                String state = Board.ferMoviment(mov.getKey(), mov.getValue()); // Si es valid s'actualitza taulell
+                if (!state.isEmpty()){
+                    System.out.println(state);
+                    LegalMoves = false;
+                }
+            }
+            if (Board.checkMate()) {
+                // todo falta determinar si guanya o perd.
+                System.out.println("WINNER");
+            }
             QuiJuga = !QuiJuga;// else -> Update QuiJuga
         }
-        else {
-            System.out.println("TORN NEGRES");
-            // Negres moure fitxa
-            // Board actualitzar
-            // Cheeck if end of Game
+        else {                  // torn negres
+            boolean LegalMoves = false;
+            while (!LegalMoves) {
+                LegalMoves = true;
+                Pair< Pair<Integer, Integer>, Pair<Integer, Integer> > mov = Negres.moureFitxa(this.Board, false);
+                String state;
+                if (mov == null) state = "ERROR mov valor null";
+                else state = Board.ferMoviment(mov.getKey(), mov.getValue());
+                if (!state.isEmpty()) {
+                    System.out.println(state);
+                    LegalMoves = false;
+                    if(state == "ERROR mov valor null") LegalMoves = true;
+                }
+            }
+            ++Torn;
+            if (Board.checkMate()) {
+                System.out.println("WINNER");
+            }
             QuiJuga = !QuiJuga; // else -> Update QuiJuga
-
         }
     }
 
