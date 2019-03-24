@@ -13,12 +13,9 @@ public class Jugador {
         Winrate = 0;
     }
 
-    public void moureFitxa() {
-        //llegir les variales de teclat
-        Pair<Integer, Integer> posini = getPosini();
-        Pair<Integer, Integer> posfi = getPosfi();
+    public Pair<Pair<Integer, Integer>, Pair<Integer, Integer>> moureFitxa(Taulell t, boolean jugantCom) {
+        return null;
     }
-
     protected Pair getPosini() {
         return null;
     }
