@@ -4,6 +4,8 @@ package domini;
 import com.sun.org.apache.xpath.internal.operations.Bool;
 import javafx.util.Pair;
 
+import java.util.ArrayList;
+
 public class Peca{
 
 
@@ -42,5 +44,9 @@ public class Peca{
 
     public void mourepeca(Pair<Integer,Integer> posfinal) {
       this.posactual = posfinal;
+    }
+
+    public ArrayList<Pair<Integer, Integer>> getPossiblesMoviments() {
+        return null;
     }
 }
