@@ -10,7 +10,7 @@ public class StubJugador extends Jugador {
     }
 
     @Override
-    public Pair<Pair<Integer, Integer>, Pair<Integer, Integer>> moureFitxa(Taulell t, boolean jugantCom) {
+    public Pair<Pair<Integer, Integer>, Pair<Integer, Integer>> moureFitxa(Taulell t, boolean jugantCom, int torn) {
     if (jugantCom) {
             Pair<Integer, Integer> pi = new Pair<>(6,2);
             Pair<Integer, Integer> pf = new Pair<>(4,2);

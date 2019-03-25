@@ -26,7 +26,7 @@ public class Problema {
         if (CtrlD.find(fen)) {//return CtrlD.getProblema(fen);
             return CtrlD.giveme(fen);
         }
-        else null;
+        else return null;
     }
 
     public void eliminarProblema(String fen) {

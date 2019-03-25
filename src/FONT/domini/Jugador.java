@@ -3,7 +3,7 @@ package domini;
 import javafx.util.Pair;
 
 
-public class Jugador {
+public abstract class Jugador {
     protected Integer ID;
     protected Integer Winrate;
 
@@ -13,9 +13,8 @@ public class Jugador {
         Winrate = 0;
     }
 
-    public Pair<Pair<Integer, Integer>, Pair<Integer, Integer>> moureFitxa(Taulell t, boolean jugantCom) {
-        return null;
-    }
+    public abstract Pair<Pair<Integer, Integer>, Pair<Integer, Integer>> moureFitxa(Taulell t, boolean jugantCom, int torns);
+
     protected Pair getPosini() {
         return null;
     }

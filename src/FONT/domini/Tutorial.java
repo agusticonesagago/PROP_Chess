@@ -4,8 +4,8 @@ package domini;
 public class Tutorial extends Problema {
     private String Camp;
 
-    public Tutorial (String t, String dif, String fen, String c) {
-        super(t, dif, fen);
+    public Tutorial (String t, String fen, String c) {
+        super(t, fen);
         Camp = c;
     }
 

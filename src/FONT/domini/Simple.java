@@ -5,6 +5,11 @@ import javafx.util.Pair;
 import java.util.ArrayList;
 
 // MIN MAX Algorithm
+
+// TODO Pot ser aplicar alpha beta ????
+
+
+
 public class Simple extends Maquina {
     public Simple(Integer id) {
         super(id);
@@ -13,7 +18,8 @@ public class Simple extends Maquina {
     // Min max functions
 
     @Override
-    public Pair<Pair<Integer, Integer>, Pair<Integer, Integer>> moureFitxa(Taulell t, boolean jugantCom) {
+    public Pair<Pair<Integer, Integer>, Pair<Integer, Integer>> moureFitxa(Partida ptd, boolean jugantCom, int torns) {
+        Taulell t = ptd.getTaulell();
         ArrayList<Taulell> posiblesTaulells = new ArrayList<>();
         ArrayList< Pair<Pair<Integer, Integer>, Pair<Integer, Integer>> > Moviments = new ArrayList<>();
 
@@ -39,11 +45,15 @@ public class Simple extends Maquina {
         /* Evaluem el potencial de cada posible taulell segons el benefici que aquest ens aporta, i ens quedem nomes
         *  amb aquell que ens aporta més.*/
 
+
+        // TODO a PROBLEMA cal fer la funció QuiHaDeFerMat -> aquesta info esta a tema oi ??;
+        boolean maximitzarJugador = ptd.getProblema().getQuiHaDeFerMat();
+
         Pair<Pair<Integer,Integer>, Pair<Integer,Integer>> millorMoviment = Moviments.get(0);
-        int evalMax = evaluataullel(posiblesTaulells.get(0));
+        int evalMax = evaluataullel(posiblesTaulells.get(0), maximitzarJugador,jugantCom, torns);
 
         for (int i=1; i < posiblesTaulells.size(); ++i) {
-            int aux = evaluataullel(posiblesTaulells.get(i));
+            int aux = evaluataullel(posiblesTaulells.get(i), maximitzarJugador,jugantCom, torns);
             if (aux > evalMax) {
                 evalMax = aux;
                 millorMoviment = Moviments.get(i);
@@ -54,7 +64,59 @@ public class Simple extends Maquina {
     }
 
     // TODO evaluar taulell
-    private int evaluataullel(Taulell taulell) {
+    private int evaluataullel(Taulell taulell, boolean maximitzarJugador, boolean jugantCom,  int torns) {
+        if (torns == 0) {
+            /* Cas Basic, en aquest cas evaluem el taullel segons l'assignació de valors esmentada en el document respectiu
+            a la descripció de l'algorisme
+             */
+            return calculTaulell(taulell);
+        }
+
+        ArrayList< Pair<Pair<Integer, Integer>, Pair<Integer, Integer>> > mvs = new ArrayList<>();
+        // Agafem tot l'arbre de moviments respectius a aquest torn
+        for (int i=0; i < 8; ++i) {
+            for (int j=0; j < 8; ++j) {
+                if (taulell.PosOcupada(i,j) && taulell.getBoard()[i][j].getcolor() == jugantCom) {
+                    Peca p = taulell.getBoard()[i][j];
+                    for(int z=0; z<8; ++z) {
+                        for(int w=0; w<8; ++w) {
+                            if (p.espotmoure(new Pair<>(z,w))){ // if mov valid -> add a mvs
+                                mvs.add(new Pair<>(new Pair<>(i,j), new Pair<>(z,w)));
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        // Cas que volem maximitzar la puntuació -> jugador a maximitzar (qui aplica el algorisme)
+        if (maximitzarJugador) {
+
+            // Ara agafem busquem aquell moviment que port a la maxima puntuació
+            int max = -1000000;
+            for (int i=0; i < mvs.size(); ++i) {
+                Pair<Integer, Integer> posini = mvs.get(i).getKey();
+                Pair<Integer, Integer> posfi  = mvs.get(i).getValue();
+                Taulell aux = taulell;
+                aux.ferMoviment(posini, posfi);
+                max = Math.max(max, evaluataullel(aux, !maximitzarJugador, !jugantCom, torns-1));
+            }
+            return max;
+        }
+        // Cas que volem minimitzar la puntuació -> jugador a minimitar (contrincant)
+        else {
+            int min = 1000000;
+            for(int i=0; i < mvs.size(); ++i) {
+                Pair<Integer, Integer> posini = mvs.get(i).getKey();
+                Pair<Integer, Integer> posfi  = mvs.get(i).getValue();
+                Taulell aux = taulell;
+                aux.ferMoviment(posini, posfi);
+                min = Math.min(min, evaluataullel(aux, !maximitzarJugador, !jugantCom, torns-1));
+            }
+            return min;
+        }
+    }
+    // TODO calcul taulell.
+    private int calculTaulell(Taulell taulell) {
         return 0;
     }
 }
