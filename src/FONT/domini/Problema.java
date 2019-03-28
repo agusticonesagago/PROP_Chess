@@ -23,7 +23,7 @@ public class Problema {
         //mostrar error;
     }
 
-    public Pair getTornsMat() {
+    public Pair getTornMat() {
         int pos = FEN.indexOf("en");
         int torns = Integer.parseInt(FEN.charAt(pos+1));
         Boolean jugador = FEN.startsWith("Blanques");
