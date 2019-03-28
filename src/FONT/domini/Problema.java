@@ -35,9 +35,9 @@ public class Problema {
 
     public void modificarProblema (String fen, String t) {
         FEN = fen;
-        Dificultat = dif;
+        //Dificultat = dif;
         Tema = t;
-        CtrlD.modifica(fen, t, dif);
+        CtrlD.modifica(fen, t);
     }
 
     public boolean teSolucio(Problema prob) {
