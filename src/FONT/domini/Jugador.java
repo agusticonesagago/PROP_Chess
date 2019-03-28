@@ -13,7 +13,7 @@ public abstract class Jugador {
         Winrate = 0;
     }
 
-    public abstract Pair<Pair<Integer, Integer>, Pair<Integer, Integer>> moureFitxa(Taulell t, boolean jugantCom, int torns);
+    public abstract Pair<Pair<Integer, Integer>, Pair<Integer, Integer>> moureFitxa(Partida ptd, boolean jugantCom, int torns);
 
     protected Pair getPosini() {
         return null;

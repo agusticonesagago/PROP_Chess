@@ -9,7 +9,7 @@ public class Problema {
     protected String Tema;
     protected String Dificultat;
     protected String FEN;
-    protected CtrlDades CtrlD;
+    //protected CtrlDades CtrlD;
     protected Partida Sim;
 
     public Problema(String t, String fen) {
@@ -17,8 +17,8 @@ public class Problema {
         Dificultat = "facil";
         FEN = fen;
         if (teSolucio(this)) {
-            CtrlD = new CtrlDades();
-            CtrlD.add(fen, dif, t);//deixar constancia a la base de dades
+      //      CtrlD = new CtrlDades();
+       //     CtrlD.add(fen, dif, t);//deixar constancia a la base de dades
         }
         //mostrar error;
     }
@@ -31,21 +31,22 @@ public class Problema {
     }
 
     public Problema cercaProblema(String fen) {
-        if (CtrlD.find(fen)) {//return CtrlD.getProblema(fen);
+       /* if (CtrlD.find(fen)) {//return CtrlD.getProblema(fen);
             return CtrlD.giveme(fen);
         }
-        else return null;
+       */
+        /*else*/ return null;
     }
 
     public void eliminarProblema(String fen) {
-        CtrlD.destroyProblema(fen);
+        //CtrlD.destroyProblema(fen);
     }
 
     public void modificarProblema(String fen, String t) {
         FEN = fen;
         //Dificultat = dif;
         Tema = t;
-        CtrlD.modifica(fen, t);
+        //CtrlD.modifica(fen, t);
     }
 
     public boolean teSolucio(Problema prob) {
@@ -98,9 +99,10 @@ public class Problema {
         }
         else {
             Sim = new Partida(prob, null, null);
-            if (Sim.simulacorrecte(fen)) {
+          /* if (Sim.simulacorrecte(fen)) {
                 return true;
             }
+          */
             return false;
         }
     }

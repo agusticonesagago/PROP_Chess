@@ -10,13 +10,18 @@ import java.util.ArrayList;
 
 
 
-public class Simple extends Maquina {
+public class Simple extends Maquina{
     public Simple(Integer id) {
         super(id);
     }
 
-    // Min max functions
 
+
+    // TODO Versio -> Blanc o negre min max.
+
+
+    // Min max functions
+    // TODO Pot ser canviar la mecanica de moure fitxa?
     @Override
     public Pair<Pair<Integer, Integer>, Pair<Integer, Integer>> moureFitxa(Partida ptd, boolean jugantCom, int torns) {
         Taulell t = ptd.getTaulell();
@@ -25,6 +30,7 @@ public class Simple extends Maquina {
 
 
         /* Guardem tots els possibles moviments de cadascun de les nostres peces*/
+        // todo extraure metode.
         for (int i=0; i < 8; ++i) {
             for (int j=0; j < 8; ++j) {
                 if (t.PosOcupada(i,j) && t.getBoard()[i][j].getcolor() == jugantCom) { // if pos ocupada i es una peca meva
@@ -47,13 +53,13 @@ public class Simple extends Maquina {
 
 
         // TODO a PROBLEMA cal fer la funció QuiHaDeFerMat -> aquesta info esta a tema oi ??;
-        boolean maximitzarJugador = ptd.getProblema().getQuiHaDeFerMat();
+        // boolean maximitzarJugador = ptd.getProblema().getQuiHaDeFerMat();
 
         Pair<Pair<Integer,Integer>, Pair<Integer,Integer>> millorMoviment = Moviments.get(0);
-        int evalMax = evaluataullel(posiblesTaulells.get(0), maximitzarJugador,jugantCom, torns);
+        int evalMax = evaluataullel(posiblesTaulells.get(0), jugantCom, torns);
 
         for (int i=1; i < posiblesTaulells.size(); ++i) {
-            int aux = evaluataullel(posiblesTaulells.get(i), maximitzarJugador,jugantCom, torns);
+            int aux = evaluataullel(posiblesTaulells.get(i), jugantCom, torns);
             if (aux > evalMax) {
                 evalMax = aux;
                 millorMoviment = Moviments.get(i);
@@ -63,8 +69,8 @@ public class Simple extends Maquina {
         return millorMoviment;
     }
 
-    // TODO evaluar taulell
-    private int evaluataullel(Taulell taulell, boolean maximitzarJugador, boolean jugantCom,  int torns) {
+
+    private int evaluataullel(Taulell taulell, boolean jugantCom,  int torns) {
         if (torns == 0) {
             /* Cas Basic, en aquest cas evaluem el taullel segons l'assignació de valors esmentada en el document respectiu
             a la descripció de l'algorisme
@@ -72,6 +78,7 @@ public class Simple extends Maquina {
             return calculTaulell(taulell);
         }
 
+        // todo extraure func
         ArrayList< Pair<Pair<Integer, Integer>, Pair<Integer, Integer>> > mvs = new ArrayList<>();
         // Agafem tot l'arbre de moviments respectius a aquest torn
         for (int i=0; i < 8; ++i) {
@@ -89,8 +96,7 @@ public class Simple extends Maquina {
             }
         }
         // Cas que volem maximitzar la puntuació -> jugador a maximitzar (qui aplica el algorisme)
-        if (maximitzarJugador) {
-
+        if (jugantCom) {
             // Ara agafem busquem aquell moviment que port a la maxima puntuació
             int max = -1000000;
             for (int i=0; i < mvs.size(); ++i) {
@@ -98,7 +104,7 @@ public class Simple extends Maquina {
                 Pair<Integer, Integer> posfi  = mvs.get(i).getValue();
                 Taulell aux = taulell;
                 aux.ferMoviment(posini, posfi);
-                max = Math.max(max, evaluataullel(aux, !maximitzarJugador, !jugantCom, torns-1));
+                max = Math.max(max, evaluataullel(aux, !jugantCom, torns-1));
             }
             return max;
         }
@@ -110,13 +116,36 @@ public class Simple extends Maquina {
                 Pair<Integer, Integer> posfi  = mvs.get(i).getValue();
                 Taulell aux = taulell;
                 aux.ferMoviment(posini, posfi);
-                min = Math.min(min, evaluataullel(aux, !maximitzarJugador, !jugantCom, torns-1));
+                min = Math.min(min, evaluataullel(aux, !jugantCom, torns-1));
             }
             return min;
         }
     }
-    // TODO calcul taulell.
+    // TODO trobar com fer per que es pugui fer tambe amb color negre aplicant minmax com a max.
+
+
+    // Establim estandars de costos. Inicialment:
+    /*
+    Peo -> 10
+    Caball -> 30
+    Alfil  -> 30
+    Torre  -> 50
+    Reina  -> 100
+    Rei    -> 1000
+    */
     private int calculTaulell(Taulell taulell) {
+        int total = 0;
+
+        for(int i=0; i < 8; ++i) {
+            for(int j=0; j < 8; ++j) {
+                if (taulell.PosOcupada(i,j)) {
+                    Peca p = taulell.getBoard()[i][j];
+                    if (p.getcolor()) { // White
+                        System.out.println(p.getClass().getName());
+                    }
+                }
+            }
+        }
         return 0;
     }
 }

@@ -42,7 +42,7 @@ public class Partida {
             boolean LegalMoves = false;
             while (!LegalMoves) {
                 LegalMoves = true;
-                Pair<Pair<Integer,Integer>, Pair<Integer, Integer> > mov = Blanques.moureFitxa(this.Board, true, Torn);
+                Pair<Pair<Integer,Integer>, Pair<Integer, Integer> > mov = Blanques.moureFitxa(this, true, Torn);
                 String state = Board.ferMoviment(mov.getKey(), mov.getValue()); // Si es valid s'actualitza taulell
                 if (!state.isEmpty()){
                     System.out.println(state);
@@ -59,7 +59,7 @@ public class Partida {
             boolean LegalMoves = false;
             while (!LegalMoves) {
                 LegalMoves = true;
-                Pair< Pair<Integer, Integer>, Pair<Integer, Integer> > mov = Negres.moureFitxa(this.Board, false, Torn);
+                Pair< Pair<Integer, Integer>, Pair<Integer, Integer> > mov = Negres.moureFitxa(this, false, Torn);
                 String state;
                 if (mov == null) state = "ERROR mov valor null";
                 else state = Board.ferMoviment(mov.getKey(), mov.getValue());

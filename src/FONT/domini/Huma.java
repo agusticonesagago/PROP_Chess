@@ -3,11 +3,17 @@ package domini;
 import javafx.util.Pair;
 import java.util.Scanner;
 
+// TODO -> Escac s'ha de trencar, + no puc moure rei a pos amb escac.
 
 public class Huma extends Jugador {
 
     public Huma (Integer id) {
         super(id);
+    }
+
+    @Override
+    public Pair<Pair<Integer, Integer>, Pair<Integer, Integer>> moureFitxa(Partida ptd, boolean jugantCom, int torns) {
+        return null;
     }
 
     public void consultarTutorial() {}
