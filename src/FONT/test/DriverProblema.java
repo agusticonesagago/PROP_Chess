@@ -23,6 +23,8 @@ public class DriverProblema {
         cas = sc.nextInt();
         switch (cas){
             case 0:
+            // 8/8/8/8/8/8/8/NNNkkkRr falla en les normes
+            // 5K2/8/8/8/8/8/8/5k2 no es pot fer mat
              System.out.println("Introdueix el fen a probar\n");
              fenTest = sc.nextLine();
              System.out.println("Introdueix el tema\n");
