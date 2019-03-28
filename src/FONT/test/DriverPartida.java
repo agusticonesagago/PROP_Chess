@@ -16,12 +16,12 @@ public class DriverPartida {
         Partida t2 = new Partida(new StubProblem("","rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w - - 0 1"), new StubJugador(1), new StubJugador(2));
         t2.getTaulell().PrintBoard();
         System.out.println("\n");
-        t2.jugarTorn();
+        t2.jugarTorn(1);
         t2.getTaulell().PrintBoard();
         System.out.println("\n");
-        t2.jugarTorn();
+        t2.jugarTorn(1);
         t2.getTaulell().PrintBoard();
-        t2.jugarTorn();
+        t2.jugarTorn(1);
         t2.getTaulell().PrintBoard();
 
     }

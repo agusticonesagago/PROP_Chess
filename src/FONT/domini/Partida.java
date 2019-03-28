@@ -9,13 +9,13 @@ import javafx.util.Pair;
 import sun.font.GlyphLayout;
 
 public class Partida {
-    private Boolean Guanyador;
-    private Integer Torn;
-    private Boolean QuiJuga;
-    private Taulell Board;
-    private Problema Problem;
-    private Jugador Blanques;
-    private Jugador Negres;
+    protected Boolean Guanyador;
+    protected Integer Torn;
+    protected Boolean QuiJuga;
+    protected Taulell Board;
+    protected Problema Problem;
+    protected Jugador Blanques;
+    protected Jugador Negres;
 
     public Partida(Problema P ,Jugador blanques, Jugador negres) {
         this.Problem = P;
@@ -36,13 +36,13 @@ public class Partida {
         }
     }
 
-    // TODO FALTA TESTING
-    public void jugarTorn() {
+    // TODO FALTA TESTING -> revisar
+    public void jugarTorn(int tRestants) {
         if (QuiJuga) {          // Torn Blanques
             boolean LegalMoves = false;
             while (!LegalMoves) {
                 LegalMoves = true;
-                Pair<Pair<Integer,Integer>, Pair<Integer, Integer> > mov = Blanques.moureFitxa(this, true, Torn);
+                Pair<Pair<Integer,Integer>, Pair<Integer, Integer> > mov = Blanques.moureFitxa(this, true, tRestants);
                 String state = Board.ferMoviment(mov.getKey(), mov.getValue()); // Si es valid s'actualitza taulell
                 if (!state.isEmpty()){
                     System.out.println(state);
@@ -59,7 +59,7 @@ public class Partida {
             boolean LegalMoves = false;
             while (!LegalMoves) {
                 LegalMoves = true;
-                Pair< Pair<Integer, Integer>, Pair<Integer, Integer> > mov = Negres.moureFitxa(this, false, Torn);
+                Pair< Pair<Integer, Integer>, Pair<Integer, Integer> > mov = Negres.moureFitxa(this, false,tRestants);
                 String state;
                 if (mov == null) state = "ERROR mov valor null";
                 else state = Board.ferMoviment(mov.getKey(), mov.getValue());

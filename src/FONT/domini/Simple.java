@@ -36,9 +36,21 @@ public class Simple extends Maquina{
                 if (t.PosOcupada(i,j) && t.getBoard()[i][j].getcolor() == jugantCom) { // if pos ocupada i es una peca meva
                     Peca p = t.getBoard()[i][j];
                     // TODO nova funció -> getPosibles moviments: retorna un ArrayList<Pair<int,int>>
-                    ArrayList<Pair<Integer,Integer>> movs = p.getPossiblesMoviments();
+                    System.out.println(p.getClass().getName() + "a la Posició :[" + i +","+j+"]");
+                    ArrayList<Pair<Integer,Integer>> movs = new ArrayList<>();
+                    for (int z=0; z<8; ++z){
+                        for (int w=0; w < 8; ++w){
+                            if (p.espotmoure(new Pair<>(z,w))) {
+                                System.out.println("Hem Afegit el mov: ["+z+","+w+"]");
+                                movs.add(new Pair<>(z,w));
+                            }
+                        }
+                    }
+                    System.out.println("He Passat");
+                    t.PrintBoard();
+
                     for (int z=0; z < movs.size(); ++z){
-                        Taulell x = t;
+                        Taulell x = new Taulell(t.PrintFEN());
                         // Creem el taulell en cas de que es fes el moviment
                         x.ferMoviment(new Pair<>(i,j), movs.get(z));
                         posiblesTaulells.add(x);
@@ -53,7 +65,7 @@ public class Simple extends Maquina{
 
 
         // TODO a PROBLEMA cal fer la funció QuiHaDeFerMat -> aquesta info esta a tema oi ??;
-        // boolean maximitzarJugador = ptd.getProblema().getQuiHaDeFerMat();
+        // boolean maximitzarJugador = ptd.getProblema().getTornMat();
 
         Pair<Pair<Integer,Integer>, Pair<Integer,Integer>> millorMoviment = Moviments.get(0);
         int evalMax = evaluataullel(posiblesTaulells.get(0), jugantCom, torns);

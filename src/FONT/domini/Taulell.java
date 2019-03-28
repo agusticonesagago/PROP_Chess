@@ -82,12 +82,34 @@ public class Taulell {
                     String name = Board[i][j].getClass().getName();
                     int until = name.indexOf(".");
                     name = name.substring(until+1);
-                    System.out.print(name+ " ");
+                    System.out.print(name.charAt(0)+ " ");
                 }
-                else System.out.print(" -");
+                else System.out.print(" - ");
             }
             System.out.println(" ");
         }
+    }
+
+    public String PrintFEN () {
+        String res = "";
+        for (int i = 0; i < 8; ++i) {
+            for (int j = 0; j < 8; ++j) {
+                if (Board[i][j] == null) {
+                    int c = 0;
+                    while (Board[i][j] == null && j++ < 7) {
+                        ++c;
+                    }
+                    if (j == 8) ++c;
+                    res = res + String.valueOf(c);
+                    --j;
+                } else {
+                    int find = Board[i][j].getClass().getName().indexOf('.');
+                    res = res + String.valueOf(Board[i][j].getClass().getName().charAt(find+1));
+                }
+            }
+            res = res + "/";
+        }
+        return res;
     }
 
     public Peca[][] getBoard () {
