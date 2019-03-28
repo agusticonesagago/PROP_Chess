@@ -25,7 +25,7 @@ public class DriverProblema {
         switch (cas){
             case 0:
              Pair <Integer, Boolean> atributs = test.getTornMat();
-             System.out.println("Per guanyar necessitem:"+ atributs.fisrt() + "\n"
+             System.out.println("Per guanyar necessitem:"+ atributs.fisrt() + "torns" + "\n"
                                 "i el guanyador seria:" + atributs.second() + "\n");
             break;
 
