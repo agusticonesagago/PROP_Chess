@@ -5,8 +5,8 @@ import com.sun.org.apache.xpath.internal.operations.Bool;
 public class CtrlDades {
     Integer identificador;
 
-    public CtrlDades () {
-        identificador = 0;
+    public CtrlDades (Integer id) {
+        identificador = id;
     }
 
     public void add(String f, String d, String t) {
