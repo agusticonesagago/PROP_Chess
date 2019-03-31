@@ -30,7 +30,7 @@ public class Problema {
         return new Pair<Integer, Boolean>(torns, jugador);
     }
 
-    public Problema cercaProblema(String fen) {
+    public String cercaProblema(String fen) {
        /* if (CtrlD.find(fen)) {//return CtrlD.getProblema(fen);
             return CtrlD.giveme(fen);
         }
