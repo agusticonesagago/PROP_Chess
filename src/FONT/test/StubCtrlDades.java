@@ -5,7 +5,7 @@ import javafx.util.Pair;
 
 public class StubCtrlDades extends CtrlDades {
     public StubCtrlDades() {
-        super();
+        super(0);
     }
 
     @Override
