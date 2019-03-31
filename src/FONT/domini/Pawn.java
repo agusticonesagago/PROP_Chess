@@ -1,11 +1,9 @@
 package domini;
-
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import javafx.util.Pair;
 
 import java.util.ArrayList;
 
-public class Pawn extends Peça {
+public class Pawn extends Peca {
 
     public Pawn(boolean color, Pair<Integer, Integer> posactual, Taulell t) {
         super(color, posactual, t);
@@ -15,12 +13,12 @@ public class Pawn extends Peça {
 
 
 
-  public Boolean espotmoure(Pair<Integer,Integer> posinicial, Pair<Integer,Integer> posfinal){
-    int ic = posinicial.getKey();
-    int jc = posinicial.getValue();
+  public Boolean espotmoure(Pair<Integer,Integer> posfinal){
+    int ic = posactual.getKey();
+    int jc = posactual.getValue();
     int ifi = posfinal.getKey();
     int jfi = posfinal.getValue();
-    boolean blanca = Taulell.getBoard()[ic][jc].getcolor();
+    boolean blanca = color;
 
     //no se sap on les blanques i negres comencen
 

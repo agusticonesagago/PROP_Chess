@@ -12,5 +12,8 @@ public class DriverTaulell {
         Boolean ocupat = t.PosOcupada(0,0);
         if (ocupat) System.out.println("OCUPAT");
         else System.out.println("LLIURE");
+
+        System.out.println(t.PrintFEN());
+
     }
 }

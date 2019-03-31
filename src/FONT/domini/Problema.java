@@ -1,37 +1,55 @@
 package domini;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
+import javafx.util.Pair;
+
+
 
 public class Problema {
     protected String Tema;
     protected String Dificultat;
     protected String FEN;
-    //protected CtrlDades CtrlD
+    //protected CtrlDades CtrlD;
+    protected Partida Sim;
 
-    public Problema (String t, String dif, String fen) {
-        Tema = t;
-        Dificultat = dif;
+    public Problema(String t, String fen) {
+        Tema = t;  //Format: "Color fan mat en X"
+        Dificultat = "facil";
         FEN = fen;
-        //deixar constancia a la base de dades
+        if (teSolucio(this)) {
+      //      CtrlD = new CtrlDades();
+       //     CtrlD.add(fen, dif, t);//deixar constancia a la base de dades
+        }
+        //mostrar error;
+    }
+
+    public Pair getTornMat() {
+        int pos = FEN.indexOf("en");
+        int torns = Integer.parseInt(FEN.charAt(pos+1));
+        Boolean jugador = FEN.startsWith("Blanques");
+        return new Pair<Integer, Boolean>(torns, jugador);
     }
 
     public Problema cercaProblema(String fen) {
-        //return CtrlD.getProblema(fen);
+       /* if (CtrlD.find(fen)) {//return CtrlD.getProblema(fen);
+            return CtrlD.giveme(fen);
+        }
+       */
+        /*else*/ return null;
     }
 
     public void eliminarProblema(String fen) {
         //CtrlD.destroyProblema(fen);
     }
 
-    public void modificarProblema (String fen, String t, String dif) {
-        //CtrlD.modify(fen)
+    public void modificarProblema(String fen, String t) {
         FEN = fen;
-        Dificultat = dif;
+        //Dificultat = dif;
         Tema = t;
-
-        //
+        //CtrlD.modifica(fen, t);
     }
 
-    public boolean teSolucio(fen) {
+    public boolean teSolucio(Problema prob) {
         int cK, cQ, cR, cN, cB, cP, ck, cq, cr, cn, cb, cp;
         cK = 0;
         cQ = 0;
@@ -45,10 +63,9 @@ public class Problema {
         cn = 0;
         cb = 0;
         cp = 0;
-
-        for (int row_pointer = 0; row_pointer < fen.lenght(); row_pointer++){
+        String fen = prob.getFEN();
+        for (int row_pointer = 0; row_pointer < fen.length(); row_pointer++){
             Character f = fen.charAt(row_pointer);
-            /* MAYUS -> white ? */
             if (f.equals('K')) { // REI
                 ++cK;
             } else if (f.equals('Q')) { // REINA
@@ -62,7 +79,6 @@ public class Problema {
             } else if (f.equals('P')) { // PEO
                 ++cP;
             }
-            /* minus -> black ?*/
             else if (f.equals('k')) { //rei
                 ++ck;
             } else if (f.equals('q')) { //reina
@@ -77,12 +93,17 @@ public class Problema {
                 ++cp;
             }
         }
-        if ( (cK >= 2) || (cQ >= 2) || (cR >= 2) || (cN >= 2) || (cB >= 2 ) || (cP >= 2) || 
-             (ck >= 2) || (cq >= 2) || (cr >= 2) || (cn >= 2) || (cb >= 2) || (cp >= 2) ) {
+        if ( (cK > 2) || (cQ > 2) || (cR > 2) || (cN > 2) || (cB > 2 ) || (cP > 8) || 
+             (ck > 2) || (cq > 2) || (cr > 2) || (cn > 2) || (cb > 2) || (cp > 8) ) {
             return false;
         }
         else {
-            return true;
+            Sim = new Partida(prob, null, null);
+          /* if (Sim.simulacorrecte(fen)) {
+                return true;
+            }
+          */
+            return false;
         }
     }
 

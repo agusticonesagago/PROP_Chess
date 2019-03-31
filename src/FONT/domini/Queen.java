@@ -3,12 +3,13 @@ package domini;
 import com.sun.org.apache.xpath.internal.operations.Bool;
 import javafx.util.Pair;
 
-public class Bishop extends Peça {
+public class Queen extends Peca {
   public Queen(boolean color, Pair<Integer, Integer> posactual, Taulell t) {
     super(color, posactual, t);
   }
 
-  public Boolean espotmoure(Pair<Integer,Integer> posinicial, Pair<Integer,Integer> posfinal){
+  public Boolean espotmoure(Pair<Integer, Integer> posfinal) {
+    /*
     int ic = posinicial.getKey();
     int jc = posinicial.getValue();
     int ifi = posfinal.getKey();
@@ -165,5 +166,8 @@ public class Bishop extends Peça {
        }
     }
     else return false;
+  }
+  */
+    return false;
   }
 }

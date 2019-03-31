@@ -3,14 +3,14 @@ package domini;
 import com.sun.org.apache.xpath.internal.operations.Bool;
 import javafx.util.Pair;
 
-public class King extends Peça {
+public class King extends Peca {
   public King(boolean color, Pair<Integer, Integer> posactual, Taulell t) {
     super(color, posactual, t);
   }
 
-  public Boolean espotmoure(Pair<Integer,Integer> posinicial, Pair<Integer,Integer> posfinal){
-    int ic = posinicial.getKey();
-    int jc = posinicial.getValue();
+  public Boolean espotmoure(Pair<Integer,Integer> posfinal){
+    int ic = posactual.getKey();
+    int jc = posactual.getValue();
     int ifi = posfinal.getKey();
     int jfi = posfinal.getValue();
     boolean blanca = Taulell.getBoard()[ic][jc].getcolor();

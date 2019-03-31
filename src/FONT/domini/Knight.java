@@ -3,15 +3,15 @@ package domini;
 import com.sun.org.apache.xpath.internal.operations.Bool;
 import javafx.util.Pair;
 
-public class Knight extends Peça {
+public class Knight extends Peca {
 
   public Knight(boolean color, Pair<Integer, Integer> posactual, Taulell t) {
     super(color, posactual, t);
   }
 
-  public Boolean espotmoure(Pair<Integer, Integer> posinicial, Pair<Integer, Integer> posfinal) {
-        int ic = posinicial.getKey();
-        int jc = posinicial.getValue();
+  public Boolean espotmoure(Pair<Integer, Integer> posfinal) {
+        int ic = posactual.getKey();
+        int jc = posactual.getValue();
         int ifi = posfinal.getKey();
         int jfi = posfinal.getValue();
         boolean blanca = Taulell.getBoard()[ic][jc].getcolor();

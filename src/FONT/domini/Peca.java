@@ -4,14 +4,16 @@ package domini;
 import com.sun.org.apache.xpath.internal.operations.Bool;
 import javafx.util.Pair;
 
-public class Peça{
+import java.util.ArrayList;
+
+public class Peca{
 
 
     protected boolean color; // true(blanc) i false(negre)
     protected Pair<Integer,Integer> posactual;
     protected Taulell Taulell;
 
-    public Peça(boolean color, Pair<Integer,Integer> posactual, Taulell t) {
+    public Peca(boolean color, Pair<Integer,Integer> posactual, Taulell t) {
       this.color = color;
       this.posactual = posactual;
       Taulell = t;
@@ -24,13 +26,10 @@ public class Peça{
       else return true;
     } /////////////////////////////////////////////////Potser hauria de ser del taulell
 
-    public Boolean espotmoure(Pair<Integer,Integer> posinicial, Pair<Integer,Integer> posfinal){ //potser nomes fa falta posfinal
+    public Boolean espotmoure(Pair<Integer,Integer> posfinal){ //potser nomes fa falta posfinal
         return false;
     }
 
-    public void ajudamoviment(Peça escollida){ //no sé com implementar-la
-
-    }
 
     /* GETTERS */
     public boolean getcolor () {
@@ -43,7 +42,11 @@ public class Peça{
 
     /* SETTERS */
 
-    public void mourepeça(Pair<Integer,Integer> posfinal) {
+    public void mourepeca(Pair<Integer,Integer> posfinal) {
       this.posactual = posfinal;
+    }
+
+    public ArrayList<Pair<Integer, Integer>> getPossiblesMoviments() {
+        return null;
     }
 }
