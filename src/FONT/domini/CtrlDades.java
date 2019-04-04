@@ -3,9 +3,9 @@ package domini;
 import com.sun.org.apache.xpath.internal.operations.Bool;
 
 public class CtrlDades {
-    String identificador;
+    int identificador;
 
-    public CtrlDades (String id) {
+    public CtrlDades (Integer id) {
         identificador = id;
     }
 
