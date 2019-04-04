@@ -28,19 +28,20 @@ public class DriverProblema {
             break;
 
             case 1:
+            String s;
              System.out.println("Cas 1: el problema no esta en la base de dades" + "\n");
-             test.cercaProblema("8/8/8/8/8/8/8/NNNkkkRr");
+             s = test.cercaProblema("8/8/8/8/8/8/8/NNNkkkRr");
+             System.out.println(s + "\n");
              System.out.println("Cas 2: el problema si esta en la base de dades" + "\n");
-             test.cercaProblema("1N1b4/6nr/R5n1/2Ppk2r/K2p2qR/8/2N1PQ2/B6B");
+             s = test.cercaProblema("1N1b4/6nr/R5n1/2Ppk2r/K2p2qR/8/2N1PQ2/B6B");
+             System.out.println(s + "\n");
             break;
 
             case 2:
-             System.out.println("Introdueix el fen a probar" + "\n");
              test.eliminarProblema("1N1b4/6nr/R5n1/2Ppk2r/K2p2qR/8/2N1PQ2/B6B");
             break;
 
             case 3:
-             System.out.println("Introdueix el fen a probar" + "\n");
              test.modificarProblema("1N1b4/6nr/R5n1/2Ppk2r/K2p2qR/8/2N1PQ2/B6B", "Blanques fan mat en 2");
             break;
 

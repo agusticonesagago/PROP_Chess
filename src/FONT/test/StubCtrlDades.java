@@ -14,7 +14,7 @@ public class StubCtrlDades extends CtrlDades {
             System.out.println("El problema no s'ha afegit a la base de dades" + "\n");
         }
         else if (f == "1N1b4/6nr/R5n1/2Ppk2r/K2p2qR/8/2N1PQ2/B6B") {
-            System.out.println("El problema no s'ha afegit a la base de dades" + "\n");
+            System.out.println("El problema s'ha afegit a la base de dades" + "\n");
         }
         
     }

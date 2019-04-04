@@ -17,7 +17,7 @@ public class Problema {
         Dificultat = "facil";
         FEN = fen;
         if (teSolucio(this)) {
-           CtrlD = new CtrlDades();
+           CtrlD = new CtrlDades(fen);
             CtrlD.add(fen, dif, t);//deixar constancia a la base de dades
         }
         //mostrar error;
