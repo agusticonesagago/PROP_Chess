@@ -13,9 +13,10 @@ public class Peca{
     protected Pair<Integer,Integer> posactual;
     protected Taulell Taulell;
 
+
     public Peca(boolean color, Pair<Integer,Integer> posactual, Taulell t) {
       this.color = color;
-      this.posactual = posactual;
+      this.posactual = new Pair<>(posactual.getKey(), posactual.getValue());
       Taulell = t;
     }
 
@@ -27,11 +28,16 @@ public class Peca{
     } /////////////////////////////////////////////////Potser hauria de ser del taulell
 
     public Boolean espotmoure(Pair<Integer,Integer> posfinal){ //potser nomes fa falta posfinal
+        System.out.println("NO MAGAFA EL ESPECIE");
         return false;
     }
 
 
     /* GETTERS */
+    public Taulell getTaulell () {
+        return Taulell;
+    }
+
     public boolean getcolor () {
       return color;
     }
@@ -43,7 +49,7 @@ public class Peca{
     /* SETTERS */
 
     public void mourepeca(Pair<Integer,Integer> posfinal) {
-      this.posactual = posfinal;
+      this.posactual = new Pair<>(posfinal.getKey(), posfinal.getValue());
     }
 
     public ArrayList<Pair<Integer, Integer>> getPossiblesMoviments() {

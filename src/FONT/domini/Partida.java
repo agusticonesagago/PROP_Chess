@@ -30,7 +30,8 @@ public class Partida {
             Board = new Taulell(Taulell_FEN);
             char PlayerTurn = FEN.charAt(endOfBoard + 1);
             if (PlayerTurn == 'w') QuiJuga = true;
-            else QuiJuga = false;
+            else if (PlayerTurn == 'b') QuiJuga = false;
+            else QuiJuga = null;
             Guanyador = null;
             Torn = Character.getNumericValue(FEN.charAt(endOfBoard + 9));
         }
@@ -43,16 +44,18 @@ public class Partida {
             while (!LegalMoves) {
                 LegalMoves = true;
                 Pair<Pair<Integer,Integer>, Pair<Integer, Integer> > mov = Blanques.moureFitxa(this, true, tRestants);
+
                 String state = Board.ferMoviment(mov.getKey(), mov.getValue()); // Si es valid s'actualitza taulell
+
+
                 if (!state.isEmpty()){
                     System.out.println(state);
                     LegalMoves = false;
                 }
+                if (LegalMoves) System.out.println("El moviment Fet és: "+mov);
             }
-            if (Board.checkMate()) {
-                // todo falta determinar si guanya o perd.
-                System.out.println("WINNER");
-            }
+
+
             QuiJuga = !QuiJuga;// else -> Update QuiJuga
         }
         else {                  // torn negres
@@ -61,6 +64,7 @@ public class Partida {
                 LegalMoves = true;
                 Pair< Pair<Integer, Integer>, Pair<Integer, Integer> > mov = Negres.moureFitxa(this, false,tRestants);
                 String state;
+                System.out.println("From "+Board.getBoard()[mov.getKey().getKey()][mov.getKey().getValue()].getClass());
                 if (mov == null) state = "ERROR mov valor null";
                 else state = Board.ferMoviment(mov.getKey(), mov.getValue());
                 if (!state.isEmpty()) {
@@ -68,11 +72,11 @@ public class Partida {
                     LegalMoves = false;
                     if(state == "ERROR mov valor null") LegalMoves = true;
                 }
+                if (LegalMoves) System.out.println("El moviment Fet és: "+mov);
+
             }
             ++Torn;
-            if (Board.checkMate()) {
-                System.out.println("WINNER");
-            }
+
             QuiJuga = !QuiJuga; // else -> Update QuiJuga
         }
     }
@@ -96,5 +100,9 @@ public class Partida {
     public Problema getProblema() {
         return Problem;
     }
+
+    public Jugador getBlanques () { return Blanques;}
+
+    public  Jugador getNegres  () { return Negres;}
 
 }

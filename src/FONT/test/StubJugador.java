@@ -1,5 +1,6 @@
 package test;
 
+import com.sun.prism.shader.Solid_TextureYV12_AlphaTest_Loader;
 import domini.Jugador;
 import domini.Partida;
 import domini.Taulell;
@@ -13,13 +14,12 @@ public class StubJugador extends Jugador {
 
     @Override
     public Pair<Pair<Integer, Integer>, Pair<Integer, Integer>> moureFitxa(Partida ptd, boolean jugantCom, int torn) {
-    Taulell t = ptd.getTaulell();
-    if (jugantCom) {
-            Pair<Integer, Integer> pi = new Pair<>(6,2);
-            Pair<Integer, Integer> pf = new Pair<>(4,2);
-            return new Pair<>(pi, pf);
-    } else {
-            return null;
+        Taulell t = ptd.getTaulell();
+        if (torn == 2) {
+            return new Pair<>(new Pair<>(4,7), new Pair<>(4,6));
+        } else if ( torn == 0) {
+            return new Pair<>(new Pair<>(0,0), new Pair<>(4,3));
         }
+        return null;
     }
 }
