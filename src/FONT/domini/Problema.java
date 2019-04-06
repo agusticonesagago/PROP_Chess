@@ -1,8 +1,6 @@
 package domini;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import javafx.util.Pair;
-
 
 
 public class Problema {
@@ -21,6 +19,12 @@ public class Problema {
         }
     }
 
+    public Problema(String t, String fen) {
+        Tema = t;  //Format: "Color fan mat en X"
+        Dificultat = "facil";
+        FEN = fen;
+    }
+
     public Problema() {
         Tema = "tema";  //Format: "Color fan mat en X"
         Dificultat = "dificultat";
@@ -28,14 +32,13 @@ public class Problema {
     }
 
     public Pair getTornMat() {
-        int pos = FEN.indexOf("en");
-        int torns = Integer.parseInt(FEN.charAt(pos+1));
-        Boolean jugador = FEN.startsWith("Blanques");
+        int pos = Tema.indexOf("en");
+        int torns = Character.getNumericValue(Tema.charAt(Tema.length() - 1));
+        Boolean jugador = Tema.startsWith("Blanques");
         return new Pair<Integer, Boolean>(torns, jugador);
     }
 
     public void eliminar() {
-        //comprobar que existeix
         CtrlD.destroyProblema(FEN);
     }
 
