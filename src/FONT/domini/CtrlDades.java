@@ -1,6 +1,7 @@
 package domini;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
+
+import java.util.ArrayList;
 
 public class CtrlDades {
     int identificador;
@@ -11,6 +12,10 @@ public class CtrlDades {
 
     public void add(String f, String d, String t) {
 
+    }
+
+    public ArrayList<String> allProb() {
+        return null;
     }
 
     public Boolean find(String f) {
@@ -27,5 +32,12 @@ public class CtrlDades {
 
     public void modifica(String f, String t) {
 
+    }
+
+    public void modifica(String fen, String t, String dif) {
+    }
+
+    public boolean findProblema(String fen) {
+        return true;
     }
 }
