@@ -1,7 +1,6 @@
 package test;
 
 import domini.CtrlDades;
-import javafx.util.Pair;
 
 public class StubCtrlDades extends CtrlDades {
     public StubCtrlDades() {
@@ -29,6 +28,7 @@ public class StubCtrlDades extends CtrlDades {
             System.out.println("El problema esta a la base de dades" + "\n");
             return true;
         }
+        else return false;
     }
 
     @Override
@@ -39,11 +39,11 @@ public class StubCtrlDades extends CtrlDades {
 
     @Override
     public void destroyProblema(String f){
-        System.out.println("El problema s'ha tret de la base de dades" + "\n")
+        System.out.println("El problema s'ha tret de la base de dades" + "\n");
     }
 
     @Override
     public void modifica(String f, String t) {
-        System.out.println("El problema s'ha modificat a la base de dades" + "\n")
+        System.out.println("El problema s'ha modificat a la base de dades" + "\n");
     }
 }
