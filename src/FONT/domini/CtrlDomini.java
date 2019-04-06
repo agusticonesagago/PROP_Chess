@@ -1,6 +1,8 @@
 package domini;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
+
+import java.util.ArrayList;
+
 
 public class CtrlDomini {
     Problema problema;
@@ -10,15 +12,22 @@ public class CtrlDomini {
     CtrlDades ctrlD;
     Ranking ranking;
 
-    public CtrlDades () {
-        Problema = new Problema();
-        Partida = null;
-        Ranking = null;
+    public CtrlDomini () {
+        problema = new Problema();
+        partida = null;
+        ranking = null;
+        jugador1 = null;
+        jugador2 = null;
         ctrlD = new CtrlDades(0);
     }
 
-    public void carregapartida() {
-        
+    public void carregapartida(/*String Problema,*/ String jugador1, String jugador2) {
+        this.jugador1 = new Huma(1, jugador1);
+        if (jugador2 == "Maquina1") this.jugador2 = new Simple (2);
+        //else if (jugador2 == "Maquina2") this.jugador2 = new Complicat (2);
+        else this.jugador2 = new Huma (2, jugador2);
+        partida = new Partida (problema,this.jugador1, this.jugador2 );
+        //partida.jugarTorn(2);
     }
 
     /* Opreacions relacionades amb PROBLEMES*/
@@ -38,7 +47,7 @@ public class CtrlDomini {
         problema.setFEN(fen);
         problema.setTema(t);
         problema.setDificultat(dif);
-        CtrlD.modifica(fen, t, dif);
+        ctrlD.modifica(fen, t, dif);
     }
 
     public void eliminarProblema() {
@@ -50,7 +59,11 @@ public class CtrlDomini {
         String f = problema.getFEN();
         String t = problema.getTema();
         String d = problema.getDificultat();
-        return  f.concat(separacio, t, separacio, d); 
+        String res = f.concat(separacio);
+        res.concat(t);
+        res.concat(separacio);
+        res.concat(d);
+        return  res;
     }
 
     private boolean teSolucio(String fen) {
@@ -102,7 +115,8 @@ public class CtrlDomini {
         }
         else {
            Partida Sim = new Partida(null, null, null);
-           return Sim.simulacorrecte(fen);
+           //return Sim.simulacorrecte(fen);
+            return true;
         }
     }
 }
