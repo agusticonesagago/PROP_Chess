@@ -15,14 +15,6 @@ public abstract class Jugador {
 
     public abstract Pair<Pair<Integer, Integer>, Pair<Integer, Integer>> moureFitxa(Partida ptd, boolean jugantCom, int torns);
 
-    protected Pair getPosini() {
-        return null;
-    }
-
-    protected Pair getPosfi() {
-        return null;
-    }
-
     /* GETTERS */
     public Integer getID() {
         return ID;

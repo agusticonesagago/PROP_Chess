@@ -14,36 +14,21 @@ public class Huma extends Jugador {
 
     @Override
     public Pair<Pair<Integer, Integer>, Pair<Integer, Integer>> moureFitxa(Partida ptd, boolean jugantCom, int torns) {
-        return null;
-    }
-
-    public void consultarTutorial() {}
-
-    public void escollirTutorial() {}
-
-    public Boolean registrar() {
-        return false;
-    }
-
-    protected Pair getPosini() {
         //llegir de teclat
-        String teclat = "";
+        System.out.println ("Introduiex la posicio de la peca a moure" + "\n");
         Scanner escaner = new Scanner (System.in);
-        teclat = escaner.nextLine ();
-        int posicioX= Integer.parseInt(teclat);
-        teclat = escaner.nextLine ();
-        int posicioY = Integer.parseInt(teclat);
-        //System.out.println ("Entrada recibida por teclado es: \"" + entradaTeclado +"\"");
-        return new Pair<Integer, Integer>(posicioX, posicioY);
+        int posicioXp = escaner.nextInt();
+        int posicioYp = escaner.nextInt();
+        System.out.println ("Introduiex la posicio on vols moure la peca" + "\n");
+        int posicioXm = escaner.nextInt();
+        int posicioYm = escaner.nextInt();
+        Pair <Integer, Integer> posPeca = new Pair<Integer, Integer>(posicioXp, posicioYp);
+        Pair <Integer, Integer> posMov = new Pair<Integer, Integer>(posicioXm, posicioYm);
+        return new Pair<Pair<Integer, Integer>, Pair<Integer, Integer>> (posPeca, posMov);
         //return null;
     }
 
-    protected Pair getPosfi() {
-        //llegir de teclat
-        /*
-        int i, j;
-        return new Pair<Integer,Integer>(i, j);
-        */
-        return null;
+    public Boolean registrar() {
+        return false;
     }
 }
