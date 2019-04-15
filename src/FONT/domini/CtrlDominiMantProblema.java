@@ -13,7 +13,7 @@ public class CtrlDominiMantProblema {
     public CtrlDominiMantProblema() {
         //inicialitzar el treeMap amb les dades de Json
         Problemes = new TreeMap<String, Problema>();
-        CtrlDades ctrlD = new CtrlDades();
+        ctrlD =  ctrlD.getInstance();
     }
 
     public Vector<String> consultaProblemes() {
