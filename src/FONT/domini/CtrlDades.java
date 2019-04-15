@@ -4,40 +4,49 @@ package domini;
 import java.util.ArrayList;
 
 public class CtrlDades {
-    int identificador;
 
-    public CtrlDades (Integer id) {
-        identificador = id;
+    private static CtrlDades instance = null;
+
+    private static class SingletonHelper {
+        private static final CtrlDades instance = new CtrlDades();
     }
-
-    public void add(String f, String d, String t) {
-
+    public static CtrlDades getInstance() {
+        return SingletonHelper.instance;
     }
 
     public ArrayList<String> allProb() {
         return null;
     }
 
-    public Boolean find(String f) {
+    public void afegeixProblema(String f, String d, String t) {
+    }
+
+    public void eliminaProblema(String f){
+    }
+
+    public void modificaProblema(String fen, String t, String dif) {
+    }
+
+    public boolean cercaProblema(String fen) {
         return true;
     }
 
-    public String giveme(String f){
+
+
+    public ArrayList<String> allRank() {
         return null;
     }
 
-    public void destroyProblema(String f){
-
+    public void afegeixRanking(String nomj, String nomp, Integer temps) {
     }
 
-    public void modifica(String f, String t) {
-
+    public void eliminaRanking(String nomj) {
     }
 
-    public void modifica(String fen, String t, String dif) {
+    public void modificaRanking(String nomj, String nomp, Integer temps) {
     }
 
-    public boolean findProblema(String fen) {
+    public boolean cercaRanking(String nomj) {
         return true;
     }
 }
