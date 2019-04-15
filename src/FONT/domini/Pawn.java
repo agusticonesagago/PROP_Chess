@@ -9,10 +9,6 @@ public class Pawn extends Peca {
         super(color, posactual, t);
     }
 
-    // todo -> PECA.EXISTEIX () NOO!!
-
-
-
     public Boolean espotmoure(Pair<Integer,Integer> posfinal){
         int ic = posactual.getKey();
         int jc = posactual.getValue();
@@ -66,7 +62,7 @@ public class Pawn extends Peca {
 
 
 
-    ArrayList<Pair<Integer,Integer>> posicionsposible(){
+    public ArrayList<Pair<Integer,Integer>> posicionsposible(){
         ArrayList<Pair<Integer,Integer>> posposibles= new ArrayList<>();
         int ic = posactual.getKey();
         int jc = posactual.getValue();

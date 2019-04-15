@@ -3,6 +3,8 @@ package domini;
 import com.sun.org.apache.xpath.internal.operations.Bool;
 import javafx.util.Pair;
 
+import java.util.ArrayList;
+
 public class Bishop extends Peca {
   public Bishop(boolean color, Pair<Integer, Integer> posactual, Taulell t) {
     super(color, posactual, t);
@@ -89,4 +91,56 @@ public class Bishop extends Peca {
 
     return false;
   }
+
+
+    public ArrayList<Pair<Integer,Integer>> posicionsposible(){
+        java.util.ArrayList<Pair<Integer,Integer>> posposibles= new ArrayList<>();
+        int ic = posactual.getKey();
+        int jc = posactual.getValue();
+        boolean obstaculo = false;
+        int plus = 1;
+
+        while (!obstaculo && ((jc - plus) >=0) && ((ic-plus)>=0)) {
+            if(espotmoure(new Pair<>(ic-plus,jc-plus))) {
+                posposibles.add(new Pair<>(ic-plus, jc-plus));
+                ++plus;
+            }
+            else obstaculo=true;
+        }
+
+        obstaculo=false;
+        plus = 1;
+        while (!obstaculo && ((jc + plus) <8) && ((ic-plus)>=0)) {
+            if(espotmoure(new Pair<>(ic-plus,jc+plus))) {
+                posposibles.add(new Pair<>(ic-plus, jc+plus));
+                ++plus;
+            }
+            else obstaculo=true;
+        }
+
+        obstaculo=false;
+        plus = 1;
+        while (!obstaculo && ((jc + plus) <8) && ((ic+plus)<8)) {
+            if(espotmoure(new Pair<>(ic+plus,jc+plus))) {
+                posposibles.add(new Pair<>(ic+plus, jc+plus));
+                ++plus;
+            }
+            else obstaculo=true;
+        }
+
+        obstaculo=false;
+        plus = 1;
+        while (!obstaculo && ((jc - plus) >=0) && ((ic+plus)<8)) {
+            if(espotmoure(new Pair<>(ic+plus,jc-plus))) {
+                posposibles.add(new Pair<>(ic+plus, jc-plus));
+                ++plus;
+            }
+            else obstaculo=true;
+        }
+
+        return posposibles;
+    }
 }
+
+
+//TODO posiblespositions

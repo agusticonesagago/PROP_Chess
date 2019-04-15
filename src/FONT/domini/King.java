@@ -27,7 +27,7 @@ public class King extends Peca {
     else return false;
   }
 
-  ArrayList<Pair<Integer,Integer>> posicionsposible(){
+  public ArrayList<Pair<Integer,Integer>> posicionsposible(){
     ArrayList<Pair<Integer,Integer>> posposibles= new ArrayList<>();
 
     int ic = posactual.getKey();

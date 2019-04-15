@@ -2,11 +2,9 @@ package domini;
 
 
 
-// TODO -> FROM BOARD TO FEN
-
-
 import javafx.util.Pair;
-import sun.font.GlyphLayout;
+
+import javax.swing.text.StyledEditorKit;
 
 public class Partida {
     protected Boolean Guanyador;
@@ -16,6 +14,8 @@ public class Partida {
     protected Problema Problem;
     protected Jugador Blanques;
     protected Jugador Negres;
+    protected Boolean QuiHaDeGuanyar;
+    protected Integer QuantTorn;
 
     public Partida(Problema P ,Jugador blanques, Jugador negres) {
         this.Problem = P;
@@ -33,11 +33,14 @@ public class Partida {
             else if (PlayerTurn == 'b') QuiJuga = false;
             else QuiJuga = null;
             Guanyador = null;
-            Torn = Character.getNumericValue(FEN.charAt(endOfBoard + 9));
+            Torn = 0;
         }
+
+        Pair gTM = P.getTornMat();
+        this.QuiHaDeGuanyar = (Boolean) gTM.getValue();
+        this.QuantTorn = (Integer) gTM.getKey();
     }
 
-    // TODO FALTA TESTING -> revisar
     public void jugarTorn(int tRestants) {
         if (QuiJuga) {          // Torn Blanques
             boolean LegalMoves = false;
@@ -47,12 +50,17 @@ public class Partida {
 
                 String state = Board.ferMoviment(mov.getKey(), mov.getValue()); // Si es valid s'actualitza taulell
 
-
                 if (!state.isEmpty()){
                     System.out.println(state);
                     LegalMoves = false;
                 }
                 if (LegalMoves) System.out.println("El moviment Fet és: "+mov);
+            }
+
+            if (Board.escac_mat(!QuiHaDeGuanyar) && Torn.equals(QuantTorn)) {
+                Guanyador = QuiHaDeGuanyar;
+            } else if (Torn.equals(QuantTorn)) {
+                Guanyador = !QuiHaDeGuanyar;
             }
 
 
@@ -76,6 +84,12 @@ public class Partida {
 
             }
             ++Torn;
+
+            if (Board.escac_mat(!QuiHaDeGuanyar) && Torn.equals(QuantTorn)) {
+                Guanyador = QuiHaDeGuanyar;
+            } else if (Torn.equals(QuantTorn)) {
+                Guanyador = !QuiHaDeGuanyar;
+            }
 
             QuiJuga = !QuiJuga; // else -> Update QuiJuga
         }

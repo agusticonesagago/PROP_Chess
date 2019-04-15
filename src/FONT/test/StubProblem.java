@@ -11,6 +11,6 @@ public class StubProblem extends Problema {
 
     @Override
     public Pair<Integer, Boolean> getTornMat() {
-        return new Pair<>(3, true);
+        return new Pair<>(2, true);
     }
 }

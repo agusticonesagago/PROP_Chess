@@ -53,7 +53,7 @@ public class Rook extends Peca {
 
 
 
-    ArrayList<Pair<Integer,Integer>> posicionsposible(){
+    public ArrayList<Pair<Integer,Integer>> posicionsposible(){
         ArrayList<Pair<Integer,Integer>> posposibles= new ArrayList<>();
         int ic = posactual.getKey();
         int jc = posactual.getValue();

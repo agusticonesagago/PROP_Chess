@@ -23,7 +23,7 @@ public class Peca{
     protected Boolean caselladins(Pair<Integer,Integer> pos){
       int i = pos.getKey();
       int j = pos.getValue();
-      if(i<0 || i>8 || j<0 || j>8 ) return false;
+      if(i<0 || i>=8 || j<0 || j>=8 ) return false;
       else return true;
     } /////////////////////////////////////////////////Potser hauria de ser del taulell
 
@@ -49,10 +49,10 @@ public class Peca{
     /* SETTERS */
 
     public void mourepeca(Pair<Integer,Integer> posfinal) {
-      this.posactual = new Pair<>(posfinal.getKey(), posfinal.getValue());
+      this.posactual = posfinal;
     }
 
-    public ArrayList<Pair<Integer, Integer>> getPossiblesMoviments() {
+    public ArrayList<Pair<Integer, Integer>> posicionsposible() {
         return null;
     }
 }

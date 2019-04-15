@@ -16,11 +16,10 @@ public class Knight extends Peca {
         int jc = posactual.getValue();
         int ifi = posfinal.getKey();
         int jfi = posfinal.getValue();
-        boolean blanca = Taulell.getBoard()[ic][jc].getcolor();
 
         if (caselladins(posfinal) && ((ic - 2 == ifi && jc - 1 == jfi) || (ic - 1 == ifi && jc - 2 == jfi) || (ic + 1 == ifi && jc - 2 == jfi) ||
                 (ic + 2 == ifi && jc - 1 == jfi) || (ic + 2 == ifi && jc + 1 == jfi) || (ic + 1 == ifi && jc + 2 == jfi) || (ic - 1 == ifi && jc + 2 == jfi) || (ic - 2 == ifi && jc + 1 == jfi))) {
-            if ((Taulell.PosOcupada(ifi,jfi) && Taulell.getBoard()[ifi][jfi].getcolor() != blanca) ||
+            if ((Taulell.PosOcupada(ifi,jfi) && Taulell.getBoard()[ifi][jfi].getcolor() != color) ||
                     !Taulell.PosOcupada(ifi,jfi)) return true;
             else return false;
         }
@@ -28,12 +27,10 @@ public class Knight extends Peca {
     }
 
 
-    ArrayList<Pair<Integer,Integer>> posicionsposible(){
+    public ArrayList<Pair<Integer,Integer>> posicionsposible(){
         ArrayList<Pair<Integer,Integer>> posposibles= new ArrayList<>();
         int ic = posactual.getKey();
         int jc = posactual.getValue();
-
-
         if(espotmoure(new Pair<>(ic-2,jc-1))){
             posposibles.add(new Pair<>(ic-2,jc-1));
         }

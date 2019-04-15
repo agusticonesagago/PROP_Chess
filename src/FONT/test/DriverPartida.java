@@ -12,7 +12,7 @@ public class DriverPartida {
         Tests_2();
     }
 
-    private static void Tests_2() { // TODO test de Jugar Torn
+    private static void Tests_2() {
         Partida t2 = new Partida(new StubProblem("","rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w - - 0 1"), new StubJugador(1), new StubJugador(2));
         t2.getTaulell().PrintBoard();
         System.out.println("\n");
