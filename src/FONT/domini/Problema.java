@@ -7,16 +7,11 @@ public class Problema {
     protected String Tema;
     protected String Dificultat;
     protected String FEN;
-    protected CtrlDades CtrlD;
 
     public Problema(String t, String fen, String dif, CtrlDades ctrlD) {
         Tema = t;  //Format: "Color fan mat en X"
         Dificultat = dif;
         FEN = fen;
-        this.CtrlD = ctrlD;
-        if (ctrlD.findProblema(fen)) {
-            CtrlD.add(fen, dif, t);
-        }
     }
 
     public Problema(String t, String fen) {
@@ -31,15 +26,11 @@ public class Problema {
         FEN = "fen";
     }
 
-    public Pair getTornMat() {
+    public Pair <Integer, Boolean> getTornMat() {
         int pos = Tema.indexOf("en");
         int torns = Character.getNumericValue(Tema.charAt(Tema.length() - 1));
         Boolean jugador = Tema.startsWith("Blanques");
-        return new Pair<Integer, Boolean>(torns, jugador);
-    }
-
-    public void eliminar() {
-        CtrlD.destroyProblema(FEN);
+        return new Pair<>(torns, jugador);
     }
 
     /* GETTERS */
@@ -57,16 +48,19 @@ public class Problema {
 
 
     /* SETTERS */
-    public void setTema(String t) {
+    public Boolean setTema(String t) {
         Tema = t;
+        return true;
     }
 
-    public void setDificultat(String dif) {
+    public Boolean setDificultat(String dif) {
         Dificultat = dif;
+        return true;
     }
 
-    public void setFEN(String fen) {
+    public Boolean setFEN(String fen) {
         FEN = fen;
+        return true;
     }
 
 }
