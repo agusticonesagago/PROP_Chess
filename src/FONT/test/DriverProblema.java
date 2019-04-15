@@ -13,32 +13,17 @@ public class DriverProblema {
         Problema test = new Problema(tema, fen, dificultat, new StubCtrlDades());
 
         System.out.println("Introdueix un valor valid per a probar les operacions:" + "\n"
-                            + "0: Test de la funcio per troba guanyador i moviments Problema" + "\n"
-                            + "1: Test de la funcio Eliminar un Problema" + "\n");
+                            + "0: Test de la funcio per troba guanyador i moviments Problema" + "\n");
 
-        int cas;
-        Scanner sc = new Scanner (System.in);
-        cas = sc.nextInt();
-        switch (cas){
-            case 0:
-                System.out.println("Test de la funcio que rotorna qui guanyaria i en quans moviments" + "\n");
-                Pair <Integer, Boolean> p  = test.getTornMat();
-                Integer torn = p.getKey();
-                Boolean color = p.getValue();
-                String jugador;
-                if (color == true) jugador = "Blanques";
-                else jugador = "Negres";
-                System.out.println("Torns per a fer mat: " + torn + "\n");
-                System.out.println("Jugador que pot fer mat: " + jugador + "\n");
-            break;
+        System.out.println("Test de la funcio que rotorna qui guanyaria i en quans moviments" + "\n");
+        Pair <Integer, Boolean> p  = test.getTornMat();
+        Integer torn = p.getKey();
+        Boolean color = p.getValue();
+        String jugador;
+        if (color == true) jugador = "Blanques";
+        else jugador = "Negres";
+        System.out.println("Torns per a fer mat: " + torn + "\n");
+        System.out.println("Jugador que pot fer mat: " + jugador + "\n");
 
-            case 1:
-                System.out.println("Test de la funcio eliminar problema de BD" + "\n");
-                test.eliminar();
-            break;
-            default:
-                System.out.println("Final del test" + "\n");
-            break;
-        }
     }
 }
