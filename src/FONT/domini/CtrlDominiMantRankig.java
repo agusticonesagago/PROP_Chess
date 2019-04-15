@@ -12,7 +12,7 @@ public class CtrlDominiMantRanking {
     public CtrlDominiMantRanking() {
         //inicialitzar el treeMap amb les dades de Json
         Rankings = new TreeMap<String, Ranking>();
-        CtrlDades ctrlD = new CtrlDades();
+        ctrlD =  ctrlD.getInstance();
     }
 
     public Vector<String> consultaRankings() {
