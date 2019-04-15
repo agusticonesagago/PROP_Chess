@@ -4,11 +4,11 @@ import domini.CtrlDades;
 
 public class StubCtrlDades extends CtrlDades {
     public StubCtrlDades() {
-        super(0);
+        super();
     }
 
     @Override
-    public void add(String f, String d, String t) {
+    public void afegeixProblema(String f, String d, String t) {
         if (f == "8/8/8/8/8/8/8/NNNkkkRr" || f == "5K2/8/8/8/8/8/8/5k2") {
             System.out.println("El problema no s'ha afegit a la base de dades" + "\n");
         }
@@ -19,7 +19,7 @@ public class StubCtrlDades extends CtrlDades {
     }
 
     @Override
-    public Boolean find(String f) {
+    public boolean cercaProblema(String f) {
         if (f == "8/8/8/8/8/8/8/NNNkkkRr") {
             System.out.println("El problema no esta a la base de dades" + "\n");
             return false;
@@ -32,18 +32,12 @@ public class StubCtrlDades extends CtrlDades {
     }
 
     @Override
-    public String giveme(String f){
-        String test = "f";
-        return test;
-    }
-
-    @Override
-    public void destroyProblema(String f){
+    public void eliminaProblema(String f){
         System.out.println("El problema s'ha tret de la base de dades" + "\n");
     }
 
     @Override
-    public void modifica(String f, String t) {
+    public void modificaProblema(String fen, String t, String dif) {
         System.out.println("El problema s'ha modificat a la base de dades" + "\n");
     }
 }
