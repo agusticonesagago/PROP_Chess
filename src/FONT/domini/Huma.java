@@ -6,9 +6,8 @@ import java.util.Scanner;
 // TODO -> Escac s'ha de trencar, + no puc moure rei a pos amb escac.
 
 public class Huma extends Jugador {
-    String nom;
 
-    public Huma (Integer id, String nom) {
+    public Huma (Integer id) {
         super(id);
     }
 
@@ -24,7 +23,7 @@ public class Huma extends Jugador {
         int posicioYm = escaner.nextInt();
         Pair <Integer, Integer> posPeca = new Pair<Integer, Integer>(posicioXp, posicioYp);
         Pair <Integer, Integer> posMov = new Pair<Integer, Integer>(posicioXm, posicioYm);
-        return new Pair<Pair<Integer, Integer>, Pair<Integer, Integer>> (posPeca, posMov);
+        return new Pair<>(posPeca, posMov);
         //return null;
     }
 
