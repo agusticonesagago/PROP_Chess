@@ -5,13 +5,10 @@ import java.util.ArrayList;
 
 public class CtrlDades {
 
-    private static CtrlDades instance = null;
+    private static CtrlDades ourInstance = new CtrlDades();
 
-    private static class SingletonHelper {
-        private static final CtrlDades instance = new CtrlDades();
-    }
     public static CtrlDades getInstance() {
-        return SingletonHelper.instance;
+        return ourInstance;
     }
 
     public ArrayList<String> allProb() {
