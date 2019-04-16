@@ -48,19 +48,16 @@ public class Problema {
 
 
     /* SETTERS */
-    public Boolean setTema(String t) {
+    public void setTema(String t) {
         Tema = t;
-        return true;
     }
 
-    public Boolean setDificultat(String dif) {
+    public void setDificultat(String dif) {
         Dificultat = dif;
-        return true;
     }
 
-    public Boolean setFEN(String fen) {
+    public void setFEN(String fen) {
         FEN = fen;
-        return true;
     }
 
 }
