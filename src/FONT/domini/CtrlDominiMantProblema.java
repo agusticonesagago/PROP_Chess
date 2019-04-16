@@ -43,11 +43,11 @@ public class CtrlDominiMantProblema {
             return 2;                       //2 = Error, el primer camp no coincideix amb el fen
         else { // Alta del jugador
             Problema newp = new Problema();
-            if (!newp.setFEN(fenp)) return -1;      //-1 = Error, dades no s'han pohut assignar
             String temap = dades.get(1);
-            if (!newp.setTema(temap)) return -1;    //-1 = Error, dades no s'han pohut assignar
             String difp = dades.get(2);
-            if (!newp.setDificultat(difp)) return -1; //-1 = Error, dades no s'han pohut assignar
+            newp.setFEN(fenp);
+            newp.setTema(temap);
+            newp.setDificultat(difp);
             if (teSolucio(newp)) {
                 Problemes.put(fenp,newp);
                 ctrlD.afegeixProblema(fenp, temap, difp);
