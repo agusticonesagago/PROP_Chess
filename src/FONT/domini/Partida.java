@@ -56,7 +56,7 @@ public class Partida {
                 } else {
                     King k = (King) Board.findKing(QuiJuga);
                     // MIRA SI EL MOVIMENT FA QUE EL REI ESTIGUI NO SEGUR
-                    if (!Board.rei_segur(k.getposicioactual().getKey(), k.getposicioactual().getValue(), QuiJuga)) {
+                    if (!Board.rei_segur(mov.getValue().getKey(), mov.getValue().getKey(), QuiJuga)) {
                         state = "El rei no esta segur en la posició : [" + k.getposicioactual().getKey() + "," + k.getposicioactual().getValue()
                                 + "]";
                     } else {
@@ -95,7 +95,7 @@ public class Partida {
                 } else {
                     King k = (King) Board.findKing(QuiJuga);
                     // MIRA SI EL MOVIMENT FA QUE EL REI ESTIGUI NO SEGUR
-                    if (!Board.rei_segur(k.getposicioactual().getKey(), k.getposicioactual().getValue(), QuiJuga)) {
+                    if (!Board.rei_segur(mov.getValue().getKey(), mov.getValue().getKey(), QuiJuga)) {
                         state = "El rei no esta segur en la posició : [" + k.getposicioactual().getKey() + "," + k.getposicioactual().getValue()
                                 + "]";
                     } else {
