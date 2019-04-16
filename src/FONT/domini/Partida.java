@@ -39,6 +39,7 @@ public class Partida {
         Pair gTM = P.getTornMat();
         this.QuiHaDeGuanyar = (Boolean) gTM.getValue();
         this.QuantTorn = (Integer) gTM.getKey();
+        this.QuantTorn = (this.QuantTorn *2)-1;
     }
 
     public void jugarTorn(int tRestants) {
@@ -56,6 +57,7 @@ public class Partida {
                 }
                 if (LegalMoves) System.out.println("El moviment Fet és: "+mov);
             }
+            ++Torn;
 
             if (Board.escac_mat(!QuiHaDeGuanyar) && Torn.equals(QuantTorn)) {
                 Guanyador = QuiHaDeGuanyar;

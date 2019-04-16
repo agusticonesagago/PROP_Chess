@@ -57,7 +57,40 @@ public class CtrlDomini {
     }
 
     public void jugarPartida() {
+        Pair<Integer, Boolean> tornMat= problema.getTornMat();
+        Integer tornsRestants = (tornMat.getKey()*2) -1;
+        Boolean quiMou = tornMat.getValue();
+        System.out.println("Comença la partida " + "\n");
+        while (tornsRestants > 0) {
+            partida.getTaulell().PrintBoard();
+            System.out.println (partida.getTaulell().PrintFEN() + "\n");
 
+            if (quiMou) System.out.println("Mouen Blanques" + "\n");
+            else System.out.println("Mouen Negres" + "\n");
+
+            partida.jugarTorn(tornsRestants);
+            quiMou = !quiMou;
+            tornsRestants--;
+
+        }
+        partida.getTaulell().PrintBoard();
+        System.out.println (partida.getTaulell().PrintFEN() + "\n");
+        if (tornMat.getValue()){
+            if (partida.getGuanyador() && tornMat.getValue())  System.out.println("Han guanyat les blanques" + "\n");
+            else {
+                System.out.println("Perden les blanques" + "\n");
+                System.out.println("Guanyen les negres" + "\n");
+            }
+        }
+        else {
+            if (!partida.getGuanyador() && !tornMat.getValue()) System.out.println("Han guanyat les negres" + "\n");
+            else {
+                System.out.println("Perden les negres" + "\n");
+                System.out.println("Guanyen les blanques" + "\n");
+            }
+        }
+
+        System.out.println("La partida ha acabat" + "\n");
     }
 
     /* Opreacions relacionades amb PROBLEMES*/

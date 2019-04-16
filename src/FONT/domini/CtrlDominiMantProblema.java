@@ -118,7 +118,7 @@ public class CtrlDominiMantProblema {
         else {
             Partida sim = new Partida(prob, new Simple(1), new Simple(2));
             Pair<Integer, Boolean> tornMat= prob.getTornMat();
-            Integer tornsRestants = tornMat.getKey();
+            Integer tornsRestants = (tornMat.getKey()*2) -1;
             while (tornsRestants > 0) {
                 sim.jugarTorn(tornsRestants);
                 tornsRestants--;
