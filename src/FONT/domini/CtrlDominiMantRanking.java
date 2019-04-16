@@ -42,11 +42,11 @@ public class CtrlDominiMantRanking {
             return 2;
         else { // Alta del jugador
             Ranking newr = new Ranking();
-            if (!newr.setJugador(nomj)) return -1;
             String nomp = dades.get(1);
-            if (!newr.setProblema(nomp)) return -1;
             Integer temps = new Integer(dades.get(2));
-            if (!newr.setTemps(temps)) return -1;
+            newr.setJugador(nomj);
+            newr.setProblema(nomp);
+            newr.setTemps(temps);
             Rankings.put(nomj,newr);
             ctrlD.afegeixRanking(nomj, nomp, temps);
         }
