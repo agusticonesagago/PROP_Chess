@@ -30,18 +30,15 @@ public class Ranking {
 
     /* SETTERS */
 
-    public Boolean setTemps(Integer param) {
+    public void setTemps(Integer param) {
         temps = param;
-        return true;
     }
 
-    public Boolean setJugador(String param) {
+    public void setJugador(String param) {
         jugador = param;
-        return true;
     }
 
-    public Boolean setProblema(String param) {
+    public void setProblema(String param) {
         problema = param;
-        return true;
     }
 }
