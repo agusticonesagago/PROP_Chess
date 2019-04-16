@@ -36,8 +36,10 @@ public class SingletonAlgorismes {
                         // TODO  nova forma de copiar
                         Taulell x = new Taulell(t);
                         x.ferMoviment(new Pair<>(i, j), movs.get(z));
-                        posiblesTaulells.add(x);
-                        Moviments.add(new Pair<>(new Pair<>(i, j), movs.get(z)));
+                        if (x.rei_segur(movs.get(z).getKey(), movs.get(z).getValue(), jugantCom)) {
+                            posiblesTaulells.add(x);
+                            Moviments.add(new Pair<>(new Pair<>(i, j), movs.get(z)));
+                        }
                     }
                 }
             }

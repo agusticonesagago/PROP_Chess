@@ -55,11 +55,12 @@ public class Partida {
                     state = "No ets el propietari d'aquesta peca.";
                 } else {
                     King k = (King) Board.findKing(QuiJuga);
-                    // MIRA SI EL MOVIMENT FA QUE EL REI ESTIGUI NO SEGUR
-                    if (!Board.rei_segur(mov.getValue().getKey(), mov.getValue().getKey(), QuiJuga)) {
+                    // MIRA SI EL MOVIMENT FA QUE EL REI ESTIGUI NO SEGUR i Movem al rei
+                    if (k.getposicioactual() == mov.getKey() && !Board.rei_segur(mov.getValue().getKey(), mov.getValue().getKey(), QuiJuga)) {
                         state = "El rei no esta segur en la posició : [" + k.getposicioactual().getKey() + "," + k.getposicioactual().getValue()
                                 + "]";
-                    } else {
+                    }
+                    else {
                         state = Board.ferMoviment(mov.getKey(), mov.getValue()); // Si es valid s'actualitza taulell
                     }
                 }
@@ -78,7 +79,6 @@ public class Partida {
                 Guanyador = !QuiHaDeGuanyar;
             }
 
-            System.currentTimeMillis();
 
             QuiJuga = !QuiJuga;// else -> Update QuiJuga
         }
@@ -95,8 +95,8 @@ public class Partida {
                 } else {
                     King k = (King) Board.findKing(QuiJuga);
                     // MIRA SI EL MOVIMENT FA QUE EL REI ESTIGUI NO SEGUR
-                    if (!Board.rei_segur(mov.getValue().getKey(), mov.getValue().getKey(), QuiJuga)) {
-                        state = "El rei no esta segur en la posició : [" + k.getposicioactual().getKey() + "," + k.getposicioactual().getValue()
+                    if (!Board.rei_segur(mov.getValue().getKey(), mov.getValue().getValue(), QuiJuga)) {
+                        state = "El rei no esta segur en la posició : [" + mov.getValue().getKey() + "," + mov.getValue().getValue()
                                 + "]";
                     } else {
                         state = Board.ferMoviment(mov.getKey(), mov.getValue()); // Si es valid s'actualitza taulell

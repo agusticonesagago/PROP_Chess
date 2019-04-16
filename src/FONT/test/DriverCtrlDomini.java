@@ -7,7 +7,7 @@ public class DriverCtrlDomini {
     public static void main (String[] args) {
         CtrlDomini CD  = new CtrlDomini();
         String fen = "3k4/8/8/8/8/1r6/r7/7K b - - 0 1";
-        String tema = "Negres fan mat en 1";
+        String tema = "Negres fan mat en 2";
         String dificultat = "facil";
         Vector<String> problema = new Vector<>();
         problema.add(0,fen);
