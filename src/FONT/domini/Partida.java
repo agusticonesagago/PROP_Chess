@@ -103,9 +103,6 @@ public class Partida {
                     }
                 }
 
-                else state = Board.ferMoviment(mov.getKey(), mov.getValue());
-
-
                 if (!state.isEmpty()) {
                     System.out.println(state);
                     LegalMoves = false;
