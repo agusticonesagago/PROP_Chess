@@ -12,6 +12,7 @@ public class Ranking {
     }
 
     public Ranking() {
+
     }
 
     /* GETTERS */
