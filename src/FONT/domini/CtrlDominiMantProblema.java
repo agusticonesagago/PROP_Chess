@@ -116,14 +116,16 @@ public class CtrlDominiMantProblema {
             return false;
         }
         else {
-            Partida sim = new Partida(prob, new Simple(1), new Simple(2));
+            System.out.println("Compleix les normes" + "\n");
             Pair<Integer, Boolean> tornMat= prob.getTornMat();
+            Partida sim = new Partida(prob, new Simple(1), new Simple(2));
             Integer tornsRestants = (tornMat.getKey()*2) -1;
             while (tornsRestants > 0) {
                 sim.jugarTorn(tornsRestants);
                 tornsRestants--;
             }
             if (sim.getGuanyador() && tornMat.getValue()) return true;
+            else if (!sim.getGuanyador() && !tornMat.getValue()) return true;
             else return false;
         }
     }
