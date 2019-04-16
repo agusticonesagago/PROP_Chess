@@ -6,8 +6,8 @@ import java.util.Vector;
 public class DriverCDMP {
     public static void main (String[] args){
         System.out.println("Test de la funcio creadora de problemes" + "\n");
-        String fen1 = "1N1b4/6nr/R5n1/2Ppk2r/K2p2qR/8/2N1PQ2/B6B w - - 0 1";
-        String tema1 = "Blanques fan mat en 2";
+        String fen1 = "3k4/8/8/8/8/1r6/r7/7K b - - 0 1";
+        String tema1 = "Negres fan mat en 1";
         String dificultat1 = "facil";
         Vector <String> dadesProb1 = new Vector<>();
         dadesProb1.add(0,fen1);
@@ -17,11 +17,13 @@ public class DriverCDMP {
         Vector <String> resultat;
         CtrlDominiMantProblema test = new CtrlDominiMantProblema();
 
+        System.out.println("Introduim nou problema" + "\n");
         if (test.altaProblema(dadesProb1.get(0), dadesProb1) != 0) {
             System.out.println("Error " + "\n");
         }
         else  System.out.println("Tot Corretce " + "\n");
 
+        System.out.println("Introduim nou problema" + "\n");
         if (test.altaProblema(dadesProb1.get(0), dadesProb1) != 0) {
             System.out.println("Error " + "\n");
         }
@@ -32,11 +34,13 @@ public class DriverCDMP {
             System.out.println("Problema " + i + ": " + "\n" + resultat.get(i) + "\n");
         }
 
+        System.out.println("Borrem un problema" + "\n");
         if (test.baixaProblema(dadesProb1.get(0)) != 0) {
             System.out.println("Error " + "\n");
         }
         else  System.out.println("Tot Corretce " + "\n");
 
+        System.out.println("Borrem un problema" + "\n");
         if (test.baixaProblema(dadesProb1.get(0)) != 0) {
             System.out.println("Error " + "\n");
         }
