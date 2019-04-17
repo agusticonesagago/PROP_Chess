@@ -11,7 +11,6 @@ public class CtrlDomini {
     private Jugador jugador1;
     private Jugador jugador2;
     private Partida partida;
-    private CtrlDades ctrlD;
 
     public CtrlDomini () {
         CDMp = new CtrlDominiMantProblema();
@@ -20,7 +19,6 @@ public class CtrlDomini {
         partida = null;
         jugador1 = null;
         jugador2 = null;
-        ctrlD = new CtrlDades();
     }
 
     public void configurarPartida(Vector <String> problema, String jugador1, String jugador2) {
@@ -56,7 +54,8 @@ public class CtrlDomini {
         }
     }
 
-    public void jugarPartida() {
+    public String jugarPartida(String nom) {
+        String guanyador;
         Pair<Integer, Boolean> tornMat= problema.getTornMat();
         Integer tornsRestants = (tornMat.getKey()*2) -1;
         Boolean quiMou = tornMat.getValue();
@@ -76,24 +75,39 @@ public class CtrlDomini {
         partida.getTaulell().PrintBoard();
         System.out.println (partida.getTaulell().PrintFEN() + "\n");
         if (tornMat.getValue()){
-            if (partida.getGuanyador() && tornMat.getValue())  System.out.println("Han guanyat les blanques" + "\n");
+            if (partida.getGuanyador() && tornMat.getValue())  {
+                guanyador = "Blanques";
+                if (jugador1 instanceof Huma) {
+                    Vector<String> dades = new Vector<>();
+                    dades.add(0, nom);
+                    dades.add(1, problema.getFEN());
+                    dades.add(2, "60");
+                    CDMr.altaRanking(nom,dades);
+                }
+            }
             else {
-                System.out.println("Perden les blanques" + "\n");
-                System.out.println("Guanyen les negres" + "\n");
+                guanyador = "Negres";
             }
         }
         else {
-            if (!partida.getGuanyador() && !tornMat.getValue()) System.out.println("Han guanyat les negres" + "\n");
+            if (!partida.getGuanyador() && !tornMat.getValue()) {
+                guanyador = "Negres";
+                if (jugador1 instanceof Huma) {
+                    Vector<String> dades = new Vector<>();
+                    dades.add(0, nom);
+                    dades.add(1, problema.getFEN());
+                    dades.add(2, "60");
+                    CDMr.altaRanking(nom,dades);
+                }
+            }
             else {
-                System.out.println("Perden les negres" + "\n");
-                System.out.println("Guanyen les blanques" + "\n");
+                guanyador = "Blanques";
             }
         }
 
-        System.out.println("La partida ha acabat" + "\n");
+        return guanyador;
     }
 
-    /* Opreacions relacionades amb PROBLEMES*/
 
     private void assignaProblema(String fen, String t, String dif) {
         problema.setFEN(fen);
@@ -107,6 +121,14 @@ public class CtrlDomini {
         res += problema.getTema(); res += " ";
         res += problema.getDificultat();
         return  res;
+    }
+
+    public CtrlDominiMantRanking getCDMr() {
+        return CDMr;
+    }
+
+    public CtrlDominiMantProblema CDMp() {
+        return CDMp;
     }
 
 }
