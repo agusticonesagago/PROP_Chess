@@ -141,7 +141,7 @@ public class CtrlDomini {
         return CDMr;
     }
 
-    public CtrlDominiMantProblema CDMp() {
+    public CtrlDominiMantProblema getCDMp() {
         return CDMp;
     }
 

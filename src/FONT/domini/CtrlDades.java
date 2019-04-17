@@ -37,7 +37,7 @@ public class CtrlDades {
     public void afegeixRanking(String nomj, String nomp, Integer temps) {
     }
 
-    public void eliminaRanking(String nomj) {
+    public void eliminaRanking(String nomj, String nomp, Integer temps) {
     }
 
     public void modificaRanking(String nomj, String nomp, Integer temps) {

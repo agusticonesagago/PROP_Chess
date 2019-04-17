@@ -15,6 +15,12 @@ public class Ranking {
 
     }
 
+
+    public boolean equals(Ranking obj) {
+        if (obj.getJugador() == jugador && obj.getProblema() == problema) return true;
+        else return false;
+    }
+
     /* GETTERS */
 
     public Integer getTemps(){
