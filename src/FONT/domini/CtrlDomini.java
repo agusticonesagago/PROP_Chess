@@ -54,7 +54,7 @@ public class CtrlDomini {
         }
     }
 
-    public String jugarPartida(String nom) {
+    public String jugarPartida(String nom1, String nom2) {
         String guanyador;
         Pair<Integer, Boolean> tornMat= problema.getTornMat();
         Integer tornsRestants = (tornMat.getKey()*2) -1;
@@ -79,14 +79,21 @@ public class CtrlDomini {
                 guanyador = "Blanques";
                 if (jugador1 instanceof Huma) {
                     Vector<String> dades = new Vector<>();
-                    dades.add(0, nom);
+                    dades.add(0, nom1);
                     dades.add(1, problema.getFEN());
                     dades.add(2, "60");
-                    CDMr.altaRanking(nom,dades);
+                    CDMr.altaRanking(nom1,dades);
                 }
             }
             else {
                 guanyador = "Negres";
+                if (jugador2 instanceof Huma) {
+                    Vector<String> dades = new Vector<>();
+                    dades.add(0, nom2);
+                    dades.add(1, problema.getFEN());
+                    dades.add(2, "60");
+                    CDMr.altaRanking(nom2,dades);
+                }
             }
         }
         else {
@@ -94,14 +101,21 @@ public class CtrlDomini {
                 guanyador = "Negres";
                 if (jugador1 instanceof Huma) {
                     Vector<String> dades = new Vector<>();
-                    dades.add(0, nom);
+                    dades.add(0, nom1);
                     dades.add(1, problema.getFEN());
                     dades.add(2, "60");
-                    CDMr.altaRanking(nom,dades);
+                    CDMr.altaRanking(nom1,dades);
                 }
             }
             else {
                 guanyador = "Blanques";
+                if (jugador2 instanceof Huma) {
+                    Vector<String> dades = new Vector<>();
+                    dades.add(0, nom2);
+                    dades.add(1, problema.getFEN());
+                    dades.add(2, "60");
+                    CDMr.altaRanking(nom2,dades);
+                }
             }
         }
 
