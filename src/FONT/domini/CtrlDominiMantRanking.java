@@ -40,7 +40,7 @@ public class CtrlDominiMantRanking {
             return 1;
         if (nomj != (dades.get(0)))
             return 2;
-        else { // Alta del jugador
+        else {
             Ranking newr = new Ranking();
             String nomp = dades.get(1);
             Integer temps = new Integer(dades.get(2));
