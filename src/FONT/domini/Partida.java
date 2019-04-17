@@ -43,28 +43,15 @@ public class Partida {
     }
 
     public void jugarTorn(int tRestants) {
+        String state;
         if (QuiJuga) {          // Torn Blanques
             boolean LegalMoves = false;
             while (!LegalMoves) {
                 LegalMoves = true;
                 Pair<Pair<Integer,Integer>, Pair<Integer, Integer> > mov = Blanques.moureFitxa(this, true, tRestants);
-                String state;
 
                 // MIRA SI NO MOU PECA DE LALTRE EQUIP
-                if (Board.getBoard()[mov.getKey().getKey()][mov.getKey().getValue()].getcolor() != QuiJuga){
-                    state = "No ets el propietari d'aquesta peca.";
-                } else {
-                    King k = (King) Board.findKing(QuiJuga);
-                    // MIRA SI EL MOVIMENT FA QUE EL REI ESTIGUI NO SEGUR i Movem al rei
-                    if (k.getposicioactual() == mov.getKey() && !Board.rei_segur(mov.getValue().getKey(), mov.getValue().getKey(), QuiJuga)) {
-                        state = "El rei no esta segur en la posició : [" + k.getposicioactual().getKey() + "," + k.getposicioactual().getValue()
-                                + "]";
-                    }
-                    else {
-                        state = Board.ferMoviment(mov.getKey(), mov.getValue()); // Si es valid s'actualitza taulell
-                    }
-                }
-
+                state = getState(mov);
                 if (!state.isEmpty()){
                     System.out.println(state);
                     LegalMoves = false;
@@ -87,21 +74,9 @@ public class Partida {
             while (!LegalMoves) {
                 LegalMoves = true;
                 Pair< Pair<Integer, Integer>, Pair<Integer, Integer> > mov = Negres.moureFitxa(this, false,tRestants);
-                String state;
 
                 // MIRA SI NO MOU PECA DE LALTRE EQUIP
-                if (Board.getBoard()[mov.getKey().getKey()][mov.getKey().getValue()].getcolor() != QuiJuga){
-                    state = "No ets el propietari d'aquesta peca.";
-                } else {
-                    King k = (King) Board.findKing(QuiJuga);
-                    // MIRA SI EL MOVIMENT FA QUE EL REI ESTIGUI NO SEGUR
-                    if (!Board.rei_segur(mov.getValue().getKey(), mov.getValue().getValue(), QuiJuga)) {
-                        state = "El rei no esta segur en la posició : [" + mov.getValue().getKey() + "," + mov.getValue().getValue()
-                                + "]";
-                    } else {
-                        state = Board.ferMoviment(mov.getKey(), mov.getValue()); // Si es valid s'actualitza taulell
-                    }
-                }
+                state = getState(mov);
 
                 if (!state.isEmpty()) {
                     System.out.println(state);
@@ -122,6 +97,30 @@ public class Partida {
             QuiJuga = !QuiJuga; // else -> Update QuiJuga
         }
     }
+
+    private String getState(Pair<Pair<Integer, Integer>, Pair<Integer, Integer>> mov) {
+        String state;
+        if (Board.getBoard()[mov.getKey().getKey()][mov.getKey().getValue()] == null ) return "No Existeix la Peca";
+
+        if (Board.getBoard()[mov.getKey().getKey()][mov.getKey().getValue()].getcolor() != QuiJuga){
+            state = "No ets el propietari d'aquesta peca.";
+        } else {
+            // Comprovem que no matem al rei al moure
+            Taulell aux = new Taulell(Board);
+            state = aux.ferMoviment(mov.getKey(), mov.getValue());
+            King k = (King) aux.findKing(QuiJuga);
+            if (state.isEmpty() && !aux.rei_segur(k.getposicioactual().getKey(), k.getposicioactual().getValue(), QuiJuga)) {
+                state = "Rei no segur";
+            } else {
+                state = Board.ferMoviment(mov.getKey(), mov.getValue()); // Si es valid s'actualitza taulell
+            }
+        }
+        return state;
+    }
+
+
+
+
 
     public boolean getGuanyador() {
         return Guanyador;
