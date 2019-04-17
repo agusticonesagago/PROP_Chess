@@ -16,18 +16,19 @@ public class CtrlDominiMantProblema {
         ctrlD =  ctrlD.getInstance();
     }
 
-    public Vector<String> consultaProblemes() {
-        Vector<String> dades = new Vector<String>();
+    public Vector<Vector<String>> consultaProblemes() {
+        Vector<Vector<String>> dades = new Vector<>();
         Set setkeys = Problemes.keySet();
         Iterator iterkeys = setkeys.iterator();
         while (iterkeys.hasNext()) {
             String fenp = (String) iterkeys.next();
             Problema prob = Problemes.get(fenp);
-            String s = "";
-            s += prob.getFEN(); s += " ";
-            s += prob.getTema(); s += " ";
-            s += prob.getDificultat();
-            dades.add(s);
+            Vector <String> pr = new Vector<>();
+
+            pr.add(0,prob.getFEN());
+            pr.add(1,prob.getTema());
+            pr.add(2,prob.getDificultat());
+            dades.add(pr);
         }
         return dades;
     }
@@ -116,7 +117,6 @@ public class CtrlDominiMantProblema {
             return false;
         }
         else {
-            System.out.println("Compleix les normes" + "\n");
             Pair<Integer, Boolean> tornMat= prob.getTornMat();
             Partida sim = new Partida(prob, new Simple(1), new Simple(2));
             Integer tornsRestants = (tornMat.getKey()*2) -1;
