@@ -49,14 +49,19 @@ public class Partida {
             while (!LegalMoves) {
                 LegalMoves = true;
                 Pair<Pair<Integer,Integer>, Pair<Integer, Integer> > mov = Blanques.moureFitxa(this, true, tRestants);
+                if (mov != null) {
+                    state = getState(mov);
 
-                // MIRA SI NO MOU PECA DE LALTRE EQUIP
-                state = getState(mov);
-                if (!state.isEmpty()){
-                    System.out.println(state);
-                    LegalMoves = false;
+                    if (!state.isEmpty()) {
+                        System.out.println(state);
+                        LegalMoves = false;
+                        if (state.equals("ERROR mov valor null")) LegalMoves = true;
+                    }
+                    if (LegalMoves) System.out.println("El moviment Fet és: " + mov);
+                } else {
+                    System.out.println("Empat - No es pot fer cap moviment");
+                    Guanyador = !QuiHaDeGuanyar;
                 }
-                if (LegalMoves) System.out.println("El moviment Fet és: "+mov);
             }
             ++Torn;
 
@@ -74,17 +79,19 @@ public class Partida {
             while (!LegalMoves) {
                 LegalMoves = true;
                 Pair< Pair<Integer, Integer>, Pair<Integer, Integer> > mov = Negres.moureFitxa(this, false,tRestants);
+                if (mov != null) {
+                    state = getState(mov);
 
-                // MIRA SI NO MOU PECA DE LALTRE EQUIP
-                state = getState(mov);
-
-                if (!state.isEmpty()) {
-                    System.out.println(state);
-                    LegalMoves = false;
-                    if(state.equals("ERROR mov valor null")) LegalMoves = true;
+                    if (!state.isEmpty()) {
+                        System.out.println(state);
+                        LegalMoves = false;
+                        if (state.equals("ERROR mov valor null")) LegalMoves = true;
+                    }
+                    if (LegalMoves) System.out.println("El moviment Fet és: " + mov);
+                } else {
+                    System.out.println("Empat - No es pot fer cap moviment");
+                    Guanyador = !QuiHaDeGuanyar;
                 }
-                if (LegalMoves) System.out.println("El moviment Fet és: "+mov);
-
             }
             ++Torn;
 

@@ -228,12 +228,11 @@ public class Taulell{
 
 
     public Peca findKing(boolean whatKing) {
-        for(int i=0; i < 8; ++i) {
-            for(int j=0; j<8; ++j) {
-                if (PosOcupada(i,j) && Board[i][j].getcolor() == whatKing && Board[i][j].getClass().getName().equals("domini.King")) {
-                    return new King(Board[i][j].getcolor(), new Pair<>(i,j), this);
-                }
-            }
+        if (!whatKing) {
+            for (int i=0; i< Peces_Negres.size(); ++i) if (Peces_Negres.get(i).getClass().getName().equals("domini.King")) return Peces_Negres.get(i);
+        }
+        else {
+            for (int i=0; i< Peces_Blanques.size(); ++i) if (Peces_Blanques.get(i).getClass().getName().equals("domini.King")) return Peces_Blanques.get(i);
         }
         return null;
     }
@@ -248,6 +247,13 @@ public class Taulell{
             Taulell x = new Taulell(this);
             x.ferMoviment(aMvs_meu.getKey(), aMvs_meu.getValue());
             mvs_enemic = x.getMoves(!jugantCom);
+
+            /* todo OPTIMIZE
+            if (mvs_enemic.size() == 0) {
+
+            } else {
+
+            }*/
 
             boolean salvat = true;
             for (Pair<Pair<Integer, Integer>, Pair<Integer, Integer>> aMvs_enemic : mvs_enemic) {
@@ -299,7 +305,12 @@ public class Taulell{
                     for (int z = 0; z < 8; ++z) {
                         for (int w = 0; w < 8; ++w) {
                             if (p.espotmoure(new Pair<>(z, w))) { // if mov valid -> add a mvs
-                                mvs.add(new Pair<>(new Pair<>(i, j), new Pair<>(z, w)));
+                                Taulell aux = new Taulell(this);
+                                aux.ferMoviment(new Pair<>(i,j), new Pair<>(z,w));
+                                King k = (King) aux.findKing(jugantCom);
+                                if (aux.rei_segur(k.getposicioactual().getKey(), k.getposicioactual().getValue(),jugantCom)) {
+                                    mvs.add(new Pair<>(new Pair<>(i, j), new Pair<>(z, w)));
+                                }
                             }
                         }
                     }
@@ -308,7 +319,6 @@ public class Taulell{
         }
         return mvs;
     }
-
     // todo -> fix bugg
     /*
     public ArrayList<Pair<Pair<Integer, Integer>, Pair<Integer, Integer>>> getMoves(boolean jugantCom) {

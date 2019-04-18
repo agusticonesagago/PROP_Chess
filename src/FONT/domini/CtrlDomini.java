@@ -57,7 +57,7 @@ public class CtrlDomini {
     public String jugarPartida(String nom1, String nom2) {
         String guanyador;
         Pair<Integer, Boolean> tornMat= problema.getTornMat();
-        Integer tornsRestants = (tornMat.getKey()*2) -1;
+        Integer tornsRestants = tornMat.getKey();
         Boolean quiMou = tornMat.getValue();
         System.out.println("Comença la partida " + "\n");
         while (tornsRestants > 0) {
@@ -68,8 +68,8 @@ public class CtrlDomini {
             else System.out.println("Mouen Negres" + "\n");
 
             partida.jugarTorn(tornsRestants);
+            if (quiMou == tornMat.getValue()) tornsRestants--;
             quiMou = !quiMou;
-            tornsRestants--;
 
         }
         partida.getTaulell().PrintBoard();
