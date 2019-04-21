@@ -2,6 +2,7 @@ package domini;
 
 import javafx.util.Pair;
 
+import javax.sound.midi.MidiChannel;
 import java.nio.file.AtomicMoveNotSupportedException;
 import java.util.ArrayList;
 
@@ -24,14 +25,7 @@ public class SingletonAlgorismes {
         for (int i = 0; i < 8; ++i) {
             for (int j = 0; j < 8; ++j) {
                 if (t.PosOcupada(i, j) && t.getBoard()[i][j].getcolor() == jugantCom) { // if pos ocupada i es una peca meva
-                    ArrayList<Pair<Integer, Integer>> movs = new ArrayList<>();
-                    for (int z = 0; z < 8; ++z) {
-                        for (int w = 0; w < 8; ++w) {
-                            if (t.getBoard()[i][j].espotmoure(new Pair<>(z, w))) {
-                                movs.add(new Pair<>(z, w));
-                            }
-                        }
-                    }
+                    ArrayList<Pair<Integer, Integer>> movs = t.getBoard()[i][j].posicionsposible();
 
                     for (int z = 0; z < movs.size(); ++z) {
                         // TODO  nova forma de copiar
@@ -50,10 +44,10 @@ public class SingletonAlgorismes {
         Pair<Pair<Integer, Integer>, Pair<Integer, Integer>> millorMoviment = null;
         int evalMax;
         if (Moviments.size() > 0) {
-            evalMax = evaluataullel(posiblesTaulells.get(0), !jugantCom, -1000000, 1000000, torns);
+            evalMax = evaluataullel(posiblesTaulells.get(0), !jugantCom, ptd.getQuiJuga(),-1000000, 1000000, torns-1);
             millorMoviment = Moviments.get(0);
             for (int i = 1; i < posiblesTaulells.size(); ++i) {
-                int aux = evaluataullel(posiblesTaulells.get(i), !jugantCom, -1000000, 1000000, torns);
+                int aux = evaluataullel(posiblesTaulells.get(i), !jugantCom, ptd.getQuiJuga(), -1000000, 1000000, torns-1);
                 if (jugantCom) {
                     if (aux > evalMax) {
                         evalMax = aux;
@@ -71,7 +65,7 @@ public class SingletonAlgorismes {
     }
 
 
-    public int evaluataullel(Taulell taulell, boolean jugantCom,int alpha, int beta,  int torns) {
+    public int evaluataullel(Taulell taulell, boolean jugantCom, boolean QuiMou, int alpha, int beta,  int torns) {
 
         if (torns == 0) {
             /* Cas Basic, en aquest cas evaluem el taullel segons l'assignació de valors esmentada en el document respectiu
@@ -82,15 +76,19 @@ public class SingletonAlgorismes {
                 else return 1000;
             }
 
-            if (taulell.findKing(!jugantCom)!= null && taulell.escac_mat(jugantCom)) {
-                if (jugantCom) {
-                    return -1000;
-                }
-                else {
-                    return +1000;
+            King k = (King) taulell.findKing(jugantCom);
+            if (k != null) {
+                boolean escacmat = taulell.escac_mat(jugantCom);
+                if (taulell.rei_segur(k.getposicioactual().getKey(), k.getposicioactual().getValue(), jugantCom) && escacmat) { // CAS EMPAT
+                    if (jugantCom) return 1000;
+                    else return -1000;
+                } else if (escacmat) { // VICTORIA
+                    if (jugantCom) return -1000;
+                    else return 1000;
+                } else { // STANDARD CASE
+                   return calculTaulell(taulell);
                 }
             }
-            return calculTaulell(taulell);
         }
 
 
@@ -115,7 +113,9 @@ public class SingletonAlgorismes {
 
                 aux = new Taulell(taulell);
                 aux.ferMoviment(posini, posfi);
-                int ev = evaluataullel(aux, false, nAlpha, beta, torns - 1);
+                int ev;
+                if (QuiMou) ev = evaluataullel(aux, false, QuiMou, nAlpha, beta, torns - 1);
+                else ev = evaluataullel(aux, false, QuiMou, nAlpha, beta, torns);
 
                 if (ev > nAlpha) nAlpha = ev;
                 if (beta < nAlpha) break;
@@ -142,7 +142,9 @@ public class SingletonAlgorismes {
 
                 aux = new Taulell(taulell);
                 aux.ferMoviment(posini, posfi);
-                int ev = evaluataullel(aux, true, alpha, nBeta, torns - 1);
+                int ev;
+                if (!QuiMou) ev = evaluataullel(aux,true, QuiMou, alpha, nBeta, torns-1);
+                else ev = evaluataullel(aux, true, QuiMou, alpha, nBeta, torns);
 
                 if (ev < nBeta) nBeta = ev;
                 if (nBeta < alpha) break;

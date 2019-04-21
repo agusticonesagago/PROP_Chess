@@ -237,7 +237,14 @@ public class Taulell{
         return null;
     }
 
+    public boolean escac_mat(boolean jugantCom) {
+        ArrayList<Pair<Pair<Integer, Integer>, Pair<Integer, Integer>>> mvs_meu;
+        mvs_meu = this.getMoves(jugantCom);
+        if (mvs_meu.size() == 0) return true;
+        else return false;
+    }
 
+/*
     public boolean escac_mat(boolean jugantCom) {
         ArrayList<Pair<Pair<Integer, Integer>, Pair<Integer, Integer>>> mvs_meu;
         ArrayList<Pair<Pair<Integer, Integer>, Pair<Integer, Integer>>> mvs_enemic;
@@ -248,12 +255,7 @@ public class Taulell{
             x.ferMoviment(aMvs_meu.getKey(), aMvs_meu.getValue());
             mvs_enemic = x.getMoves(!jugantCom);
 
-            /* todo OPTIMIZE
-            if (mvs_enemic.size() == 0) {
 
-            } else {
-
-            }*/
 
             boolean salvat = true;
             for (Pair<Pair<Integer, Integer>, Pair<Integer, Integer>> aMvs_enemic : mvs_enemic) {
@@ -269,9 +271,15 @@ public class Taulell{
         }
         return escacmat;
     }
+ */
+
+
 
 
     public boolean  rei_segur(int i, int j,boolean jugantCom) {
+        /*
+        * Aquesta funció determina si la posicio [i,j] es segura per al jugador  [jugantCom]
+        * */
         if (jugantCom) {
             boolean moviment_segur = true;
             for (Peca Pec_negra : Peces_Negres) {

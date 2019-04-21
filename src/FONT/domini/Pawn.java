@@ -70,25 +70,25 @@ public class Pawn extends Peca {
         if(espotmoure(new Pair<>(ic-1,jc-1))){
             posposibles.add(new Pair<>(ic-1,jc-1));
         }
-        else if(espotmoure(new Pair<>(ic-2,jc))){
+        if(espotmoure(new Pair<>(ic-2,jc))){
             posposibles.add(new Pair<>(ic-2,jc));
         }
-        else if(espotmoure(new Pair<>(ic-1,jc))){
+        if(espotmoure(new Pair<>(ic-1,jc))){
             posposibles.add(new Pair<>(ic-1,jc));
         }
-        else if(espotmoure(new Pair<>(ic-1,jc-1))){
+        if(espotmoure(new Pair<>(ic-1,jc-1))){
             posposibles.add(new Pair<>(ic-1,jc-1));
         }
-        else if(espotmoure(new Pair<>(ic+1,jc-1))){
+        if(espotmoure(new Pair<>(ic+1,jc-1))){
             posposibles.add(new Pair<>(ic+1,jc-1));
         }
-        else if(espotmoure(new Pair<>(ic+1,jc))){
+        if(espotmoure(new Pair<>(ic+1,jc))){
             posposibles.add(new Pair<>(ic+1,jc));
         }
-        else if(espotmoure(new Pair<>(ic+1,jc+1))){
+        if(espotmoure(new Pair<>(ic+1,jc+1))){
             posposibles.add(new Pair<>(ic+1,jc+1));
         }
-        else if(espotmoure(new Pair<>(ic+2,jc))){
+        if(espotmoure(new Pair<>(ic+2,jc))){
             posposibles.add(new Pair<>(ic+2,jc));
         }
 

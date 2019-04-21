@@ -1,6 +1,8 @@
 package domini;
 
 import javafx.util.Pair;
+
+import java.util.Timer;
 import java.util.Vector;
 
 
@@ -60,6 +62,8 @@ public class CtrlDomini {
         Integer tornsRestants = tornMat.getKey();
         Boolean quiMou = tornMat.getValue();
         System.out.println("Comença la partida " + "\n");
+        float tBlanquesM = 0;
+        float tNegresM = 0;
         while (tornsRestants > 0) {
             partida.getTaulell().PrintBoard();
             System.out.println (partida.getTaulell().PrintFEN() + "\n");
@@ -67,11 +71,19 @@ public class CtrlDomini {
             if (quiMou) System.out.println("Mouen Blanques" + "\n");
             else System.out.println("Mouen Negres" + "\n");
 
+            long startTurn = System.currentTimeMillis(); // Temps abans de moure peça
             partida.jugarTorn(tornsRestants);
+            long endTurn = System.currentTimeMillis(); // Temps despres de moure peça
+            if (quiMou) tBlanquesM += (endTurn - startTurn)/1000;
+            else tNegresM += (endTurn -startTurn)/1000;
+
             if (quiMou == tornMat.getValue()) tornsRestants--;
             quiMou = !quiMou;
 
         }
+        System.out.println("Els temps son: ");
+        System.out.println("Blanques: "+ tBlanquesM);
+        System.out.println("Negres  : "+ tNegresM);
         partida.getTaulell().PrintBoard();
         System.out.println (partida.getTaulell().PrintFEN() + "\n");
         if (tornMat.getValue()){
@@ -81,7 +93,7 @@ public class CtrlDomini {
                     Vector<String> dades = new Vector<>();
                     dades.add(0, nom1);
                     dades.add(1, problema.getFEN());
-                    dades.add(2, "60");
+                    dades.add(2, String.valueOf(tBlanquesM));
                     CDMr.altaRanking(nom1,dades);
                 }
             }
