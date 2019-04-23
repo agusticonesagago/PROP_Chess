@@ -1,11 +1,11 @@
 package domini;
 
 public class Ranking {
-    Integer temps;
+    Float temps;
     String jugador;
     String problema;
 
-    public Ranking (Integer t, String nomP, String nomJ) {
+    public Ranking (Float t, String nomP, String nomJ) {
         temps = t;
         jugador = nomJ;
         problema = nomP;
@@ -23,7 +23,7 @@ public class Ranking {
 
     /* GETTERS */
 
-    public Integer getTemps(){
+    public Float getTemps(){
         return temps;
     }
 
@@ -37,7 +37,7 @@ public class Ranking {
 
     /* SETTERS */
 
-    public void setTemps(Integer param) {
+    public void setTemps(Float param) {
         temps = param;
     }
 

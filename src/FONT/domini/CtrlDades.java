@@ -34,13 +34,13 @@ public class CtrlDades {
         return null;
     }
 
-    public void afegeixRanking(String nomj, String nomp, Integer temps) {
+    public void afegeixRanking(String nomj, String nomp, Float temps) {
     }
 
-    public void eliminaRanking(String nomj, String nomp, Integer temps) {
+    public void eliminaRanking(String nomj, String nomp, Float temps) {
     }
 
-    public void modificaRanking(String nomj, String nomp, Integer temps) {
+    public void modificaRanking(String nomj, String nomp, Float temps) {
     }
 
     public boolean cercaRanking(String nomj) {

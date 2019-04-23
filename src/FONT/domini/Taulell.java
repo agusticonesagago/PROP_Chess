@@ -135,18 +135,26 @@ public class Taulell{
     }
 
     public void PrintBoard () {
+
+        for(int i = 0; i < 8; ++i){
+            if(i==0) System.out.print("   "+i+"  ");
+            else System.out.print(i+"  ");
+        }
+        System.out.print('\n');
         for(int i=0; i < 8; ++i ){
+            System.out.print(i+" ");
             for (int j = 0; j < 8; ++j) {
+                //if(i==0) System.out.print(j+" ");
                 if (Board[i][j] != null){
                     String name = Board[i][j].getClass().getName();
                     int until = name.indexOf(".");
                     name = name.substring(until+1);
                     if (name.equals("Knight")) name = "N";
                     if (Board[i][j].getcolor()) { // White Capital letters
-                        System.out.print(name.toUpperCase().charAt(0)+ " ");
+                        System.out.print(" " + name.toUpperCase().charAt(0)+ " ");
                     }
                     else {
-                        System.out.print(name.toLowerCase().charAt(0)+" ");
+                        System.out.print(" " +name.toLowerCase().charAt(0)+" ");
                     }
                 }
                 else System.out.print(" - ");

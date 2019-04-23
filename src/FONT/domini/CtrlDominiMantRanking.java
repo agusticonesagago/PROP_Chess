@@ -42,7 +42,7 @@ public class CtrlDominiMantRanking {
         if(Rankings.containsKey(nomj)) {
             Ranking newr = new Ranking();
             String nomp = dades.get(1);
-            Integer temps = new Integer(dades.get(2));
+            Float temps = new Float(dades.get(2));
             newr.setJugador(nomj);
             newr.setProblema(nomp);
             newr.setTemps(temps);
@@ -67,7 +67,7 @@ public class CtrlDominiMantRanking {
         else {
             Ranking newr = new Ranking();
             String nomp = dades.get(1);
-            Integer temps = new Integer(dades.get(2));
+            Float temps = new Float(dades.get(2));
             newr.setJugador(nomj);
             newr.setProblema(nomp);
             newr.setTemps(temps);
@@ -84,7 +84,7 @@ public class CtrlDominiMantRanking {
         else {
             Ranking newr = new Ranking();
             String nomp = dades.get(1);
-            Integer temps = new Integer(dades.get(2));
+            Float temps = new Float(dades.get(2));
             newr.setJugador(nomj);
             newr.setProblema(nomp);
             newr.setTemps(temps);
