@@ -1,38 +1,57 @@
 package test;
 
-import domini.CtrlDomini;
-import domini.CtrlDominiMantRanking;
+import domini.*;
+import javafx.util.Pair;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Scanner;
 import java.util.Vector;
 
 public class DriverCtrlDomini {
-    public static void main (String[] args) {
+    public static void main (String[] args) throws IOException {
+        /*
         CtrlDomini CD  = new CtrlDomini();
+
+        String path = "C:\\Users\\PcCom\\Desktop\\Grau Informatica\\3r any\\Projectes de Programació\\PROP-Chess\\src\\FONT\\test\\OutputDriverCtrlDomini";
+        FileWriter write = new FileWriter( path, true);
+        PrintWriter print_line = new PrintWriter( write );
+
+        File file = new File("C:\\Users\\PcCom\\Desktop\\Grau Informatica\\3r any\\Projectes de Programació\\PROP-Chess\\src\\FONT\\test\\InputDriverCtrlDomini");
+        Scanner sc = new Scanner(file);
+
         String guanyador;
-        String nom1 = "Agusti";
-        String nom2 = "Enric";
+        String nom1 = sc.nextLine();
+        String nom2 = sc.nextLine();
 
-        //l'algorisme no funciona(crea situacio d'empat): "5Br1/5PP1/5KBk/8/8/8/8/8 w - - 0 1"; "Blanques fan mat en 2"
-        //l'algorisme funciona: "4k3/3ppp2/8/8/7Q/8/8/2K5 w - - 0 1"; "Blanques fan mat en 1"
-        //l'algorisme funciona: "4k3/1R6/R7/8/8/8/8/2K5 w - - 0 1"; "Blanques fan mat en 1"
-        //l'algorisme no funciona(crea situacio d'empat): "3k4/8/8/8/8/1r6/6r1/7K b - - 0 1";
-
-        String fen = "r2k4/8/8/8/8/8/1r6/7K b - - 0 1";
-        String tema = "Negres fan mat en 1";
-        String dificultat = "facil";
+        String fen = sc.nextLine();
+        String tema = sc.nextLine();
+        String dificultat = sc.nextLine();
         Vector<String> problema = new Vector<>();
         problema.add(0,fen);
         problema.add(1,tema);
         problema.add(2,dificultat);
-        System.out.println("Configurem la partida" + "\n");
+
+        System.out.println("Configurem la partida M1 vs M1" + "\n");
         CD.configurarPartida(problema, "Maquina1", "Maquina1");
         guanyador = CD.jugarPartida(nom1, nom2);
-        System.out.println("El guanyador son les " + guanyador + "\n");
+        print_line.printf("El guanyador son les " + guanyador + "%n");
 
-        CtrlDominiMantRanking cdmr= CD.getCDMr();
-        Vector<String> llista = cdmr.consultaRankings();
-        for (int i = 0; i < llista.size(); ++i) {
-            System.out.println(llista.get(i) + "\n");
-        }
+
+        System.out.println("Configurem la partida H vs M1" + "\n");
+        CD.configurarPartida(problema, "HumaStub", "Maquina1");
+        guanyador = CD.jugarPartida(nom1, nom2);
+        print_line.printf("El guanyador son les " + guanyador + "%n");
+
+        System.out.println("Configurem la partida H vs H" + "\n");
+        CD.configurarPartida(problema, "Maquina1", "Maquina1");
+        guanyador = CD.jugarPartida(nom1, nom2);
+        print_line.printf("El guanyador son les " + guanyador + "%n");
+
+        print_line.close();
+        */
     }
+
 }
