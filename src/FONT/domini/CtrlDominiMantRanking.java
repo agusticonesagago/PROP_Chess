@@ -62,7 +62,7 @@ public class CtrlDominiMantRanking {
         int cas = existeixRankings(nomj, dades);
         if (cas == 3)
             return 1;
-        if (nomj != (dades.get(0)))
+        if (!nomj.equals(dades.get(0)))
             return 2;
         else {
             Ranking newr = new Ranking();

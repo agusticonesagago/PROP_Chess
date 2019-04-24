@@ -1,6 +1,8 @@
 package domini;
 
 import javafx.util.Pair;
+
+import javax.swing.plaf.synth.SynthEditorPaneUI;
 import java.util.ArrayList;
 
 public class Taulell{
@@ -299,7 +301,6 @@ public class Taulell{
         } else {
             boolean moviment_segur = true;
             for (Peca Pec_blanc: Peces_Blanques) {
-
                 if (Pec_blanc.espotmoure(new Pair<>(i, j))) {
                     moviment_segur = false;
                 }
@@ -311,7 +312,7 @@ public class Taulell{
 
 
     // TODO MODIFICAR
-
+/*
     public ArrayList<Pair<Pair<Integer, Integer>, Pair<Integer, Integer>>> getMoves(boolean jugantCom ) {
         ArrayList<Pair<Pair<Integer, Integer>, Pair<Integer, Integer>>> mvs = new ArrayList<>();
         for (int i = 0; i < 8; ++i) {
@@ -335,36 +336,43 @@ public class Taulell{
         }
         return mvs;
     }
+*/
     // todo -> fix bugg
-    /*
+
     public ArrayList<Pair<Pair<Integer, Integer>, Pair<Integer, Integer>>> getMoves(boolean jugantCom) {
-        ArrayList< Pair< Pair<Integer, Integer>, Pair<Integer, Integer> > > mvs = new ArrayList<>();
-        ArrayList< Pair<Integer, Integer> > aux = new ArrayList<>();
+        ArrayList<Pair<Pair<Integer, Integer>, Pair<Integer, Integer>>> mvs = new ArrayList<>();
+
         if (jugantCom) {
-            for (Peca pB: Peces_Blanques) {
-                    aux.clear();
-                    aux = pB.posicionsposible();
-                    for (int j = 0; j < aux.size(); ++j) {
-                        if (aux.get(j) != null) {
-                            mvs.add(new Pair<>(pB.getposicioactual(), aux.get(j)));
-                        }
+            for (Peca pB : Peces_Blanques) {
+                ArrayList<Pair<Integer, Integer>> auxB = pB.posicionsposible();
+                for (int j = 0; j < auxB.size(); ++j) {
+                    Taulell t_aux = new Taulell(this);
+                    Pair<Integer, Integer> pact = pB.getposicioactual();
+                    t_aux.ferMoviment(pact, auxB.get(j));
+                    King k = (King) t_aux.findKing(true);
+                    if (t_aux.rei_segur(k.getposicioactual().getKey(), k.getposicioactual().getValue(), true)) {
+                        mvs.add(new Pair<>(pact, auxB.get(j)));
                     }
+
+                }
+
             }
             return mvs;
         } else {
             for (Peca pN : Peces_Negres) {
-                    aux.clear();
-                    aux = pN.posicionsposible();
-                    for (int j = 0; j < aux.size(); ++j) {
-                        if (aux.get(j) != null) {
-                            mvs.add(new Pair<>(pN.getposicioactual(), aux.get(j)));
-                        }
+                ArrayList<Pair<Integer, Integer>> auxN = pN.posicionsposible();
+                for (int j = 0; j < auxN.size(); ++j) {
+                    Taulell t_aux = new Taulell(this);
+                    Pair<Integer, Integer> pact = pN.getposicioactual();
+                    t_aux.ferMoviment(pN.getposicioactual(), auxN.get(j));
+                    King k = (King) t_aux.findKing(false);
+                    if (t_aux.rei_segur(k.getposicioactual().getKey(), k.getposicioactual().getValue(), false)) {
+                        mvs.add(new Pair<>(pact, auxN.get(j)));
                     }
+                }
             }
             return mvs;
         }
     }
-    */
-
 
 }

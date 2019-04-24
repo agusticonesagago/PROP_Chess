@@ -25,7 +25,7 @@ public class SingletonAlgorismes {
         for (int i = 0; i < 8; ++i) {
             for (int j = 0; j < 8; ++j) {
                 if (t.PosOcupada(i, j) && t.getBoard()[i][j].getcolor() == jugantCom) { // if pos ocupada i es una peca meva
-                    ArrayList<Pair<Integer, Integer>> movs = t.getBoard()[i][j].posicionsposible();
+                    ArrayList<Pair<Integer, Integer>> movs =  t.getBoard()[i][j].posicionsposible();
 
                     for (int z = 0; z < movs.size(); ++z) {
                         // TODO  nova forma de copiar
@@ -44,10 +44,10 @@ public class SingletonAlgorismes {
         Pair<Pair<Integer, Integer>, Pair<Integer, Integer>> millorMoviment = null;
         int evalMax;
         if (Moviments.size() > 0) {
-            evalMax = evaluataullel(posiblesTaulells.get(0), !jugantCom, ptd.getQuiJuga(),-1000000, 1000000, torns-1);
+            evalMax = evaluataullel(posiblesTaulells.get(0), !jugantCom, jugantCom,-1000000, 1000000, torns-1);
             millorMoviment = Moviments.get(0);
             for (int i = 1; i < posiblesTaulells.size(); ++i) {
-                int aux = evaluataullel(posiblesTaulells.get(i), !jugantCom, ptd.getQuiJuga(), -1000000, 1000000, torns-1);
+                int aux = evaluataullel(posiblesTaulells.get(i), !jugantCom, jugantCom, -1000000, 1000000, torns-1);
                 if (jugantCom) {
                     if (aux > evalMax) {
                         evalMax = aux;
