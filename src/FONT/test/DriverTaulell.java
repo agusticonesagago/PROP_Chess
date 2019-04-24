@@ -16,7 +16,8 @@ public class DriverTaulell {
                 "3 Fer Moviment" +'\n' +
                 "4 Buscar al rei" +'\n' +
                 "5 Mirar si escac mat" +'\n' +
-                "6 Getter de moviments posibles");
+                "6 Mirar si rei segur " +'\n' +
+                "7 Getter de moviments posibles");
 
         Scanner entradadiagonal = new Scanner(System.in);
         Integer cas = Integer.valueOf(entradadiagonal.nextLine());
@@ -33,11 +34,26 @@ public class DriverTaulell {
             test_find_king();
         } else if (cas == 5) {
             test_check_mate();
-        } else if (cas == 6) {
+        } else if (cas == 6){
+            test_rei_segur();
+        } else if (cas == 7) {
             test_get_moves();
         }
     }
 
+
+    private static void test_rei_segur() {
+        System.out.println("Partim del seguent taulell:");
+        Taulell t = new Taulell("8/8/8/3K4/q7/8/8/2r1r3");
+        t.PrintBoard();
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Escull quina posicio vols saber si es segura per el rei blanc");
+        int i = scan.nextInt();
+        int j = scan.nextInt();
+
+        System.out.println("La posicio ["+i+","+j+"] es segura: "+t.rei_segur(i,j,true));
+
+    }
 
     private static void test_get_moves() {
         System.out.println("Cas de que no hi ha moviments posibles: ");
