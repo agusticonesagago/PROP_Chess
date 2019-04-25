@@ -1,0 +1,25 @@
+1
+1N1b4/6nr/R5n1/2Ppk2r/K2p2qR/8/2N1PQ2/B6B
+2
+0 0
+4 4
+7 3
+3
+rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR
+1 0
+5 5
+2 0
+3 0
+1 0
+2 0
+4
+3r4/pp3kpQ/5p1p/3q1b2/1B2N3/8/PP3PPP/4R1K1
+5
+R6k/R7/8/8/8/8/8/7K
+3K2r1/8/3k4/8/8/8/8/8
+rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR
+6
+k7/8/r7/4K3/8/8/8/7b
+3 4
+2 4
+-1

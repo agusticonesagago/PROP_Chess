@@ -1,0 +1,28 @@
+Les funcions que hem de testejar en aquesta classe són les següents:
+
+- Primer de tot comprovem que podem imprimir un taulell en format FEN i format Taulell (format 
+represntatiu d'un taulell).
+
+- Testejem si una posició del taulell està ocupada o no.
+    - Posició ocupada blanques
+    - Posició no ocupada
+    - Posició ocupada negres
+
+- Testejem si el taulell s'actualitza al fer moviment tal que:
+	- Si es vàlid -> Actualitza
+	- Si no es pot fer -> Mostri un missatge que ho indiqui
+	- Si no hi ha ningu -> Mostra un missathe indicant-ho.
+
+- Testejem si ens pot dir la posició dels reis en el taulell.
+    - Taulell ideal buscar al rei blanc i negre
+    - Taulell buit on ha de retornar null.
+
+- Testejem si ens pot dir si el taulell està en escac mat o no.
+    - Taulell escac mat de blanques a negres
+    - Taulell escac mat de negres a blanques
+    - Taulell sense escac mat per cap dels dos.
+
+
+- Testejem si el rei està segur en una posició en concret.
+    - Cas segur
+    - Cas no segur
