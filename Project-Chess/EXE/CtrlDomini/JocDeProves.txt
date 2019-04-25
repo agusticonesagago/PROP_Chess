@@ -1,14 +1,4 @@
-Objecte de la prova: Poder jugar partides
-
-Altres elemnts integrats a la prova: Totes les classes son necessaries
-
-Drivers: Utilitzarem el "DriverCtrlDomini"
-
-Stubs: Farem servir "StubHuma"
-
-Fitxer de dades necessaris: necessitarem els fitxers "DadesCtrl" i "DadesStubHuma"
-
-Valors estudiats: els valors són problems per veure que la maquina es capaç de guanyar partides
-
-Operativa: Donat un problema i els moviments dels humans el driver jugara una partida M1 vs M1,
-una partida H vs M1 i una partida H vs H.
+Aquest joc de probes esta pensat per a probar que es poden jugar partides M1 vs M1, M1 vs H, H vs M1, H vs H el driver
+llegira del fitxer "DadesCtrl" el problema per a jugar, i executara 2 partides: M1 vs M1, M1 vs H. Ja que el cas de H vs H
+podriem donar per bo si el cas de H vs M1 es correcte (ja que amb aquest ja comprobem que es puguin entrar be les dades
+de moviment huma). El Huma llegira els moviments a fer de fitxer "DadesStubHuma".

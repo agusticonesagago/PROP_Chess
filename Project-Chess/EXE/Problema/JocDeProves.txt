@@ -1,14 +1,3 @@
-Objecte de la prova: El correcte funcionament de la funció per detectar qui ha de guanyar i en quants torns.
-
-Altres elemnts integrats a la prova: Cap.
-
-Drivers: Utilitzem "DriverProblema"
-
-Stubs: Cap.
-
-Fitxer de dades necessaris: El fitxer és diu "Dades" i es trobem tots el parametres necessaris
-
-Valors estudiats: El valor important és el tema que és la segona linia.
-
-Operativa: El driver a de mostrar ha de mostrar que el guanyador i els torns necessaris per a fer mat
-concorden amb el tema del problema.,
+Aquest joc de probes cosnsisteix en assegurar que la funcio per veure qui ha de guanyar i en quans torns funciona be.
+El driver llegira del fitxer "Dades" un problema (tres linies representant cada atribut) i imprimira qui ha de guanyar i
+en quants torns, i el resultat ha de concordar amb el atribut tema del problema.

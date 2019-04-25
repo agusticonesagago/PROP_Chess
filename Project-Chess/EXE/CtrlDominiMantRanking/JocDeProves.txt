@@ -1,17 +1,11 @@
-Objecte de la prova: Donar d'alta una instancia de ranking, eliminar i consultar instancies de ranking existents.
-
-Altres elemnts integrats a la prova: Les classes Ranking i CtrlDades.
-
-Drivers: Utilitzem el driver "DriverCDMR" per a comprobar el bon funcionaments de la classe.
-
-Stubs: No he utilitzat.
-
-Fitxer de dades necessaris: El fitxer és diu "Dades" i es trobem tots el parametres necessaris.
-
-Valors estudiats: Cada tres linies tenim les dades necessaries per donar d'alta una nova instancia de ranking. 
-
-Operativa: El driver consisteix en:
-- Donar d'alta instancies de ranking valides, instancies de ranking amb dades incorrectes,
-instancies de ranking ja existents que no milloren el temps, instancies de ranking ja existents que milloren el temps enregistrat. 
-- Comprobar que les instancies de ranking donades d'alta apareixen per consultar.
-- Donar de baixa instancies de ranking existents i no existens.
+Aquest joc de probes esta pensat per a probar que es poden crear noves instancies de ranking, eliminar i consultar les
+instancies de ranking existents. El driver llegira del fitxer "Dades" 12 files (cada 3 files representen les dades d'una
+instancia de ranking). Una vegada llegides del dades el driver executara 5 cops la funcio per crear noves instancies de
+ranking on esperarem que es donguin 4 cassos diferents: la instancia de ranking es crea sense problema, la instancia de
+ranking ja existeix, el identificador no es correspon amb les dades passades i la instancia de ranking reduix el temps
+enregistrat per resoldre un problema. Despres d'executar dues creadores d'instancies(sense cap problema), comprobem que
+han quedat guardades. Tot seguit introduirem dues intancies: una que millora el temps i una altre que empitjora els
+temps de les instancies guardades. Despres intentarem introduir instancies dolentes: una instancia ja existent i una
+instancia on l'identificador no concorda amb les dades. I tornem a imprimir les instancies guardades per veure que
+funcionen be. Per ultim comprobarem que la funcio d'esborrat funciona be fent: una invocacio correcte i una altre
+invocacio sobre una instancia que no existeix i ho comprobarem imprimint per pantalla totes les instancies guardades.
