@@ -11,12 +11,11 @@ public class StubHuma extends  Huma {
     public StubHuma (Integer id) {
         super(id);
     }
-    /*
     @Override
     public Pair<Pair<Integer, Integer>, Pair<Integer, Integer>> moureFitxa(Partida ptd, boolean jugantCom, int torns) {
         //llegir de teclat
         //System.out.println ("Introduiex la posicio de la peca a moure" + "\n");
-        File file = new File("C:\\Users\\PcCom\\Desktop\\Grau Informatica\\3r any\\Projectes de Programació\\PROP-Chess\\src\\FONT\\test\\InputHuma");
+        File file = new File("./Project-Chess/EXE/CtrlDomini/DadesStubHuma.txt");
         Scanner sc = null;
         try {
             sc = new Scanner(file);
@@ -33,5 +32,4 @@ public class StubHuma extends  Huma {
         return new Pair<>(posPeca, posMov);
         //return null;
     }
-    */
 }

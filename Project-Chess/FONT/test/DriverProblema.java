@@ -11,14 +11,13 @@ import java.util.Scanner;
 
 public class DriverProblema {
     public static void main (String[] args) throws IOException {
-        /*
         System.out.println("Test de la classe Problema" + "\n");
 
-        String path = "C:\\Users\\PcCom\\Desktop\\Grau Informatica\\3r any\\Projectes de Programació\\PROP-Chess\\src\\FONT\\test\\OutputDriverProblema";
-        FileWriter write = new FileWriter( path, true);
+        String path = "./Project-Chess/EXE/Problema/output-prob.txt";
+        FileWriter write = new FileWriter( path, false);
         PrintWriter print_line = new PrintWriter( write );
 
-        File file = new File("C:\\Users\\PcCom\\Desktop\\Grau Informatica\\3r any\\Projectes de Programació\\PROP-Chess\\src\\FONT\\test\\InputDriverProblema");
+        File file = new File("./Project-Chess/EXE/Problema/Dades.txt");
         Scanner sc = new Scanner(file);
 
         //Problema a crear
@@ -36,6 +35,5 @@ public class DriverProblema {
         print_line.printf("Torns per a fer mat: " + torn + "%n");
         print_line.printf("Jugador que pot fer mat: " + jugador + "%n");
         print_line.close();
-        */
     }
 }

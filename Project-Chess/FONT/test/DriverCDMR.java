@@ -18,10 +18,10 @@ public class DriverCDMR {
         System.out.println("Test de la funcio creadora de instancies de ranking" + "\n");
 
         String path = "./Project-Chess/EXE/CtrlDominiMantRanking/output-cdmr.txt";
-        output = new FileWriter( path, true);
+        output = new FileWriter( path, false);
         print_line = new PrintWriter( output );
 
-        File file = new File("./Project-Chess/EXE/CtrlDominiMantProblema/Dades.txt");
+        File file = new File("./Project-Chess/EXE/CtrlDominiMantRanking/Dades.txt");
         Scanner sc = new Scanner(file);
 
         String nomj1 = sc.nextLine();

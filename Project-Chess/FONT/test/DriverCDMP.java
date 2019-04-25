@@ -17,10 +17,10 @@ public class DriverCDMP {
     public static void main (String[] args) throws IOException {
 
         String path = "./Project-Chess/EXE/CtrlDominiMantProblema/output-cdmp.txt";
-        output = new FileWriter( path, true);
+        output = new FileWriter( path, false);
         print_line = new PrintWriter( output );
 
-        File file = new File("./Project-Chess/EXE/CtrlDominiMantProblema/dades.txt");
+        File file = new File("./Project-Chess/EXE/CtrlDominiMantProblema/Dades.txt");
         sc = new Scanner(file);
         String fen1 = sc.nextLine();
         String tema1 = sc.nextLine();
