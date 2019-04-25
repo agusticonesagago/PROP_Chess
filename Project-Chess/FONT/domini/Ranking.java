@@ -18,7 +18,7 @@ public class Ranking {
 
 
     public boolean equals(Ranking obj) {
-        if (obj.getJugador() == jugador && obj.getProblema() == problema) return true;
+        if (obj.getJugador().equals(jugador) && obj.getProblema().equals(problema)) return true;
         else return false;
     }
 

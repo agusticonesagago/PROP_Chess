@@ -1,4 +1,5 @@
 package domini;
+
 import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeMap;
@@ -78,6 +79,7 @@ public class CtrlDominiMantRanking {
 
     public int baixaRankings (String nomj, Vector<String> dades) {
         int cas = existeixRankings(nomj, dades);
+        int error;
         if (cas == 0 || cas == 1)
             return 1;
         else {
@@ -87,10 +89,10 @@ public class CtrlDominiMantRanking {
             newr.setJugador(nomj);
             newr.setProblema(nomp);
             newr.setTemps(temps);
-            esborraRanking(newr);
+            error = esborraRanking(newr);
             ctrlD.eliminaRanking(nomj, nomp, temps);
         }
-        return 0;
+        return error;
     }
 
     private int miraSiHiEs (Ranking ra, Vector<Ranking> ras) {
@@ -118,10 +120,16 @@ public class CtrlDominiMantRanking {
         }
     }
 
-    private void esborraRanking(Ranking ra) {
+    private Integer esborraRanking(Ranking ra) {
         Vector <Ranking> ranks = Rankings.get(ra.getJugador());
-        int on = miraSiHiEs(ra, ranks);
-        ranks.remove(on);
-        if (ranks.size() == 0) Rankings.remove(ra.getJugador());
+        if(miraSiHiEs(ra, ranks) != -1) {
+            int on = miraSiHiEs(ra, ranks);
+            if (Float.compare(ra.getTemps(), ranks.get(on).getTemps()) == 0) {
+                ranks.remove(on);
+                if (ranks.size() == 0) Rankings.remove(ra.getJugador());
+                return 0;
+            }
+        }
+        return 1;
     }
 }

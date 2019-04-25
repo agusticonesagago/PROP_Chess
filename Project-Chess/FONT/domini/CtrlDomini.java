@@ -1,7 +1,7 @@
 package domini;
 
 import javafx.util.Pair;
-
+import test.StubHuma;
 import java.util.Timer;
 import java.util.Vector;
 
