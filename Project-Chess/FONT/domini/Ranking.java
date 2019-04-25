@@ -1,5 +1,6 @@
 package domini;
 
+
 public class Ranking {
     Float temps;
     String jugador;

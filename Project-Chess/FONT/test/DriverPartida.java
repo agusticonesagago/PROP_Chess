@@ -1,7 +1,7 @@
 package test;
 
-
 import domini.*;
+import javafx.util.Pair;
 
 public class DriverPartida {
 
@@ -16,10 +16,10 @@ public class DriverPartida {
         Partida t2 = new Partida(new StubProblem("","rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w - - 0 1"), new StubJugador(1), new StubJugador(2));
         t2.getTaulell().PrintBoard();
         System.out.println("\n");
-        t2.jugarTorn(1);
+        t2.jugarTorn(/*new Pair<>(new Pair<>(6,0), new Pair<>(5,0))*/1);
         t2.getTaulell().PrintBoard();
         System.out.println("\n");
-        t2.jugarTorn(1);
+        t2.jugarTorn(/*new Pair<>(new Pair<>(1,0), new Pair<>(2,0))*/1);
         t2.getTaulell().PrintBoard();
 
     }

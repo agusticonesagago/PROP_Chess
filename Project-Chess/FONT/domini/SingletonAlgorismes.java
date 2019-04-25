@@ -2,8 +2,7 @@ package domini;
 
 import javafx.util.Pair;
 
-import javax.sound.midi.MidiChannel;
-import java.nio.file.AtomicMoveNotSupportedException;
+
 import java.util.ArrayList;
 
 public class SingletonAlgorismes {
@@ -52,11 +51,14 @@ public class SingletonAlgorismes {
                     if (aux > evalMax) {
                         evalMax = aux;
                         millorMoviment = Moviments.get(i);
+                        if (evalMax == 1000) break;
+
                     }
                 } else {
                     if (aux < evalMax) {
                         evalMax = aux;
                         millorMoviment = Moviments.get(i);
+                        if (evalMax == -1000) break;
                     }
                 }
             }
@@ -117,6 +119,7 @@ public class SingletonAlgorismes {
                 if (QuiMou) ev = evaluataullel(aux, false, QuiMou, nAlpha, beta, torns - 1);
                 else ev = evaluataullel(aux, false, QuiMou, nAlpha, beta, torns);
 
+
                 if (ev > nAlpha) nAlpha = ev;
                 if (beta < nAlpha) break;
             }
@@ -145,7 +148,7 @@ public class SingletonAlgorismes {
                 int ev;
                 if (!QuiMou) ev = evaluataullel(aux,true, QuiMou, alpha, nBeta, torns-1);
                 else ev = evaluataullel(aux, true, QuiMou, alpha, nBeta, torns);
-
+                if (torns == 2) System.out.println(posini + " " + posfi+ " "+ev);
                 if (ev < nBeta) nBeta = ev;
                 if (nBeta < alpha) break;
             }
@@ -157,7 +160,7 @@ public class SingletonAlgorismes {
 
 
 
-    private int calculTaulell(Taulell taulell) {
+    public int calculTaulell(Taulell taulell) {
         int total = 0;
         for(int i=0; i < 8; ++i) {
             for(int j=0; j < 8; ++j) {

@@ -1,12 +1,13 @@
 package domini;
 
 import com.sun.org.apache.xpath.internal.operations.Bool;
+import domini.Taulell;
 import javafx.util.Pair;
 
 import java.util.ArrayList;
 
 public class Bishop extends Peca {
-  public Bishop(boolean color, Pair<Integer, Integer> posactual, Taulell t) {
+  public Bishop(boolean color, Pair<Integer, Integer> posactual, domini.Taulell t) {
     super(color, posactual, t);
   }
 

@@ -30,10 +30,10 @@ public class CtrlDomini {
         }
         else if (jugador1.equals("Maquina1")) {
             this.jugador1 = new Simple(1);
-        }
+        }/*
         else if (jugador1.equals("HumaStub")) {
             this.jugador1 = new StubHuma(1);
-        }
+        }*/
         /*
         else if (jugador1.equals("Maquina2")) {
             this.jugador1 = new complex(1);
@@ -44,10 +44,10 @@ public class CtrlDomini {
         }
         else if (jugador2.equals("Maquina1")) {
             this.jugador2 = new Simple(2);
-        }
+        }/*
         else if (jugador2.equals("HumaStub")) {
             this.jugador1 = new StubHuma(2);
-        }
+        }*/
         /*
         else if (jugador2.equals("Maquina2")) {
             this.jugador2 = new Complex(2);

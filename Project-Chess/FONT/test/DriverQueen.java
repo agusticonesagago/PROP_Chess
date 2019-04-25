@@ -1,5 +1,4 @@
 package test;
-
 import domini.Queen;
 import javafx.util.Pair;
 import java.util.Scanner;

@@ -1,4 +1,5 @@
 package domini;
+
 import javafx.util.Pair;
 
 import java.util.ArrayList;
@@ -76,8 +77,8 @@ public class Pawn extends Peca {
         if(espotmoure(new Pair<>(ic-1,jc))){
             posposibles.add(new Pair<>(ic-1,jc));
         }
-        if(espotmoure(new Pair<>(ic-1,jc-1))){
-            posposibles.add(new Pair<>(ic-1,jc-1));
+        if(espotmoure(new Pair<>(ic-1,jc+1))){
+            posposibles.add(new Pair<>(ic-1,jc+1));
         }
         if(espotmoure(new Pair<>(ic+1,jc-1))){
             posposibles.add(new Pair<>(ic+1,jc-1));

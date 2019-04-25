@@ -1,7 +1,6 @@
 package domini;
 
 
-
 import javafx.util.Pair;
 
 import javax.swing.text.StyledEditorKit;
@@ -152,5 +151,9 @@ public class Partida {
     public Jugador getBlanques () { return Blanques;}
 
     public  Jugador getNegres  () { return Negres;}
+
+    public void setProblem (Problema p) {
+        this.Problem = p;
+    }
 
 }

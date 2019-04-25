@@ -1,5 +1,4 @@
 package test;
-
 import domini.Problema;
 import javafx.util.Pair;
 

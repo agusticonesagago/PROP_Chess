@@ -2,7 +2,7 @@ package domini;
 
 import javafx.util.Pair;
 
-import javax.swing.plaf.synth.SynthEditorPaneUI;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public class Taulell{
@@ -146,7 +146,6 @@ public class Taulell{
         for(int i=0; i < 8; ++i ){
             System.out.print(i+" ");
             for (int j = 0; j < 8; ++j) {
-                //if(i==0) System.out.print(j+" ");
                 if (Board[i][j] != null){
                     String name = Board[i][j].getClass().getName();
                     int until = name.indexOf(".");
@@ -162,6 +161,35 @@ public class Taulell{
                 else System.out.print(" - ");
             }
             System.out.println(" ");
+        }
+    }
+
+
+    public void PrintBoard_toFile (PrintWriter pw) {
+
+        for(int i = 0; i < 8; ++i){
+            if(i==0) pw.print("   "+i+"  ");
+            else pw.print(i+"  ");
+        }
+        pw.print('\n');
+        for(int i=0; i < 8; ++i ){
+            pw.print(i+" ");
+            for (int j = 0; j < 8; ++j) {
+                if (Board[i][j] != null){
+                    String name = Board[i][j].getClass().getName();
+                    int until = name.indexOf(".");
+                    name = name.substring(until+1);
+                    if (name.equals("Knight")) name = "N";
+                    if (Board[i][j].getcolor()) { // White Capital letters
+                        pw.print(" " + name.toUpperCase().charAt(0)+ " ");
+                    }
+                    else {
+                        pw.print(" " +name.toLowerCase().charAt(0)+" ");
+                    }
+                }
+                else pw.print(" - ");
+            }
+            pw.println(" ");
         }
     }
 
@@ -187,7 +215,7 @@ public class Taulell{
         return res;
     }
 
-    public Peca[][] getBoard () {
+    public domini.Peca[][] getBoard () {
         return Board;
     }
 
@@ -366,7 +394,7 @@ public class Taulell{
                     Pair<Integer, Integer> pact = pN.getposicioactual();
                     t_aux.ferMoviment(pN.getposicioactual(), auxN.get(j));
                     King k = (King) t_aux.findKing(false);
-                    if (t_aux.rei_segur(k.getposicioactual().getKey(), k.getposicioactual().getValue(), false)) {
+                    if (k == null || t_aux.rei_segur(k.getposicioactual().getKey(), k.getposicioactual().getValue(), false)) {
                         mvs.add(new Pair<>(pact, auxN.get(j)));
                     }
                 }

@@ -1,5 +1,6 @@
 package test;
 
+
 import domini.King;
 import javafx.util.Pair;
 import java.util.Scanner;

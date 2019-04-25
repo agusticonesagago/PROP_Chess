@@ -1,6 +1,4 @@
 package domini;
-
-
 public class Tutorial extends Problema {
     private String Camp;
 
