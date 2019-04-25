@@ -1,0 +1,20 @@
+﻿En aquest joc de proves es testeja el correcte moviment del King.
+La entrada de codi és DadesKing, la sortida OutputKing i la sortida esperada està en el fitxer OutputKingcorrecte.
+Gràcies a això hem pogut veure el bon funcionament de la peça king, per posteriorment no tenir cap problema si la voliem posar en joc.
+En aquesta peça, només hem testejat el moviment de King de qualsevol color, ja que és indeferent. Degut a que es pot moure en totes direccions. Fins i tot, hem posat casos en el qual no 
+es mogui si la posició està en mat.
+
+Per la sortida, cada cop que estigui correcte, sortirà "Moviment correcte", previament a això et sortirà si és correcte perquè no es podia moure o perquè si es podia moure.
+Donada les dades introduïdes per txt, nosaltres hem introduit tots els possibles casos, aquests són: (Els poso per ordre en el que són testejats i surten en el output).
+
+1. El King si es pot moure endarrere.
+2. El King si es pot moure endavant.
+3. El King si es pot moure dreta.
+4. El King si es pot moure esquerra.
+5. El King si es pot moure en diagonal endavant dreta.
+6. El King si es pot moure en diagonal endarrere esquerra.
+7. El King si es pot moure en diagonal endavant esquerra
+8. El King si es pot moure en diagonal endarrere dreta.
+
+Gràcies a tots aquests testejos, hem pogut veure que la peça King funciona correctament, ja que hem fet tots els possibles moviments. En alguns d'ells els fem amb adversari, d'aquesta forma mirem
+si saber si és adversari o no, funciona bé.
