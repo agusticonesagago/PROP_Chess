@@ -339,7 +339,6 @@ public class Taulell{
 
 
 
-    // TODO MODIFICAR
 /*
     public ArrayList<Pair<Pair<Integer, Integer>, Pair<Integer, Integer>>> getMoves(boolean jugantCom ) {
         ArrayList<Pair<Pair<Integer, Integer>, Pair<Integer, Integer>>> mvs = new ArrayList<>();
@@ -365,7 +364,6 @@ public class Taulell{
         return mvs;
     }
 */
-    // todo -> fix bugg
 
     public ArrayList<Pair<Pair<Integer, Integer>, Pair<Integer, Integer>>> getMoves(boolean jugantCom) {
         ArrayList<Pair<Pair<Integer, Integer>, Pair<Integer, Integer>>> mvs = new ArrayList<>();

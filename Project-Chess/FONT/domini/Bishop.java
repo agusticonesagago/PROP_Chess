@@ -143,5 +143,3 @@ public class Bishop extends Peca {
     }
 }
 
-
-//TODO posiblespositions

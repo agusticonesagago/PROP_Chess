@@ -14,8 +14,10 @@ public class StubJugador extends Jugador {
     @Override
     public Pair<Pair<Integer, Integer>, Pair<Integer, Integer>> moureFitxa(Partida ptd, boolean jugantCom, int torn) {
         Taulell t = ptd.getTaulell();
-        if (this.getID() == 1) return new Pair<>(new Pair<>(6,0), new Pair<>(5,0));
-        else if (this.getID() == 2) return new Pair<>(new Pair<>(1,0), new Pair<>(2,0));
+        if (this.getID() == 1) {
+            return new Pair<>(new Pair<>(6,0), new Pair<>(5,0));
+        }
+        else if (this.getID() == 2) return null;
         return null;
     }
 }

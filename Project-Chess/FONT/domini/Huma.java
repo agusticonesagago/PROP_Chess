@@ -4,7 +4,6 @@ package domini;
 import javafx.util.Pair;
 import java.util.Scanner;
 
-// TODO -> Escac s'ha de trencar, + no puc moure rei a pos amb escac.
 
 public class Huma extends Jugador {
 

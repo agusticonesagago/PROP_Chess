@@ -4,6 +4,7 @@ package domini;
 import javafx.util.Pair;
 
 import javax.swing.text.StyledEditorKit;
+import java.io.PrintWriter;
 
 public class Partida {
     protected Boolean Guanyador;
@@ -104,7 +105,72 @@ public class Partida {
         }
     }
 
-    private String getState(Pair<Pair<Integer, Integer>, Pair<Integer, Integer>> mov) {
+    public void jugarTorn_toFile(int tRestants, PrintWriter print_line) {
+        String state;
+        if (QuiJuga) {          // Torn Blanques
+            boolean LegalMoves = false;
+            while (!LegalMoves) {
+                LegalMoves = true;
+                Pair<Pair<Integer,Integer>, Pair<Integer, Integer> > mov = Blanques.moureFitxa(this, true, tRestants);
+                if (mov != null) {
+                    state = getState(mov);
+
+                    if (!state.isEmpty()) {
+                        print_line.println(state);
+                        LegalMoves = false;
+                        if (state.equals("ERROR mov valor null")) LegalMoves = true;
+                    }
+                    if (LegalMoves) print_line.println("El moviment Fet és: " + mov);
+                } else {
+                    print_line.println("Empat - No es pot fer cap moviment");
+                    Guanyador = !QuiHaDeGuanyar;
+                }
+                break;
+            }
+            ++Torn;
+
+            if (Board.escac_mat(!QuiHaDeGuanyar) && Torn.equals(QuantTorn)) {
+                Guanyador = QuiHaDeGuanyar;
+            } else if (Torn.equals(QuantTorn)) {
+                Guanyador = !QuiHaDeGuanyar;
+            }
+
+
+            QuiJuga = !QuiJuga;// else -> Update QuiJuga
+        }
+        else {                  // torn negres
+            boolean LegalMoves = false;
+            while (!LegalMoves) {
+                LegalMoves = true;
+                Pair< Pair<Integer, Integer>, Pair<Integer, Integer> > mov = Negres.moureFitxa(this, false,tRestants);
+                if (mov != null) {
+                    state = getState(mov);
+
+                    if (!state.isEmpty()) {
+                        print_line.println(state);
+                        LegalMoves = false;
+                        if (state.equals("ERROR mov valor null")) LegalMoves = true;
+                    }
+                    if (LegalMoves) print_line.println("El moviment Fet és: " + mov);
+                } else {
+                    print_line.println("Empat - No es pot fer cap moviment");
+                    Guanyador = !QuiHaDeGuanyar;
+                }
+                break;
+            }
+            ++Torn;
+
+            if (Board.escac_mat(!QuiHaDeGuanyar) && Torn.equals(QuantTorn)) {
+                Guanyador = QuiHaDeGuanyar;
+            } else if (Torn.equals(QuantTorn)) {
+                Guanyador = !QuiHaDeGuanyar;
+            }
+
+            QuiJuga = !QuiJuga; // else -> Update QuiJuga
+        }
+    }
+
+    public String getState(Pair<Pair<Integer, Integer>, Pair<Integer, Integer>> mov) {
         String state;
         if (Board.getBoard()[mov.getKey().getKey()][mov.getKey().getValue()] == null ) return "No Existeix la Peca";
 

@@ -27,7 +27,6 @@ public class SingletonAlgorismes {
                     ArrayList<Pair<Integer, Integer>> movs =  t.getBoard()[i][j].posicionsposible();
 
                     for (int z = 0; z < movs.size(); ++z) {
-                        // TODO  nova forma de copiar
                         Taulell x = new Taulell(t);
                         x.ferMoviment(new Pair<>(i, j), movs.get(z));
                         King k = (King) x.findKing(jugantCom);
