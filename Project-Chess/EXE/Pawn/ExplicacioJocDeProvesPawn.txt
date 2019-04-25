@@ -1,0 +1,23 @@
+﻿En aquest joc de proves es testeja el correcte moviment del Pawn.
+La entrada de codi és DadesPawn, la sortida OutputPawn i la sortida esperada està en el fitxer OutputPawncorrecte.
+Gràcies a això hem pogut veure el bon funcionament de la peça Pawn, per posteriorment no tenir cap problema si la voliem posar en joc.
+En aquesta peça, hem testejat el moviment de Pawn dels dos colors, ja que és diferent les blanques i negres. Degut a que les blanques es poden només moure en una direcció i les negres en una altre(contrària a blanques).
+
+
+Per la sortida, cada cop que estigui correcte, sortirà "Moviment correcte", previament a això et sortirà si és correcte perquè no es podia moure o perquè si es podia moure.
+Donada les dades introduïdes per txt, nosaltres hem introduit tots els possibles casos, aquests són: (Els poso per ordre en el que són testejats i surten en el output).
+
+1. El Pawn blanc si es pot moure endavant en el cas de moure només 1 posició sense oposició.
+2. El Pawn blanc si es pot moure endavant en el cas de moure només 1 posició amb oposició.
+3. El Pawn blanc si es pot moure endavant en el cas de moure 2 posicions sense oposició.
+4. El Pawn blanc si es pot moure endavant en el cas de moure 2 posicions amb oposició.
+5. El Pawn blanc si es pot moure en diagonal amb rival.
+6. El Pawn blanc si es pot moure en diagonal sense rival.
+7. El Pawn negre si es pot moure endavant en el cas de moure només 1 posició sense oposició.
+8. El Pawn negre si es pot moure endavant en el cas de moure només 1 posició amb oposició.
+9. El Pawn negre si es pot moure endavant en el cas de moure 2 posicions sense oposició.
+10. El Pawn negre si es pot moure endavant en el cas de moure 2 posicions amb oposició.
+11. El Pawn negre si es pot moure en diagonal amb rival.
+12. El Pawn negre si es pot moure en diagonal sense rival.
+
+Gràcies a tots aquests testejos, hem pogut veure que la peça Pawn funciona correctament.

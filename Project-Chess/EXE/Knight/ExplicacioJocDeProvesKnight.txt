@@ -1,0 +1,19 @@
+﻿En aquest joc de proves es testeja el correcte moviment del Knight.
+La entrada de codi és DadesKnight, la sortida OutputKnight i la sortida esperada està en el fitxer OutputKnightcorrecte.
+Gràcies a això hem pogut veure el bon funcionament de la peça Knight,per posteriorment no tenir cap problema si la voliem posar en joc.
+En aquesta peça, només hem testejat el moviment de Knight de qualsevol color, ja que és indeferent. Degut a que es pot moure en totes direccions. 
+
+Per la sortida, cada cop que estigui correcte, sortirà "Moviment correcte", previament a això et sortirà si és correcte perquè no es podia moure o perquè si es podia moure.
+Donada les dades introduïdes per txt, nosaltres hem introduit tots els possibles casos, aquests són: (Els poso per ordre en el que són testejats i surten en el output).
+
+1. El Knight si es pot moure endavant possibilitat 1.
+2. El Knight si es pot moure endavant possibilitat 2.
+3. El Knight si es pot moure endavant possibilitat 3.
+4. El Knight si es pot moure endavant possibilitat 4.
+5. El Knight si es pot moure endarrere possibilitat 1.
+6. El Knight si es pot moure endarrere possibilitat 2.
+7. El Knight si es pot moure endarrere possibilitat 3.
+8. El Knight si es pot moure endarrere possibilitat 4.
+
+Gràcies a tots aquests testejos, hem pogut veure que la peça Knight funciona correctament, ja que hem fet tots els possibles moviments. En alguns d'ells els fem amb adversari, d'aquesta forma mirem
+si saber si és adversari o no, funciona bé.
