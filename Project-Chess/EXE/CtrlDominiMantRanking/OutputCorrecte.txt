@@ -1,0 +1,27 @@
+La fila del ranking s'ha introduit correctament
+
+La fila del ranking s'ha introduit correctament
+
+1: Aaaaa 120.0 1N1b4/6nr/R5n1/2Ppk2r/K2p2qR/8/2N1PQ2/B6B w - - 0 1
+2: Aleix 280.0 1N1b4/6nr/R5n1/2Ppk2r/K2p2qR/8/2N1PQ2/B6B w - - 0 1
+
+La fila del ranking s'ha introduit correctament
+
+La fila del ranking s'ha introduit correctament
+
+La fila del ranking que vols crear ja existeix 
+
+L'identificador no coincideix amb les dades passades 
+
+1: Aaaaa 120.0 1N1b4/6nr/R5n1/2Ppk2r/K2p2qR/8/2N1PQ2/B6B w - - 0 1
+2: Aleix 280.0 1N1b4/6nr/R5n1/2Ppk2r/K2p2qR/8/2N1PQ2/B6B w - - 0 1
+3: Aleix 180.0 1N1b4/6nr/R5n1/2Ppk2r/K2p2qR/8/2N1PQ2/B6B w - - 0 1
+4: Aleix 180.0 4k3/3ppp2/8/8/7Q/8/8/2K5 w - - 0 1
+
+La fila del ranking s'ha borrat correctament
+
+La fila del ranking que vols borrar no existeix 
+
+1: Aaaaa 120.0 1N1b4/6nr/R5n1/2Ppk2r/K2p2qR/8/2N1PQ2/B6B w - - 0 1
+2: Aleix 180.0 1N1b4/6nr/R5n1/2Ppk2r/K2p2qR/8/2N1PQ2/B6B w - - 0 1
+3: Aleix 180.0 4k3/3ppp2/8/8/7Q/8/8/2K5 w - - 0 1

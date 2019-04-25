@@ -1,0 +1,2 @@
+Torns per a fer mat: 2
+Jugador que pot fer mat: Blanques
