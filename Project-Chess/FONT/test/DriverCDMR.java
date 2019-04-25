@@ -9,15 +9,19 @@ import java.util.Scanner;
 import java.util.Vector;
 
 public class DriverCDMR {
+
+    private static FileWriter output;
+    private static Scanner sc;
+    private static PrintWriter print_line;
+
     public static void main (String[] args) throws IOException {
-        /*
         System.out.println("Test de la funcio creadora de instancies de ranking" + "\n");
 
-        String path = "C:\\Users\\PcCom\\Desktop\\Grau Informatica\\3r any\\Projectes de Programació\\PROP-Chess\\EXE\\CtrlDominiMantRanking\\Output.txt";
-        FileWriter write = new FileWriter( path, false);
-        PrintWriter print_line = new PrintWriter( write );
+        String path = "./Project-Chess/EXE/CtrlDominiMantRanking/output-cdmr.txt";
+        output = new FileWriter( path, true);
+        print_line = new PrintWriter( output );
 
-        File file = new File("C:\\Users\\PcCom\\Desktop\\Grau Informatica\\3r any\\Projectes de Programació\\PROP-Chess\\EXE\\CtrlDominiMantRanking\\Dades.txt");
+        File file = new File("./Project-Chess/EXE/CtrlDominiMantProblema/Dades.txt");
         Scanner sc = new Scanner(file);
 
         String nomj1 = sc.nextLine();
@@ -83,7 +87,7 @@ public class DriverCDMR {
         escriuRanking(resultat, print_line);
 
         //Esborrem una instancia de ranking
-        error = test.baixaRankings(dadesRank2.get(0), dadesRank2);
+        error = test.baixaRankings(dadesRank1.get(0), dadesRank1);
         escriuMissatgeError(error, 1, print_line);
         //Esborrem una instancia de ranking ja existent
         error = test.baixaRankings(dadesRank1.get(0), dadesRank1);
@@ -92,27 +96,26 @@ public class DriverCDMR {
         resultat = test.consultaRankings();
         escriuRanking(resultat, print_line);
         print_line.close();
-        */
     }
 
     private static void escriuRanking (Vector<String> ranking, PrintWriter out) {
-        if (ranking.size() == 0) out.printf("No hi ha cap ranking guardat " + "%n");
+        if (ranking.size() == 0) print_line.println("No hi ha cap ranking guardat " );
         for (int i = 0; i < ranking.size(); i++) {
-            out.printf((i+1) + ": " + ranking.get(i) + "%n");
+            print_line.println((i+1) + ": " + ranking.get(i) );
         }
-        out.printf("%n");
+        print_line.println();
     }
 
     private static void escriuMissatgeError(Integer error, Integer funcio, PrintWriter out) {
         if (funcio == 0) { //altaRanking
-            if (error == 0) out.printf("La fila del ranking s'ha introduit correctament" + "%n");
-            else if (error == 1) out.printf("La fila del ranking que vols crear ja existeix o te millor temps" + "%n");
-            else if (error == 2) out.printf("L'identificador no coincideix amb les dades passades " + "%n");
+            if (error == 0) print_line.println("La fila del ranking s'ha introduit correctament" );
+            else if (error == 1) print_line.println("La fila del ranking que vols crear ja existeix " );
+            else if (error == 2) print_line.println("L'identificador no coincideix amb les dades passades " );
         }
         else if (funcio == 1) { //esborrarRanking
-            if (error == 0) out.printf("La fila del ranking s'ha borrat correctament" + "%n");
-            else if (error == 1) out.printf("La fila del ranking que vols borrar no existeix " + "%n");
+            if (error == 0) print_line.println("La fila del ranking s'ha borrat correctament" );
+            else if (error == 1) print_line.println("La fila del ranking que vols borrar no existeix ");
         }
-        out.printf("%n");
+        print_line.println();
     }
 }

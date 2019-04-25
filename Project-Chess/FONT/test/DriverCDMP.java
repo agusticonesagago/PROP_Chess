@@ -9,14 +9,19 @@ import java.util.Scanner;
 import java.util.Vector;
 
 public class DriverCDMP {
-    public static void main (String[] args) throws IOException {
-        /*
-        String path = "C:\\Users\\PcCom\\Desktop\\Grau Informatica\\3r any\\Projectes de Programació\\PROP-Chess\\src\\FONT\\test\\OutputDriverCDMP";
-        FileWriter write = new FileWriter( path, true);
-        PrintWriter print_line = new PrintWriter( write );
 
-        File file = new File("C:\\Users\\PcCom\\Desktop\\Grau Informatica\\3r any\\Projectes de Programació\\PROP-Chess\\src\\FONT\\test\\InputDriverCDMP");
-        Scanner sc = new Scanner(file);
+    private static FileWriter output;
+    private static Scanner sc;
+    private static PrintWriter print_line;
+
+    public static void main (String[] args) throws IOException {
+
+        String path = "./Project-Chess/EXE/CtrlDominiMantProblema/output-cdmp.txt";
+        output = new FileWriter( path, true);
+        print_line = new PrintWriter( output );
+
+        File file = new File("./Project-Chess/EXE/CtrlDominiMantProblema/dades.txt");
+        sc = new Scanner(file);
         String fen1 = sc.nextLine();
         String tema1 = sc.nextLine();
         String dificultat1 = sc.nextLine();
@@ -76,34 +81,34 @@ public class DriverCDMP {
         //Busquem tots els problemes existents
         resultat = test.consultaProblemes();
         escriuLlistaProblemes(resultat, print_line);
+
         print_line.close();
-        */
     }
 
     private static void escriuLlistaProblemes (Vector <Vector<String>> llprob, PrintWriter out) throws IOException {
-        if (llprob.size() == 0) out.printf("No hi ha cap problema a la base de dades");
+        if (llprob.size() == 0) print_line.println("No hi ha cap problema a la base de dades");
         else {
             for (int i = 0; i < llprob.size(); i++) {
-                out.printf("Problema " + (i+1) + ": " + "%n");
+                print_line.println("Problema " + (i+1) + ": ");
                 for (int j = 0; j < llprob.get(i).size(); j++) {
-                    out.printf(llprob.get(i).get(j) + "%n");
+                    print_line.println(llprob.get(i).get(j));
                 }
-                out.printf("%n");
+                print_line.println();
             }
         }
     }
 
     private static void escriuMissatgeError(Integer error, Integer funcio, PrintWriter out) throws IOException {
         if (funcio == 0) { //altaProblema
-            if (error == 0) out.printf("El problema s'ha introduit correctament" + "%n");
-            else if (error == 1) out.printf("El problema que vols crear ja existeix " + "%n");
-            else if (error == 2) out.printf("L'identificador no coincideix amb les dades passades " + "%n");
-            else if (error == 3) out.printf("El problema no es pot resoldre " + "%n");
+            if (error == 0) print_line.println("El problema s'ha introduit correctament" );
+            else if (error == 1) print_line.println("El problema que vols crear ja existeix ");
+            else if (error == 2) print_line.println("L'identificador no coincideix amb les dades passades ");
+            else if (error == 3) print_line.println("El problema no es pot resoldre ");
         }
         else if (funcio == 1) { //esborrarProblema
-            if (error == 0) out.printf("El problema s'ha borrat correctament" + "%n");
-            else if (error == 1) out.printf("El problema que vols borrar no existeix " + "%n");
+            if (error == 0) print_line.println("El problema s'ha borrat correctament");
+            else if (error == 1) print_line.println("El problema que vols borrar no existeix ");
         }
-        out.printf("%n");
+        print_line.println();
     }
 }

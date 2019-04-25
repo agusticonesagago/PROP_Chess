@@ -24,7 +24,7 @@ public class Presentation {
         System.out.println("Introdueix dificultat, per exemple, fácil" + '\n');
         Scanner entradadificultat = new Scanner(System.in);
         String dificultat = String.valueOf(entradaEscaner.nextLine());
-        System.out.println("Dificultat introduida: " + dificultat + " correctament" + '\n');
+        System.out.println("Dificultat introduida: " + tema + " correctament" + '\n');
 
         Vector<String> dadesProbl = new Vector<>();
         dadesProbl.add(0,fen);
@@ -46,85 +46,81 @@ public class Presentation {
         Vector<Vector<String>> resultat = new Vector();
         resultat = cdmp.consultaProblemes();
         if (resultat.size() == 0) System.out.println("No hi ha cap problema a la base de dades" + "\n");
-        else{
+        else {
             for (int i = 0; i < resultat.size(); i++) {
-                System.out.println("Problema " + (i+1) + ": " + resultat.get(i).get(0)+' ' +resultat.get(i).get(1)+ ' '+resultat.get(i).get(2)+"\n");
+                System.out.println("Problema " + (i + 1) + ": " + resultat.get(i).get(0) + ' ' + resultat.get(i).get(1) + ' ' + resultat.get(i).get(2) + "\n");
             }
+
+
+            System.out.println("Escull problema que vols jugar, introduint el número de la posició en el qual es mostra");
+            System.out.println("El primer de tots és el número 1" + '\n');
+
+            Integer problema;
+            Scanner entradaproblema = new Scanner(System.in);
+            problema = Integer.valueOf(entradaproblema.nextLine());
+
+            System.out.println("Introdueix qui vols que sigui el primer jugador (blanques)" + '\n');
+
+            System.out.println("Introdueix 0 si vols jugar tu mateix" + '\n' +
+                    "Introdueix 1 si vols que jugui M1 (algorisme bàsic) " + '\n' +
+                    "Introdueix 2 si vols que jugui M2 (algorisme complex) " + '\n'
+            );
+
+            Integer primerjugador;
+            Scanner entradaprimerjugador = new Scanner(System.in);
+            primerjugador = Integer.valueOf(entradaprimerjugador.nextLine());
+
+            String stringprimerjugador = "";
+            if (primerjugador == 0) {
+                stringprimerjugador = "Huma";
+            } else if (primerjugador == 1) {
+                stringprimerjugador = "Maquina1";
+            } else if (primerjugador == 2) {
+                stringprimerjugador = "Maquina2";
+            }
+            String primerusuari = "";
+
+            if (primerjugador == 0) {
+                System.out.println("Introdueix el nom d'usuari del primer jugador" + '\n');
+                Scanner entradaprimerusuari = new Scanner(System.in);
+                primerusuari = String.valueOf(entradaprimerusuari.nextLine());
+            }
+
+            System.out.println("Introdueix qui vols que sigui el segon jugador (negres)" + '\n');
+
+            System.out.println("Introdueix 0 si vols jugar tu mateix" + '\n' +
+                    "Introdueix 1 si vols que jugui M1 (algorisme bàsic) " + '\n' +
+                    "Introdueix 2 si vols que jugui M2 (algorisme complex) " + '\n'
+            );
+
+            Integer segonjugador;
+            Scanner entradasegonjugador = new Scanner(System.in);
+            segonjugador = Integer.valueOf(entradaprimerjugador.nextLine());
+
+            String stringsegonjugador = "";
+            if (segonjugador == 0) {
+                stringsegonjugador = "Huma";
+            } else if (segonjugador == 1) {
+                stringsegonjugador = "Maquina1";
+            } else if (segonjugador == 2) {
+                stringsegonjugador = "Maquina2";
+            }
+
+            String segonusuari = "";
+
+            if (segonjugador == 0) {
+                System.out.println("Introdueix el nom d'usuari del segon jugador" + '\n');
+                Scanner entradasegonusuari = new Scanner(System.in);
+                segonusuari = String.valueOf(entradasegonusuari.nextLine());
+            }
+
+            Vector<String> problemajugar = resultat.get(problema - 1);
+            cdom.configurarPartida(problemajugar, stringprimerjugador, stringsegonjugador);
+            String guanyador = cdom.jugarPartida(primerusuari, segonusuari);
+            System.out.println("El guanyador es: " + guanyador + '\n');
+            System.out.println("Felicitats per la victòria!" + '\n');
+            veureranking(cdmp,cdr,cdom);
         }
-
-        System.out.println("Escull problema que vols jugar, introduint el número de la posició en el qual es mostra" );
-        System.out.println("El primer de tots és el número 1" + '\n');
-
-        Integer problema;
-        Scanner entradaproblema = new Scanner(System.in);
-        problema = Integer.valueOf(entradaproblema.nextLine());
-
-        System.out.println("Introdueix qui vols que sigui el primer jugador (blanques)"+ '\n');
-
-        System.out.println("Introdueix 0 si vols jugar tu mateix" + '\n' +
-                "Introdueix 1 si vols que jugui M1 (algorisme bàsic) " + '\n' +
-                "Introdueix 2 si vols que jugui M2 (algorisme complex) " + '\n'
-        );
-
-        Integer primerjugador;
-        Scanner entradaprimerjugador = new Scanner(System.in);
-        primerjugador= Integer.valueOf(entradaprimerjugador.nextLine());
-
-        String stringprimerjugador = "";
-        if(primerjugador==0){
-            stringprimerjugador= "Huma";
-        }
-        else if(primerjugador==1){
-            stringprimerjugador = "Maquina1";
-        }
-        else if(primerjugador==2){
-            stringprimerjugador = "Maquina2";
-        }
-        String primerusuari="";
-
-        if(primerjugador==0){
-            System.out.println("Introdueix el nom d'usuari del primer jugador" +'\n' );
-            Scanner entradaprimerusuari = new Scanner(System.in);
-            primerusuari = String.valueOf(entradaprimerusuari.nextLine());
-        }
-
-        System.out.println("Introdueix qui vols que sigui el segon jugador (negres)"+ '\n');
-
-        System.out.println("Introdueix 0 si vols jugar tu mateix" + '\n' +
-                "Introdueix 1 si vols que jugui M1 (algorisme bàsic) " + '\n' +
-                "Introdueix 2 si vols que jugui M2 (algorisme complex) " + '\n'
-        );
-
-        Integer segonjugador;
-        Scanner entradasegonjugador = new Scanner(System.in);
-        segonjugador = Integer.valueOf(entradaprimerjugador.nextLine());
-
-        String stringsegonjugador = "";
-        if(segonjugador==0){
-            stringsegonjugador= "Huma";
-        }
-        else if(segonjugador==1){
-            stringsegonjugador = "Maquina1";
-        }
-        else if(segonjugador==2){
-            stringsegonjugador = "Maquina2";
-        }
-
-        String segonusuari="";
-
-        if(segonjugador==0){
-            System.out.println("Introdueix el nom d'usuari del segon jugador" +'\n' );
-            Scanner entradasegonusuari = new Scanner(System.in);
-            segonusuari = String.valueOf(entradasegonusuari.nextLine());
-        }
-
-        Vector<String> problemajugar = resultat.get(problema-1);
-        cdom.configurarPartida(problemajugar,stringprimerjugador,stringsegonjugador);
-        String guanyador = cdom.jugarPartida(primerusuari, segonusuari);
-        System.out.println("El guanyador es: "+ guanyador+ '\n' );
-        System.out.println("Felicitats per la victòria!"+ '\n' );
-
-        veureranking(cdmp,cdr,cdom);
         menuprincipal(cdmp,cdr,cdom);
     }
 
@@ -141,43 +137,44 @@ public class Presentation {
         Vector<Vector<String>> resultat = new Vector();
         resultat = cdmp.consultaProblemes();
         if (resultat.size() == 0) System.out.println("No hi ha cap problema a la base de dades" + "\n");
-        else{
+        else {
             for (int i = 0; i < resultat.size(); i++) {
-                System.out.println("Problema " + (i+1) + ": " + resultat.get(i).get(0)+' ' +resultat.get(i).get(1)+ ' '+resultat.get(i).get(2)+"\n");
+                System.out.println("Problema " + (i + 1) + ": " + resultat.get(i).get(0) + ' ' + resultat.get(i).get(1) + ' ' + resultat.get(i).get(2) + "\n");
             }
+
+
+            System.out.println("Escull problema que vols modificar el FEN, introduint el número de la posició en el qual es mostra");
+            System.out.println("El primer de tots és el número 1" + '\n');
+
+            Integer problemamodificar;
+            Scanner entradaproblemamodificar = new Scanner(System.in);
+            problemamodificar = Integer.valueOf(entradaproblemamodificar.nextLine());
+
+            Vector<String> problemodificar = resultat.get(problemamodificar - 1);
+
+            System.out.println("Introdueix el FEN nou que vols que modifiqui l'actual" + '\n');
+            String fennou;
+            Scanner entradafennou = new Scanner(System.in);
+            fennou = String.valueOf(entradafennou.nextLine());
+
+            System.out.println("Introdueix el tema nou que vols que modifiqui l'actual" + '\n');
+            String temanou;
+            Scanner entradatemanou = new Scanner(System.in);
+            temanou = String.valueOf(entradatemanou.nextLine());
+
+            System.out.println("Introdueix la dificultat nova que vols que modifiqui l'actual" + '\n');
+            String dificultatnova;
+            Scanner entradadificultat = new Scanner(System.in);
+            dificultatnova = String.valueOf(entradadificultat.nextLine());
+
+            Vector<String> problemanou = new Vector();
+            problemanou.add(fennou);
+            problemanou.add(temanou);
+            problemanou.add(dificultatnova);
+
+            cdmp.baixaProblema(problemodificar.get(0));
+            cdmp.altaProblema(fennou, problemanou);
         }
-
-        System.out.println("Escull problema que vols modificar el FEN, introduint el número de la posició en el qual es mostra" );
-        System.out.println("El primer de tots és el número 1" + '\n');
-
-        Integer problemamodificar;
-        Scanner entradaproblemamodificar = new Scanner(System.in);
-        problemamodificar = Integer.valueOf(entradaproblemamodificar.nextLine());
-
-        Vector<String> problemodificar= resultat.get(problemamodificar-1);
-
-        System.out.println("Introdueix el FEN nou que vols que modifiqui l'actual" + '\n');
-        String fennou;
-        Scanner entradafennou = new Scanner(System.in);
-        fennou = String.valueOf(entradafennou.nextLine());
-
-        System.out.println("Introdueix el tema nou que vols que modifiqui l'actual" + '\n');
-        String temanou;
-        Scanner entradatemanou = new Scanner(System.in);
-        temanou = String.valueOf(entradatemanou.nextLine());
-
-        System.out.println("Introdueix la dificultat nova que vols que modifiqui l'actual" + '\n');
-        String dificultatnova;
-        Scanner entradadificultat = new Scanner(System.in);
-        dificultatnova = String.valueOf(entradadificultat.nextLine());
-
-        Vector<String> problemanou = new Vector();
-        problemanou.add(fennou);
-        problemanou.add(temanou);
-        problemanou.add(dificultatnova);
-
-        cdmp.baixaProblema(problemodificar.get(0));
-        cdmp.altaProblema(fennou, problemanou );
         menuprincipal(cdmp,cdr,cdom);
     }
 
