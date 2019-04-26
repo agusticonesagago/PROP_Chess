@@ -20,11 +20,11 @@ public class DriverQueen {
                 "Introdueix 4 si vols testejar diagonal"
         );*/
 
-        String path = "./Project-Chess/EXE/Queen/OutputQueen.txt";
+        String path = "./OutputQueen.txt";
         FileWriter write = new FileWriter( path , false);
         PrintWriter t = new PrintWriter( write );
 
-        File file = new File("./Project-Chess/EXE/Queen/DadesQueen.txt");
+        File file = new File("./DadesQueen.txt");
         Scanner sc = new Scanner(file);
 
         Integer opcion;

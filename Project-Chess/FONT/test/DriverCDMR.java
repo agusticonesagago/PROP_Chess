@@ -17,11 +17,11 @@ public class DriverCDMR {
     public static void main (String[] args) throws IOException {
         System.out.println("Test de la funcio creadora de instancies de ranking" + "\n");
 
-        String path = "./Project-Chess/EXE/CtrlDominiMantRanking/output-cdmr.txt";
-        output = new FileWriter( path, false);
+        String path = "./output-cdmr.txt";
+        output = new FileWriter( path, true);
         print_line = new PrintWriter( output );
 
-        File file = new File("./Project-Chess/EXE/CtrlDominiMantRanking/Dades.txt");
+        File file = new File("./Dades.txt");
         Scanner sc = new Scanner(file);
 
         String nomj1 = sc.nextLine();

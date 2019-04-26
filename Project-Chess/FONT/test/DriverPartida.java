@@ -14,12 +14,12 @@ public class DriverPartida {
     private static Scanner sc;
     private static PrintWriter print_line;
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, InterruptedException {
 
-        File input = new File ("./Project-Chess/EXE/Partida/input-partida.txt");
+        File input = new File ("./input-partida.txt");
         sc = new Scanner(input);
 
-        output = new FileWriter("./Project-Chess/EXE/Partida/output-partida.txt");
+        output = new FileWriter("./output-partida.txt");
         print_line = new PrintWriter(output);
 
 
@@ -32,14 +32,14 @@ public class DriverPartida {
         print_line.close();
     }
 
-    private static void Tests_2() {
+    private static void Tests_2() throws InterruptedException {
         Partida t2 = new Partida(new StubProblem("",sc.nextLine()), new StubJugador(1), new StubJugador(2));
         t2.getTaulell().PrintBoard_toFile(print_line);
         print_line.println();
-        t2.jugarTorn_toFile(1, print_line);
+        t2.jugarTorn_toFile(1, print_line, null);
         t2.getTaulell().PrintBoard_toFile(print_line);
         print_line.println();
-        t2.jugarTorn_toFile(1, print_line);
+        t2.jugarTorn_toFile(1, print_line, null);
         t2.getTaulell().PrintBoard_toFile(print_line);
     }
 

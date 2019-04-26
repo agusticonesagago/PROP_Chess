@@ -13,11 +13,11 @@ public class DriverKing {
     public static void main(String[] args) throws IOException {
 
 
-        String path = "./Project-Chess/EXE/King/OutputKing.txt";
+        String path = "./OutputKing.txt";
         FileWriter write = new FileWriter( path , false);
         PrintWriter t = new PrintWriter( write );
 
-        File file = new File("./Project-Chess/EXE/King/DadesKing.txt");
+        File file = new File("./DadesKing.txt");
         Scanner sc = new Scanner(file);
 
 

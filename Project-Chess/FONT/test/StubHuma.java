@@ -1,3 +1,4 @@
+
 package test;
 
 import domini.*;
@@ -15,7 +16,7 @@ public class StubHuma extends  Huma {
     public Pair<Pair<Integer, Integer>, Pair<Integer, Integer>> moureFitxa(Partida ptd, boolean jugantCom, int torns) {
         //llegir de teclat
         //System.out.println ("Introduiex la posicio de la peca a moure" + "\n");
-        File file = new File("./Project-Chess/EXE/CtrlDomini/DadesStubHuma.txt");
+        File file = new File("./DadesStubHuma.txt");
         Scanner sc = null;
         try {
             sc = new Scanner(file);

@@ -13,11 +13,11 @@ import java.util.Scanner;
 public class DriverPawn {
     public static void main(String[] args) throws IOException {
 
-        String path = "./Project-Chess/EXE/Pawn/OutputPawn.txt";
+        String path = "./OutputPawn.txt";
         FileWriter write = new FileWriter( path , false);
         PrintWriter t = new PrintWriter( write );
 
-        File file = new File("./Project-Chess/EXE/Pawn/DadesPawn.txt");
+        File file = new File("./DadesPawn.txt");
         Scanner sc = new Scanner(file);
 
 

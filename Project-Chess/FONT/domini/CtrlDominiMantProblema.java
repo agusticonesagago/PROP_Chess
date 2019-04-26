@@ -70,6 +70,7 @@ public class CtrlDominiMantProblema {
     }
 
     private boolean teSolucio(Problema prob) {
+
         int cK, cQ, cR, cN, cB, cP, ck, cq, cr, cn, cb, cp;
         cK = 0;
         cQ = 0;
@@ -84,8 +85,10 @@ public class CtrlDominiMantProblema {
         cb = 0;
         cp = 0;
         String fen = prob.getFEN();
+        System.out.println(fen);
         for (int row_pointer = 0; row_pointer < fen.length(); row_pointer++){
             Character f = fen.charAt(row_pointer);
+            if (f.equals(' ')) break;
             if (f.equals('K')) { // REI
                 ++cK;
             } else if (f.equals('Q')) { // REINA
@@ -115,6 +118,8 @@ public class CtrlDominiMantProblema {
         }
         if ( (cK != 1) || (cQ > 2) || (cR > 2) || (cN > 2) || (cB > 2 ) || (cP > 8) ||
                 (ck != 1) || (cq > 2) || (cr > 2) || (cn > 2) || (cb > 2) || (cp > 8) ) {
+            if (cb > 2)System.out.println(cb);
+
             return false;
         }
         else {

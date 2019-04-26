@@ -19,11 +19,11 @@ public class DriverRook {
                 "Introdueix 3 si vols testejar cap a l'esquerra"
         );*/
 
-        String path = "./Project-Chess/EXE/Rook/OutputRook.txt";
+        String path = "./OutputRook.txt";
         FileWriter write = new FileWriter( path , false);
         PrintWriter t = new PrintWriter( write );
 
-        File file = new File("./Project-Chess/EXE/Rook/DadesRook.txt");
+        File file = new File("./DadesRook.txt");
         Scanner sc = new Scanner(file);
 
         Integer opcion;

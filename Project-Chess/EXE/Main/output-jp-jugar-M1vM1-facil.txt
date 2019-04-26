@@ -1,0 +1,440 @@
+Introdueix 0 si vols jugar problema
+Introdueix 1 si vols introduir un problema o modificar-ne un
+Introdueix 2 si vols veure ranking
+
+1
+Introdueix 0 si vols crear un problema
+Introdueix 1 si vols modificar un problema existent
+
+0
+Introdueix fen
+
+FEN introduit: 5rk1/8/7P/6N1/8/8/1B6/2K5 w - - 0 1 correctament
+
+Introdueix objectiu, per exemple, Negres fan mat en 1
+
+Objectiu introduit: Blanques fan mat en 1 correctament
+
+Introdueix dificultat, per exemple, fácil
+
+Dificultat introduida: facil correctament
+
+La creació del problema s'ha dut a terme correctament
+
+Introdueix 0 si vols jugar problema
+Introdueix 1 si vols introduir un problema o modificar-ne un
+Introdueix 2 si vols veure ranking
+
+1
+Introdueix 0 si vols crear un problema
+Introdueix 1 si vols modificar un problema existent
+
+0
+Introdueix fen
+
+FEN introduit: 1N1b4/6nr/R5n1/2Ppk2r/K2p2qR/8/2N1PQ2/B6B w - - 0 1 correctament
+
+Introdueix objectiu, per exemple, Negres fan mat en 1
+
+Objectiu introduit: Blanques fan mat en 2 correctament
+
+Introdueix dificultat, per exemple, fácil
+
+Dificultat introduida: facil correctament
+
+La creació del problema s'ha dut a terme correctament
+
+Introdueix 0 si vols jugar problema
+Introdueix 1 si vols introduir un problema o modificar-ne un
+Introdueix 2 si vols veure ranking
+
+1
+Introdueix 0 si vols crear un problema
+Introdueix 1 si vols modificar un problema existent
+
+0
+Introdueix fen
+
+FEN introduit: 7k/4K1pp/7N/8/8/8/8/B7 w - - 0 1 correctament
+
+Introdueix objectiu, per exemple, Negres fan mat en 1
+
+Objectiu introduit: Blanques fan mat en 3 correctament
+
+Introdueix dificultat, per exemple, fácil
+
+Dificultat introduida: facil correctament
+
+La creació del problema s'ha dut a terme correctament
+
+Introdueix 0 si vols jugar problema
+Introdueix 1 si vols introduir un problema o modificar-ne un
+Introdueix 2 si vols veure ranking
+
+1
+Introdueix 0 si vols crear un problema
+Introdueix 1 si vols modificar un problema existent
+
+0
+Introdueix fen
+
+FEN introduit: k7/Pp4p1/1Pp5/P1P5/8/5K2/8/5B2 w - - 0 1 correctament
+
+Introdueix objectiu, per exemple, Negres fan mat en 1
+
+Objectiu introduit: Blanques fan mat en 4 correctament
+
+Introdueix dificultat, per exemple, fácil
+
+Dificultat introduida: facil correctament
+
+La creació del problema s'ha dut a terme correctament
+
+Introdueix 0 si vols jugar problema
+Introdueix 1 si vols introduir un problema o modificar-ne un
+Introdueix 2 si vols veure ranking
+
+0
+Problema 1: 1N1b4/6nr/R5n1/2Ppk2r/K2p2qR/8/2N1PQ2/B6B w - - 0 1 Blanques fan mat en 2 facil
+
+Problema 2: 5rk1/8/7P/6N1/8/8/1B6/2K5 w - - 0 1 Blanques fan mat en 1 facil
+
+Problema 3: 7k/4K1pp/7N/8/8/8/8/B7 w - - 0 1 Blanques fan mat en 3 facil
+
+Problema 4: k7/Pp4p1/1Pp5/P1P5/8/5K2/8/5B2 w - - 0 1 Blanques fan mat en 4 facil
+
+Escull problema que vols jugar, introduint el número de la posició en el qual es mostra
+El primer de tots és el número 1
+
+Introdueix qui vols que sigui el primer jugador (blanques)
+
+Introdueix 0 si vols jugar tu mateix
+Introdueix 1 si vols que jugui M1 (algorisme bàsic)
+Introdueix 2 si vols que jugui M2 (algorisme complex)
+
+1
+Introdueix qui vols que sigui el segon jugador (negres)
+
+Introdueix 0 si vols jugar tu mateix
+Introdueix 1 si vols que jugui M1 (algorisme bàsic)
+Introdueix 2 si vols que jugui M2 (algorisme complex)
+
+1
+Comença la partida
+   0  1  2  3  4  5  6  7
+0  -  -  -  -  -  r  k  -
+1  -  -  -  -  -  -  -  -
+2  -  -  -  -  -  -  -  P
+3  -  -  -  -  -  -  N  -
+4  -  -  -  -  -  -  -  -
+5  -  -  -  -  -  -  -  -
+6  -  B  -  -  -  -  -  -
+7  -  -  K  -  -  -  -  -
+
+   0  1  2  3  4  5  6  7
+0  -  -  -  -  -  r  k  -
+1  -  -  -  -  -  -  -  P
+2  -  -  -  -  -  -  -  -
+3  -  -  -  -  -  -  N  -
+4  -  -  -  -  -  -  -  -
+5  -  -  -  -  -  -  -  -
+6  -  B  -  -  -  -  -  -
+7  -  -  K  -  -  -  -  -
+El guanyador es: Blanques
+
+Felicitats per la victòria!
+
+No hi ha cap ranking guardat
+
+Introdueix 0 si vols jugar problema
+Introdueix 1 si vols introduir un problema o modificar-ne un
+Introdueix 2 si vols veure ranking
+
+0
+Problema 1: 1N1b4/6nr/R5n1/2Ppk2r/K2p2qR/8/2N1PQ2/B6B w - - 0 1 Blanques fan mat en 2 facil
+
+Problema 2: 5rk1/8/7P/6N1/8/8/1B6/2K5 w - - 0 1 Blanques fan mat en 1 facil
+
+Problema 3: 7k/4K1pp/7N/8/8/8/8/B7 w - - 0 1 Blanques fan mat en 3 facil
+
+Problema 4: k7/Pp4p1/1Pp5/P1P5/8/5K2/8/5B2 w - - 0 1 Blanques fan mat en 4 facil
+
+Escull problema que vols jugar, introduint el número de la posició en el qual es mostra
+El primer de tots és el número 1
+
+Introdueix qui vols que sigui el primer jugador (blanques)
+
+Introdueix 0 si vols jugar tu mateix
+Introdueix 1 si vols que jugui M1 (algorisme bàsic)
+Introdueix 2 si vols que jugui M2 (algorisme complex)
+
+1
+Introdueix qui vols que sigui el segon jugador (negres)
+
+Introdueix 0 si vols jugar tu mateix
+Introdueix 1 si vols que jugui M1 (algorisme bàsic)
+Introdueix 2 si vols que jugui M2 (algorisme complex)
+
+1
+Comença la partida
+   0  1  2  3  4  5  6  7
+0  -  N  -  b  -  -  -  -
+1  -  -  -  -  -  -  n  r
+2  R  -  -  -  -  -  n  -
+3  -  -  P  p  k  -  -  r
+4  K  -  -  p  -  -  q  R
+5  -  -  -  -  -  -  -  -
+6  -  -  N  -  P  Q  -  -
+7  B  -  -  -  -  -  -  B
+
+   0  1  2  3  4  5  6  7
+0  -  N  -  b  -  -  -  -
+1  -  -  -  -  -  -  n  r
+2  R  -  -  -  -  -  n  -
+3  -  -  P  p  k  -  -  r
+4  K  -  -  N  -  -  q  R
+5  -  -  -  -  -  -  -  -
+6  -  -  -  -  P  Q  -  -
+7  B  -  -  -  -  -  -  B
+
+   0  1  2  3  4  5  6  7
+0  -  N  -  -  -  -  -  -
+1  -  -  -  -  -  -  n  r
+2  R  -  -  -  -  -  n  -
+3  -  -  P  p  k  -  -  r
+4  K  -  -  N  -  -  q  b
+5  -  -  -  -  -  -  -  -
+6  -  -  -  -  P  Q  -  -
+7  B  -  -  -  -  -  -  B
+
+   0  1  2  3  4  5  6  7
+0  -  -  -  -  -  -  -  -
+1  -  -  -  -  -  -  n  r
+2  R  -  N  -  -  -  n  -
+3  -  -  P  p  k  -  -  r
+4  K  -  -  N  -  -  q  b
+5  -  -  -  -  -  -  -  -
+6  -  -  -  -  P  Q  -  -
+7  B  -  -  -  -  -  -  B
+El guanyador es: Blanques
+
+Felicitats per la victòria!
+
+No hi ha cap ranking guardat
+
+Introdueix 0 si vols jugar problema
+Introdueix 1 si vols introduir un problema o modificar-ne un
+Introdueix 2 si vols veure ranking
+
+0
+Problema 1: 1N1b4/6nr/R5n1/2Ppk2r/K2p2qR/8/2N1PQ2/B6B w - - 0 1 Blanques fan mat en 2 facil
+
+Problema 2: 5rk1/8/7P/6N1/8/8/1B6/2K5 w - - 0 1 Blanques fan mat en 1 facil
+
+Problema 3: 7k/4K1pp/7N/8/8/8/8/B7 w - - 0 1 Blanques fan mat en 3 facil
+
+Problema 4: k7/Pp4p1/1Pp5/P1P5/8/5K2/8/5B2 w - - 0 1 Blanques fan mat en 4 facil
+
+Escull problema que vols jugar, introduint el número de la posició en el qual es mostra
+El primer de tots és el número 1
+
+Introdueix qui vols que sigui el primer jugador (blanques)
+
+Introdueix 0 si vols jugar tu mateix
+Introdueix 1 si vols que jugui M1 (algorisme bàsic)
+Introdueix 2 si vols que jugui M2 (algorisme complex)
+
+1
+Introdueix qui vols que sigui el segon jugador (negres)
+
+Introdueix 0 si vols jugar tu mateix
+Introdueix 1 si vols que jugui M1 (algorisme bàsic)
+Introdueix 2 si vols que jugui M2 (algorisme complex)
+
+1
+Comença la partida
+   0  1  2  3  4  5  6  7
+0  -  -  -  -  -  -  -  k
+1  -  -  -  -  K  -  p  p
+2  -  -  -  -  -  -  -  N
+3  -  -  -  -  -  -  -  -
+4  -  -  -  -  -  -  -  -
+5  -  -  -  -  -  -  -  -
+6  -  -  -  -  -  -  -  -
+7  B  -  -  -  -  -  -  -
+
+   0  1  2  3  4  5  6  7
+0  -  -  -  -  -  -  -  k
+1  -  -  -  -  K  -  p  p
+2  -  -  -  -  -  B  -  N
+3  -  -  -  -  -  -  -  -
+4  -  -  -  -  -  -  -  -
+5  -  -  -  -  -  -  -  -
+6  -  -  -  -  -  -  -  -
+7  -  -  -  -  -  -  -  -
+
+   0  1  2  3  4  5  6  7
+0  -  -  -  -  -  -  -  k
+1  -  -  -  -  K  -  -  p
+2  -  -  -  -  -  p  -  N
+3  -  -  -  -  -  -  -  -
+4  -  -  -  -  -  -  -  -
+5  -  -  -  -  -  -  -  -
+6  -  -  -  -  -  -  -  -
+7  -  -  -  -  -  -  -  -
+
+   0  1  2  3  4  5  6  7
+0  -  -  -  -  -  K  -  k
+1  -  -  -  -  -  -  -  p
+2  -  -  -  -  -  p  -  N
+3  -  -  -  -  -  -  -  -
+4  -  -  -  -  -  -  -  -
+5  -  -  -  -  -  -  -  -
+6  -  -  -  -  -  -  -  -
+7  -  -  -  -  -  -  -  -
+
+   0  1  2  3  4  5  6  7
+0  -  -  -  -  -  K  -  k
+1  -  -  -  -  -  -  -  p
+2  -  -  -  -  -  -  -  N
+3  -  -  -  -  -  p  -  -
+4  -  -  -  -  -  -  -  -
+5  -  -  -  -  -  -  -  -
+6  -  -  -  -  -  -  -  -
+7  -  -  -  -  -  -  -  -
+
+   0  1  2  3  4  5  6  7
+0  -  -  -  -  -  K  -  k
+1  -  -  -  -  -  N  -  p
+2  -  -  -  -  -  -  -  -
+3  -  -  -  -  -  p  -  -
+4  -  -  -  -  -  -  -  -
+5  -  -  -  -  -  -  -  -
+6  -  -  -  -  -  -  -  -
+7  -  -  -  -  -  -  -  -
+El guanyador es: Blanques
+
+Felicitats per la victòria!
+
+No hi ha cap ranking guardat
+
+Introdueix 0 si vols jugar problema
+Introdueix 1 si vols introduir un problema o modificar-ne un
+Introdueix 2 si vols veure ranking
+
+0
+Problema 1: 1N1b4/6nr/R5n1/2Ppk2r/K2p2qR/8/2N1PQ2/B6B w - - 0 1 Blanques fan mat en 2 facil
+
+Problema 2: 5rk1/8/7P/6N1/8/8/1B6/2K5 w - - 0 1 Blanques fan mat en 1 facil
+
+Problema 3: 7k/4K1pp/7N/8/8/8/8/B7 w - - 0 1 Blanques fan mat en 3 facil
+
+Problema 4: k7/Pp4p1/1Pp5/P1P5/8/5K2/8/5B2 w - - 0 1 Blanques fan mat en 4 facil
+
+Escull problema que vols jugar, introduint el número de la posició en el qual es mostra
+El primer de tots és el número 1
+
+Introdueix qui vols que sigui el primer jugador (blanques)
+
+Introdueix 0 si vols jugar tu mateix
+Introdueix 1 si vols que jugui M1 (algorisme bàsic)
+Introdueix 2 si vols que jugui M2 (algorisme complex)
+
+1
+Introdueix qui vols que sigui el segon jugador (negres)
+
+Introdueix 0 si vols jugar tu mateix
+Introdueix 1 si vols que jugui M1 (algorisme bàsic)
+Introdueix 2 si vols que jugui M2 (algorisme complex)
+
+1
+Comença la partida
+   0  1  2  3  4  5  6  7
+0  k  -  -  -  -  -  -  -
+1  P  p  -  -  -  -  p  -
+2  -  P  p  -  -  -  -  -
+3  P  -  P  -  -  -  -  -
+4  -  -  -  -  -  -  -  -
+5  -  -  -  -  -  K  -  -
+6  -  -  -  -  -  -  -  -
+7  -  -  -  -  -  B  -  -
+
+   0  1  2  3  4  5  6  7
+0  k  -  -  -  -  -  -  -
+1  P  p  -  -  -  -  p  -
+2  -  P  p  -  -  -  -  -
+3  P  -  P  -  -  -  -  -
+4  -  -  -  -  -  -  -  -
+5  -  -  -  -  -  K  -  -
+6  -  -  -  -  -  -  B  -
+7  -  -  -  -  -  -  -  -
+
+   0  1  2  3  4  5  6  7
+0  k  -  -  -  -  -  -  -
+1  P  p  -  -  -  -  -  -
+2  -  P  p  -  -  -  p  -
+3  P  -  P  -  -  -  -  -
+4  -  -  -  -  -  -  -  -
+5  -  -  -  -  -  K  -  -
+6  -  -  -  -  -  -  B  -
+7  -  -  -  -  -  -  -  -
+
+   0  1  2  3  4  5  6  7
+0  k  -  -  -  -  -  -  -
+1  P  p  -  -  -  -  -  -
+2  -  P  p  -  -  -  p  -
+3  P  -  P  -  -  -  -  -
+4  -  -  -  -  -  -  K  -
+5  -  -  -  -  -  -  -  -
+6  -  -  -  -  -  -  B  -
+7  -  -  -  -  -  -  -  -
+
+   0  1  2  3  4  5  6  7
+0  k  -  -  -  -  -  -  -
+1  P  p  -  -  -  -  -  -
+2  -  P  p  -  -  -  -  -
+3  P  -  P  -  -  -  p  -
+4  -  -  -  -  -  -  K  -
+5  -  -  -  -  -  -  -  -
+6  -  -  -  -  -  -  B  -
+7  -  -  -  -  -  -  -  -
+
+   0  1  2  3  4  5  6  7
+0  k  -  -  -  -  -  -  -
+1  P  p  -  -  -  -  -  -
+2  P  P  p  -  -  -  -  -
+3  -  -  P  -  -  -  p  -
+4  -  -  -  -  -  -  K  -
+5  -  -  -  -  -  -  -  -
+6  -  -  -  -  -  -  B  -
+7  -  -  -  -  -  -  -  -
+
+   0  1  2  3  4  5  6  7
+0  k  -  -  -  -  -  -  -
+1  P  -  -  -  -  -  -  -
+2  p  P  p  -  -  -  -  -
+3  -  -  P  -  -  -  p  -
+4  -  -  -  -  -  -  K  -
+5  -  -  -  -  -  -  -  -
+6  -  -  -  -  -  -  B  -
+7  -  -  -  -  -  -  -  -
+
+   0  1  2  3  4  5  6  7
+0  k  -  -  -  -  -  -  -
+1  P  -  -  -  -  -  -  -
+2  p  P  B  -  -  -  -  -
+3  -  -  P  -  -  -  p  -
+4  -  -  -  -  -  -  K  -
+5  -  -  -  -  -  -  -  -
+6  -  -  -  -  -  -  -  -
+7  -  -  -  -  -  -  -  -
+El guanyador es: Blanques
+
+Felicitats per la victòria!
+
+No hi ha cap ranking guardat
+
+Introdueix 0 si vols jugar problema
+Introdueix 1 si vols introduir un problema o modificar-ne un
+Introdueix 2 si vols veure ranking
+

@@ -1,8 +1,9 @@
 package domini;
 
 import javafx.util.Pair;
-import test.StubHuma;
-import java.util.Timer;
+
+import java.io.PrintWriter;
+import java.util.Scanner;
 import java.util.Vector;
 
 
@@ -63,23 +64,28 @@ public class CtrlDomini {
     }
 
 
-    public String jugarPartida(String nom1, String nom2) {
+    public String jugarPartida(String nom1, String nom2, PrintWriter pw, Scanner sc) throws InterruptedException {
         String guanyador;
         Pair<Integer, Boolean> tornMat= problema.getTornMat();
         Integer tornsRestants = tornMat.getKey();
         Boolean quiMou = tornMat.getValue();
         System.out.println("Comença la partida " + "\n");
+        if (pw != null) pw.println("Comença la partida ");
         float tBlanquesM = 0;
         float tNegresM = 0;
         while (tornsRestants > 0) {
             partida.getTaulell().PrintBoard();
+            if (pw != null) {
+                partida.getTaulell().PrintBoard_toFile(pw);
+                pw.println();
+            }
             System.out.println (partida.getTaulell().PrintFEN() + "\n");
 
             if (quiMou) System.out.println("Mouen Blanques" + "\n");
             else System.out.println("Mouen Negres" + "\n");
 
             long startTurn = System.currentTimeMillis(); // Temps abans de moure peça
-            partida.jugarTorn(tornsRestants);
+            if (pw != null) partida.jugarTorn_toFile(tornsRestants,pw,sc);
             long endTurn = System.currentTimeMillis(); // Temps despres de moure peça
             if (quiMou) tBlanquesM += (endTurn - startTurn)/1000;
             else tNegresM += (endTurn -startTurn)/1000;
@@ -92,6 +98,7 @@ public class CtrlDomini {
         System.out.println("Blanques: "+ tBlanquesM);
         System.out.println("Negres  : "+ tNegresM);
         partida.getTaulell().PrintBoard();
+        if (pw != null) partida.getTaulell().PrintBoard_toFile(pw);
         System.out.println (partida.getTaulell().PrintFEN() + "\n");
         if (tornMat.getValue()){
             if (partida.getGuanyador() && tornMat.getValue())  {

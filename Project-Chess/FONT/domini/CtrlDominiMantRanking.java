@@ -48,7 +48,7 @@ public class CtrlDominiMantRanking {
             newr.setTemps(temps);
             Vector <Ranking> ranks = Rankings.get(nomj);
             if ( miraSiHiEs(newr, ranks) != -1){
-                if(Integer.parseInt(dades.get(2)) >= ranks.get(miraSiHiEs(newr, ranks)).getTemps()) {
+                if(Float.parseFloat(dades.get(2)) >= ranks.get(miraSiHiEs(newr, ranks)).getTemps()) {
                     return 3;
                 }
                 return 2;

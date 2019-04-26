@@ -171,7 +171,7 @@ public class Taulell{
             if(i==0) pw.print("   "+i+"  ");
             else pw.print(i+"  ");
         }
-        pw.print('\n');
+        pw.println();
         for(int i=0; i < 8; ++i ){
             pw.print(i+" ");
             for (int j = 0; j < 8; ++j) {
@@ -185,7 +185,7 @@ public class Taulell{
                     }
                     else {
                         pw.print(" " +name.toLowerCase().charAt(0)+" ");
-                    }
+                   }
                 }
                 else pw.print(" - ");
             }

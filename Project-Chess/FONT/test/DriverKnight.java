@@ -17,11 +17,11 @@ public class DriverKnight {
                 "Introdueix 1 si vols testejar endarrere "
         );*/
 
-        String path = "./Project-Chess/EXE/Knight/OutputKnight.txt";
+        String path = "./OutputKnight.txt";
         FileWriter write = new FileWriter( path , false);
         PrintWriter t = new PrintWriter( write );
 
-        File file = new File("./Project-Chess/EXE/Knight/DadesKnight.txt");
+        File file = new File("./DadesKnight.txt");
         Scanner sc = new Scanner(file);
 
         Integer opcion;

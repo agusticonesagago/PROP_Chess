@@ -13,11 +13,11 @@ public class DriverProblema {
     public static void main (String[] args) throws IOException {
         System.out.println("Test de la classe Problema" + "\n");
 
-        String path = "./Project-Chess/EXE/Problema/output-prob.txt";
+        String path = "./output-prob.txt";
         FileWriter write = new FileWriter( path, false);
         PrintWriter print_line = new PrintWriter( write );
 
-        File file = new File("./Project-Chess/EXE/Problema/Dades.txt");
+        File file = new File("./Dades.txt");
         Scanner sc = new Scanner(file);
 
         //Problema a crear

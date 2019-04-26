@@ -147,7 +147,6 @@ public class SingletonAlgorismes {
                 int ev;
                 if (!QuiMou) ev = evaluataullel(aux,true, QuiMou, alpha, nBeta, torns-1);
                 else ev = evaluataullel(aux, true, QuiMou, alpha, nBeta, torns);
-                if (torns == 2) System.out.println(posini + " " + posfi+ " "+ev);
                 if (ev < nBeta) nBeta = ev;
                 if (nBeta < alpha) break;
             }

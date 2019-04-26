@@ -1,0 +1,28 @@
+1
+0
+r1bq2k1/ppp2r1p/2np1pNQ/2bNpp2/2B1P3/3P4/PPP2PPP/R3K2R w - - 0 1
+Blanques fan mat en 2
+facil
+1
+0
+6nr/pp2bppp/5k2/3Qp1q1/4P3/2P5/5PPP/RN3RK1 w - - 0 1
+Blanques fan mat en 2
+facil
+1
+0
+1N1b4/6nr/R5n1/2Ppk2r/K2p2qR/8/2N1PQ2/B6B w - - 0 1
+Blanques fan mat en 2
+facil
+1
+0
+2Rr4/pp2k1p1/5p2/2q1pP2/2P1P3/5nPp/PQ3N1P/3R3K b - - 0 1
+Negres fan mat en 2
+mitja
+1
+0
+3r2k1/ppp2ppp/6Q1/b7/3n1B2/2p3n1/P4PPP/RN3RK1 b - - 0 1
+Negres fan mat en 1
+facil
+0
+
+

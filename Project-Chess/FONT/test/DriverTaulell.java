@@ -25,8 +25,8 @@ public class DriverTaulell {
                 "5 Mirar si escac mat" +'\n' +
                 "6 Mirar si rei segur " );
 
-        File input = new File("./Project-Chess/EXE/Taulell/input-taulell.txt");
-        output = new FileWriter("./Project-Chess/EXE/Taulell/output-taulell.txt",true);
+        File input = new File("./input-taulell.txt");
+        output = new FileWriter("./output-taulell.txt",true);
         print_line = new PrintWriter(output);
         sc = new Scanner(input);
         Integer opt;

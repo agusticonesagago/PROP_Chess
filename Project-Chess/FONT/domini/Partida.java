@@ -5,6 +5,8 @@ import javafx.util.Pair;
 
 import javax.swing.text.StyledEditorKit;
 import java.io.PrintWriter;
+import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 public class Partida {
     protected Boolean Guanyador;
@@ -105,13 +107,25 @@ public class Partida {
         }
     }
 
-    public void jugarTorn_toFile(int tRestants, PrintWriter print_line) {
+    public void jugarTorn_toFile(int tRestants, PrintWriter print_line, Scanner sc) throws InterruptedException {
         String state;
         if (QuiJuga) {          // Torn Blanques
             boolean LegalMoves = false;
             while (!LegalMoves) {
                 LegalMoves = true;
-                Pair<Pair<Integer,Integer>, Pair<Integer, Integer> > mov = Blanques.moureFitxa(this, true, tRestants);
+                Pair<Pair<Integer,Integer>, Pair<Integer, Integer> > mov;
+                if (Blanques instanceof Huma) {
+                    String from = sc.nextLine();
+                    String to = sc.nextLine();
+                    int ii = Character.getNumericValue(from.charAt(0));
+                    int ji = Character.getNumericValue(from.charAt(2));
+                    int ie = Character.getNumericValue(to.charAt(0));
+                    int je = Character.getNumericValue(to.charAt(2));
+                    mov = new Pair<>(new Pair<>(ii,ji), new Pair<>(ie,je));
+                    TimeUnit.SECONDS.sleep(3);
+                } else {
+                    mov = Blanques.moureFitxa(this, true, tRestants);
+                }
                 if (mov != null) {
                     state = getState(mov);
 
@@ -125,7 +139,6 @@ public class Partida {
                     print_line.println("Empat - No es pot fer cap moviment");
                     Guanyador = !QuiHaDeGuanyar;
                 }
-                break;
             }
             ++Torn;
 
@@ -134,15 +147,26 @@ public class Partida {
             } else if (Torn.equals(QuantTorn)) {
                 Guanyador = !QuiHaDeGuanyar;
             }
-
-
             QuiJuga = !QuiJuga;// else -> Update QuiJuga
         }
         else {                  // torn negres
             boolean LegalMoves = false;
             while (!LegalMoves) {
                 LegalMoves = true;
-                Pair< Pair<Integer, Integer>, Pair<Integer, Integer> > mov = Negres.moureFitxa(this, false,tRestants);
+                Pair<Pair<Integer,Integer>, Pair<Integer, Integer> > mov;
+                if (Negres instanceof Huma) {
+                    System.out.println("HI");
+                    String from = sc.nextLine();
+                    String to = sc.nextLine();
+                    int ii = Character.getNumericValue(from.charAt(0));
+                    int ji = Character.getNumericValue(from.charAt(2));
+                    int ie = Character.getNumericValue(to.charAt(0));
+                    int je = Character.getNumericValue(to.charAt(2));
+                    mov = new Pair<>(new Pair<>(ii,ji), new Pair<>(ie,je));
+                } else {
+                    mov = Negres.moureFitxa(this, false, tRestants);
+                    System.out.println(mov);
+                }
                 if (mov != null) {
                     state = getState(mov);
 
@@ -156,7 +180,6 @@ public class Partida {
                     print_line.println("Empat - No es pot fer cap moviment");
                     Guanyador = !QuiHaDeGuanyar;
                 }
-                break;
             }
             ++Torn;
 

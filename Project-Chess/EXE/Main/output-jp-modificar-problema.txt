@@ -1,0 +1,79 @@
+Introdueix 0 si vols jugar problema
+Introdueix 1 si vols introduir un problema o modificar-ne un
+Introdueix 2 si vols veure ranking
+
+1
+Introdueix 0 si vols crear un problema
+Introdueix 1 si vols modificar un problema existent
+
+0
+Introdueix fen
+
+FEN introduit: 1N1b4/6nr/R5n1/2Ppk2r/K2p2qR/8/2N1PQ2/B6B w - - 0 1 correctament
+
+Introdueix objectiu, per exemple, Negres fan mat en 1
+
+Objectiu introduit: Blanques fan mat en 2 correctament
+
+Introdueix dificultat, per exemple, fácil
+
+Dificultat introduida: facil correctament
+
+La creació del problema s'ha dut a terme correctament
+
+Introdueix 0 si vols jugar problema
+Introdueix 1 si vols introduir un problema o modificar-ne un
+Introdueix 2 si vols veure ranking
+
+1
+Introdueix 0 si vols crear un problema
+Introdueix 1 si vols modificar un problema existent
+
+1
+Problema 1: 1N1b4/6nr/R5n1/2Ppk2r/K2p2qR/8/2N1PQ2/B6B w - - 0 1 Blanques fan mat en 2 facil
+
+Escull problema que vols modificar el FEN, introduint el número de la posició en el qual es mostra
+El primer de tots és el número 1
+
+1
+Introdueix el FEN nou que vols que modifiqui l'actual
+
+r1bq2k1/ppp2r1p/2np1pNQ/2bNpp2/2B1P3/3P4/PPP2PPP/R3K2R w - - 0 1
+Introdueix el tema nou que vols que modifiqui l'actual
+
+Blanques fan mat en 2
+Introdueix la dificultat nova que vols que modifiqui l'actual
+
+facil
+La creació del problema s'ha dut a terme correctament
+
+Introdueix 0 si vols jugar problema
+Introdueix 1 si vols introduir un problema o modificar-ne un
+Introdueix 2 si vols veure ranking
+
+1
+Introdueix 0 si vols crear un problema
+Introdueix 1 si vols modificar un problema existent
+
+1
+Problema 1: r1bq2k1/ppp2r1p/2np1pNQ/2bNpp2/2B1P3/3P4/PPP2PPP/R3K2R w - - 0 1 Blanques fan mat en 2 facil
+
+Escull problema que vols modificar el FEN, introduint el número de la posició en el qual es mostra
+El primer de tots és el número 1
+
+1
+Introdueix el FEN nou que vols que modifiqui l'actual
+
+6nr/pp2bppp/5k2/3Qp1q1/4P3/2P5/5PPP/RN3RK1 w - - 0 1
+Introdueix el tema nou que vols que modifiqui l'actual
+
+Negres fan mat en 2
+Introdueix la dificultat nova que vols que modifiqui l'actual
+
+facil
+Error en la creació del problema [Error: 3]
+
+Introdueix 0 si vols jugar problema
+Introdueix 1 si vols introduir un problema o modificar-ne un
+Introdueix 2 si vols veure ranking
+

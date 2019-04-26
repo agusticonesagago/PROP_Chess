@@ -21,11 +21,11 @@ public class DriverBishop {
                 "Introdueix 3 si vols testejar diagonal avall-dreta"
         );*/
 
-        String path = "./Project-Chess/EXE/Bishop/OutputBishop.txt";
+        String path = "./OutputBishop.txt";
         FileWriter write = new FileWriter( path , false);
         PrintWriter t = new PrintWriter( write );
 
-        File file = new File("./Project-Chess/EXE/Bishop/DadesBishop.txt");
+        File file = new File("./DadesBishop.txt");
         Scanner sc = new Scanner(file);
 
         while(sc.hasNextLine()) {
