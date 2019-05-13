@@ -50,6 +50,7 @@ public class SingletonAlgorismesTestjUnit {
         Pair< Pair<Integer, Integer>, Pair<Integer, Integer> > sol = new Pair<>(new Pair<>(6,2), new Pair<>(4,3));
         assertEquals( sol, sa.moviment_minmax(p,true,2), "Hauria de ser 6=2 -> 4=3");
         System.out.println(p.getTaulell().ferMoviment(new Pair<>(6,2), new Pair<>(4,3)));
+
         sol = new Pair<>(new Pair<>(0,3), new Pair<>(4,7));
         assertEquals( sol, sa.moviment_minmax(p, false, 1), "Hauria de ser 0=3 -> 4=7");
         System.out.println(p.getTaulell().ferMoviment(new Pair<>(0,3), new Pair<>(4,7)));

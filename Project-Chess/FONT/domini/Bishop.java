@@ -7,10 +7,87 @@ import javafx.util.Pair;
 import java.util.ArrayList;
 
 public class Bishop extends Peca {
-  public Bishop(boolean color, Pair<Integer, Integer> posactual, domini.Taulell t) {
-    super(color, posactual, t);
+  public Bishop(boolean color, Pair<Integer, Integer> posactual) {
+    super(color, posactual);
   }
 
+
+
+  public Boolean espotmoure(Pair<Integer, Integer> posfinal) {
+      int ic = posactual.getKey();
+      int jc = posactual.getValue();
+      int ifi = posfinal.getKey();
+      int jfi = posfinal.getValue();
+      int dif_i = ifi - ic;
+      int dif_j = jfi - jc;
+
+      if (!caselladins(posfinal)) return false;
+      else {
+          // mirem si esta en una diagonal
+          if (Math.abs(dif_i) == Math.abs(dif_j)) return true;
+          else return false;
+      }
+  }
+// todo ->pp
+public ArrayList<Pair<Integer, Integer>> posicionsposible () {
+    ArrayList<Pair<Integer, Integer>> posposibles = new ArrayList<>();
+    int ic = posactual.getKey();
+    int jc = posactual.getValue();
+    boolean endOfBoard = false;
+
+    int plus = 1;
+    // Cas diagonal 1 (-i & -j)
+    while (!endOfBoard && ((jc - plus) >=0) && ((ic-plus)>=0)){
+        if (espotmoure(new Pair<>(ic-plus, jc-plus))) {
+            posposibles.add(new Pair<>(ic - plus, jc - plus));
+            ++plus;
+        } else {
+            endOfBoard = true;
+        }
+    }
+
+    plus = 1;
+    endOfBoard = false;
+    // Cas diagonal 2 (-i & j)
+    while(!endOfBoard && ((jc + plus) <8) && ((ic-plus)>=0)){
+        if (espotmoure(new Pair<>(ic-plus, jc+plus))){
+            posposibles.add(new Pair<>(ic-plus, jc+plus));
+            ++plus;
+        } else {
+            endOfBoard = true;
+        }
+    }
+
+    plus = 1;
+    endOfBoard = false;
+    // Cas diagonal 2 (i & j)
+    while(!endOfBoard && ((jc + plus)<8) && ((ic + plus)<8)){
+        if (espotmoure(new Pair<>(ic + plus, jc + plus))){
+            posposibles.add(new Pair<>(ic + plus, jc + plus));
+            ++plus;
+        } else {
+            endOfBoard = true;
+        }
+    }
+
+    plus = 1;
+    endOfBoard = false;
+    // Cas diagonal 2 (-i & j)
+    while(!endOfBoard && ((jc - plus) >=0) && ((ic + plus)<8)){
+        if (espotmoure(new Pair<>(ic + plus, jc - plus))){
+            posposibles.add(new Pair<>(ic + plus, jc - plus));
+            ++plus;
+        } else {
+            endOfBoard = true;
+        }
+    }
+    return posposibles;
+}
+
+}
+
+
+/*
   public Boolean espotmoure(Pair<Integer, Integer> posfinal) {
 
     int ic = posactual.getKey();
@@ -92,54 +169,4 @@ public class Bishop extends Peca {
 
     return false;
   }
-
-
-    public ArrayList<Pair<Integer,Integer>> posicionsposible(){
-        java.util.ArrayList<Pair<Integer,Integer>> posposibles= new ArrayList<>();
-        int ic = posactual.getKey();
-        int jc = posactual.getValue();
-        boolean obstaculo = false;
-        int plus = 1;
-
-        while (!obstaculo && ((jc - plus) >=0) && ((ic-plus)>=0)) {
-            if(espotmoure(new Pair<>(ic-plus,jc-plus))) {
-                posposibles.add(new Pair<>(ic-plus, jc-plus));
-                ++plus;
-            }
-            else obstaculo=true;
-        }
-
-        obstaculo=false;
-        plus = 1;
-        while (!obstaculo && ((jc + plus) <8) && ((ic-plus)>=0)) {
-            if(espotmoure(new Pair<>(ic-plus,jc+plus))) {
-                posposibles.add(new Pair<>(ic-plus, jc+plus));
-                ++plus;
-            }
-            else obstaculo=true;
-        }
-
-        obstaculo=false;
-        plus = 1;
-        while (!obstaculo && ((jc + plus) <8) && ((ic+plus)<8)) {
-            if(espotmoure(new Pair<>(ic+plus,jc+plus))) {
-                posposibles.add(new Pair<>(ic+plus, jc+plus));
-                ++plus;
-            }
-            else obstaculo=true;
-        }
-
-        obstaculo=false;
-        plus = 1;
-        while (!obstaculo && ((jc - plus) >=0) && ((ic+plus)<8)) {
-            if(espotmoure(new Pair<>(ic+plus,jc-plus))) {
-                posposibles.add(new Pair<>(ic+plus, jc-plus));
-                ++plus;
-            }
-            else obstaculo=true;
-        }
-
-        return posposibles;
-    }
-}
-
+  */

@@ -1,8 +1,11 @@
 package domini;
 
+import javafx.geometry.Pos;
 import javafx.util.Pair;
 
+import javax.activation.MailcapCommandMap;
 import java.io.PrintWriter;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Taulell{
@@ -22,32 +25,32 @@ public class Taulell{
                 if (t.PosOcupada(i,j)) {
                     switch (t.getBoard()[i][j].getClass().getName()) {
                         case "domini.Knight":
-                            this.Board[i][j] = new Knight(t.getBoard()[i][j].getcolor(), new Pair<>(i, j), this);
+                            this.Board[i][j] = new Knight(t.getBoard()[i][j].getcolor(), new Pair<>(i, j));
                             if (t.getBoard()[i][j].getcolor()) Peces_Blanques.add(this.Board[i][j]);
                             else Peces_Negres.add(this.Board[i][j]);
                             break;
                         case "domini.Rook":
-                            this.Board[i][j] = new Rook(t.getBoard()[i][j].getcolor(), new Pair<>(i, j), this);
+                            this.Board[i][j] = new Rook(t.getBoard()[i][j].getcolor(), new Pair<>(i, j));
                             if (t.getBoard()[i][j].getcolor()) Peces_Blanques.add(this.Board[i][j]);
                             else Peces_Negres.add(this.Board[i][j]);
                             break;
                         case "domini.Pawn":
-                            this.Board[i][j] = new Pawn(t.getBoard()[i][j].getcolor(), new Pair<>(i, j), this);
+                            this.Board[i][j] = new Pawn(t.getBoard()[i][j].getcolor(), new Pair<>(i, j));
                             if (t.getBoard()[i][j].getcolor()) Peces_Blanques.add(this.Board[i][j]);
                             else Peces_Negres.add(this.Board[i][j]);
                             break;
                         case "domini.King":
-                            this.Board[i][j] = new King(t.getBoard()[i][j].getcolor(), new Pair<>(i, j), this);
+                            this.Board[i][j] = new King(t.getBoard()[i][j].getcolor(), new Pair<>(i, j));
                             if (t.getBoard()[i][j].getcolor()) Peces_Blanques.add(this.Board[i][j]);
                             else Peces_Negres.add(this.Board[i][j]);
                             break;
                         case "domini.Queen":
-                            this.Board[i][j] = new Queen(t.getBoard()[i][j].getcolor(), new Pair<>(i, j), this);
+                            this.Board[i][j] = new Queen(t.getBoard()[i][j].getcolor(), new Pair<>(i, j));
                             if (t.getBoard()[i][j].getcolor()) Peces_Blanques.add(this.Board[i][j]);
                             else Peces_Negres.add(this.Board[i][j]);
                             break;
                         case "domini.Bishop":
-                            this.Board[i][j] = new Bishop(t.getBoard()[i][j].getcolor(), new Pair<>(i, j), this);
+                            this.Board[i][j] = new Bishop(t.getBoard()[i][j].getcolor(), new Pair<>(i, j));
                             if (t.getBoard()[i][j].getcolor()) Peces_Blanques.add(this.Board[i][j]);
                             else Peces_Negres.add(this.Board[i][j]);
                             break;
@@ -86,42 +89,42 @@ public class Taulell{
                 else {
                     Pair<Integer, Integer> Pos = new Pair<>(i,board_pointer);
                     if (f.equals('K')) { // REI
-                        Board[i][board_pointer] = new King(true, Pos, this);
+                        Board[i][board_pointer] = new King(true, Pos);
                         Peces_Blanques.add(Board[i][board_pointer]);
                     } else if (f.equals('Q')) { // REINA
-                        Board[i][board_pointer] = new Queen(true, Pos, this);
+                        Board[i][board_pointer] = new Queen(true, Pos);
                         Peces_Blanques.add(Board[i][board_pointer]);
                     } else if (f.equals('R')) { // TORRE
-                        Board[i][board_pointer] = new Rook(true, Pos, this);
+                        Board[i][board_pointer] = new Rook(true, Pos);
                         Peces_Blanques.add(Board[i][board_pointer]);
                     } else if (f.equals('N')) { // CABALL
-                        Board[i][board_pointer] = new Knight(true, Pos, this);
+                        Board[i][board_pointer] = new Knight(true, Pos);
                         Peces_Blanques.add(Board[i][board_pointer]);
                     } else if (f.equals('B')) { // ALFIL
-                        Board[i][board_pointer] = new Bishop(true, Pos, this);
+                        Board[i][board_pointer] = new Bishop(true, Pos);
                         Peces_Blanques.add(Board[i][board_pointer]);
                     } else if (f.equals('P')) { // PEO
-                        Board[i][board_pointer] = new Pawn(true, Pos, this);
+                        Board[i][board_pointer] = new Pawn(true, Pos);
                         Peces_Blanques.add(Board[i][board_pointer]);
                     }
                     /* minus -> black ?*/
                     else if (f.equals('k')) { //rei
-                        Board[i][board_pointer] = new King(false, Pos, this);
+                        Board[i][board_pointer] = new King(false, Pos);
                         Peces_Negres.add(Board[i][board_pointer]);
                     } else if (f.equals('q')) { //reina
-                        Board[i][board_pointer] = new Queen(false, Pos, this);
+                        Board[i][board_pointer] = new Queen(false, Pos);
                         Peces_Negres.add(Board[i][board_pointer]);
                     } else if (f.equals('r')) { //torre
-                        Board[i][board_pointer] = new Rook(false, Pos, this);
+                        Board[i][board_pointer] = new Rook(false, Pos);
                         Peces_Negres.add(Board[i][board_pointer]);
                     } else if (f.equals('n')) { // caball
-                        Board[i][board_pointer] = new Knight(false, Pos, this);
+                        Board[i][board_pointer] = new Knight(false, Pos);
                         Peces_Negres.add(Board[i][board_pointer]);
                     } else if (f.equals('b')) { // alfil
-                        Board[i][board_pointer] = new Bishop(false, Pos, this);
+                        Board[i][board_pointer] = new Bishop(false, Pos);
                         Peces_Negres.add(Board[i][board_pointer]);
                     } else if (f.equals('p')) { // peo
-                        Board[i][board_pointer] = new Pawn(false, Pos, this);
+                        Board[i][board_pointer] = new Pawn(false, Pos);
                         Peces_Negres.add(Board[i][board_pointer]);
                     }
                     ++board_pointer;
@@ -282,55 +285,33 @@ public class Taulell{
         else return false;
     }
 
-/*
-    public boolean escac_mat(boolean jugantCom) {
-        ArrayList<Pair<Pair<Integer, Integer>, Pair<Integer, Integer>>> mvs_meu;
-        ArrayList<Pair<Pair<Integer, Integer>, Pair<Integer, Integer>>> mvs_enemic;
-        mvs_meu = this.getMoves(jugantCom);
-        boolean escacmat = true;
-        for (Pair<Pair<Integer, Integer>, Pair<Integer, Integer>> aMvs_meu : mvs_meu) {
-            Taulell x = new Taulell(this);
-            x.ferMoviment(aMvs_meu.getKey(), aMvs_meu.getValue());
-            mvs_enemic = x.getMoves(!jugantCom);
-
-
-
-            boolean salvat = true;
-            for (Pair<Pair<Integer, Integer>, Pair<Integer, Integer>> aMvs_enemic : mvs_enemic) {
-                Taulell aux = new Taulell(x);
-                aux.ferMoviment(aMvs_enemic.getKey(), aMvs_enemic.getValue());
-                if (aux.findKing(jugantCom) == null) {
-                    salvat = false;
-                }
-            }
-            if (salvat) {
-                escacmat = false;
-            }
-        }
-        return escacmat;
-    }
- */
-
-
-
-
     public boolean  rei_segur(int i, int j,boolean jugantCom) {
         /*
         * Aquesta funció determina si la posicio [i,j] es segura per al jugador  [jugantCom]
         * */
         if (jugantCom) {
             boolean moviment_segur = true;
+            ArrayList<Pair<Integer, Integer> > movs_n = new ArrayList<>();
             for (Peca Pec_negra : Peces_Negres) {
-                if (Pec_negra.espotmoure(new Pair<>(i, j))) {
-                    moviment_segur = false;
+                if (Pec_negra.espotmoure(new Pair<>(i, j))) { // Segons el seu moviment
+                    movs_n.add(new Pair<>(i,j));
+                    if (validarMoviments(movs_n, Pec_negra.getClass().getName(), Pec_negra).size () != 0) { // Segons el taulell
+                        moviment_segur = false;
+                    }
+                    movs_n.clear();
                 }
             }
             return moviment_segur;
         } else {
             boolean moviment_segur = true;
+            ArrayList<Pair<Integer, Integer> > movs_b = new ArrayList<>();
             for (Peca Pec_blanc: Peces_Blanques) {
                 if (Pec_blanc.espotmoure(new Pair<>(i, j))) {
-                    moviment_segur = false;
+                    movs_b.add(new Pair<>(i,j));
+                    if (validarMoviments(movs_b, Pec_blanc.getClass().getName(), Pec_blanc).size () != 0) { // Segons el taulell
+                        moviment_segur = false;
+                    }
+                    movs_b.clear();
                 }
             }
             return moviment_segur;
@@ -339,38 +320,144 @@ public class Taulell{
 
 
 
-/*
-    public ArrayList<Pair<Pair<Integer, Integer>, Pair<Integer, Integer>>> getMoves(boolean jugantCom ) {
-        ArrayList<Pair<Pair<Integer, Integer>, Pair<Integer, Integer>>> mvs = new ArrayList<>();
-        for (int i = 0; i < 8; ++i) {
-            for (int j = 0; j < 8; ++j) {
-                if (this.PosOcupada(i, j) && Board[i][j].getcolor() == jugantCom) {
-                    Peca p = Board[i][j];
-                    for (int z = 0; z < 8; ++z) {
-                        for (int w = 0; w < 8; ++w) {
-                            if (p.espotmoure(new Pair<>(z, w))) { // if mov valid -> add a mvs
-                                Taulell aux = new Taulell(this);
-                                aux.ferMoviment(new Pair<>(i,j), new Pair<>(z,w));
-                                King k = (King) aux.findKing(jugantCom);
-                                if (aux.rei_segur(k.getposicioactual().getKey(), k.getposicioactual().getValue(),jugantCom)) {
-                                    mvs.add(new Pair<>(new Pair<>(i, j), new Pair<>(z, w)));
+    public ArrayList<Pair<Integer, Integer>> validarMoviments(ArrayList<Pair<Integer, Integer>> moves, String type, Peca p) {
+        ArrayList<Pair<Integer, Integer>> defMoves = new ArrayList<>();
+        for (int i=0; i < moves.size(); ++i) {
+            Pair<Integer, Integer> m = moves.get(i);
+            if ((PosOcupada(m.getKey(),m.getValue()) && Board[m.getKey()][m.getValue()].getcolor() != p.getcolor()) || !PosOcupada(m.getKey(), m.getValue())){
+                // CAS POSICIO OCUPADA PER PECA DEL ALTRE EQUIP OR CAS POSICIO NO OCUPADA
+                if (type.equals("domini.King")){ // Sempre es pot moure
+                    defMoves.add(m);
+                }
+                else if (type.equals("domini.Knight")){ // Sempre es pot moure
+                    defMoves.add(m);
+                }
+                else if (type.equals("domini.Bishop")){ // Nomes si no hi ha objectius al mig
+                    int dif_i = m.getKey() - p.getposicioactual().getKey();
+                    int dif_j = m.getValue() - p.getposicioactual().getValue();
+
+                    int aux_i = p.getposicioactual().getKey() + ((dif_i > 0) ? 1 : -1);
+                    int aux_j = p.getposicioactual().getValue() + ((dif_j > 0) ? 1 : -1);
+                    boolean findBlock = false;
+                    while (!findBlock && (aux_i != m.getKey()) && (aux_j != m.getValue())){
+                        if (!PosOcupada(aux_i,aux_j)){
+                            aux_i += (dif_i > 0) ? 1 : -1;
+                            aux_j += (dif_j > 0) ? 1 : -1;
+                        } else {
+                            findBlock = true;
+                        }
+                    }
+                    if (!findBlock) defMoves.add(m);
+                }
+                else if (type.equals("domini.Queen")){ // Nomes si no hi ha objectius al mig
+                    int dif_i = m.getKey() - p.getposicioactual().getKey();
+                    int dif_j = m.getValue() - p.getposicioactual().getValue();
+
+                    if (Math.abs(dif_i) == Math.abs(dif_j)){
+                        int aux_i = p.getposicioactual().getKey() + ((dif_i > 0) ? 1 : -1);
+                        int aux_j = p.getposicioactual().getValue() + ((dif_j > 0) ? 1 : -1);
+                        boolean findBlock = false;
+                        while (!findBlock && (aux_i != m.getKey()) && (aux_j != m.getValue())){
+                            if (!PosOcupada(aux_i,aux_j)){
+                                aux_i += (dif_i > 0) ? 1 : -1;
+                                aux_j += (dif_j > 0) ? 1 : -1;
+                            } else {
+                                findBlock = true;
+                            }
+                        }
+                        if (!findBlock) defMoves.add(m);
+                    }
+                    else if (dif_j == 0) { // Vertical
+                        int aux_i = p.getposicioactual().getKey() + ((dif_i > 0) ? 1 : -1);
+                        boolean findBlock = false;
+                        while (!findBlock && aux_i != m.getKey()) {
+                            if (!PosOcupada(aux_i, m.getValue())){
+                                aux_i += (dif_i > 0) ? 1 : -1;
+                            } else {
+                                findBlock = true;
+                            }
+                        }
+                        if (!findBlock) defMoves.add(m);
+                    } else if (dif_i == 0){ // Horitzontal
+
+                        int aux_j = p.getposicioactual().getValue() + ((dif_j > 0) ? 1 : -1);
+                        boolean findBlock = false;
+                        while (!findBlock && aux_j != m.getValue()) {
+                            if (!PosOcupada(m.getKey(), aux_j)){
+                                aux_j += (dif_j > 0) ? 1 : -1;
+                            } else {
+                                findBlock = true;
+                            }
+                        }
+                        if (!findBlock) defMoves.add(m);
+                    }
+
+                }
+                else if (type.equals("domini.Rook")) { // Nomes si no hi ha objectius al mig
+                    int dif_i = m.getKey() - p.getposicioactual().getKey();
+                    int dif_j = m.getValue() - p.getposicioactual().getValue();
+                    if (dif_j == 0) { // Vertical
+                        int aux_i = p.getposicioactual().getKey() + ((dif_i > 0) ? 1 : -1);
+                        boolean findBlock = false;
+                        while (!findBlock && aux_i != m.getKey()) {
+                            if (!PosOcupada(aux_i, m.getValue())){
+                                aux_i += (dif_i > 0) ? 1 : -1;
+                            } else {
+                                findBlock = true;
+                            }
+                        }
+                        if (!findBlock) defMoves.add(m);
+                    }
+                    else if (dif_i == 0){ // Horitzontal
+                        int aux_j = p.getposicioactual().getValue() + ((dif_j > 0) ? 1 : -1);
+                        boolean findBlock = false;
+                        while (!findBlock && aux_j != m.getValue()) {
+                            if (!PosOcupada(m.getKey(), aux_j)){
+                                aux_j += (dif_j > 0) ? 1 : -1;
+                            } else {
+                                findBlock = true;
+                            }
+                        }
+                        if (!findBlock) defMoves.add(m);
+                    }
+                }
+                else if (type.equals("domini.Pawn")){ // Nomes si mov es en diagonal
+                    int dif_i = m.getKey() - p.getposicioactual().getKey();
+                    int dif_j = m.getValue() - p.getposicioactual().getValue();
+                    if (PosOcupada(m.getKey(),m.getValue())) { // Vol dir que es el cas de un enemic
+                        if (Math.abs(dif_i) == Math.abs(dif_j)) { // Si es un moviment diagonal
+                            defMoves.add(m);
+                        }
+                    } else {
+                        if (Math.abs(dif_i) == 2) { // Cas moviment inicial
+                            if (p.getcolor()) { // Cas blanques
+                                if (!PosOcupada(p.getposicioactual().getKey()-1, p.getposicioactual().getValue())){
+                                    defMoves.add(m);
+                                }
+                            } else {
+                                if (!PosOcupada(p.getposicioactual().getKey()+1, p.getposicioactual().getValue())){
+                                    defMoves.add(m);
                                 }
                             }
+                        } else if (Math.abs(dif_i) != Math.abs(dif_j)) {
+                            defMoves.add(m);
                         }
                     }
                 }
             }
         }
-        return mvs;
+        return defMoves;
     }
-*/
 
+
+// todo -> Funcions mirar si moviment de la peca es legal per part del taulell
     public ArrayList<Pair<Pair<Integer, Integer>, Pair<Integer, Integer>>> getMoves(boolean jugantCom) {
         ArrayList<Pair<Pair<Integer, Integer>, Pair<Integer, Integer>>> mvs = new ArrayList<>();
 
         if (jugantCom) {
             for (Peca pB : Peces_Blanques) {
-                ArrayList<Pair<Integer, Integer>> auxB = pB.posicionsposible();
+                ArrayList<Pair<Integer, Integer>> auxB = validarMoviments(pB.posicionsposible(), pB.getClass().getName(),pB);
+                /*Funció per saber si es pot moure a la posicio segons les posicions de les altres peces*/
                 for (int j = 0; j < auxB.size(); ++j) {
                     Taulell t_aux = new Taulell(this);
                     Pair<Integer, Integer> pact = pB.getposicioactual();
@@ -386,7 +473,7 @@ public class Taulell{
             return mvs;
         } else {
             for (Peca pN : Peces_Negres) {
-                ArrayList<Pair<Integer, Integer>> auxN = pN.posicionsposible();
+                ArrayList<Pair<Integer, Integer>> auxN = validarMoviments(pN.posicionsposible(),pN.getClass().getName(),pN);
                 for (int j = 0; j < auxN.size(); ++j) {
                     Taulell t_aux = new Taulell(this);
                     Pair<Integer, Integer> pact = pN.getposicioactual();

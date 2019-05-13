@@ -1,3 +1,6 @@
+﻿[Per poder executar aquest jar, introduir la comanda java -jar Presentacio.jar, ja que s'ha de indicar per terminal quin joc 
+probes es vol executar].
+
 Aquest conjunt de documents txt que es troben en aquesta carpeta, són el conjunt de jocs de proba que engloben tot el projecte.
 
 El que es mostra en cada fitxer txt és:
@@ -28,7 +31,6 @@ El que es mostra en cada fitxer txt és:
   - P1 : r1bq2k1/ppp2r1p/2np1pNQ/2bNpp2/2B1P3/3P4/PPP2PPP/R3K2R w - - 0 1 Blanques en  2 torns (2 segons)
   - P2 : r1bn1rk1/ppp1B1pp/1b1p4/3Pp3/4n2N/2P4P/PP2BPP1/R2QK2R b - - 0 1  Negres en 2 torns (5 segons)
   - P3 : 1k1r4/ppp2ppp/8/1Q2P3/8/b1q4B/PRP4P/2K4R b - - 0 1 Negres en 3 torns (8 minuts)
-  - P4 : 5rk1/5ppp/pb1bp3/3n4/3P4/1Q2P1Pq/PBR2PBP/5RK1 b - - 0 1 Negres en 3 torns (+10 minuts)
   - P5 : r6k/pp2BpRp/8/8/4N3/7P/qPP5/2KR4 w - - 0 1 Blanques en 3 torns (3-5 minuts)
 
 - jp-jugar-HvH-facil: En aquest conjunt de problemes es mostra com seria una partida entre dos jugadors humans on, en cas
