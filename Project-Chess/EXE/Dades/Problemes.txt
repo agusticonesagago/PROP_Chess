@@ -1,0 +1,10 @@
+{
+    "Tema": "test1",
+    "FEN":  "fen_test1",
+    "dificultat": "facil"
+},
+{
+    "Tema": "test2",
+    "FEN":  "fen_test2,
+    "difficultat": "dificil"
+}
