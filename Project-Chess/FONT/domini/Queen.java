@@ -7,10 +7,122 @@ import javafx.util.Pair;
 import java.util.ArrayList;
 
 public class Queen extends Peca {
-  public Queen(boolean color, Pair<Integer, Integer> posactual, Taulell t) {
-    super(color, posactual, t);
+  public Queen(boolean color, Pair<Integer, Integer> posactual) {
+    super(color, posactual);
   }
 
+
+
+
+  public Boolean espotmoure(Pair<Integer, Integer> posfinal) {
+    int ic = posactual.getKey();
+    int jc = posactual.getValue();
+    int ifi = posfinal.getKey();
+    int jfi = posfinal.getValue();
+    int dif_i = ifi - ic;
+    int dif_j = jfi - jc;
+
+    if (!caselladins(posfinal)) return false;
+    if (Math.abs(dif_i) == Math.abs(dif_j)) return true; // Cas diagonals
+    if (dif_i == 0 && dif_j != 0) return true;
+    else if (dif_i != 0 && dif_j == 0) return true;
+    else return false;
+  }
+
+
+
+  public ArrayList<Pair<Integer,Integer>> posicionsposible(){
+    ArrayList<Pair<Integer,Integer>> posposibles= new ArrayList<>();
+    int ic = posactual.getKey();
+    int jc = posactual.getValue();
+
+    boolean endOfBoard = false;
+    int plus = 1;
+
+    while (!endOfBoard && ((ic + plus) < 8)) {
+      if(espotmoure(new Pair<>(ic+plus,jc))) {
+        posposibles.add(new Pair<>(ic + plus, jc));
+        ++plus;
+      }
+      else endOfBoard=true;
+    }
+
+    endOfBoard=false;
+    plus = 1;
+    while (!endOfBoard && ((ic - plus) >= 0)) {
+      if(espotmoure(new Pair<>(ic-plus,jc))) {
+        posposibles.add(new Pair<>(ic - plus, jc));
+        ++plus;
+      }
+      else endOfBoard=true;
+    }
+
+    endOfBoard=false;
+    plus = 1;
+    while (!endOfBoard && ((jc + plus) < 8)) {
+      if(espotmoure(new Pair<>(ic,jc+plus))) {
+        posposibles.add(new Pair<>(ic, jc+plus));
+        ++plus;
+      }
+      else endOfBoard=true;
+    }
+
+    endOfBoard=false;
+    plus = 1;
+    while (!endOfBoard && ((jc - plus) >=0)) {
+      if(espotmoure(new Pair<>(ic,jc-plus))) {
+        posposibles.add(new Pair<>(ic, jc-plus));
+        ++plus;
+      }
+      else endOfBoard=true;
+    }
+
+    endOfBoard=false;
+    plus = 1;
+    while (!endOfBoard && ((jc - plus) >=0) && ((ic-plus)>=0)) {
+      if(espotmoure(new Pair<>(ic-plus,jc-plus))) {
+        posposibles.add(new Pair<>(ic-plus, jc-plus));
+        ++plus;
+      }
+      else endOfBoard=true;
+    }
+
+    endOfBoard=false;
+    plus = 1;
+    while (!endOfBoard && ((jc + plus) <8) && ((ic-plus)>=0)) {
+      if(espotmoure(new Pair<>(ic-plus,jc+plus))) {
+        posposibles.add(new Pair<>(ic-plus, jc+plus));
+        ++plus;
+      }
+      else endOfBoard=true;
+    }
+
+    endOfBoard=false;
+    plus = 1;
+    while (!endOfBoard && ((jc + plus) <8) && ((ic+plus)<8)) {
+      if(espotmoure(new Pair<>(ic+plus,jc+plus))) {
+        posposibles.add(new Pair<>(ic+plus, jc+plus));
+        ++plus;
+      }
+      else endOfBoard=true;
+    }
+
+    endOfBoard=false;
+    plus = 1;
+    while (!endOfBoard && ((jc - plus) >=0) && ((ic+plus)<8)) {
+      if(espotmoure(new Pair<>(ic+plus,jc-plus))) {
+        posposibles.add(new Pair<>(ic+plus, jc-plus));
+        ++plus;
+      }
+      else endOfBoard=true;
+    }
+
+    return posposibles;
+  }
+}
+
+
+/*
   public Boolean espotmoure(Pair<Integer, Integer> posfinal) {
 
     int ic = posactual.getKey();
@@ -163,94 +275,4 @@ public class Queen extends Peca {
 
     return false;
   }
-
-
-
-  public ArrayList<Pair<Integer,Integer>> posicionsposible(){
-    ArrayList<Pair<Integer,Integer>> posposibles= new ArrayList<>();
-    int ic = posactual.getKey();
-    int jc = posactual.getValue();
-    boolean obstaculo = false;
-
-    int plus = 1;
-    while (!obstaculo && ((ic + plus) < 8)) {
-      if(espotmoure(new Pair<>(ic+plus,jc))) {
-        posposibles.add(new Pair<>(ic + plus, jc));
-        ++plus;
-      }
-      else obstaculo=true;
-    }
-
-    obstaculo=false;
-    plus = 1;
-    while (!obstaculo && ((ic - plus) >= 0)) {
-      if(espotmoure(new Pair<>(ic-plus,jc))) {
-        posposibles.add(new Pair<>(ic - plus, jc));
-        ++plus;
-      }
-      else obstaculo=true;
-    }
-
-    obstaculo=false;
-    plus = 1;
-    while (!obstaculo && ((jc + plus) < 8)) {
-      if(espotmoure(new Pair<>(ic,jc+plus))) {
-        posposibles.add(new Pair<>(ic, jc+plus));
-        ++plus;
-      }
-      else obstaculo=true;
-    }
-
-    obstaculo=false;
-    plus = 1;
-    while (!obstaculo && ((jc - plus) >=0)) {
-      if(espotmoure(new Pair<>(ic,jc-plus))) {
-        posposibles.add(new Pair<>(ic, jc-plus));
-        ++plus;
-      }
-      else obstaculo=true;
-    }
-
-    obstaculo=false;
-    plus = 1;
-    while (!obstaculo && ((jc - plus) >=0) && ((ic-plus)>=0)) {
-      if(espotmoure(new Pair<>(ic-plus,jc-plus))) {
-        posposibles.add(new Pair<>(ic-plus, jc-plus));
-        ++plus;
-      }
-      else obstaculo=true;
-    }
-
-    obstaculo=false;
-    plus = 1;
-    while (!obstaculo && ((jc + plus) <8) && ((ic-plus)>=0)) {
-      if(espotmoure(new Pair<>(ic-plus,jc+plus))) {
-        posposibles.add(new Pair<>(ic-plus, jc+plus));
-        ++plus;
-      }
-      else obstaculo=true;
-    }
-
-    obstaculo=false;
-    plus = 1;
-    while (!obstaculo && ((jc + plus) <8) && ((ic+plus)<8)) {
-      if(espotmoure(new Pair<>(ic+plus,jc+plus))) {
-        posposibles.add(new Pair<>(ic+plus, jc+plus));
-        ++plus;
-      }
-      else obstaculo=true;
-    }
-
-    obstaculo=false;
-    plus = 1;
-    while (!obstaculo && ((jc - plus) >=0) && ((ic+plus)<8)) {
-      if(espotmoure(new Pair<>(ic+plus,jc-plus))) {
-        posposibles.add(new Pair<>(ic+plus, jc-plus));
-        ++plus;
-      }
-      else obstaculo=true;
-    }
-
-    return posposibles;
-  }
-}
+*/

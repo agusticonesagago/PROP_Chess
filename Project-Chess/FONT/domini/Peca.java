@@ -11,13 +11,11 @@ public class Peca{
 
     protected boolean color; // true(blanc) i false(negre)
     protected Pair<Integer,Integer> posactual;
-    protected Taulell Taulell;
 
 
-    public Peca(boolean color, Pair<Integer,Integer> posactual, Taulell t) {
+    public Peca(boolean color, Pair<Integer,Integer> posactual) {
       this.color = color;
       this.posactual = new Pair<>(posactual.getKey(), posactual.getValue());
-      Taulell = t;
     }
 
     protected Boolean caselladins(Pair<Integer,Integer> pos){
@@ -32,11 +30,6 @@ public class Peca{
         return false;
     }
 
-
-    /* GETTERS */
-    public Taulell getTaulell () {
-        return Taulell;
-    }
 
     public boolean getcolor () {
       return color;

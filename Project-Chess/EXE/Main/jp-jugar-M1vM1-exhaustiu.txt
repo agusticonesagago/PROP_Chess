@@ -15,11 +15,6 @@ Negres fan mat en 3
 dificil
 1
 0
-5rk1/5ppp/pb1bp3/3n4/3P4/1Q2P1Pq/PBR2PBP/5RK1 b - - 0 1
-Negres fan mat en 3
-dificil
-1
-0
 r6k/pp2BpRp/8/8/4N3/7P/qPP5/2KR4 w - - 0 1
 Blanques fan mat en 3
 dificil

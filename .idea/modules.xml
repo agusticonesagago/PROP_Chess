@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Project-Chess/DOC.iml" filepath="$PROJECT_DIR$/Project-Chess/DOC.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Project-Chess/Project.iml" filepath="$PROJECT_DIR$/Project-Chess/Project.iml" />
     </modules>
   </component>
 </project>

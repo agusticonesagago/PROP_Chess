@@ -1,5 +1,5 @@
 package domini;
-
+// TODO - Update with usage of  CP.
 
 import javafx.util.Pair;
 import java.util.Iterator;
@@ -12,12 +12,13 @@ public class CtrlDominiMantProblema {
     private CtrlDades ctrlD;
 
     public CtrlDominiMantProblema() {
-        //inicialitzar el treeMap amb les dades de Json
+        // TODO inicialitzar el treeMap amb les dades de Json
         Problemes = new TreeMap<String, Problema>();
         ctrlD =  ctrlD.getInstance();
     }
 
     public Vector<Vector<String>> consultaProblemes() {
+        // TODO CHANGE
         Vector<Vector<String>> dades = new Vector<>();
         Set setkeys = Problemes.keySet();
         Iterator iterkeys = setkeys.iterator();
@@ -35,6 +36,7 @@ public class CtrlDominiMantProblema {
     }
 
     private boolean existeixProblema (String fenp) {
+        // Todo Change it
         return Problemes.containsKey(fenp);
     }
 

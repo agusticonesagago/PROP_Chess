@@ -50,13 +50,13 @@ public class DriverPawn {
 
                         if (rival == 0) { //sense rival
                             StubTaulellPawn st_cas1 = new StubTaulellPawn("rnbqkbnr/pppp2pp/3P1p2/8/8/4p3/PPP1PPPP/RNBQKBNR w KQkq - 0 5");
-                            Pawn p = new Pawn(true, new Pair<Integer, Integer>(6, 1), st_cas1);
+                            Pawn p = new Pawn(true, new Pair<Integer, Integer>(6, 1));
                             boolean ok = p.espotmoure(new Pair<>(5, 1));
                             if (ok) t.printf("EM PUC MOURE, resultat correcte");
                             else t.printf("NO EM PUC MOURE, resultat incorrecte");
                         } else { //amb rival
                             StubTaulellPawn st_cas1 = new StubTaulellPawn("rnbqkbnr/pppp2pp/3P1p2/8/8/4p3/PPP1PPPP/RNBQKBNR w KQkq - 0 5");
-                            Pawn p = new Pawn(true, new Pair<Integer, Integer>(6, 4), st_cas1);
+                            Pawn p = new Pawn(true, new Pair<Integer, Integer>(6, 4));
                             boolean ok = p.espotmoure(new Pair<>(5, 4));
                             if (ok) t.printf("EM PUC MOURE, resultat incorrecte");
                             else t.printf("NO EM PUC MOURE, resultat correcte");
@@ -69,13 +69,13 @@ public class DriverPawn {
 
                         if (rival == 0) { //sense rival
                             StubTaulellPawn st_cas1 = new StubTaulellPawn("rnbqkbnr/pppp2pp/3P1p2/8/8/4p3/PPP1PPPP/RNBQKBNR w KQkq - 0 5");
-                            Pawn p = new Pawn(true, new Pair<Integer, Integer>(6, 1), st_cas1);
+                            Pawn p = new Pawn(true, new Pair<Integer, Integer>(6, 1));
                             boolean ok = p.espotmoure(new Pair<>(4, 1));
                             if (ok) t.printf("EM PUC MOURE, resultat correcte");
                             else t.printf("NO EM PUC MOURE, resultat incorrecte");
                         } else { //amb rival
                             StubTaulellPawn st_cas1 = new StubTaulellPawn("rnbqkbnr/pppp2pp/3P1p2/8/8/4p3/PPP1PPPP/RNBQKBNR w KQkq - 0 5");
-                            Pawn p = new Pawn(true, new Pair<Integer, Integer>(6, 4), st_cas1);
+                            Pawn p = new Pawn(true, new Pair<Integer, Integer>(6, 4));
                             boolean ok = p.espotmoure(new Pair<>(4, 4));
                             if (ok) t.printf("EM PUC MOURE, resultat incorrecte");
                             else t.printf("NO EM PUC MOURE, resultat correcte");
@@ -89,13 +89,13 @@ public class DriverPawn {
 
                     if (matar == 0) { //amb rival
                         StubTaulellPawn st_cas1 = new StubTaulellPawn("rnbqkbnr/pppp2pp/3P1p2/8/8/4p3/PPP1PPPP/RNBQKBNR w KQkq - 0 5");
-                        Pawn p = new Pawn(true, new Pair<Integer, Integer>(6, 5), st_cas1);
+                        Pawn p = new Pawn(true, new Pair<Integer, Integer>(6, 5));
                         boolean ok = p.espotmoure(new Pair<>(5, 4));
                         if (ok) t.printf("EM PUC MOURE, resultat correcte");
                         else t.printf("NO EM PUC MOURE, resultat incorrecte");
                     } else { //sense rival
                         StubTaulellPawn st_cas1 = new StubTaulellPawn("rnbqkbnr/pppp2pp/3P1p2/8/8/4p3/PPP1PPPP/RNBQKBNR w KQkq - 0 5");
-                        Pawn p = new Pawn(true, new Pair<Integer, Integer>(6, 0), st_cas1);
+                        Pawn p = new Pawn(true, new Pair<Integer, Integer>(6, 0));
                         boolean ok = p.espotmoure(new Pair<>(5, 1));
                         if (ok) t.printf("EM PUC MOURE, resultat incorrecte");
                         else t.printf("NO EM PUC MOURE, resultat correcte");
@@ -121,13 +121,13 @@ public class DriverPawn {
 
                         if (rival == 0) { //amb rival
                             StubTaulellPawn st_cas1 = new StubTaulellPawn("rnbqkbnr/pppp2pp/3P1p2/8/8/4p3/PPP1PPPP/RNBQKBNR w KQkq - 0 5");
-                            Pawn p = new Pawn(false, new Pair<Integer, Integer>(1, 3), st_cas1);
+                            Pawn p = new Pawn(false, new Pair<Integer, Integer>(1, 3));
                             boolean ok = p.espotmoure(new Pair<>(2, 3));
                             if (ok) t.printf("EM PUC MOURE, resultat incorrecte");
                             else t.printf("NO EM PUC MOURE, resultat correcte");
                         } else { //sense rival
                             StubTaulellPawn st_cas1 = new StubTaulellPawn("rnbqkbnr/pppp2pp/3P1p2/8/8/4p3/PPP1PPPP/RNBQKBNR w KQkq - 0 5");
-                            Pawn p = new Pawn(false, new Pair<Integer, Integer>(1, 0), st_cas1);
+                            Pawn p = new Pawn(false, new Pair<Integer, Integer>(1, 0));
                             boolean ok = p.espotmoure(new Pair<>(2, 0));
                             if (ok) t.printf("EM PUC MOURE, resultat correcte");
                             else t.printf("NO EM PUC MOURE, resultat incorrecte");
@@ -139,13 +139,13 @@ public class DriverPawn {
 
                         if (rival == 0) { //amb rival
                             StubTaulellPawn st_cas1 = new StubTaulellPawn("rnbqkbnr/pppp2pp/3P1p2/8/8/4p3/PPP1PPPP/RNBQKBNR w KQkq - 0 5");
-                            Pawn p = new Pawn(false, new Pair<Integer, Integer>(1, 3), st_cas1);
+                            Pawn p = new Pawn(false, new Pair<Integer, Integer>(1, 3));
                             boolean ok = p.espotmoure(new Pair<>(3, 3));
                             if (ok) t.printf("EM PUC MOURE, resultat incorrecte");
                             else t.printf("NO EM PUC MOURE, resultat correcte");
                         } else { //sense rival
                             StubTaulellPawn st_cas1 = new StubTaulellPawn("rnbqkbnr/pppp2pp/3P1p2/8/8/4p3/PPP1PPPP/RNBQKBNR w KQkq - 0 5");
-                            Pawn p = new Pawn(false, new Pair<Integer, Integer>(1, 0), st_cas1);
+                            Pawn p = new Pawn(false, new Pair<Integer, Integer>(1, 0));
                             boolean ok = p.espotmoure(new Pair<>(3, 0));
                             if (ok) t.printf("EM PUC MOURE, resultat correcte");
                             else t.printf("NO EM PUC MOURE, resultat incorrecte");
@@ -159,13 +159,13 @@ public class DriverPawn {
 
                     if (matarblancas == 0) { //amb rival
                         StubTaulellPawn st_cas1 = new StubTaulellPawn("rnbqkbnr/pppp2pp/3P1p2/8/8/4p3/PPP1PPPP/RNBQKBNR w KQkq - 0 5");
-                        Pawn p = new Pawn(false, new Pair<Integer, Integer>(1, 2), st_cas1);
+                        Pawn p = new Pawn(false, new Pair<Integer, Integer>(1, 2));
                         boolean ok = p.espotmoure(new Pair<>(2, 3));
                         if (ok) t.printf("EM PUC MOURE, resultat correcte");
                         else t.printf("NO EM PUC MOURE, resultat incorrecte");
                     } else { //sense rival
                         StubTaulellPawn st_cas1 = new StubTaulellPawn("rnbqkbnr/pppp2pp/3P1p2/8/8/4p3/PPP1PPPP/RNBQKBNR w KQkq - 0 5");
-                        Pawn p = new Pawn(false, new Pair<Integer, Integer>(1, 0), st_cas1);
+                        Pawn p = new Pawn(false, new Pair<Integer, Integer>(1, 0));
                         boolean ok = p.espotmoure(new Pair<>(2, 1));
                         if (ok) t.printf("EM PUC MOURE, resultat incorrecte");
                         else t.printf("NO EM PUC MOURE, resultat correcte");

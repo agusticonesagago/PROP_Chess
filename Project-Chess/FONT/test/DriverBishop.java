@@ -40,13 +40,13 @@ public class DriverBishop {
 
                 if (rival == 0) {
                     StubTaulellBishop st_cas1 = new StubTaulellBishop("1nbq1bnr/r3k1p1/p7/1ppppp1p/2PBP3/1PNPKPP1/P6P/R1B3NR w - - 0 13");
-                    Bishop p = new Bishop(true, new Pair<Integer, Integer>(4, 3), st_cas1);
+                    Bishop p = new Bishop(true, new Pair<Integer, Integer>(4, 3));
                     boolean ok = p.espotmoure(new Pair<>(3, 2));
                     if (ok) t.printf("EM PUC MOURE, resultat correcte");
                     else t.printf("NO EM PUC MOURE, resultat incorrecte");
                 } else if (rival == 1) {
                     StubTaulellBishop st_cas1 = new StubTaulellBishop("1nbq1bnr/r3k1p1/p7/1ppppp1p/2PBP3/1PNPKPP1/P6P/R1B3NR w - - 0 13");
-                    Bishop p = new Bishop(true, new Pair<Integer, Integer>(4, 3), st_cas1);
+                    Bishop p = new Bishop(true, new Pair<Integer, Integer>(4, 3));
                     boolean ok = p.espotmoure(new Pair<>(2, 1));
                     if (ok) t.printf("EM PUC MOURE, resultat incorrecte");
                     else t.printf("NO EM PUC MOURE, resultat correcte");
@@ -59,13 +59,13 @@ public class DriverBishop {
 
                 if (rival == 0) {
                     StubTaulellBishop st_cas1 = new StubTaulellBishop("1nbq1bnr/r3k1p1/p7/1ppppp1p/2PBP3/1PNPKPP1/P6P/R1B3NR w - - 0 13");
-                    Bishop p = new Bishop(true, new Pair<Integer, Integer>(4, 3), st_cas1);
+                    Bishop p = new Bishop(true, new Pair<Integer, Integer>(4, 3));
                     boolean ok = p.espotmoure(new Pair<>(5, 2));
                     if (ok) t.printf("EM PUC MOURE, resultat incorrecte");
                     else t.printf("NO EM PUC MOURE, resultat correcte");
                 } else if (rival == 1) {
                     StubTaulellBishop st_cas1 = new StubTaulellBishop("1nbq1bnr/r3k1p1/p7/1ppppp1p/2PBP3/1PNPKPP1/P6P/R1B3NR w - - 0 13");
-                    Bishop p = new Bishop(true, new Pair<Integer, Integer>(4, 3), st_cas1);
+                    Bishop p = new Bishop(true, new Pair<Integer, Integer>(4, 3));
                     boolean ok = p.espotmoure(new Pair<>(6, 1));
                     if (ok) t.printf("EM PUC MOURE, resultat incorrecte");
                     else t.printf("NO EM PUC MOURE, resultat correcte");
@@ -78,13 +78,13 @@ public class DriverBishop {
 
                 if (rival == 0) {
                     StubTaulellBishop st_cas1 = new StubTaulellBishop("1nbq1bnr/r3k1p1/p7/1ppppp1p/2PBP3/1PNPKPP1/P6P/R1B3NR w - - 0 13");
-                    Bishop p = new Bishop(true, new Pair<Integer, Integer>(4, 3), st_cas1);
+                    Bishop p = new Bishop(true, new Pair<Integer, Integer>(4, 3));
                     boolean ok = p.espotmoure(new Pair<>(5, 4));
                     if (ok) t.printf("EM PUC MOURE, resultat incorrecte");
                     else t.printf("NO EM PUC MOURE, resultat correcte");
                 } else if (rival == 1) {
                     StubTaulellBishop st_cas1 = new StubTaulellBishop("1nbq1bnr/r3k1p1/p7/1ppppp1p/2PBP3/1PNPKPP1/P6P/R1B3NR w - - 0 13");
-                    Bishop p = new Bishop(true, new Pair<Integer, Integer>(4, 3), st_cas1);
+                    Bishop p = new Bishop(true, new Pair<Integer, Integer>(4, 3));
                     boolean ok = p.espotmoure(new Pair<>(6, 5));
                     if (ok) t.printf("EM PUC MOURE, resultat incorrecte");
                     else t.printf("NO EM PUC MOURE, resultat correcte");
@@ -97,13 +97,13 @@ public class DriverBishop {
 
                 if (rival == 0) {
                     StubTaulellBishop st_cas1 = new StubTaulellBishop("1nbq1bnr/r3k1p1/p7/1ppppp1p/2PBP3/1PNPKPP1/P6P/R1B3NR w - - 0 13");
-                    Bishop p = new Bishop(true, new Pair<Integer, Integer>(4, 3), st_cas1);
+                    Bishop p = new Bishop(true, new Pair<Integer, Integer>(4, 3));
                     boolean ok = p.espotmoure(new Pair<>(3, 4));
                     if (ok) t.printf("EM PUC MOURE, resultat correcte");
                     else t.printf("NO EM PUC MOURE, resultat incorrecte");
                 } else if (rival == 1) {
                     StubTaulellBishop st_cas1 = new StubTaulellBishop("1nbq1bnr/r3k1p1/p7/1ppppp1p/2PBP3/1PNPKPP1/P6P/R1B3NR w - - 0 13");
-                    Bishop p = new Bishop(true, new Pair<Integer, Integer>(4, 3), st_cas1);
+                    Bishop p = new Bishop(true, new Pair<Integer, Integer>(4, 3));
                     boolean ok = p.espotmoure(new Pair<>(2, 5));
                     if (ok) t.printf("EM PUC MOURE, resultat incorrecte");
                     else t.printf("NO EM PUC MOURE, resultat correcte");

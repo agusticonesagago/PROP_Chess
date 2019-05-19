@@ -39,7 +39,7 @@ public class DriverQueen {
                 rival = Integer.valueOf(sc.nextLine());
                 if(rival==0){
                     StubTaulellQueen st_cas1 = new StubTaulellQueen("rnbqkbnr/6p1/pp6/2pppp1p/2PQP3/2NPKP2/PP4PP/R1B2BNR b kq - 0 10");
-                    Queen p = new Queen(true, new Pair<Integer, Integer>(4, 3), st_cas1);
+                    Queen p = new Queen(true, new Pair<Integer, Integer>(4, 3));
                     boolean ok = p.espotmoure(new Pair<>(3, 3));
                     if (ok) t.printf("EM PUC MOURE, resultat correcte");
                     else t.printf("NO EM PUC MOURE, resultat incorrecte");
@@ -47,7 +47,7 @@ public class DriverQueen {
 
                 else if(rival==1){
                     StubTaulellQueen st_cas1 = new StubTaulellQueen("rnbqkbnr/6p1/pp6/2pppp1p/2PQP3/2NPKP2/PP4PP/R1B2BNR b kq - 0 10");
-                    Queen p = new Queen(true, new Pair<Integer, Integer>(4, 3), st_cas1);
+                    Queen p = new Queen(true, new Pair<Integer, Integer>(4, 3));
                     boolean ok = p.espotmoure(new Pair<>(2, 3));
                     if (ok) t.printf("EM PUC MOURE, resultat incorrecte");
                     else t.printf("NO EM PUC MOURE, resultat correcte");
@@ -62,7 +62,7 @@ public class DriverQueen {
 
                 if(rival==0){
                     StubTaulellQueen st_cas1 = new StubTaulellQueen("rnbqkbnr/6p1/pp6/2pppp1p/2PQP3/2NPKP2/PP4PP/R1B2BNR b kq - 0 10");
-                    Queen p = new Queen(true, new Pair<Integer, Integer>(4, 3), st_cas1);
+                    Queen p = new Queen(true, new Pair<Integer, Integer>(4, 3));
                     boolean ok = p.espotmoure(new Pair<>(5, 3));
                     if (ok) t.printf("EM PUC MOURE, resultat incorrecte");
                     else t.printf("NO EM PUC MOURE, resultat correcte");
@@ -70,7 +70,7 @@ public class DriverQueen {
 
                 else if(rival==1){
                     StubTaulellQueen st_cas1 = new StubTaulellQueen("rnbqkbnr/6p1/pp6/2pppp1p/2PQP3/2NPKP2/PP4PP/R1B2BNR b kq - 0 10");
-                    Queen p = new Queen(true, new Pair<Integer, Integer>(4, 3), st_cas1);
+                    Queen p = new Queen(true, new Pair<Integer, Integer>(4, 3));
                     boolean ok = p.espotmoure(new Pair<>(6, 3));
                     if (ok) t.printf("EM PUC MOURE, resultat incorrecte");
                     else t.printf("NO EM PUC MOURE, resultat correcte");
@@ -85,7 +85,7 @@ public class DriverQueen {
 
                 if(rival==0){
                     StubTaulellQueen st_cas1 = new StubTaulellQueen("rnbqkbnr/6p1/pp6/2pppp1p/2PQP3/2NPKP2/PP4PP/R1B2BNR b kq - 0 10");
-                    Queen p = new Queen(true, new Pair<Integer, Integer>(4, 3), st_cas1);
+                    Queen p = new Queen(true, new Pair<Integer, Integer>(4, 3));
                     boolean ok = p.espotmoure(new Pair<>(4, 4));
                     if (ok) t.printf("EM PUC MOURE, resultat incorrecte");
                     else t.printf("NO EM PUC MOURE, resultat correcte");
@@ -93,7 +93,7 @@ public class DriverQueen {
 
                 else if(rival==1){
                     StubTaulellQueen st_cas1 = new StubTaulellQueen("rnbqkbnr/6p1/pp6/2pppp1p/2PQP3/2NPKP2/PP4PP/R1B2BNR b kq - 0 10");
-                    Queen p = new Queen(true, new Pair<Integer, Integer>(4, 3), st_cas1);
+                    Queen p = new Queen(true, new Pair<Integer, Integer>(4, 3));
                     boolean ok = p.espotmoure(new Pair<>(4,5));
                     if (ok) t.printf("EM PUC MOURE, resultat incorrecte");
                     else t.printf("NO EM PUC MOURE, resultat correcte");
@@ -108,7 +108,7 @@ public class DriverQueen {
 
                 if(rival==0){
                     StubTaulellQueen st_cas1 = new StubTaulellQueen("1nbq1bnr/r3k1p1/p7/1ppppp1p/2PQP3/1PNPKPP1/P6P/R1B2BNR w - - 0 13");
-                    Queen p = new Queen(true, new Pair<Integer, Integer>(4, 3), st_cas1);
+                    Queen p = new Queen(true, new Pair<Integer, Integer>(4, 3));
                     boolean ok = p.espotmoure(new Pair<>(4, 2));
                     if (ok) t.printf("EM PUC MOURE, resultat incorrecte");
                     else t.printf("NO EM PUC MOURE, resultat correcte");
@@ -116,7 +116,7 @@ public class DriverQueen {
 
                 else if(rival==1){
                     StubTaulellQueen st_cas1 = new StubTaulellQueen("1nbq1bnr/r3k1p1/p7/1ppppp1p/2PQP3/1PNPKPP1/P6P/R1B2BNR w - - 0 13");
-                    Queen p = new Queen(true, new Pair<Integer, Integer>(4, 3), st_cas1);
+                    Queen p = new Queen(true, new Pair<Integer, Integer>(4, 3));
                     boolean ok = p.espotmoure(new Pair<>(4,1));
                     if (ok) t.printf("EM PUC MOURE, resultat incorrecte");
                     else t.printf("NO EM PUC MOURE, resultat correcte");
@@ -140,13 +140,13 @@ public class DriverQueen {
 
                     if (rival == 0) {
                         StubTaulellQueen st_cas1 = new StubTaulellQueen("1nbq1bnr/r3k1p1/p7/1ppppp1p/2PQP3/1PNPKPP1/P6P/R1B2BNR w - - 0 13");
-                        Queen p = new Queen(true, new Pair<Integer, Integer>(4, 3), st_cas1);
+                        Queen p = new Queen(true, new Pair<Integer, Integer>(4, 3));
                         boolean ok = p.espotmoure(new Pair<>(3, 2));
                         if (ok) t.printf("EM PUC MOURE, resultat correcte");
                         else t.printf("NO EM PUC MOURE, resultat incorrecte");
                     } else if (rival == 1) {
                         StubTaulellQueen st_cas1 = new StubTaulellQueen("8/2bN2nr/R5n1/2Ppk2r/K2p2qR/8/2N1PQ2/B6B w - - 0 1");
-                        Queen p = new Queen(false, new Pair<Integer, Integer>(4, 6), st_cas1);
+                        Queen p = new Queen(false, new Pair<Integer, Integer>(4, 6));
                         boolean ok = p.espotmoure(new Pair<>(0, 2));
                         if (ok) t.printf("EM PUC MOURE, resultat incorrecte");
                         else t.printf("NO EM PUC MOURE, resultat correcte");
@@ -159,13 +159,13 @@ public class DriverQueen {
 
                     if (rival == 0) {
                         StubTaulellQueen st_cas1 = new StubTaulellQueen("1nbq1bnr/r3k1p1/p7/1ppppp1p/2PQP3/1PNPKPP1/P6P/R1B2BNR w - - 0 13");
-                        Queen p = new Queen(true, new Pair<Integer, Integer>(4, 3), st_cas1);
+                        Queen p = new Queen(true, new Pair<Integer, Integer>(4, 3));
                         boolean ok = p.espotmoure(new Pair<>(5, 2));
                         if (ok) t.printf("EM PUC MOURE, resultat incorrecte");
                         else t.printf("NO EM PUC MOURE, resultat correcte");
                     } else if (rival == 1) {
                         StubTaulellQueen st_cas1 = new StubTaulellQueen("1nbq1bnr/r3k1p1/p7/1ppppp1p/2PQP3/1PNPKPP1/P6P/R1B2BNR w - - 0 13");
-                        Queen p = new Queen(true, new Pair<Integer, Integer>(4, 3), st_cas1);
+                        Queen p = new Queen(true, new Pair<Integer, Integer>(4, 3));
                         boolean ok = p.espotmoure(new Pair<>(6, 1));
                         if (ok) t.printf("EM PUC MOURE, resultat incorrecte");
                         else t.printf("NO EM PUC MOURE, resultat correcte");
@@ -178,13 +178,13 @@ public class DriverQueen {
 
                     if (rival == 0) {
                         StubTaulellQueen st_cas1 = new StubTaulellQueen("1nbq1bnr/r3k1p1/p7/1ppppp1p/2PQP3/1PNPKPP1/P6P/R1B2BNR w - - 0 13");
-                        Queen p = new Queen(true, new Pair<Integer, Integer>(4, 3), st_cas1);
+                        Queen p = new Queen(true, new Pair<Integer, Integer>(4, 3));
                         boolean ok = p.espotmoure(new Pair<>(5, 4));
                         if (ok) t.printf("EM PUC MOURE, resultat incorrecte");
                         else t.printf("NO EM PUC MOURE, resultat correcte");
                     } else if (rival == 1) {
                         StubTaulellQueen st_cas1 = new StubTaulellQueen("1nbq1bnr/r3k1p1/p7/1ppppp1p/2PQP3/1PNPKPP1/P6P/R1B2BNR w - - 0 13");
-                        Queen p = new Queen(true, new Pair<Integer, Integer>(4, 3), st_cas1);
+                        Queen p = new Queen(true, new Pair<Integer, Integer>(4, 3));
                         boolean ok = p.espotmoure(new Pair<>(1, 3));
                         if (ok) t.printf("EM PUC MOURE, resultat incorrecte");
                         else t.printf("NO EM PUC MOURE, resultat correcte");
@@ -197,13 +197,13 @@ public class DriverQueen {
 
                     if (rival == 0) {
                         StubTaulellQueen st_cas1 = new StubTaulellQueen("1nbq1bnr/r3k1p1/p7/1ppppp1p/2PQP3/1PNPKPP1/P6P/R1B2BNR w - - 0 13");
-                        Queen p = new Queen(true, new Pair<Integer, Integer>(4, 3), st_cas1);
+                        Queen p = new Queen(true, new Pair<Integer, Integer>(4, 3));
                         boolean ok = p.espotmoure(new Pair<>(3, 4));
                         if (ok) t.printf("EM PUC MOURE, resultat correcte");
                         else t.printf("NO EM PUC MOURE, resultat incorrecte");
                     } else if (rival == 1) {
                         StubTaulellQueen st_cas1 = new StubTaulellQueen("1nbq1bnr/r3k1p1/p7/1ppppp1p/2PQP3/1PNPKPP1/P6P/R1B2BNR w - - 0 13");
-                        Queen p = new Queen(true, new Pair<Integer, Integer>(4, 3), st_cas1);
+                        Queen p = new Queen(true, new Pair<Integer, Integer>(4, 3));
                         boolean ok = p.espotmoure(new Pair<>(2, 5));
                         if (ok) t.printf("EM PUC MOURE, resultat incorrecte");
                         else t.printf("NO EM PUC MOURE, resultat correcte");

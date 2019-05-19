@@ -19,13 +19,13 @@ public class SingletonAlgorismes {
         Taulell t = ptd.getTaulell();
         ArrayList<Taulell> posiblesTaulells = new ArrayList<>();
         ArrayList<Pair<Pair<Integer, Integer>, Pair<Integer, Integer>>> Moviments = new ArrayList<>();
-
         // FIND Posibles moviments
         for (int i = 0; i < 8; ++i) {
             for (int j = 0; j < 8; ++j) {
                 if (t.PosOcupada(i, j) && t.getBoard()[i][j].getcolor() == jugantCom) { // if pos ocupada i es una peca meva
-                    ArrayList<Pair<Integer, Integer>> movs =  t.getBoard()[i][j].posicionsposible();
 
+                    ArrayList<Pair<Integer, Integer>> movs =  t.validarMoviments(t.getBoard()[i][j].posicionsposible(),
+                            t.getBoard()[i][j].getClass().getName(), t.getBoard()[i][j]);
                     for (int z = 0; z < movs.size(); ++z) {
                         Taulell x = new Taulell(t);
                         x.ferMoviment(new Pair<>(i, j), movs.get(z));
@@ -117,7 +117,6 @@ public class SingletonAlgorismes {
                 int ev;
                 if (QuiMou) ev = evaluataullel(aux, false, QuiMou, nAlpha, beta, torns - 1);
                 else ev = evaluataullel(aux, false, QuiMou, nAlpha, beta, torns);
-
 
                 if (ev > nAlpha) nAlpha = ev;
                 if (beta < nAlpha) break;
