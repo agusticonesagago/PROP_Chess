@@ -10,12 +10,14 @@ public class Huma extends Jugador {
     private String name;
     private Partida GameSaved;
 
-    public Huma (Integer id, String name) {
+    public Huma (Integer id) {
         super(id);
-        this.name = name;
         this.GameSaved = null;
     }
 
+    public void SetName (String name) {
+        this.name = name;
+    }
 
     public void guardarPartida (Partida p) {
         this.GameSaved = p;

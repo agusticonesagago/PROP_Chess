@@ -1,11 +1,10 @@
 package presentacio;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class PrimeraView extends JFrame{
+public class PrimeraView extends JFrame {
     private JButton GoOn;
     private JPanel FirstView;
     private JTextField NomAIntroduir;
@@ -34,3 +33,4 @@ public class PrimeraView extends JFrame{
         });
     }
 }
+

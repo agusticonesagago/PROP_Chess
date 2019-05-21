@@ -46,9 +46,9 @@ public class SingletonAlgorismesTestjUnit {
 
     @Test
     public void test_mat_blanques_2_torns () {
-        p = new Partida(new Problema("Blanques fan mat en 1","1N1b4/6nr/R5n1/2Ppk2r/K2p2qR/8/2N1PQ2/B6B w - - 0 1"), new Simple(1), new Simple(2));
+        p = new Partida(new Problema("Blanques fan mat en 2","5Br1/6P1/5KBk/8/8/8/8/8 w - - 0 1"), new Simple(1), new Simple(2));
         Pair< Pair<Integer, Integer>, Pair<Integer, Integer> > sol = new Pair<>(new Pair<>(6,2), new Pair<>(4,3));
-        assertEquals( sol, sa.moviment_minmax(p,true,2), "Hauria de ser 6=2 -> 4=3");
+        assertEquals( sol, sa.moviment_minmax(p,true,2), "Hauria de ser 0,5-> 2=3");
         System.out.println(p.getTaulell().ferMoviment(new Pair<>(6,2), new Pair<>(4,3)));
 
         sol = new Pair<>(new Pair<>(0,3), new Pair<>(4,7));

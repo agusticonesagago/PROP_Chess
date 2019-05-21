@@ -24,5 +24,20 @@ public class MenuPartida extends JFrame{
                 frame.setVisible(true);
             }
         });
+        JugarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                TaulellExemple te = new TaulellExemple();
+                JFrame f = new JFrame("Jugar Partida");
+                f.add(te.getGui());
+                f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                f.setLocation(0,0);
+
+                f.pack();
+                f.setMinimumSize(f.getSize());
+                setVisible(false);
+                f.setVisible(true);
+            }
+        });
     }
 }
