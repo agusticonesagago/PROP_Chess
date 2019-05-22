@@ -15,7 +15,7 @@ public class CtrlPersistenciaRanking {
 
 
     // PARAMS
-    private String path_ranking = "C:\\Users\\Usuario\\Desktop\\UPC\\Q6\\PROP\\Project\\Project-Chess\\EXE\\Dades\\Ranking.json";
+    private String path_ranking = "C:\\Users\\enric\\Documents\\Enric\\Projecte-Prop\\Project-Chess\\EXE\\Dades\\Ranking.json";
 
     private static final Type RankingListType = new TypeToken<ArrayList<Ranking>>(){}.getType();
     // FUNCS

@@ -18,39 +18,51 @@ public class DriverCDMR {
         System.out.println("Test de la funcio creadora de instancies de ranking" + "\n");
 
         String path = "./output-cdmr.txt";
-        output = new FileWriter( path, true);
+        output = new FileWriter( path, false);
         print_line = new PrintWriter( output );
 
-        File file = new File("./Dades.txt");
-        Scanner sc = new Scanner(file);
+        //File file = new File("./Dades.txt");
+        //Scanner sc = new Scanner(file);
 
-        String nomj1 = sc.nextLine();
-        String nomp1 = sc.nextLine();
-        String temps1 = sc.nextLine();
+        //"Aleix";
+        //"1N1b4/6nr/R5n1/2Ppk2r/K2p2qR/8/2N1PQ2/B6B w - - 0 1";
+        //"280";
+        String nomj1 = "Aleix";//sc.nextLine();
+        String nomp1 = "1N1b4/6nr/R5n1/2Ppk2r/K2p2qR/8/2N1PQ2/B6B w - - 0 1";//sc.nextLine();
+        String temps1 = "280";//sc.nextLine();
         Vector<String> dadesRank1 = new Vector<>();
         dadesRank1.add(0,nomj1);
         dadesRank1.add(1,nomp1);
         dadesRank1.add(2,temps1);
 
-        String nomj2 = sc.nextLine();
-        String nomp2 = sc.nextLine();
-        String temps2 = sc.nextLine();
+        //"Aaaaa";
+        //"1N1b4/6nr/R5n1/2Ppk2r/K2p2qR/8/2N1PQ2/B6B w - - 0 1";
+        //"120";
+        String nomj2 = "Aaaaa";//sc.nextLine();
+        String nomp2 = "1N1b4/6nr/R5n1/2Ppk2r/K2p2qR/8/2N1PQ2/B6B w - - 0 1";//sc.nextLine();
+        String temps2 = "120";//sc.nextLine();
         Vector <String> dadesRank2 = new Vector<>();
         dadesRank2.add(0,nomj2);
         dadesRank2.add(1,nomp2);
         dadesRank2.add(2,temps2);
 
-        String nomj3 = sc.nextLine();
-        String nomp3 = sc.nextLine();
-        String temps3 = sc.nextLine();
+        //"Aleix";
+        //"1N1b4/6nr/R5n1/2Ppk2r/K2p2qR/8/2N1PQ2/B6B w - - 0 1";
+        //"180";
+        String nomj3 = "Aleix";//sc.nextLine();
+        String nomp3 = "1N1b4/6nr/R5n1/2Ppk2r/K2p2qR/8/2N1PQ2/B6B w - - 0 1";//sc.nextLine();
+        String temps3 = "180";//sc.nextLine();
         Vector<String> dadesRank3 = new Vector<>();
         dadesRank3.add(0,nomj3);
         dadesRank3.add(1,nomp3);
         dadesRank3.add(2,temps3);
 
-        String nomj4 = sc.nextLine();
-        String nomp4 = sc.nextLine();
-        String temps4 = sc.nextLine();
+        //"Aleix";
+        //"4k3/3ppp2/8/8/7Q/8/8/2K5 w - - 0 1";
+        //"180";
+        String nomj4 = "Aleix";//sc.nextLine();
+        String nomp4 = "4k3/3ppp2/8/8/7Q/8/8/2K5 w - - 0 1";//sc.nextLine();
+        String temps4 = "180";//sc.nextLine();
         Vector<String> dadesRank4 = new Vector<>();
         dadesRank4.add(0,nomj4);
         dadesRank4.add(1,nomp4);
@@ -90,7 +102,7 @@ public class DriverCDMR {
         error = test.baixaRankings(dadesRank1.get(0), dadesRank1);
         escriuMissatgeError(error, 1, print_line);
         //Esborrem una instancia de ranking ja existent
-        error = test.baixaRankings(dadesRank1.get(0), dadesRank1);
+        error = test.baixaRankings(dadesRank2.get(0), dadesRank2);
         escriuMissatgeError(error, 1, print_line);
         //Busquem totes les instancies de ranking
         resultat = test.consultaRankings();

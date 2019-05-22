@@ -17,7 +17,7 @@ public class CtrlDomini {
     private Jugador jugador2;
     private Partida partida;
 
-    public CtrlDomini () throws FileNotFoundException {
+    public CtrlDomini () throws IOException {
         CDMp = new CtrlDominiMantProblema();
         CDMr = new CtrlDominiMantRanking();
         problema = new Problema();
