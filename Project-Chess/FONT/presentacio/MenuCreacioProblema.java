@@ -16,6 +16,7 @@ public class MenuCreacioProblema extends JFrame{
     private JTextField textFieldTema;
     private JTextField textFieldDificultat;
     private JPanel MenuCreacio;
+    private JButton EnrereButton;
     private String username;
     private CtrlDomini ctrlDom;
     private CtrlDominiMantProblema cdrp;
@@ -78,6 +79,15 @@ public class MenuCreacioProblema extends JFrame{
             private boolean acabaEnNumero() {
                return ((Character.getNumericValue(textFieldTema.getText().charAt(textFieldTema.getText().length() - 1)) > 0)
                && (Character.getNumericValue(textFieldTema.getText().charAt(textFieldTema.getText().length() - 1)) < 6) );
+            }
+        });
+        EnrereButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                MenuProblema frame = new MenuProblema(username, ctrlDom);
+                frame.setLocation(getLocation());
+                setVisible(false);
+                frame.setVisible(true);
             }
         });
     }
