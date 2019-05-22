@@ -42,5 +42,14 @@ public class MenuProblema extends JFrame{
                 frame.setVisible(true);
             }
         });
+        ConsultarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                MenuConsultaProblemes frame = new MenuConsultaProblemes(username, ctrlDom);
+                frame.setLocation(getLocation());
+                setVisible(false);
+                frame.setVisible(true);
+            }
+        });
     }
 }
