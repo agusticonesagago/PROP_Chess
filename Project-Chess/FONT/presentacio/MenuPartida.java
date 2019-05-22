@@ -1,6 +1,9 @@
 package presentacio;
 
+import domini.CtrlDomini;
+
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -10,16 +13,22 @@ public class MenuPartida extends JFrame{
     private JButton JugarButton;
     private JButton DeathMatchButton;
     private JButton EnrereButton;
+    private String username;
+    private CtrlDomini ctrlDom;
 
-    public MenuPartida() {
+    public MenuPartida(String us, CtrlDomini ctrld) {
         super("Chess PROP");
+        username = us;
+        ctrlDom = ctrld;
         setContentPane(MenuPartida);
-        setSize(300, 300);
+        Dimension minDim = new Dimension(300, 300);
+        setMinimumSize(minDim);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         EnrereButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                MainMenu frame = new MainMenu();
+                MainMenu frame = new MainMenu(username, ctrlDom);
+                frame.setLocation(getLocation());
                 setVisible(false);
                 frame.setVisible(true);
             }

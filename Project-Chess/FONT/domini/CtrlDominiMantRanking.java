@@ -40,8 +40,11 @@ public class CtrlDominiMantRanking {
             Vector<Ranking> rank = Rankings.get(nomj);
             for (int i = 0; i < rank.size(); ++i) {
                 String s = "";
+                s += "Jugador: ";
                 s += rank.get(i).getJugador(); s += " ";
+                s += "Temps: ";
                 s += rank.get(i).getTemps(); s += " ";
+                s += "Problema: ";
                 s += rank.get(i).getProblema();
                 dades.add(s);
             }

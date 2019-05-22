@@ -26,7 +26,6 @@ public class CtrlDominiMantProblema {
     }
 
     public Vector<Vector<String>> consultaProblemes() {
-        // TODO CHANGE
         Vector<Vector<String>> dades = new Vector<>();
         Set setkeys = Problemes.keySet();
         Iterator iterkeys = setkeys.iterator();
@@ -44,7 +43,6 @@ public class CtrlDominiMantProblema {
     }
 
     private boolean existeixProblema (String fenp) {
-        // Todo Change it
         return Problemes.containsKey(fenp);
     }
 

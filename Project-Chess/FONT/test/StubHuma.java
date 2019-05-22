@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class StubHuma extends  Huma {
     public StubHuma (Integer id) {
-        super(id, "Stubby");
+        super(id);
     }
     @Override
     public Pair<Pair<Integer, Integer>, Pair<Integer, Integer>> moureFitxa(Partida ptd, boolean jugantCom, int torns) {

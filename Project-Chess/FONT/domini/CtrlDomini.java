@@ -28,26 +28,27 @@ public class CtrlDomini {
 
     public void configurarPartida(Vector <String> problema, String jugador1, String jugador2) {
         assignaProblema(problema.get(0),problema.get(1), problema.get(2) );
-        if (jugador1.equals("Maquina1")) {
+        if(jugador1.equals("Huma")) {
+            this.jugador1 = new Huma(1);
+        }
+        else if (jugador1.equals("Maquina1")) {
             this.jugador1 = new Simple(1);
         }/*
         else if (jugador1.equals("Maquina2")) {
             this.jugador1 = new complex(1);
         }*/
-        else {
-            this.jugador1 = new Huma(1, jugador1);
-        }
 
-        if (jugador2.equals("Maquina1")) {
+        if(jugador2.equals("Huma")) {
+            this.jugador2 = new Huma(2);
+        }
+        else if (jugador2.equals("Maquina1")) {
             this.jugador2 = new Simple(2);
         }
         /*
         else if (jugador2.equals("Maquina2")) {
             this.jugador2 = new Complex(2);
         } */
-        else {
-            this.jugador2 = new Huma(2, jugador2);
-        }
+
 
         Pair<Integer, Boolean> tornMat = this.problema.getTornMat();
         if (tornMat.getValue()) {
