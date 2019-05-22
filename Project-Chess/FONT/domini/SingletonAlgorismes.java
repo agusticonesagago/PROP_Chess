@@ -44,8 +44,11 @@ public class SingletonAlgorismes {
         if (Moviments.size() > 0) {
             evalMax = evaluataullel(posiblesTaulells.get(0), !jugantCom, jugantCom,-1000000, 1000000, torns-1);
             millorMoviment = Moviments.get(0);
+           // System.out.println(Moviments.get(0) + "  " + evalMax);
             for (int i = 1; i < posiblesTaulells.size(); ++i) {
+                //System.out.println("COMENSO A MIRAR " + Moviments.get(i));
                 int aux = evaluataullel(posiblesTaulells.get(i), !jugantCom, jugantCom, -1000000, 1000000, torns-1);
+                //System.out.println(Moviments.get(i) + "  " + evalMax);
                 if (jugantCom) {
                     if (aux > evalMax) {
                         evalMax = aux;
@@ -146,6 +149,8 @@ public class SingletonAlgorismes {
                 int ev;
                 if (!QuiMou) ev = evaluataullel(aux,true, QuiMou, alpha, nBeta, torns-1);
                 else ev = evaluataullel(aux, true, QuiMou, alpha, nBeta, torns);
+
+                //System.out.println(ev+ "-_------> "+ mvs.get(i));
                 if (ev < nBeta) nBeta = ev;
                 if (nBeta < alpha) break;
             }
