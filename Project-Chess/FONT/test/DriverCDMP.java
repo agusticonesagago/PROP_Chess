@@ -20,30 +20,40 @@ public class DriverCDMP {
         output = new FileWriter( path, true);
         print_line = new PrintWriter( output );
 
-        File file = new File("./dades.txt");
-        sc = new Scanner(file);
-        String fen1 = sc.nextLine();
-        String tema1 = sc.nextLine();
-        String dificultat1 = sc.nextLine();
-
+        //File file = new File("./dades.txt");
+        //sc = new Scanner(file);
+        String fen1 = "3k4/8/8/8/8/1r6/r7/7K b - - 0 1";//sc.nextLine();
+        String tema1 = "Negres fan mat en 1";//sc.nextLine();
+        String dificultat1 = "facil";//sc.nextLine();
+        //3k4/8/8/8/8/1r6/r7/7K b - - 0 1;
+        //"Negres fan mat en 1";
+        //"facil";
 
         //Problema amb solucio
         Vector <String> dadesProb1 = new Vector<>();
         dadesProb1.add(0,fen1);
         dadesProb1.add(1,tema1);
         dadesProb1.add(2,dificultat1);
+
+        //"4k3/3ppp2/8/8/7Q/8/8/2K5 w - - 0 1";
+        //"Blanques fan mat en 1";
+        //"facil";
         //Problema amb solucio
-        String fen2 = sc.nextLine();
-        String tema2 = sc.nextLine();
-        String dificultat2 = sc.nextLine();
+        String fen2 = "4k3/3ppp2/8/8/7Q/8/8/2K5 w - - 0 1";//sc.nextLine();
+        String tema2 = "Blanques fan mat en 1";//sc.nextLine();
+        String dificultat2 = "facil";//sc.nextLine();
         Vector <String> dadesProb2 = new Vector<>();
         dadesProb2.add(0,fen2);
         dadesProb2.add(1,tema2);
         dadesProb2.add(2,dificultat2);
+
+        //"4k3/8/8/8/8/8/8/4K3 b - - 0 1";
+        //"Negres fan mat en 3";
+        //"Dificil";
         //Problema que no te solucio
-        String fen3 = sc.nextLine();
-        String tema3 = sc.nextLine();
-        String dificultat3 = sc.nextLine();
+        String fen3 = "4k3/8/8/8/8/8/8/4K3 b - - 0 1";//sc.nextLine();
+        String tema3 = "Negres fan mat en 3";//sc.nextLine();
+        String dificultat3 = "Dificil";//sc.nextLine();
         Vector <String> dadesProb3 = new Vector<>();
         dadesProb3.add(0,fen3);
         dadesProb3.add(1,tema3);

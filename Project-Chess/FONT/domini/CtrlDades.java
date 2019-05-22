@@ -1,9 +1,14 @@
 package domini;
 
 
+import persistencia.CtrlPersistenciaProblemes;
+import persistencia.CtrlPersistenciaRanking;
+
 import java.util.ArrayList;
 
 public class CtrlDades {
+    private CtrlPersistenciaProblemes ctrlPP;
+    private CtrlPersistenciaRanking ctrlPR;
 
     private static CtrlDades ourInstance = new CtrlDades();
 

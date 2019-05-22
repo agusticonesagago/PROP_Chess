@@ -2,19 +2,27 @@ package domini;
 // TODO - Update with usage of  CP.
 
 import javafx.util.Pair;
-import java.util.Iterator;
-import java.util.Set;
-import java.util.TreeMap;
-import java.util.Vector;
+import persistencia.CtrlPersistenciaProblemes;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.*;
 
 public class CtrlDominiMantProblema {
     private TreeMap<String, Problema> Problemes;
-    private CtrlDades ctrlD;
+    private CtrlPersistenciaProblemes ctrlD;
 
-    public CtrlDominiMantProblema() {
+    public CtrlDominiMantProblema() throws FileNotFoundException {
         // TODO inicialitzar el treeMap amb les dades de Json
+        ctrlD =  new CtrlPersistenciaProblemes();
+        List<Problema> problemesGuardats = ctrlD.getProblemes();
         Problemes = new TreeMap<String, Problema>();
-        ctrlD =  ctrlD.getInstance();
+        if (!problemesGuardats.isEmpty()){
+            for(int i = 0; i < problemesGuardats.size(); i++) {
+                Problemes.put(problemesGuardats.get(i).getFEN(),problemesGuardats.get(i));
+            }
+        }
+
     }
 
     public Vector<Vector<String>> consultaProblemes() {
@@ -40,7 +48,7 @@ public class CtrlDominiMantProblema {
         return Problemes.containsKey(fenp);
     }
 
-    public int altaProblema (String fenp, Vector<String> dades) {
+    public int altaProblema (String fenp, Vector<String> dades) throws IOException {
         if (existeixProblema(fenp))
             return 1;                       //1 = Error, el problema ja existeix
         if (fenp != (dades.get(0)))
@@ -54,19 +62,20 @@ public class CtrlDominiMantProblema {
             newp.setDificultat(difp);
             if (teSolucio(newp)) {
                 Problemes.put(fenp,newp);
-                ctrlD.afegeixProblema(fenp, temap, difp);
+                ctrlD.afegirProblema(newp);
             }
             else return 3; //3 = Error, el fen no te solucio o no compleix les normes
         }
         return 0;
     }
 
-    public int baixaProblema (String fenp) {
+    public int baixaProblema (String fenp) throws IOException {
         if (!existeixProblema(fenp))
             return 1; //1 = Error, el problema no existeix
         else {
+            Problema a = Problemes.get(fenp);
             Problemes.remove(fenp);
-            ctrlD.eliminaProblema(fenp);
+            ctrlD.eliminarProblema(a);
         }
         return 0;
     }

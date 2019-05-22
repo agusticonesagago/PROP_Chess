@@ -2,6 +2,8 @@ package domini;
 
 import javafx.util.Pair;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 import java.util.Vector;
@@ -15,7 +17,7 @@ public class CtrlDomini {
     private Jugador jugador2;
     private Partida partida;
 
-    public CtrlDomini () {
+    public CtrlDomini () throws FileNotFoundException {
         CDMp = new CtrlDominiMantProblema();
         CDMr = new CtrlDominiMantRanking();
         problema = new Problema();
@@ -26,34 +28,27 @@ public class CtrlDomini {
 
     public void configurarPartida(Vector <String> problema, String jugador1, String jugador2) {
         assignaProblema(problema.get(0),problema.get(1), problema.get(2) );
-        if (jugador1.equals("Huma")) {
-            this.jugador1 = new Huma(1);
-        }
-        else if (jugador1.equals("Maquina1")) {
+        if (jugador1.equals("Maquina1")) {
             this.jugador1 = new Simple(1);
         }/*
-        else if (jugador1.equals("HumaStub")) {
-            this.jugador1 = new StubHuma(1);
-        }*/
-        /*
         else if (jugador1.equals("Maquina2")) {
             this.jugador1 = new complex(1);
-        }
-        */
-        if (jugador2.equals("Huma")) {
-            this.jugador2 = new Huma(2);
-        }
-        else if (jugador2.equals("Maquina1")) {
-            this.jugador2 = new Simple(2);
-        }/*
-        else if (jugador2.equals("HumaStub")) {
-            this.jugador1 = new StubHuma(2);
         }*/
+        else {
+            this.jugador1 = new Huma(1, jugador1);
+        }
+
+        if (jugador2.equals("Maquina1")) {
+            this.jugador2 = new Simple(2);
+        }
         /*
         else if (jugador2.equals("Maquina2")) {
             this.jugador2 = new Complex(2);
+        } */
+        else {
+            this.jugador2 = new Huma(2, jugador2);
         }
-        */
+
         Pair<Integer, Boolean> tornMat = this.problema.getTornMat();
         if (tornMat.getValue()) {
             this.partida = new Partida(this.problema, this.jugador1, this.jugador2);
@@ -64,7 +59,7 @@ public class CtrlDomini {
     }
 
 
-    public String jugarPartida(String nom1, String nom2, PrintWriter pw, Scanner sc) throws InterruptedException {
+    public String jugarPartida(String nom1, String nom2, PrintWriter pw, Scanner sc) throws InterruptedException, IOException {
         String guanyador;
         Pair<Integer, Boolean> tornMat= problema.getTornMat();
         Integer tornsRestants = tornMat.getKey();

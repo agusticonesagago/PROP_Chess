@@ -1,5 +1,8 @@
 package domini;
 
+import persistencia.CtrlPersistenciaRanking;
+
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeMap;
@@ -7,12 +10,12 @@ import java.util.Vector;
 
 public class CtrlDominiMantRanking {
     private TreeMap<String, Vector<Ranking>> Rankings;
-    private CtrlDades ctrlD;
+    private CtrlPersistenciaRanking ctrlD;
 
     public CtrlDominiMantRanking() {
         //inicialitzar el treeMap amb les dades de Json
         Rankings = new TreeMap<String, Vector<Ranking>>();
-        ctrlD =  ctrlD.getInstance();
+        ctrlD =  new CtrlPersistenciaRanking();
     }
 
     public Vector<String> consultaRankings() {
@@ -58,7 +61,7 @@ public class CtrlDominiMantRanking {
         else return 0;
     }
 
-    public int altaRanking (String nomj, Vector<String> dades) {
+    public int altaRanking (String nomj, Vector<String> dades) throws IOException {
         int cas = existeixRankings(nomj, dades);
         if (cas == 3)
             return 1;
@@ -72,12 +75,12 @@ public class CtrlDominiMantRanking {
             newr.setProblema(nomp);
             newr.setTemps(temps);
             afegirRanking(newr, cas);
-            ctrlD.afegeixRanking(nomj, nomp, temps);
+            ctrlD.addRanking(newr);
         }
         return 0;
     }
 
-    public int baixaRankings (String nomj, Vector<String> dades) {
+    public int baixaRankings (String nomj, Vector<String> dades) throws IOException {
         int cas = existeixRankings(nomj, dades);
         int error;
         if (cas == 0 || cas == 1)
@@ -90,7 +93,7 @@ public class CtrlDominiMantRanking {
             newr.setProblema(nomp);
             newr.setTemps(temps);
             error = esborraRanking(newr);
-            ctrlD.eliminaRanking(nomj, nomp, temps);
+            ctrlD.removeRanking(newr);
         }
         return error;
     }

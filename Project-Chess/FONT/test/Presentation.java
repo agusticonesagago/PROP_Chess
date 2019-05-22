@@ -16,7 +16,7 @@ public class Presentation {
     private static Scanner sc;
     private static PrintWriter print_line;
 
-    public static void creacioproblema(CtrlDominiMantProblema cdmp, CtrlDominiMantRanking cdr, CtrlDomini cdom) throws InterruptedException {
+    public static void creacioproblema(CtrlDominiMantProblema cdmp, CtrlDominiMantRanking cdr, CtrlDomini cdom) throws InterruptedException, IOException {
 
         print_line.println("Introdueix fen" + '\n');
         String fen = String.valueOf(sc.nextLine());
@@ -47,7 +47,7 @@ public class Presentation {
         menuprincipal(cdmp,cdr,cdom);
     }
 
-    public static void jugarproblema(CtrlDominiMantProblema cdmp, CtrlDominiMantRanking cdr,CtrlDomini cdom) throws InterruptedException {
+    public static void jugarproblema(CtrlDominiMantProblema cdmp, CtrlDominiMantRanking cdr,CtrlDomini cdom) throws InterruptedException, IOException {
         Vector<Vector<String>> resultat = new Vector();
         resultat = cdmp.consultaProblemes();
         if (resultat.size() == 0) print_line.println("No hi ha cap problema a la base de dades" + "\n");
@@ -128,7 +128,7 @@ public class Presentation {
         menuprincipal(cdmp,cdr,cdom);
     }
 
-    public static void veureranking(CtrlDominiMantProblema cdmp, CtrlDominiMantRanking cdr, CtrlDomini cdom) throws InterruptedException {
+    public static void veureranking(CtrlDominiMantProblema cdmp, CtrlDominiMantRanking cdr, CtrlDomini cdom) throws InterruptedException, IOException {
         Vector<String> ranking = cdr.consultaRankings();
         if (ranking.size() == 0) print_line.println("No hi ha cap ranking guardat " + "\n");
         for (int i = 0; i < ranking.size(); i++) {
@@ -137,7 +137,7 @@ public class Presentation {
         menuprincipal(cdmp,cdr,cdom);
     }
 
-    public static void modificarfen(CtrlDominiMantProblema cdmp, CtrlDominiMantRanking cdr, CtrlDomini cdom) throws InterruptedException {
+    public static void modificarfen(CtrlDominiMantProblema cdmp, CtrlDominiMantRanking cdr, CtrlDomini cdom) throws InterruptedException, IOException {
         Vector<Vector<String>> resultat = new Vector();
         resultat = cdmp.consultaProblemes();
         if (resultat.size() == 0) print_line.println("No hi ha cap problema a la base de dades" + "\n");
@@ -184,7 +184,7 @@ public class Presentation {
         menuprincipal(cdmp,cdr,cdom);
     }
 
-    public static void menuprincipal(CtrlDominiMantProblema cdmp , CtrlDominiMantRanking cdr, CtrlDomini cdom) throws InterruptedException {
+    public static void menuprincipal(CtrlDominiMantProblema cdmp , CtrlDominiMantRanking cdr, CtrlDomini cdom) throws InterruptedException, IOException {
 
 
         print_line.println("Introdueix 0 si vols jugar problema" + '\n' +
