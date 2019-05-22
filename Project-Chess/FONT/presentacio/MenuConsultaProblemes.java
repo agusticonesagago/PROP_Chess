@@ -43,8 +43,6 @@ public class MenuConsultaProblemes extends JFrame{
             model.addRow(fila);
         }
 
-        //tableProblemes.setModel(model);
-
         EnrereButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

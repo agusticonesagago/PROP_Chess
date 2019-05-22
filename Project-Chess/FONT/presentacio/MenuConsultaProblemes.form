@@ -14,7 +14,11 @@
             <preferred-size width="150" height="50"/>
           </grid>
         </constraints>
-        <properties/>
+        <properties>
+          <editingColumn value="-1"/>
+          <editingRow value="-1"/>
+          <enabled value="true"/>
+        </properties>
       </component>
       <component id="b8561" class="javax.swing.JButton" binding="eliminaButton" default-binding="true">
         <constraints>
