@@ -13,6 +13,7 @@ public class MenuProblema extends JFrame{
     private JButton CrearButton;
     private JButton ConsultarButton;
     private JButton EnrereButton;
+    private JLabel Sessio;
     private String username;
     private CtrlDomini ctrlDom;
 
@@ -21,7 +22,8 @@ public class MenuProblema extends JFrame{
         username = us;
         ctrlDom = ctrld;
         setContentPane(ProblemMenu);
-        Dimension minDim = new Dimension(300, 300);
+        Sessio.setText("Sessio iniciada amb: " +username);
+        Dimension minDim = new Dimension(250, 250);
         setMinimumSize(minDim);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         EnrereButton.addActionListener(new ActionListener() {

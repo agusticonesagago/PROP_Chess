@@ -17,6 +17,7 @@ public class MenuCreacioProblema extends JFrame{
     private JTextField textFieldDificultat;
     private JPanel MenuCreacio;
     private JButton EnrereButton;
+    private JLabel Sessio;
     private String username;
     private CtrlDomini ctrlDom;
     private CtrlDominiMantProblema cdrp;
@@ -26,6 +27,7 @@ public class MenuCreacioProblema extends JFrame{
         username = us;
         ctrlDom = ctrld;
         cdrp = ctrlDom.getCDMp();
+        Sessio.setText("Sessio iniciada amb: " +username);
         setContentPane(MenuCreacio);
         Dimension minDim = new Dimension(400, 300);
         setMinimumSize(minDim);

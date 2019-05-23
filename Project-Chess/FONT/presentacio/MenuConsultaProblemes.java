@@ -17,6 +17,7 @@ public class MenuConsultaProblemes extends JFrame{
     private JButton eliminaButton;
     private JButton modificaButton;
     private JButton EnrereButton;
+    private JLabel Sessio;
     private String username;
     private CtrlDomini ctrlDom;
     private CtrlDominiMantProblema cdmp;
@@ -26,8 +27,9 @@ public class MenuConsultaProblemes extends JFrame{
         username = us;
         ctrlDom = ctrld;
         cdmp = ctrlDom.getCDMp();
+        Sessio.setText("Sessio iniciada amb: " +username);
         setContentPane(MenuConsulta);
-        Dimension minDim = new Dimension(300, 300);
+        Dimension minDim = new Dimension(400, 300);
         setMinimumSize(minDim);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 

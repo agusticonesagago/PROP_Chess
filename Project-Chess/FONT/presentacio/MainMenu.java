@@ -14,12 +14,14 @@ public class MainMenu extends JFrame{
     private JButton BackButton;
     private JLabel Titol;
     private JPanel MenuPrincipal;
+    private JLabel Sessio;
     private String username;
     private CtrlDomini ctrlDom;
 
     public MainMenu (String us, CtrlDomini ctrld) {
         super("Chess PROP");
         username = us;
+        Sessio.setText("Sessio iniciada amb: " +username);
         ctrlDom = ctrld;
         setContentPane(MenuPrincipal);
         Dimension minDim = new Dimension(300, 300);

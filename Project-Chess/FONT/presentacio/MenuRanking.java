@@ -4,7 +4,6 @@ import domini.CtrlDomini;
 import domini.CtrlDominiMantRanking;
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableColumnModel;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -15,6 +14,7 @@ public class MenuRanking extends JFrame{
     private JButton EnrereButton;
     private JPanel MenuRanking;
     private JTable tableRanking;
+    private JLabel Sessio;
     private String username;
     private CtrlDomini ctrlDom;
     private CtrlDominiMantRanking cdmr;
@@ -25,6 +25,7 @@ public class MenuRanking extends JFrame{
         username = us;
         ctrlDom = ctrld;
         cdmr = ctrld.getCDMr();
+        Sessio.setText("Sessio iniciada amb: " +username);
 
         setContentPane(MenuRanking);
         Dimension minDim = new Dimension(600, 300);

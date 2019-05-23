@@ -13,6 +13,7 @@ public class MenuPartida extends JFrame{
     private JButton JugarButton;
     private JButton DeathMatchButton;
     private JButton EnrereButton;
+    private JLabel Sessio;
     private String username;
     private CtrlDomini ctrlDom;
 
@@ -20,8 +21,9 @@ public class MenuPartida extends JFrame{
         super("Chess PROP");
         username = us;
         ctrlDom = ctrld;
+        Sessio.setText("Sessio iniciada amb: " +username);
         setContentPane(MenuPartida);
-        Dimension minDim = new Dimension(300, 300);
+        Dimension minDim = new Dimension(400, 300);
         setMinimumSize(minDim);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         EnrereButton.addActionListener(new ActionListener() {
