@@ -17,7 +17,7 @@ public class DriverCDMP {
     public static void main (String[] args) throws IOException {
 
         String path = "./output-cdmp.txt";
-        output = new FileWriter( path, true);
+        output = new FileWriter( path, false);
         print_line = new PrintWriter( output );
 
         //File file = new File("./dades.txt");
