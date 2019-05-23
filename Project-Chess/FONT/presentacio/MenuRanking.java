@@ -12,9 +12,9 @@ import java.awt.event.ActionListener;
 import java.util.Vector;
 
 public class MenuRanking extends JFrame{
-    private JList LlistaRanking;
     private JButton EnrereButton;
     private JPanel MenuRanking;
+    private JTable tableRanking;
     private String username;
     private CtrlDomini ctrlDom;
     private CtrlDominiMantRanking cdmr;
@@ -32,14 +32,21 @@ public class MenuRanking extends JFrame{
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
         DefaultListModel listmodel = new DefaultListModel();
-        Vector<String> files= cdmr.consultaRankings();
+        Vector<Vector<String>> files= cdmr.consultaRankings();
 
 
-        for(int i = 0; i < files.size(); ++i){
-            listmodel.addElement(files.get(i));
+        Object [] columnes = {"Nom:", "Problema:", "Temps:"};
+        DefaultTableModel model = new DefaultTableModel();
+        model.setColumnIdentifiers(columnes);
+        Vector<Vector<String>> probs = cdmr.consultaRankings();
+        tableRanking.setModel(model);
+        Object[] fila = new Object[3];
+        for (int i = 0; i < probs.size(); i++) {
+            for (int j = 0; j < probs.get(i).size(); j++) {
+                fila[j] = probs.get(i).get(j);
+            }
+            model.addRow(fila);
         }
-
-        LlistaRanking.setModel(listmodel);
 
 
         EnrereButton.addActionListener(new ActionListener() {

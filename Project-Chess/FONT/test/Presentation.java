@@ -129,11 +129,11 @@ public class Presentation {
     }
 
     public static void veureranking(CtrlDominiMantProblema cdmp, CtrlDominiMantRanking cdr, CtrlDomini cdom) throws InterruptedException, IOException {
-        Vector<String> ranking = cdr.consultaRankings();
-        if (ranking.size() == 0) print_line.println("No hi ha cap ranking guardat " + "\n");
-        for (int i = 0; i < ranking.size(); i++) {
-            print_line.println((i+1) + ": " + ranking.get(i) + "\n");
-        }
+        //Vector<String> ranking = cdr.consultaRankings();
+        //if (ranking.size() == 0) print_line.println("No hi ha cap ranking guardat " + "\n");
+        //for (int i = 0; i < ranking.size(); i++) {
+          //  print_line.println((i+1) + ": " + ranking.get(i) + "\n");
+       // }
         menuprincipal(cdmp,cdr,cdom);
     }
 

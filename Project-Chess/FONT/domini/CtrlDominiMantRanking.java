@@ -31,22 +31,19 @@ public class CtrlDominiMantRanking {
         }
     }
 
-    public Vector<String> consultaRankings() {
-        Vector<String> dades = new Vector<String>();
+    public Vector<Vector<String>> consultaRankings() {
+        Vector<Vector<String>> dades = new Vector<>();
         Set setkeys = Rankings.keySet();
         Iterator iterkeys = setkeys.iterator();
         while (iterkeys.hasNext()) {
             String nomj = (String) iterkeys.next();
             Vector<Ranking> rank = Rankings.get(nomj);
             for (int i = 0; i < rank.size(); ++i) {
-                String s = "";
-                s += "Jugador: ";
-                s += rank.get(i).getJugador(); s += " ";
-                s += "Temps: ";
-                s += rank.get(i).getTemps(); s += " ";
-                s += "Problema: ";
-                s += rank.get(i).getProblema();
-                dades.add(s);
+                Vector<String> ranking = new Vector<>();
+                ranking.add(0,rank.get(i).getJugador());
+                ranking.add(1, rank.get(i).getProblema());
+                ranking.add(2, rank.get(i).getTemps().toString());
+                dades.add(ranking);
             }
         }
         return dades;

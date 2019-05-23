@@ -68,7 +68,7 @@ public class DriverCDMR {
         dadesRank4.add(1,nomp4);
         dadesRank4.add(2,temps4);
 
-        Vector <String> resultat;
+        Vector <Vector<String>> resultat;
         CtrlDominiMantRanking test = new CtrlDominiMantRanking();
         Integer error;
 
@@ -110,12 +110,17 @@ public class DriverCDMR {
         print_line.close();
     }
 
-    private static void escriuRanking (Vector<String> ranking, PrintWriter out) {
-        if (ranking.size() == 0) print_line.println("No hi ha cap ranking guardat " );
-        for (int i = 0; i < ranking.size(); i++) {
-            print_line.println((i+1) + ": " + ranking.get(i) );
+    private static void escriuRanking (Vector<Vector<String>> ranking, PrintWriter out) {
+        if (ranking.size() == 0) print_line.println("No hi ha cap rank a la base de dades");
+        else {
+            for (int i = 0; i < ranking.size(); i++) {
+                print_line.println((i+1) + ": ");
+                for (int j = 0; j < ranking.get(i).size(); j++) {
+                    print_line.println(ranking.get(i).get(j));
+                }
+                print_line.println();
+            }
         }
-        print_line.println();
     }
 
     private static void escriuMissatgeError(Integer error, Integer funcio, PrintWriter out) {
