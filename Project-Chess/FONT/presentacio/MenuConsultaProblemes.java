@@ -8,6 +8,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.Vector;
 
 public class MenuConsultaProblemes extends JFrame{
@@ -63,7 +64,24 @@ public class MenuConsultaProblemes extends JFrame{
         eliminaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                int i = tableProblemes.getSelectedRow();
+                if (i >= 0){
+                    int cas = -1;
+                    try {
+                        cas = cdmp.baixaProblema(model.getValueAt(i, 0).toString());
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
+                    if (cas == 0) {
+                        model.removeRow(i);
+                    }
+                    else {
+                        JOptionPane.showMessageDialog(MenuConsulta,"El Problema no existeix");
+                    }
+                }
+                else {
+                    System.out.println("Error d'esborrat");
+                }
             }
         });
     }

@@ -27,7 +27,7 @@ public class MenuCreacioProblema extends JFrame{
         ctrlDom = ctrld;
         cdrp = ctrlDom.getCDMp();
         setContentPane(MenuCreacio);
-        Dimension minDim = new Dimension(300, 300);
+        Dimension minDim = new Dimension(400, 300);
         setMinimumSize(minDim);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
