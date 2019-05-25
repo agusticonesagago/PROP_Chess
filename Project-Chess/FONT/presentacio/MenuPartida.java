@@ -19,6 +19,11 @@ public class MenuPartida extends JFrame{
 
     public MenuPartida(String us, CtrlDomini ctrld) {
         super("Chess PROP");
+        DeathMatchButton.setFocusable(false);
+        CarregarButton.setFocusable(false);
+        JugarButton.setFocusable(false);
+        EnrereButton.setFocusable(false);
+
         username = us;
         ctrlDom = ctrld;
         Sessio.setText("Sessio iniciada amb: " +username);
