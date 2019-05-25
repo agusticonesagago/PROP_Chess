@@ -24,6 +24,9 @@ public class MenuCreacioProblema extends JFrame{
 
     public MenuCreacioProblema (String us, CtrlDomini ctrld) {
         super("Chess PROP");
+        EnrereButton.setFocusable(false);
+        CreaButton.setFocusable(false);
+
         username = us;
         ctrlDom = ctrld;
         cdrp = ctrlDom.getCDMp();

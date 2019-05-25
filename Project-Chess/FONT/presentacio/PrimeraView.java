@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.PrintWriter;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class PrimeraView extends JFrame {
     private JButton GoOn;
@@ -25,6 +26,11 @@ public class PrimeraView extends JFrame {
 
     public PrimeraView(CtrlDomini ctrld) {
         super ("Chess PROP");
+
+        String[] opciones ={"o"};
+
+        GoOn.setFocusable(false);
+        examinarButton.setFocusable(false);
         ctrlDom = ctrld;
         setContentPane(FirstView);
         Dimension minDim = new Dimension(300, 300);
@@ -43,7 +49,7 @@ public class PrimeraView extends JFrame {
                 //GoOn.setBackground(clr1);
                 //GoOn.setBackground(antic);
                 if (NomAIntroduir.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(FirstView, "No has introduit cap nom");
+                    JOptionPane.showMessageDialog(FirstView,"No has introduit cap nom");
                 }
                 else{
                     username = NomAIntroduir.getText();

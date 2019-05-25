@@ -21,6 +21,7 @@ public class MenuRanking extends JFrame{
 
     public MenuRanking(String us, CtrlDomini ctrld) {
         super("Chess PROP");
+        EnrereButton.setFocusable(false);
 
         username = us;
         ctrlDom = ctrld;

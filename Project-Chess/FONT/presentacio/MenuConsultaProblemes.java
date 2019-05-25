@@ -24,6 +24,10 @@ public class MenuConsultaProblemes extends JFrame{
 
     public MenuConsultaProblemes(String us, CtrlDomini ctrld) {
         super("Chess PROP");
+        EnrereButton.setFocusable(false);
+        eliminaButton.setFocusable(false);
+        modificaButton.setFocusable(false);
+        
         username = us;
         ctrlDom = ctrld;
         cdmp = ctrlDom.getCDMp();
