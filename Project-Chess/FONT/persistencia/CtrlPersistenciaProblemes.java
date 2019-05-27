@@ -17,8 +17,8 @@ public class CtrlPersistenciaProblemes {
 
     private static final Type ProblemListType = new TypeToken<ArrayList<Problema>>(){}.getType();
     private static final Type TutorialListType = new TypeToken<ArrayList<Tutorial>>(){}.getType();
-    private String path_problems = "C:\\Users\\Agustí\\Documents\\PROP-Chess\\Project-Chess\\EXE\\Dades\\Problemes.json";
-    private String path_tutorials = "C:\\Users\\Agustí\\Documents\\PROP-Chess\\Project-Chess\\EXE\\Dades\\Tutorials.json";
+    private String path_problems = "C:\\Users\\enric\\Documents\\Enric\\Projecte-Prop\\Project-Chess\\EXE\\Dades\\Problemes.json";
+    private String path_tutorials = "C:\\Users\\enric\\Documents\\Enric\\Projecte-Prop\\Project-Chess\\EXE\\Dades\\Problemes.json";
 
 
 

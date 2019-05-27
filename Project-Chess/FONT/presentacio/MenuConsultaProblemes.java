@@ -63,7 +63,15 @@ public class MenuConsultaProblemes extends JFrame{
         modificaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+            int i = tableProblemes.getSelectedRow();
+            if (i >= 0) {
+                //4k3/3ppp2/8/8/7Q/8/8/2K5 w - - 0 1
+                MenuCreacioProblema frame = new MenuCreacioProblema(username, ctrlDom,model.getValueAt(i, 0).toString(),
+                                            model.getValueAt(i,1).toString(), model.getValueAt(i, 2).toString(), true);
+                frame.setLocation(getLocation());
+                setVisible(false);
+                frame.setVisible(true);
+            }
             }
         });
 
