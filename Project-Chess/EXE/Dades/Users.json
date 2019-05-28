@@ -4,5 +4,17 @@
     "winrate": 0.0,
     "ProblemesJugats": 0,
     "ID": 8
+  },
+  {
+    "name": "ag",
+    "winrate": 0.0,
+    "ProblemesJugats": 0,
+    "ID": 33
+  },
+  {
+    "name": "en",
+    "winrate": 0.0,
+    "ProblemesJugats": 0,
+    "ID": 18
   }
 ]

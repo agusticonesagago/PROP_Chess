@@ -22,7 +22,8 @@ public class MenuCreacioProblema extends JFrame{
     private CtrlDomini ctrlDom;
     private CtrlDominiMantProblema cdrp;
 
-    public MenuCreacioProblema (CtrlDomini ctrld) {
+
+    public MenuCreacioProblema (CtrlDomini ctrld, String fen, String tem, String dif, Boolean modi) {
         super("Chess PROP");
         ctrlDom = ctrld;
         cdrp = ctrlDom.getCDMp();
@@ -31,6 +32,13 @@ public class MenuCreacioProblema extends JFrame{
         Dimension minDim = new Dimension(400, 300);
         setMinimumSize(minDim);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        String anticFEN;
+        if(modi) {
+            textFieldFEN.setText(fen);
+            textFieldTema.setText(tem);
+            textFieldDificultat.setText(dif);
+        }
+        anticFEN = fen;
 
         CreaButton.addActionListener(new ActionListener() {
             @Override
@@ -55,6 +63,15 @@ public class MenuCreacioProblema extends JFrame{
                     dades.add(1, textFieldTema.getText());
                     dades.add(2, textFieldDificultat.getText());
                     int problema = -1;
+
+                    if(modi && anticFEN.equals(dades.get(0))) {
+                        try {
+                            cdrp.baixaProblema(dades.get(0));
+                        } catch (IOException ex) {
+                            ex.printStackTrace();
+                        }
+                    }
+
                     try {
                         problema = cdrp.altaProblema(dades.get(0), dades);
                     } catch (IOException ex) {
@@ -85,10 +102,18 @@ public class MenuCreacioProblema extends JFrame{
         EnrereButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                MenuProblema frame = new MenuProblema(ctrlDom);
-                frame.setLocation(getLocation());
-                setVisible(false);
-                frame.setVisible(true);
+                if (modi) {
+                    MenuConsultaProblemes frame = new MenuConsultaProblemes(ctrlDom);
+                    frame.setLocation(getLocation());
+                    setVisible(false);
+                    frame.setVisible(true);
+                }
+                else {
+                    MenuProblema frame = new MenuProblema(ctrlDom);
+                    frame.setLocation(getLocation());
+                    setVisible(false);
+                    frame.setVisible(true);
+                }
             }
         });
     }

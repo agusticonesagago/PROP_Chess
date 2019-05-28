@@ -58,7 +58,15 @@ public class MenuConsultaProblemes extends JFrame{
         modificaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                int i = tableProblemes.getSelectedRow();
+                if (i >= 0) {
+                    MenuCreacioProblema frame = new MenuCreacioProblema(ctrlDom, model.getValueAt(i, 0).toString(),
+                            model.getValueAt(i,1).toString(), model.getValueAt(i,2).toString(), true);
+                    frame.setLocation(getLocation());
+                    setVisible(false);
+                    frame.setVisible(true);
+                }
+                else JOptionPane.showMessageDialog(MenuConsulta,"No has seleccionat cap problema");
             }
         });
 

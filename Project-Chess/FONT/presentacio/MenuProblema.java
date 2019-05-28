@@ -37,7 +37,7 @@ public class MenuProblema extends JFrame{
         CrearButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                MenuCreacioProblema frame = new MenuCreacioProblema(ctrlDom);
+                MenuCreacioProblema frame = new MenuCreacioProblema(ctrlDom,"", "", "", false);
                 frame.setLocation(getLocation());
                 setVisible(false);
                 frame.setVisible(true);
