@@ -3,7 +3,6 @@ package presentacio;
 import domini.CtrlDomini;
 
 import javax.swing.*;
-import java.io.IOException;
 
 public class MainPresentacio {
 
@@ -12,11 +11,7 @@ public class MainPresentacio {
             @Override
             public void run() {
                 CtrlDomini crtlDom = null;
-                try {
-                    crtlDom = new CtrlDomini();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                crtlDom = new CtrlDomini();
                 JFrame frame = new PrimeraView(crtlDom);
                 frame.setVisible(true);
             }

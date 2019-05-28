@@ -3,7 +3,6 @@ package domini;
 
 import javafx.util.Pair;
 
-import javax.swing.text.StyledEditorKit;
 import java.io.PrintWriter;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
@@ -18,14 +17,16 @@ public class Partida {
     protected Jugador Negres;
     protected Boolean QuiHaDeGuanyar;
     protected Integer QuantTorn;
+    protected Integer tornActual;
+    protected Integer tornFEN;
 
     public Partida(Problema P ,Jugador blanques, Jugador negres) {
         this.Problem = P;
         this.Blanques = blanques;
         this.Negres = negres;
-
         // Decomposició de FEN
         String FEN = P.getFEN();
+        System.out.println(FEN);
         if (!FEN.isEmpty()) {
             int endOfBoard = FEN.indexOf(" ");
             String Taulell_FEN = FEN.substring(0, endOfBoard);
@@ -36,11 +37,13 @@ public class Partida {
             else QuiJuga = null;
             Guanyador = null;
             Torn = 0;
+            tornFEN = 1;
         }
 
         Pair gTM = P.getTornMat();
         this.QuiHaDeGuanyar = (Boolean) gTM.getValue();
         this.QuantTorn = (Integer) gTM.getKey();
+        this.tornActual= (Integer) gTM.getKey();
         this.QuantTorn = (this.QuantTorn *2)-1;
     }
 
@@ -66,7 +69,6 @@ public class Partida {
                 }
             }
             ++Torn;
-
             if (Board.escac_mat(!QuiHaDeGuanyar) && Torn.equals(QuantTorn)) {
                 Guanyador = QuiHaDeGuanyar;
             } else if (Torn.equals(QuantTorn)) {
@@ -76,7 +78,9 @@ public class Partida {
 
             QuiJuga = !QuiJuga;// else -> Update QuiJuga
         }
-        else {                  // torn negres
+        else {
+            ++tornFEN;
+            // torn negres
             boolean LegalMoves = false;
             while (!LegalMoves) {
                 LegalMoves = true;
@@ -245,4 +249,32 @@ public class Partida {
         this.Problem = p;
     }
 
+    public void ferMoviment(Pair<Pair<Integer, Integer>, Pair<Integer, Integer>> move) {
+        // FA MOVIMENT DES DE PRESENTACIÓ (NOMES ACCESSIBLE SI HUMA)
+        ++Torn;
+        if (!getQuiJuga()) ++tornFEN;
+        if (Board.escac_mat(!QuiHaDeGuanyar) && Torn.equals(QuantTorn)) {
+            Guanyador = QuiHaDeGuanyar;
+        } else if (Torn.equals(QuantTorn)) {
+            Guanyador = !QuiHaDeGuanyar;
+        }
+
+
+        QuiJuga = !QuiJuga;// else -> Update QuiJuga
+    }
+
+    public int getTornActual() {
+        return tornActual;
+    }
+
+    public int getTornFEN() {
+        return tornFEN;
+    }
+
+    public String getFEN() {
+        String aux = Board.PrintFEN();
+        aux += getQuiJuga() ? " w - - 0 ": " b - - 0 ";
+        aux += getTornFEN();
+        return aux;
+    }
 }

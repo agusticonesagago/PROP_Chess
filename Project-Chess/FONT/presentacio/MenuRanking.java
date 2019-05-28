@@ -19,14 +19,11 @@ public class MenuRanking extends JFrame{
     private CtrlDomini ctrlDom;
     private CtrlDominiMantRanking cdmr;
 
-    public MenuRanking(String us, CtrlDomini ctrld) {
+    public MenuRanking(CtrlDomini ctrld) {
         super("Chess PROP");
-        EnrereButton.setFocusable(false);
-
-        username = us;
         ctrlDom = ctrld;
         cdmr = ctrld.getCDMr();
-        Sessio.setText("Sessio iniciada amb: " +username);
+        Sessio.setText("Sessio iniciada amb: " +ctrld.getUser_name());
 
         setContentPane(MenuRanking);
         Dimension minDim = new Dimension(600, 300);
@@ -54,7 +51,7 @@ public class MenuRanking extends JFrame{
         EnrereButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                MainMenu frame = new MainMenu(username, ctrlDom);
+                MainMenu frame = new MainMenu(ctrlDom);
                 frame.setLocation(getLocation());
                 setVisible(false);
                 frame.setVisible(true);

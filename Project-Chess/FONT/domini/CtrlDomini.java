@@ -1,10 +1,12 @@
 package domini;
 
 import javafx.util.Pair;
+import persistencia.CtrlPersistenciaJugador;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Vector;
 
@@ -12,18 +14,27 @@ import java.util.Vector;
 public class CtrlDomini {
     private CtrlDominiMantProblema CDMp;
     private CtrlDominiMantRanking CDMr;
+    private CtrlPersistenciaJugador CPJ;
     private Problema problema;
+    private Huma sessio;
     private Jugador jugador1;
     private Jugador jugador2;
     private Partida partida;
 
-    public CtrlDomini () throws IOException {
-        CDMp = new CtrlDominiMantProblema();
-        CDMr = new CtrlDominiMantRanking();
+    public CtrlDomini () {
+        try {
+            CDMp = new CtrlDominiMantProblema();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        try {
+            CDMr = new CtrlDominiMantRanking();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        CPJ = new CtrlPersistenciaJugador();
         problema = new Problema();
-        partida = null;
-        jugador1 = null;
-        jugador2 = null;
+        sessio = null;
     }
 
     public void configurarPartida(Vector <String> problema, String jugador1, String jugador2) {
@@ -34,32 +45,74 @@ public class CtrlDomini {
         else if (jugador1.equals("Maquina1")) {
             this.jugador1 = new Simple(1);
         }
-        else if (jugador1.equals("Maquina2")) {
-            this.jugador1 = new Complexa(1);
-        }
 
-        if(jugador2.equals("Huma")) {
+        if (jugador2.equals("Huma")) {
             this.jugador2 = new Huma(2);
-        }
-        else if (jugador2.equals("Maquina1")) {
+        } else if (jugador2.equals("Maquina1")) {
             this.jugador2 = new Simple(2);
         }
-
-        else if (jugador2.equals("Maquina2")) {
-            this.jugador2 = new Complexa(2);
-        }
-
-
         Pair<Integer, Boolean> tornMat = this.problema.getTornMat();
         if (tornMat.getValue()) {
             this.partida = new Partida(this.problema, this.jugador1, this.jugador2);
-        }
-        else {
+        } else {
             this.partida = new Partida(this.problema, this.jugador2, this.jugador1);
         }
     }
 
+    ///////////////////////////////////////
 
+
+    public void conf_partida_p(String jugador1, String jugador2) {
+        if(jugador1.equals("Huma")) {
+            this.jugador1 = new Huma(1);
+        }
+        else if (jugador1.equals("Maquina1")) {
+            this.jugador1 = new Simple(1);
+        }
+
+        if (jugador2.equals("Huma")) {
+            this.jugador2 = new Huma(2);
+        } else if (jugador2.equals("Maquina1")) {
+            this.jugador2 = new Simple(2);
+        }
+        Pair<Integer, Boolean> tornMat = this.problema.getTornMat();
+        if (tornMat.getValue()) {
+            this.partida = new Partida(this.problema, this.jugador1, this.jugador2);
+        } else {
+            this.partida = new Partida(this.problema, this.jugador2, this.jugador1);
+        }
+    }
+
+    public ArrayList<Pair<Integer, Integer>> getAjudaMovs (int i, int j) {
+        ArrayList<Pair<Integer,Integer>> movs = this.partida.getTaulell().validarMoviments(this.partida.getTaulell().getBoard()[i][j].posicionsposible()
+                ,this.partida.getTaulell().getBoard()[i][j].getClass().getName(),this.partida.getTaulell().getBoard()[i][j]);
+        return movs;
+    }
+
+    public Partida getPartida() {
+        return partida;
+    }
+
+    public void setProblema(Problema p) {
+        problema = p;
+    }
+    public Problema getProblem_o() {
+        return problema;
+    }
+
+
+    public void iniciasessio (String name) throws IOException {
+        sessio = CPJ.getJugador(name);
+        if (sessio == null) { // Si no existeix es crea
+            sessio = CPJ.afegeixJugador(name);
+        }
+    }
+
+    public String getUser_name () {
+        return sessio.getName();
+    }
+
+    ///////////////////////////////////////
     public String jugarPartida(String nom1, String nom2, PrintWriter pw, Scanner sc) throws InterruptedException, IOException {
         String guanyador;
         Pair<Integer, Boolean> tornMat= problema.getTornMat();
@@ -151,12 +204,8 @@ public class CtrlDomini {
         problema.setDificultat(dif);
     }
 
-    public String getProblema() {
-        String res = "";
-        res += problema.getFEN(); res += " ";
-        res += problema.getTema(); res += " ";
-        res += problema.getDificultat();
-        return  res;
+    public Problema getProblema() {
+        return problema;
     }
 
     public CtrlDominiMantRanking getCDMr() {
@@ -167,4 +216,8 @@ public class CtrlDomini {
         return CDMp;
     }
 
+    public void guardarPartida() throws IOException {
+        // Guarda la partiad dels Ctrl i la guarda al usuari amb sesiso iniciada.
+        CPJ.guardarPartida(partida, sessio.getName());
+    }
 }

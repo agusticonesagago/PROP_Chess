@@ -1,9 +1,9 @@
 package domini;
 
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import javafx.util.Pair;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 public class Peca{
@@ -11,11 +11,21 @@ public class Peca{
 
     protected boolean color; // true(blanc) i false(negre)
     protected Pair<Integer,Integer> posactual;
+    private Image img;
 
 
     public Peca(boolean color, Pair<Integer,Integer> posactual) {
       this.color = color;
       this.posactual = new Pair<>(posactual.getKey(), posactual.getValue());
+      this.img = null;
+    }
+
+    public void setImg(Image img) {
+        this.img = img;
+    }
+
+    public Image getImage() {
+        return img;
     }
 
     protected Boolean caselladins(Pair<Integer,Integer> pos){

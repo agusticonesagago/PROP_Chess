@@ -1,11 +1,8 @@
 package domini;
 
-import javafx.geometry.Pos;
 import javafx.util.Pair;
 
-import javax.activation.MailcapCommandMap;
 import java.io.PrintWriter;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Taulell{
@@ -156,12 +153,13 @@ public class Taulell{
                     if (name.equals("Knight")) name = "N";
                     if (Board[i][j].getcolor()) { // White Capital letters
                         System.out.print(" " + name.toUpperCase().charAt(0)+ " ");
-                    }
-                    else {
+                    } else{
                         System.out.print(" " +name.toLowerCase().charAt(0)+" ");
                     }
                 }
-                else System.out.print(" - ");
+                else {
+                    System.out.print(" - ");
+                }
             }
             System.out.println(" ");
         }
@@ -210,12 +208,16 @@ public class Taulell{
                     --j;
                 } else {
                     int find = Board[i][j].getClass().getName().indexOf('.');
-                    res = res + String.valueOf(Board[i][j].getClass().getName().charAt(find+1));
+                    if (Board[i][j].getcolor()) {
+                        res += String.valueOf(Board[i][j].getClass().getName().charAt(find+1)).toUpperCase();
+                    } else {
+                        res += String.valueOf(Board[i][j].getClass().getName().charAt(find+1)).toLowerCase();
+                    }
                 }
             }
             res = res + "/";
         }
-        return res;
+        return res.substring(0,res.length()-1);
     }
 
     public domini.Peca[][] getBoard () {

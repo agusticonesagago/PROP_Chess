@@ -22,16 +22,11 @@ public class MenuConsultaProblemes extends JFrame{
     private CtrlDomini ctrlDom;
     private CtrlDominiMantProblema cdmp;
 
-    public MenuConsultaProblemes(String us, CtrlDomini ctrld) {
+    public MenuConsultaProblemes(CtrlDomini ctrld) {
         super("Chess PROP");
-        EnrereButton.setFocusable(false);
-        eliminaButton.setFocusable(false);
-        modificaButton.setFocusable(false);
-        
-        username = us;
         ctrlDom = ctrld;
         cdmp = ctrlDom.getCDMp();
-        Sessio.setText("Sessio iniciada amb: " +username);
+        Sessio.setText("Sessio iniciada amb: " +ctrld.getUser_name());
         setContentPane(MenuConsulta);
         Dimension minDim = new Dimension(400, 300);
         setMinimumSize(minDim);
@@ -53,7 +48,7 @@ public class MenuConsultaProblemes extends JFrame{
         EnrereButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                MenuProblema frame = new MenuProblema(username, ctrlDom);
+                MenuProblema frame = new MenuProblema(ctrlDom);
                 frame.setLocation(getLocation());
                 setVisible(false);
                 frame.setVisible(true);
@@ -63,15 +58,7 @@ public class MenuConsultaProblemes extends JFrame{
         modificaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            int i = tableProblemes.getSelectedRow();
-            if (i >= 0) {
-                //4k3/3ppp2/8/8/7Q/8/8/2K5 w - - 0 1
-                MenuCreacioProblema frame = new MenuCreacioProblema(username, ctrlDom,model.getValueAt(i, 0).toString(),
-                                            model.getValueAt(i,1).toString(), model.getValueAt(i, 2).toString(), true);
-                frame.setLocation(getLocation());
-                setVisible(false);
-                frame.setVisible(true);
-            }
+
             }
         });
 

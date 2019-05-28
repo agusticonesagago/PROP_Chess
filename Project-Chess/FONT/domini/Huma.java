@@ -8,24 +8,20 @@ import java.util.Scanner;
 public class Huma extends Jugador {
 
     private String name;
+    private Float winrate;
+    private int ProblemesJugats;
     private Partida GameSaved;
 
     public Huma (Integer id) {
         super(id);
         this.GameSaved = null;
+        this.name = null;
+        this.ProblemesJugats = 0;
+        this.winrate = 0f;
+        this.GameSaved = null;
     }
 
-    public void SetName (String name) {
-        this.name = name;
-    }
 
-    public void guardarPartida (Partida p) {
-        this.GameSaved = p;
-    }
-
-    public Partida getPartida () {
-        return GameSaved;
-    }
 
     @Override
     public Pair<Pair<Integer, Integer>, Pair<Integer, Integer>> moureFitxa(Partida ptd, boolean jugantCom, int torns) {
@@ -43,11 +39,34 @@ public class Huma extends Jugador {
         //return null;
     }
 
+    public Boolean registrar() {
+        return false;
+    }
+
+    public int getGamesPlayer () {
+        return ProblemesJugats;
+    }
+
+    public void novaPartidaAcabada(boolean victoria){
+        int wins = ProblemesJugats*winrate.intValue();
+        if (victoria) ++wins;
+        ProblemesJugats++;
+        winrate =(float) wins / ProblemesJugats;
+    }
+
     public String getName() {
         return name;
     }
 
-    public Boolean registrar() {
-        return false;
+    public void SetName (String name) {
+        this.name = name;
+    }
+
+    public void guardarPartida (Partida p) {
+        this.GameSaved = p;
+    }
+
+    public Partida getPartida () {
+        return GameSaved;
     }
 }

@@ -21,25 +21,16 @@ public class MenuCreacioProblema extends JFrame{
     private String username;
     private CtrlDomini ctrlDom;
     private CtrlDominiMantProblema cdrp;
-    private String problemaModif;
 
-    public MenuCreacioProblema (String us, CtrlDomini ctrld, String fen, String tem, String dif , Boolean modif) {
+    public MenuCreacioProblema (CtrlDomini ctrld) {
         super("Chess PROP");
-        EnrereButton.setFocusable(false);
-        CreaButton.setFocusable(false);
-
-        username = us;
         ctrlDom = ctrld;
         cdrp = ctrlDom.getCDMp();
-        Sessio.setText("Sessio iniciada amb: " +username);
+        Sessio.setText("Sessio iniciada amb: " +ctrld.getUser_name());
         setContentPane(MenuCreacio);
         Dimension minDim = new Dimension(400, 300);
         setMinimumSize(minDim);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        problemaModif = fen;
-        textFieldDificultat.setText(dif);
-        textFieldFEN.setText(fen);
-        textFieldTema.setText(tem);
 
         CreaButton.addActionListener(new ActionListener() {
             @Override
@@ -54,8 +45,7 @@ public class MenuCreacioProblema extends JFrame{
                             "el tema ha de començar pel color del jugador que guanya (la primera lletra en majuscula)," +
                             "i ha d'acabar en un numero entre el 1 i el 5");
                 }
-                else if (textFieldDificultat.getText().isEmpty() /*|| !textFieldDificultat.getText().equals("Facil") ||
-                        !textFieldDificultat.getText().equals("Normal") || !textFieldDificultat.getText().equals("Dificil")*/) {
+                else if (textFieldDificultat.getText().isEmpty()) {
                     JOptionPane.showMessageDialog(MenuCreacio, "No has introduit la Dificultat correctament," +
                             "les dificultats valides son: Facil, Normal i Dificil");
                 }
@@ -65,15 +55,6 @@ public class MenuCreacioProblema extends JFrame{
                     dades.add(1, textFieldTema.getText());
                     dades.add(2, textFieldDificultat.getText());
                     int problema = -1;
-                    if (problemaModif.equals(textFieldFEN.getText())){
-                        if (modif) {
-                            try {
-                                cdrp.baixaProblema(problemaModif);
-                            } catch (IOException ex) {
-                                ex.printStackTrace();
-                            }
-                        }
-                    }
                     try {
                         problema = cdrp.altaProblema(dades.get(0), dades);
                     } catch (IOException ex) {
@@ -86,7 +67,7 @@ public class MenuCreacioProblema extends JFrame{
                         case 3: JOptionPane.showMessageDialog(MenuCreacio, "El problema no es pot resoldre"); break;
                         default:
                             JOptionPane.showMessageDialog(MenuCreacio, "El problema s'ha introduit correctament");
-                            MenuProblema frame = new MenuProblema(username, ctrlDom);
+                            MenuProblema frame = new MenuProblema(ctrlDom);
                             frame.setLocation(getLocation());
                             setVisible(false);
                             frame.setVisible(true);
@@ -104,7 +85,7 @@ public class MenuCreacioProblema extends JFrame{
         EnrereButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                MenuProblema frame = new MenuProblema(username, ctrlDom);
+                MenuProblema frame = new MenuProblema(ctrlDom);
                 frame.setLocation(getLocation());
                 setVisible(false);
                 frame.setVisible(true);

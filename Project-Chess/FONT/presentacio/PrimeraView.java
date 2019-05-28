@@ -7,7 +7,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.io.PrintWriter;
+import java.io.IOException;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
@@ -52,8 +52,12 @@ public class PrimeraView extends JFrame {
                     JOptionPane.showMessageDialog(FirstView,"No has introduit cap nom");
                 }
                 else{
-                    username = NomAIntroduir.getText();
-                    MainMenu frame = new MainMenu(username, ctrlDom);
+                    try {
+                        ctrlDom.iniciasessio(NomAIntroduir.getText());
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
+                    MainMenu frame = new MainMenu(ctrlDom);
                     frame.setLocation(getLocation());
                     setVisible(false);
                     frame.setVisible(true);

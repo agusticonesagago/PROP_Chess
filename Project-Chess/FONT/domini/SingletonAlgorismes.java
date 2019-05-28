@@ -1,9 +1,10 @@
 package domini;
 
 import javafx.util.Pair;
-import static java.lang.Integer.min;
 
 import java.util.ArrayList;
+
+import static java.lang.Integer.min;
 
 public class SingletonAlgorismes {
     private static SingletonAlgorismes ourInstance = new SingletonAlgorismes();
@@ -24,7 +25,8 @@ public class SingletonAlgorismes {
         for (int i = 0; i < 8; ++i) {
             for (int j = 0; j < 8; ++j) {
                 if (t.PosOcupada(i, j) && t.getBoard()[i][j].getcolor() == jugantCom) { // if pos ocupada i es una peca meva
-                    ArrayList<Pair<Integer, Integer>> movs =  t.getBoard()[i][j].posicionsposible();
+                    ArrayList<Pair<Integer, Integer>> movs =  t.validarMoviments(t.getBoard()[i][j].posicionsposible(),
+                            t.getBoard()[i][j].getClass().getName(), t.getBoard()[i][j]);
 
                     for (int z = 0; z < movs.size(); ++z) {
                         Taulell x = new Taulell(t);
@@ -46,7 +48,7 @@ public class SingletonAlgorismes {
             millorMoviment = Moviments.get(0);
             for (int i = 1; i < posiblesTaulells.size(); ++i) {
                 int aux = evaluataullel(posiblesTaulells.get(i), !jugantCom, jugantCom, -1000000, 1000000, torns-1);
-                System.out.println("Moviment: "+ i +" -> "+ aux); // moviments definitius
+                System.out.println("Moviment: "+ i +" -> "+ Moviments.get(i)+ " " + aux); // moviments definitius
                 if (jugantCom) {
                     if (aux > evalMax) {
                         evalMax = aux;

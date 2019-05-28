@@ -17,23 +17,18 @@ public class MenuProblema extends JFrame{
     private String username;
     private CtrlDomini ctrlDom;
 
-    public MenuProblema(String us, CtrlDomini ctrld) {
+    public MenuProblema(CtrlDomini ctrld) {
         super("Chess PROP");
-        CrearButton.setFocusable(false);
-        EnrereButton.setFocusable(false);
-        ConsultarButton.setFocusable(false);
-
-        username = us;
         ctrlDom = ctrld;
         setContentPane(ProblemMenu);
-        Sessio.setText("Sessio iniciada amb: " +username);
+        Sessio.setText("Sessio iniciada amb: " +ctrld.getUser_name());
         Dimension minDim = new Dimension(250, 250);
         setMinimumSize(minDim);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         EnrereButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                MainMenu frame = new MainMenu(username, ctrlDom);
+                MainMenu frame = new MainMenu(ctrlDom);
                 frame.setLocation(getLocation());
                 setVisible(false);
                 frame.setVisible(true);
@@ -42,7 +37,7 @@ public class MenuProblema extends JFrame{
         CrearButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                MenuCreacioProblema frame = new MenuCreacioProblema(username, ctrlDom, "", "" , "", false);
+                MenuCreacioProblema frame = new MenuCreacioProblema(ctrlDom);
                 frame.setLocation(getLocation());
                 setVisible(false);
                 frame.setVisible(true);
@@ -51,7 +46,7 @@ public class MenuProblema extends JFrame{
         ConsultarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                MenuConsultaProblemes frame = new MenuConsultaProblemes(username, ctrlDom);
+                MenuConsultaProblemes frame = new MenuConsultaProblemes(ctrlDom);
                 frame.setLocation(getLocation());
                 setVisible(false);
                 frame.setVisible(true);

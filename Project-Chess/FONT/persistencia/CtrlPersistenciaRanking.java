@@ -15,7 +15,7 @@ public class CtrlPersistenciaRanking {
 
 
     // PARAMS
-    private String path_ranking = "C:\\Users\\enric\\Documents\\Enric\\Projecte-Prop\\Project-Chess\\EXE\\Dades\\Ranking.json";
+    private String path_ranking = "C:\\Users\\Usuario\\Desktop\\UPC\\Q6\\PROP\\Project\\Project-Chess\\EXE\\Dades\\Ranking.json";
 
     private static final Type RankingListType = new TypeToken<ArrayList<Ranking>>(){}.getType();
     // FUNCS
@@ -24,12 +24,6 @@ public class CtrlPersistenciaRanking {
         Gson gson = new Gson();
         JsonReader reader = new JsonReader(new FileReader(path_ranking));
         List<Ranking> cjtRankings = gson.fromJson(reader, RankingListType);
-        if (cjtRankings == null) System.out.println("EMPTY LIST");
-        else {
-            for (int i=0; i < cjtRankings.size(); ++i){
-                System.out.println(cjtRankings.get(i).getJugador());
-            }
-        }
         return cjtRankings;
     }
 

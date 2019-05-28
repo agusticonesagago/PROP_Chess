@@ -18,16 +18,10 @@ public class MainMenu extends JFrame{
     private String username;
     private CtrlDomini ctrlDom;
 
-    public MainMenu (String us, CtrlDomini ctrld) {
+    public MainMenu (CtrlDomini ctrld) {
         super("Chess PROP");
-        ProblemButton.setFocusable(false);
-        RankingButton.setFocusable(false);
-        PartidaButton.setFocusable(false);
-        BackButton.setFocusable(false);
-
-        username = us;
-        Sessio.setText("Sessio iniciada amb: " +username);
         ctrlDom = ctrld;
+        Sessio.setText("Sessio iniciada amb: " +ctrlDom.getUser_name());
         setContentPane(MenuPrincipal);
         Dimension minDim = new Dimension(300, 300);
         setMinimumSize(minDim);
@@ -44,7 +38,7 @@ public class MainMenu extends JFrame{
         ProblemButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                MenuProblema frame = new MenuProblema(username, ctrlDom);
+                MenuProblema frame = new MenuProblema(ctrlDom);
                 frame.setLocation(getLocation());
                 setVisible(false);
                 frame.setVisible(true);
@@ -53,7 +47,7 @@ public class MainMenu extends JFrame{
         PartidaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                MenuPartida frame = new MenuPartida(username, ctrlDom);
+                MenuPartida frame = new MenuPartida(ctrlDom);
                 frame.setLocation(getLocation());
                 setVisible(false);
                 frame.setVisible(true);
@@ -62,7 +56,7 @@ public class MainMenu extends JFrame{
         RankingButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                MenuRanking frame = new MenuRanking(username, ctrlDom);
+                MenuRanking frame = new MenuRanking(ctrlDom);
                 frame.setLocation(getLocation());
                 setVisible(false);
                 frame.setVisible(true);
