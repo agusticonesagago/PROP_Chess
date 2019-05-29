@@ -21,6 +21,8 @@ public class MenuRanking extends JFrame{
 
     public MenuRanking(CtrlDomini ctrld) {
         super("Chess PROP");
+        EnrereButton.setFocusable(false);
+
         ctrlDom = ctrld;
         cdmr = ctrld.getCDMr();
         Sessio.setText("Sessio iniciada amb: " +ctrld.getUser_name());

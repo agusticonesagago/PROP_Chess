@@ -25,6 +25,9 @@ public class MenuCreacioProblema extends JFrame{
 
     public MenuCreacioProblema (CtrlDomini ctrld, String fen, String tem, String dif, Boolean modi) {
         super("Chess PROP");
+        EnrereButton.setFocusable(false);
+        CreaButton.setFocusable(false);
+
         ctrlDom = ctrld;
         cdrp = ctrlDom.getCDMp();
         Sessio.setText("Sessio iniciada amb: " +ctrld.getUser_name());
