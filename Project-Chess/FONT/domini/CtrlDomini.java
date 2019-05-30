@@ -137,28 +137,29 @@ public class CtrlDomini {
     }
 
     ///////////////////////////////////////
-    public String jugarPartida(String nom1, String nom2, PrintWriter pw, Scanner sc) throws InterruptedException, IOException {
+    public Pair<Boolean, Float> jugarPartida(String nom1, String nom2) {
         String guanyador;
         Pair<Integer, Boolean> tornMat= problema.getTornMat();
         Integer tornsRestants = tornMat.getKey();
         Boolean quiMou = tornMat.getValue();
         System.out.println("Comença la partida " + "\n");
-        if (pw != null) pw.println("Comença la partida ");
+        //if (pw != null) pw.println("Comença la partida ");
         float tBlanquesM = 0;
         float tNegresM = 0;
         while (tornsRestants > 0) {
             partida.getTaulell().PrintBoard();
-            if (pw != null) {
+            /*if (pw != null) {
                 partida.getTaulell().PrintBoard_toFile(pw);
                 pw.println();
-            }
+            }*/
             System.out.println (partida.getTaulell().PrintFEN() + "\n");
 
             if (quiMou) System.out.println("Mouen Blanques" + "\n");
             else System.out.println("Mouen Negres" + "\n");
 
             long startTurn = System.currentTimeMillis(); // Temps abans de moure peça
-            if (pw != null) partida.jugarTorn_toFile(tornsRestants,pw,sc);
+            //if (pw != null) partida.jugarTorn_toFile(tornsRestants,pw,sc);
+            partida.jugarTorn(tornsRestants);
             long endTurn = System.currentTimeMillis(); // Temps despres de moure peça
             if (quiMou) tBlanquesM += (endTurn - startTurn)/1000;
             else tNegresM += (endTurn -startTurn)/1000;
@@ -171,7 +172,7 @@ public class CtrlDomini {
         System.out.println("Blanques: "+ tBlanquesM);
         System.out.println("Negres  : "+ tNegresM);
         partida.getTaulell().PrintBoard();
-        if (pw != null) partida.getTaulell().PrintBoard_toFile(pw);
+        //if (pw != null) partida.getTaulell().PrintBoard_toFile(pw);
         System.out.println (partida.getTaulell().PrintFEN() + "\n");
         if (tornMat.getValue()){
             if (partida.getGuanyador() && tornMat.getValue())  {
@@ -181,7 +182,7 @@ public class CtrlDomini {
                     dades.add(0, nom1);
                     dades.add(1, problema.getFEN());
                     dades.add(2, String.valueOf(tBlanquesM));
-                    CDMr.altaRanking(nom1,dades);
+                    //CDMr.altaRanking(nom1,dades);
                 }
             }
             else {
@@ -191,7 +192,7 @@ public class CtrlDomini {
                     dades.add(0, nom2);
                     dades.add(1, problema.getFEN());
                     dades.add(2, "60");
-                    CDMr.altaRanking(nom2,dades);
+                    //CDMr.altaRanking(nom2,dades);
                 }
             }
         }
@@ -203,7 +204,7 @@ public class CtrlDomini {
                     dades.add(0, nom1);
                     dades.add(1, problema.getFEN());
                     dades.add(2, "60");
-                    CDMr.altaRanking(nom1,dades);
+                    //CDMr.altaRanking(nom1,dades);
                 }
             }
             else {
@@ -213,12 +214,17 @@ public class CtrlDomini {
                     dades.add(0, nom2);
                     dades.add(1, problema.getFEN());
                     dades.add(2, "60");
-                    CDMr.altaRanking(nom2,dades);
+                    //CDMr.altaRanking(nom2,dades);
                 }
             }
         }
 
-        return guanyador;
+        Pair<Boolean,Float> resultat;
+        if(tornMat.getValue()){
+            resultat= new Pair((guanyador=="Blanques"),tBlanquesM);
+            return resultat;
+        }
+        else return resultat= new Pair((guanyador=="Negres"),tNegresM);
     }
 
 
