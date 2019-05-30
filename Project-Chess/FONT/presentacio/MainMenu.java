@@ -21,6 +21,11 @@ public class MainMenu extends JFrame{
 
     public MainMenu (CtrlDomini ctrld) {
         super("Chess PROP");
+        ProblemButton.setFocusable(false);
+        RankingButton.setFocusable(false);
+        PartidaButton.setFocusable(false);
+        BackButton.setFocusable(false);
+
         ctrlDom = ctrld;
         Sessio.setText("Sessio iniciada amb: " +ctrlDom.getUser_name());
         setContentPane(MenuPrincipal);

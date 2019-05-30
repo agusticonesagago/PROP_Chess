@@ -19,6 +19,10 @@ public class MenuProblema extends JFrame{
 
     public MenuProblema(CtrlDomini ctrld) {
         super("Chess PROP");
+        CrearButton.setFocusable(false);
+        EnrereButton.setFocusable(false);
+        ConsultarButton.setFocusable(false);
+
         ctrlDom = ctrld;
         setContentPane(ProblemMenu);
         Sessio.setText("Sessio iniciada amb: " +ctrld.getUser_name());
