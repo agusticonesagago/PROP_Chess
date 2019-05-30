@@ -25,6 +25,7 @@ public class MainMenu extends JFrame{
         RankingButton.setFocusable(false);
         PartidaButton.setFocusable(false);
         BackButton.setFocusable(false);
+        PerfilsButton.setFocusable(false);
 
         ctrlDom = ctrld;
         Sessio.setText("Sessio iniciada amb: " +ctrlDom.getUser_name());

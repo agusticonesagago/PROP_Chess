@@ -51,6 +51,7 @@ public class MenuPartida extends JFrame{
                 sp.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 sp.pack();
                 setVisible(false);
+                dispose();
             }
         });
     }

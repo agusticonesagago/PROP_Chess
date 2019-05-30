@@ -28,6 +28,7 @@ public class SelectProblem extends JFrame {
         GridBagLayout gridBagLayout = new GridBagLayout();
         GridBagConstraints gridBagConstraints = new GridBagConstraints();
         this.setLayout(gridBagLayout);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
         title = new JLabel();
         title.setText("Select a Problem: ");
@@ -71,6 +72,7 @@ public class SelectProblem extends JFrame {
                 SelectPlayers frame = new SelectPlayers(cDom);
                 frame.setLocation(getLocation());
                 setVisible(false);
+                dispose();
                 frame.setVisible(true);
             }
         });
@@ -90,6 +92,7 @@ public class SelectProblem extends JFrame {
                 MenuPartida frame = new MenuPartida(cDom);
                 frame.setLocation(getLocation());
                 setVisible(false);
+                dispose();
                 frame.setVisible(true);
             }
         });

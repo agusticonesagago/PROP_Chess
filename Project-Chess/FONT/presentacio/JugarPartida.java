@@ -65,6 +65,7 @@ public class JugarPartida extends JFrame implements Observer {
         this.pack();
         this.setLocation(0,0);
         this.setMinimumSize(new Dimension(1000,700));
+        this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setVisible(true);
         //TotalTimer.start();
         toMove();

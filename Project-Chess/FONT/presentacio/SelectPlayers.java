@@ -34,6 +34,7 @@ public class SelectPlayers extends JFrame {
         GridBagLayout gridBagLayout = new GridBagLayout();
         GridBagConstraints gridBagConstraints = new GridBagConstraints();
         this.setLayout(gridBagLayout);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
         blackTitle = new JLabel();
         blackTitle.setText("Black Player");
@@ -106,6 +107,7 @@ public class SelectPlayers extends JFrame {
                     JugarPartida frame = new JugarPartida(cDom);
                     frame.setLocation(getLocation());
                     setVisible(false);
+                    dispose();
                     frame.setVisible(true);
                 }
             }
@@ -125,6 +127,7 @@ public class SelectPlayers extends JFrame {
                 SelectProblem frame = new SelectProblem(cDom);
                 frame.setLocation(getLocation());
                 setVisible(false);
+                dispose();
                 frame.setVisible(true);
             }
         });

@@ -26,6 +26,8 @@ public class ConsultarPerfils extends JFrame{
         setMinimumSize(minDim);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
+        EnrereButton.setFocusable(false);
+
         Object [] columnes = {"Nom:", "Winrate:", "ProblemesJugats:"};
         DefaultTableModel model = new DefaultTableModel();
         model.setColumnIdentifiers(columnes);

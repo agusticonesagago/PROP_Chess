@@ -8,13 +8,13 @@
   {
     "name": "Agusti",
     "winrate": 0.0,
-    "ProblemesJugats": 0,
+    "ProblemesJugats": 2,
     "ID": 50
   },
   {
     "name": "Enric",
-    "winrate": 0.0,
-    "ProblemesJugats": 0,
+    "winrate": 100.0,
+    "ProblemesJugats": 2,
     "ID": 10
   }
 ]
