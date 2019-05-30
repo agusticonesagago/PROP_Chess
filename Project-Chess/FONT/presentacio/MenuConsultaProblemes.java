@@ -42,6 +42,12 @@ public class MenuConsultaProblemes extends JFrame{
         Vector<Vector<String>> probs = cdmp.consultaProblemes();
         tableProblemes.setModel(model);
         Object[] fila = new Object[3];
+
+        fila[0] = "FEN:";
+        fila[1] = "Tema:";
+        fila[2] = "Dificultat:";
+
+        model.addRow(fila);
         for (int i = 0; i < probs.size(); i++) {
             for (int j = 0; j < probs.get(i).size(); j++) {
                 fila[j] = probs.get(i).get(j);

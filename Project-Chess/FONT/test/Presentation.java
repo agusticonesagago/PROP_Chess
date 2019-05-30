@@ -119,8 +119,8 @@ public class Presentation {
 
                 Vector<String> problemajugar = resultat.get(problema - 1);
                 cdom.configurarPartida(problemajugar, stringprimerjugador, stringsegonjugador);
-                String guanyador = cdom.jugarPartida(primerusuari, segonusuari, print_line,sc);
-                print_line.println("El guanyador es: " + guanyador + '\n');
+               // String guanyador = cdom.jugarPartida(primerusuari, segonusuari, print_line,sc);
+                //print_line.println("El guanyador es: " + guanyador + '\n');
                 print_line.println("Felicitats per la victòria!" + '\n');
                 veureranking(cdmp, cdr, cdom);
             }
