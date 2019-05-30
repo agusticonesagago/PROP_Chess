@@ -118,7 +118,7 @@ public class PrimeraView extends JFrame {
                         ex.printStackTrace();
                     }
                 }
-                else arxiu.setText("Open command cancelled by user" );
+                else arxiu.setText("Cap document" );
             }
         });
     }

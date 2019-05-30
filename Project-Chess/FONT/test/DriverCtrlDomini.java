@@ -37,14 +37,14 @@ public class DriverCtrlDomini {
 
         print_line.println("Configurem la partida M1 vs M1" + "\n");
         CD.configurarPartida(problema, "Maquina1", "Maquina1");
-        guanyador = CD.jugarPartida(nom1, nom2, null, null);
-        print_line.printf("El guanyador son les " + guanyador + "\n");
+       // guanyador = CD.jugarPartida(nom1, nom2, null, null);
+      //  print_line.printf("El guanyador son les " + guanyador + "\n");
 
 
         print_line.println("Configurem la partida H vs M1" + "\n");
         CD.configurarPartida(problema, "Huma", "Maquina1");
-        guanyador = CD.jugarPartida(nom1, nom2, print_line, sc);
-        print_line.printf("El guanyador son les " + guanyador + "\n");
+      //  guanyador = CD.jugarPartida(nom1, nom2, print_line, sc);
+        //print_line.printf("El guanyador son les " + guanyador + "\n");
 //
 //        System.out.println("Configurem la partida H vs H" + "\n");
 //        CD.configurarPartida(problema, "Maquina1", "Maquina1");

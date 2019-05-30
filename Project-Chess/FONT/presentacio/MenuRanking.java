@@ -42,6 +42,11 @@ public class MenuRanking extends JFrame{
         Vector<Vector<String>> probs = cdmr.consultaRankings();
         tableRanking.setModel(model);
         Object[] fila = new Object[3];
+        fila[0] = "Nom:";
+        fila[1] = "Problema:";
+        fila[2] = "Temps:";
+
+        model.addRow(fila);
         for (int i = 0; i < probs.size(); i++) {
             for (int j = 0; j < probs.get(i).size(); j++) {
                 fila[j] = probs.get(i).get(j);
