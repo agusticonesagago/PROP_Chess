@@ -5,10 +5,8 @@ import persistencia.CtrlPersistenciaJugador;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 import java.util.Vector;
 
 
@@ -159,90 +157,78 @@ public class CtrlDomini {
     }
 
     ///////////////////////////////////////
-    public String jugarPartida(String nom1, String nom2, PrintWriter pw, Scanner sc) throws InterruptedException, IOException {
+    public Pair jugarPartida(String nom1, String nom2) {
         String guanyador;
-        Pair<Integer, Boolean> tornMat= problema.getTornMat();
+        Pair<Integer, Boolean> tornMat = problema.getTornMat();
         Integer tornsRestants = tornMat.getKey();
         Boolean quiMou = tornMat.getValue();
         System.out.println("Comença la partida " + "\n");
-        if (pw != null) pw.println("Comença la partida ");
         float tBlanquesM = 0;
         float tNegresM = 0;
         while (tornsRestants > 0) {
             partida.getTaulell().PrintBoard();
-            if (pw != null) {
-                partida.getTaulell().PrintBoard_toFile(pw);
-                pw.println();
+                System.out.println(partida.getTaulell().PrintFEN() + "\n");
+
+                if (quiMou) System.out.println("Mouen Blanques" + "\n");
+                else System.out.println("Mouen Negres" + "\n");
+
+                long startTurn = System.currentTimeMillis(); // Temps abans de moure peça
+                partida.jugarTorn(tornsRestants);
+                long endTurn = System.currentTimeMillis(); // Temps despres de moure peça
+                if (quiMou) tBlanquesM += (endTurn - startTurn) / 1000;
+                else tNegresM += (endTurn - startTurn) / 1000;
+                if (quiMou == tornMat.getValue()) tornsRestants--;
+                quiMou = !quiMou;
             }
-            System.out.println (partida.getTaulell().PrintFEN() + "\n");
+            System.out.println("Els temps son: ");
+            System.out.println("Blanques: " + tBlanquesM);
+            System.out.println("Negres  : " + tNegresM);
+            partida.getTaulell().PrintBoard();
+            System.out.println(partida.getTaulell().PrintFEN() + "\n");
+            if (tornMat.getValue()) {
+                if (partida.getGuanyador() && tornMat.getValue()) {
+                    guanyador = "Blanques";
+                    if (jugador1 instanceof Huma) {
+                        Vector<String> dades = new Vector<>();
+                        dades.add(0, nom1);
+                        dades.add(1, problema.getFEN());
+                        dades.add(2, String.valueOf(tBlanquesM));
+                    }
+                } else {
+                    guanyador = "Negres";
+                    if (jugador2 instanceof Huma) {
+                        Vector<String> dades = new Vector<>();
+                        dades.add(0, nom2);
+                        dades.add(1, problema.getFEN());
+                        dades.add(2, "60");
+                    }
+                }
+            } else {
+                if (!partida.getGuanyador() && !tornMat.getValue()) {
+                    guanyador = "Negres";
+                    if (jugador1 instanceof Huma) {
+                        Vector<String> dades = new Vector<>();
+                        dades.add(0, nom1);
+                        dades.add(1, problema.getFEN());
+                        dades.add(2, "60");
+                }
+                } else {
+                    guanyador = "Blanques";
+                    if (jugador2 instanceof Huma) {
+                        Vector<String> dades = new Vector<>();
+                        dades.add(0, nom2);
+                        dades.add(1, problema.getFEN());
+                        dades.add(2, "60");
+                    }
+                }
+            }
 
-            if (quiMou) System.out.println("Mouen Blanques" + "\n");
-            else System.out.println("Mouen Negres" + "\n");
-
-            long startTurn = System.currentTimeMillis(); // Temps abans de moure peça
-            if (pw != null) partida.jugarTorn_toFile(tornsRestants,pw,sc);
-            long endTurn = System.currentTimeMillis(); // Temps despres de moure peça
-            if (quiMou) tBlanquesM += (endTurn - startTurn)/1000;
-            else tNegresM += (endTurn -startTurn)/1000;
-
-            if (quiMou == tornMat.getValue()) tornsRestants--;
-            quiMou = !quiMou;
-
+            Pair resultat;
+            if (tornMat.getValue()) {
+                resultat = new Pair((guanyador.equals("Blanques")), tBlanquesM);
+                return resultat;
+            } else return resultat = new Pair((guanyador.equals("Negres")), tNegresM);
         }
-        System.out.println("Els temps son: ");
-        System.out.println("Blanques: "+ tBlanquesM);
-        System.out.println("Negres  : "+ tNegresM);
-        partida.getTaulell().PrintBoard();
-        if (pw != null) partida.getTaulell().PrintBoard_toFile(pw);
-        System.out.println (partida.getTaulell().PrintFEN() + "\n");
-        if (tornMat.getValue()){
-            if (partida.getGuanyador() && tornMat.getValue())  {
-                guanyador = "Blanques";
-                if (jugador1 instanceof Huma) {
-                    Vector<String> dades = new Vector<>();
-                    dades.add(0, nom1);
-                    dades.add(1, problema.getFEN());
-                    dades.add(2, String.valueOf(tBlanquesM));
-                    CDMr.altaRanking(nom1,dades);
-                }
-            }
-            else {
-                guanyador = "Negres";
-                if (jugador2 instanceof Huma) {
-                    Vector<String> dades = new Vector<>();
-                    dades.add(0, nom2);
-                    dades.add(1, problema.getFEN());
-                    dades.add(2, "60");
-                    CDMr.altaRanking(nom2,dades);
-                }
-            }
-        }
-        else {
-            if (!partida.getGuanyador() && !tornMat.getValue()) {
-                guanyador = "Negres";
-                if (jugador1 instanceof Huma) {
-                    Vector<String> dades = new Vector<>();
-                    dades.add(0, nom1);
-                    dades.add(1, problema.getFEN());
-                    dades.add(2, "60");
-                    CDMr.altaRanking(nom1,dades);
-                }
-            }
-            else {
-                guanyador = "Blanques";
-                if (jugador2 instanceof Huma) {
-                    Vector<String> dades = new Vector<>();
-                    dades.add(0, nom2);
-                    dades.add(1, problema.getFEN());
-                    dades.add(2, "60");
-                    CDMr.altaRanking(nom2,dades);
-                }
-            }
-        }
-
-        return guanyador;
-    }
-
 
     private void assignaProblema(String fen, String t, String dif) {
         problema.setFEN(fen);
