@@ -2,6 +2,7 @@ package presentacio;
 
 import domini.CtrlDomini;
 import domini.Partida;
+import domini.Problema;
 import javafx.util.Pair;
 
 import javax.swing.*;
@@ -15,6 +16,8 @@ public class chessboardPanel extends JPanel implements Observer {
 
     private CtrlDomini cDom;
     private JugarPartida mainFrame;
+    private CrearPartida secnFrame;
+    private JLabel pecaToPaint;
     private Partida p;
     private JPanel[][] sqaurePanels;
     private JPanel boardPanel;
@@ -23,16 +26,26 @@ public class chessboardPanel extends JPanel implements Observer {
     private Pair<Integer,Integer> origin;
 
 
-    public chessboardPanel(CtrlDomini cDom, JugarPartida mainFrame){
+    public chessboardPanel(CtrlDomini cDom){
         super(new BorderLayout());
         this.cDom = cDom;
         this.p = cDom.getPartida();
         this.autoHelp = null;
-        this.mainFrame = mainFrame;
+        this.mainFrame = null;
+        this.secnFrame = null;
         this.origin = null;
+        this.pecaToPaint = null;
         initializeBoardLayeredPane();
         initializeSquares();
         initializePieces();
+    }
+
+    public void setJugarPartida(JugarPartida mainFrame) {
+        this.mainFrame = mainFrame;
+    }
+
+    public void setCrearPartida(CrearPartida mainFrame) {
+        this.secnFrame = mainFrame;
     }
 
     private void initializeBoardLayeredPane() {
@@ -46,6 +59,11 @@ public class chessboardPanel extends JPanel implements Observer {
         boardLayeredPane.addMouseMotionListener(pDandDList);
         this.add(boardLayeredPane, BorderLayout.CENTER);
     }
+
+    public void setOrigin(Pair<Integer, Integer> origin) {
+        this.origin = origin;
+    }
+
 
     @Override
     public void update(Observable o, Object arg) {
@@ -74,14 +92,18 @@ public class chessboardPanel extends JPanel implements Observer {
     }
 
     private void initializePieces() {
+        System.out.println("ME HERE");
         for(int i=0; i < 8; ++i) {
             for (int j=0; j<8; ++j) {
                 if (p.getTaulell().getBoard()[i][j] != null){
+                    sqaurePanels[i][j].removeAll();
                     sqaurePanels[i][j].add(getPieceImage(p.getTaulell().getBoard()[i][j].getcolor(),
                             p.getTaulell().getBoard()[i][j].getClass().getName()));
+                    sqaurePanels[i][j].repaint();
                 }
             }
         }
+        boardPanel.repaint();
     }
 
     private void paintSquareToHelp(int i,int j) {
@@ -197,5 +219,38 @@ public class chessboardPanel extends JPanel implements Observer {
 
     public void badMoveUpdate(String checkMove) {
         mainFrame.badMoveMsg(checkMove);
+    }
+
+    public boolean hasMainFrame() {
+        return mainFrame != null;
+    }
+
+    public boolean hasSecndFrame() {
+        return secnFrame != null;
+    }
+
+    public void paintSelectedPiece(int i, int j) {
+        if (this.pecaToPaint != null) {
+            JPanel toPaint = sqaurePanels[i][j];
+            toPaint.removeAll();
+            toPaint.add(pecaToPaint);
+            toPaint.repaint();
+        }
+    }
+
+    public void setPieceToPaint(JLabel r) {
+        this.pecaToPaint = r;
+    }
+
+    public void setFromFENtoBoard(String text) {
+        Problema aux = new Problema();
+        aux.setFEN(text);
+        cDom.setProblema(aux);
+        cDom.conf_partida_p("Huma","Huma");
+        this.p = cDom.getPartida();
+        this.p.getTaulell().PrintBoard();
+
+        initializePieces();
+        this.repaint();
     }
 }

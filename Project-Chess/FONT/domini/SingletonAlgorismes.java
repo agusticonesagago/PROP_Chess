@@ -310,7 +310,8 @@ public class SingletonAlgorismes {
         for (int i = 0; i < 8; ++i) {
             for (int j = 0; j < 8; ++j) {
                 if (t.PosOcupada(i, j) && t.getBoard()[i][j].getcolor() == jugantCom) { // if pos ocupada i es una peca meva
-                    ArrayList<Pair<Integer, Integer>> movs =  t.getBoard()[i][j].posicionsposible();
+                    ArrayList<Pair<Integer, Integer>> movs =  t.validarMoviments(t.getBoard()[i][j].posicionsposible(),
+                            t.getBoard()[i][j].getClass().getName(), t.getBoard()[i][j]); 
 
                     for (int z = 0; z < movs.size(); ++z) {
                         Taulell x = new Taulell(t);

@@ -15,7 +15,7 @@ import java.util.Random;
 
 public class CtrlPersistenciaJugador {
     // PARAMS
-    private String path_huma = "C:\\Users\\enric\\Documents\\Enric\\Projecte-Prop\\Project-Chess\\EXE\\Dades\\Users.json";
+    private String path_huma = "C:\\Users\\Usuario\\Desktop\\UPC\\Q6\\PROP\\Project\\Project-Chess\\FONT\\Dades\\Users.json";
 
     private static final Type HumansListType = new TypeToken<ArrayList<Huma>>(){}.getType();
     // FUNCTIONS

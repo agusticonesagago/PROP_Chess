@@ -51,6 +51,10 @@ public class timePanel extends JPanel implements Observer {
 
     }
 
+    public String getTime() {
+        return timerText.getText();
+    }
+
     public void switchButton () {
         mode = !mode;
         if (mode){ // Cas Ara El Temporizador funciona
@@ -161,5 +165,19 @@ public class timePanel extends JPanel implements Observer {
 
     public int getTornInt() {
        return TornInt;
+    }
+
+    public Float getFloatTime() {
+        String time = getTime(); // 00:00:00
+        Float tf = 0f;
+
+        String h = time.substring(0, 2);
+        int hr = Integer.valueOf(h);
+        String m = time.substring(3, 5);
+        int mn = Integer.valueOf(m);
+        String s = time.substring(6, 8);
+        int sc = Integer.valueOf(s);
+        tf += (hr + mn + sc);
+        return tf;
     }
 }

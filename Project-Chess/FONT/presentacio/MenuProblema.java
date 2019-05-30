@@ -1,6 +1,7 @@
 package presentacio;
 
 import domini.CtrlDomini;
+import domini.Problema;
 
 import javax.swing.*;
 import java.awt.*;
@@ -42,8 +43,11 @@ public class MenuProblema extends JFrame{
         CrearButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                MenuCreacioProblema frame = new MenuCreacioProblema(ctrlDom,"", "", "", false);
-                frame.setLocation(getLocation());
+                Problema p = new Problema();
+                p.setFEN("8/8/8/8/8/8/8/8 w - - 0 1");
+                ctrlDom.setProblema(p);
+                ctrlDom.conf_partida_p("Huma","Huma");
+                CrearPartida frame = new CrearPartida(ctrlDom);
                 setVisible(false);
                 dispose();
                 frame.setVisible(true);

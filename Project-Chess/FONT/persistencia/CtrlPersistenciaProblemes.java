@@ -17,8 +17,8 @@ public class CtrlPersistenciaProblemes {
 
     private static final Type ProblemListType = new TypeToken<ArrayList<Problema>>(){}.getType();
     private static final Type TutorialListType = new TypeToken<ArrayList<Tutorial>>(){}.getType();
-    private String path_problems = "C:\\Users\\enric\\Documents\\Enric\\Projecte-Prop\\Project-Chess\\EXE\\Dades\\Problemes.json";
-    private String path_tutorials = "C:\\Users\\enric\\Documents\\Enric\\Projecte-Prop\\Project-Chess\\EXE\\Dades\\Problemes.json";
+    private String path_problems = "C:\\Users\\Usuario\\Desktop\\UPC\\Q6\\PROP\\Project\\Project-Chess\\FONT\\Dades\\Problemes.json";
+    private String path_tutorials = "C:\\Users\\Usuario\\Desktop\\UPC\\Q6\\PROP\\Project\\Project-Chess\\FONT\\Dades\\Tutorials.json";
 
 
     public  List<Problema> getProblemes() throws FileNotFoundException {
@@ -84,7 +84,7 @@ public class CtrlPersistenciaProblemes {
     public Tutorial cercaTutorial (String t) throws FileNotFoundException {
         List<Tutorial> cjtTutorials = getTutorials();
         for (Tutorial tuto: cjtTutorials) {
-            if (tuto.getTema().equals(t)) return tuto;
+            if (tuto.getFEN().equals(t)) return tuto;
         }
         return null;
     }

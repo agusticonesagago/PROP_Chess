@@ -17,6 +17,7 @@ public class CtrlDomini {
     private CtrlDominiMantRanking CDMr;
     private CtrlPersistenciaJugador CPJ;
     private Problema problema;
+    private Tutorial tutorial;
     private Huma sessio;
     private Jugador jugador1;
     private Jugador jugador2;
@@ -35,6 +36,9 @@ public class CtrlDomini {
         }
         CPJ = new CtrlPersistenciaJugador();
         problema = new Problema();
+        partida = null;
+        jugador1 = null;
+        jugador2 = null;
         sessio = null;
     }
 
@@ -46,11 +50,18 @@ public class CtrlDomini {
         else if (jugador1.equals("Maquina1")) {
             this.jugador1 = new Simple(1);
         }
+        else if (jugador1.equals("Maquina2")) {
+            this.jugador1 = new Complexa(1);
+        }
 
         if (jugador2.equals("Huma")) {
             this.jugador2 = new Huma(2);
-        } else if (jugador2.equals("Maquina1")) {
+        }
+        else if (jugador2.equals("Maquina1")) {
             this.jugador2 = new Simple(2);
+        }
+        else if (jugador2.equals("Maquina2")) {
+            this.jugador2 = new Complexa(2);
         }
         Pair<Integer, Boolean> tornMat = this.problema.getTornMat();
         if (tornMat.getValue()) {
@@ -62,6 +73,17 @@ public class CtrlDomini {
 
     ///////////////////////////////////////
 
+    public void setTutorial(Tutorial t) {
+        tutorial = t;
+    }
+
+    public Tutorial getTutorial () {
+        return  tutorial;
+    }
+
+
+
+
 
     public void conf_partida_p(String jugador1, String jugador2) {
         if(jugador1.equals("Huma")) {
@@ -70,11 +92,18 @@ public class CtrlDomini {
         else if (jugador1.equals("Maquina1")) {
             this.jugador1 = new Simple(1);
         }
+        else if (jugador1.equals("Maquina2")) {
+            this.jugador1 = new Complexa(1);
+        }
 
         if (jugador2.equals("Huma")) {
             this.jugador2 = new Huma(2);
-        } else if (jugador2.equals("Maquina1")) {
+        }
+        else if (jugador2.equals("Maquina1")) {
             this.jugador2 = new Simple(2);
+        }
+        else if (jugador2.equals("Maquina2")) {
+            this.jugador2 = new Complexa(2);
         }
         Pair<Integer, Boolean> tornMat = this.problema.getTornMat();
         if (tornMat.getValue()) {
@@ -236,5 +265,9 @@ public class CtrlDomini {
     public void guardarPartida() throws IOException {
         // Guarda la partiad dels Ctrl i la guarda al usuari amb sesiso iniciada.
         CPJ.guardarPartida(partida, sessio.getName());
+    }
+
+    public void setPartida(Partida p) {
+        this.partida = p;
     }
 }

@@ -15,7 +15,7 @@ public class CtrlPersistenciaRanking {
 
 
     // PARAMS
-    private String path_ranking = "C:\\Users\\enric\\Documents\\Enric\\Projecte-Prop\\Project-Chess\\EXE\\Dades\\Ranking.json";
+    private String path_ranking = "C:\\Users\\Usuario\\Desktop\\UPC\\Q6\\PROP\\Project\\Project-Chess\\FONT\\Dades\\Ranking.json";
 
     private static final Type RankingListType = new TypeToken<ArrayList<Ranking>>(){}.getType();
     // FUNCS
@@ -46,6 +46,7 @@ public class CtrlPersistenciaRanking {
     }
 
     public void addRanking (Ranking r) throws IOException {
+        System.out.println("RANKING AFEGIR: "+ r);
         Gson gson = new GsonBuilder().setPrettyPrinting().create(); // Dona el format ordenat de JSON
         List<Ranking> cjtRankings = getAllRankings();
         cjtRankings.add(r);

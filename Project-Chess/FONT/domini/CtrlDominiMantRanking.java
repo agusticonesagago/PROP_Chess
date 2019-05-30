@@ -2,7 +2,6 @@ package domini;
 
 import persistencia.CtrlPersistenciaRanking;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.*;
 
@@ -94,6 +93,15 @@ public class CtrlDominiMantRanking {
         return 0;
     }
 
+    public void altaRanking_Full(Ranking r) {
+        // TODO ---------- ACHUPARLA
+        try {
+            ctrlD.addRanking(r);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public int baixaRankings (String nomj, Vector<String> dades) throws IOException {
         int cas = existeixRankings(nomj, dades);
         int error;
@@ -150,4 +158,6 @@ public class CtrlDominiMantRanking {
         }
         return 1;
     }
+
+
 }

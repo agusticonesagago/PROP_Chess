@@ -10,6 +10,7 @@ import java.util.*;
 
 public class CtrlDominiMantProblema {
     private TreeMap<String, Problema> Problemes;
+    private TreeMap<String, Tutorial> Tutorials;
     private CtrlPersistenciaProblemes ctrlD;
 
     public CtrlDominiMantProblema() throws FileNotFoundException {
@@ -20,6 +21,13 @@ public class CtrlDominiMantProblema {
         if (!problemesGuardats.isEmpty()){
             for(int i = 0; i < problemesGuardats.size(); i++) {
                 Problemes.put(problemesGuardats.get(i).getFEN(),problemesGuardats.get(i));
+            }
+        }
+        List<Tutorial> tutorialsGuardats = ctrlD.getTutorials();
+        Tutorials = new TreeMap<String, Tutorial>();
+        if (!tutorialsGuardats.isEmpty()){
+            for(int i = 0; i < tutorialsGuardats.size(); i++) {
+                Tutorials.put(tutorialsGuardats.get(i).getFEN(),tutorialsGuardats.get(i));
             }
         }
 
@@ -37,6 +45,23 @@ public class CtrlDominiMantProblema {
             pr.add(0,prob.getFEN());
             pr.add(1,prob.getTema());
             pr.add(2,prob.getDificultat());
+            dades.add(pr);
+        }
+        return dades;
+    }
+
+    public Vector<Vector<String>> consultarTutorials() {
+        Vector<Vector<String>> dades = new Vector<>();
+        Set setkeys = Tutorials.keySet();
+        Iterator iterkeys = setkeys.iterator();
+        while (iterkeys.hasNext()) {
+            String fenp = (String) iterkeys.next();
+            Tutorial tuto = Tutorials.get(fenp);
+            Vector <String> pr = new Vector<>();
+
+            pr.add(0,tuto.getTema());
+            pr.add(1,tuto.getCamp());
+            pr.add(2,tuto.getFEN());
             dades.add(pr);
         }
         return dades;
@@ -145,5 +170,14 @@ public class CtrlDominiMantProblema {
             else if (!sim.getGuanyador() && !tornMat.getValue()) return true;
             else return false;
         }
+    }
+
+    public Tutorial findTutorial(String s) {
+        try {
+            return ctrlD.cercaTutorial(s);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

@@ -22,6 +22,8 @@ public class MenuCreacioProblema extends JFrame{
     private CtrlDomini ctrlDom;
     private CtrlDominiMantProblema cdrp;
 
+    private JPanel chessboard;
+
 
     public MenuCreacioProblema (CtrlDomini ctrld, String fen, String tem, String dif, Boolean modi) {
         super("Chess PROP");

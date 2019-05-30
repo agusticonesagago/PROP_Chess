@@ -1,14 +1,11 @@
 package presentacio;
 
 import domini.CtrlDomini;
-import domini.Partida;
-import domini.Problema;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.util.Vector;
 
 public class MenuPartida extends JFrame{
     private JPanel MenuPartida;
@@ -18,6 +15,7 @@ public class MenuPartida extends JFrame{
     private CtrlDomini domini;
     private JButton EnrereButton;
     private JLabel Sessio;
+    private JButton tutorialsButton;
     private String username;
     private CtrlDomini ctrlDom;
 
@@ -25,6 +23,7 @@ public class MenuPartida extends JFrame{
         super("Chess PROP");
         DeathMatchButton.setFocusable(false);
         CarregarButton.setFocusable(false);
+        tutorialsButton.setFocusable(false);
         JugarButton.setFocusable(false);
         EnrereButton.setFocusable(false);
 
@@ -34,6 +33,18 @@ public class MenuPartida extends JFrame{
         Dimension minDim = new Dimension(400, 300);
         setMinimumSize(minDim);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+
+        CarregarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JugarPartida frame = new JugarPartida(ctrlDom);
+                frame.setLocation(getLocation());
+                setVisible(false);
+                dispose();
+                frame.setVisible(true);
+            }
+        });
+
         EnrereButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -50,6 +61,18 @@ public class MenuPartida extends JFrame{
                 SelectProblem sp = new SelectProblem(ctrlDom);
                 sp.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 sp.pack();
+                setVisible(false);
+                dispose();
+            }
+        });
+
+
+        tutorialsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                SelectTutorial st = new SelectTutorial(ctrlDom);
+                st.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                st.pack();
                 setVisible(false);
                 dispose();
             }

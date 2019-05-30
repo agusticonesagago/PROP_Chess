@@ -3,13 +3,13 @@ package presentacio;
 import domini.CtrlDomini;
 import domini.Huma;
 import domini.Partida;
+import domini.Ranking;
 import javafx.util.Pair;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -17,21 +17,22 @@ public class JugarPartida extends JFrame implements Observer {
 
    // Atributes From domini
     public CtrlDomini cDom;
-    private Partida p;
+    protected Partida p;
 
-    private Timer TotalTimer;
+    protected Timer TotalTimer;
 
-    private chessboardPanel chessboard;
-    private timePanel temporizador;
-    private JLabel fenText;
-    public HistorialPanel HistorialMovs;
-    private JButton exit;
+    protected chessboardPanel chessboard;
+    protected timePanel temporizador;
+    protected JLabel fenText;
+    protected HistorialPanel HistorialMovs;
+    protected JButton exit;
 
     public JugarPartida(CtrlDomini cDom) {
         super(cDom.getProblema().getTema());
         this.cDom = cDom;
         this.p = cDom.getPartida();
-        this.chessboard = new chessboardPanel(cDom, this);
+        this.chessboard = new chessboardPanel(cDom);
+        this.chessboard.setJugarPartida(this);
         this.temporizador = new timePanel(cDom, this);
         this.HistorialMovs = new HistorialPanel(cDom);
 
@@ -51,6 +52,7 @@ public class JugarPartida extends JFrame implements Observer {
 
     public void startTimer () {
         TotalTimer.start();
+        toMove();
     }
 
 
@@ -67,28 +69,29 @@ public class JugarPartida extends JFrame implements Observer {
         this.setMinimumSize(new Dimension(1000,700));
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setVisible(true);
-        //TotalTimer.start();
-        toMove();
+        this.pauseTimer();
     }
 
     private void toMove() {
-        if (cDom.getPartida().getQuiJuga() && temporizador.getTornInt()!=0) { // Juguen blanques
-            if (cDom.getPartida().getBlanques() instanceof Huma) {
+        if (temporizador.getTornInt() > 0) {
+            if (cDom.getPartida().getQuiJuga()) { // Juguen blanques
+                if (cDom.getPartida().getBlanques() instanceof Huma) {
+                } else {
+                    Pair<Pair<Integer,Integer>, Pair<Integer,Integer>> res;
+                    res = cDom.getPartida().getBlanques().moureFitxa(cDom.getPartida(),true,temporizador.getTornInt());
+                    chessboard.setOrigin(res.getKey());
+                    chessboard.checkMove(res.getValue().getKey(), res.getValue().getValue());
+                    chessboard.updateBoard(res.getKey(), res.getValue());
+                }
             } else {
-                System.out.println("SOC MAQUINA I: " +temporizador.getTornInt());
-                Pair<Pair<Integer,Integer>, Pair<Integer,Integer>> res;
-                res = cDom.getPartida().getBlanques().moureFitxa(cDom.getPartida(),true,temporizador.getTornInt());
-                chessboard.updateBoard(res.getKey(), res.getValue());
-                newMoveMade(res);
-            }
-        } else {
-            if (cDom.getPartida().getNegres() instanceof Huma) {
-            } else {
-                System.out.println("SOC MAQUINA I: " +temporizador.getTornInt());
-                Pair<Pair<Integer,Integer>, Pair<Integer,Integer>> res;
-                res = cDom.getPartida().getNegres().moureFitxa(cDom.getPartida(),false,temporizador.getTornInt());
-                chessboard.updateBoard(res.getKey(), res.getValue());
-                newMoveMade(res);
+                if (cDom.getPartida().getNegres() instanceof Huma) {
+                } else {
+                    Pair<Pair<Integer,Integer>, Pair<Integer,Integer>> res;
+                    res = cDom.getPartida().getNegres().moureFitxa(cDom.getPartida(),false,temporizador.getTornInt());
+                    chessboard.setOrigin(res.getKey());
+                    chessboard.checkMove(res.getValue().getKey(), res.getValue().getValue());
+                    chessboard.updateBoard(res.getKey(), res.getValue());
+                }
             }
         }
     }
@@ -143,15 +146,12 @@ public class JugarPartida extends JFrame implements Observer {
                         "Exiting", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE
                          , null, opts, opts[0]);
                 if (res == 1){
+                    cDom.setPartida(null);
                     MainMenu frame = new MainMenu(cDom);
                     setVisible(false);
                     frame.setVisible(true);
                 } else {
-                    try {
-                        cDom.guardarPartida();
-                    } catch (IOException e1) {
-                        e1.printStackTrace();
-                    }
+                    cDom.setPartida(p);
                     MainMenu frame = new MainMenu(cDom);
                     setVisible(false);
                     frame.setVisible(true);
@@ -173,21 +173,37 @@ public class JugarPartida extends JFrame implements Observer {
         HistorialMovs.printMove(move); // Actualitzar Historial
         temporizador.updateTurn();
         fenText.setText(cDom.getPartida().getFEN());
-        toMove();
 
         if (this.temporizador.getTornText().equals("  0")) {
             System.out.println(cDom.getPartida().getGuanyador());
             if (cDom.getPartida().getGuanyador()){
                 // TODO MODIF VICTORY MSG
-                JOptionPane.showMessageDialog(this,"Guanyen les blanques !!!!");
+                String victory_msg = " Guanyen les Blanques!!! \n";
+                victory_msg += "Temps: "+temporizador.getTime() +'\n';
+
+                if (cDom.getPartida().getBlanques() instanceof Huma) {
+                    Ranking r = new Ranking(temporizador.getFloatTime(),cDom.getProblema().getFEN(),cDom.getUser_name());
+                    cDom.getCDMr().altaRanking_Full(r);//!
+                }
+
+                JOptionPane.showMessageDialog(this,victory_msg);
                 HistorialMovs.printMsg("VICTORIA BLANQUES");
+                this.pauseTimer();
             } else{
+
+                String victory_msg = " Guanyen les Blanques!!! \n";
+                victory_msg += "Temps: "+temporizador.getTime() +'\n';
+
+                if (cDom.getPartida().getBlanques() instanceof Huma) {
+                    Ranking r = new Ranking(temporizador.getFloatTime(),cDom.getProblema().getFEN(),cDom.getUser_name());
+                    cDom.getCDMr().altaRanking_Full(r);
+                }
                 JOptionPane.showMessageDialog(this,"Guanyen les Negres   !!!!");
                 HistorialMovs.printMsg("VICTORIA NEGRA");
+                this.pauseTimer();
             }
         }
-
-
+        toMove();
 
     }
 
