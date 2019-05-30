@@ -46,12 +46,19 @@ public class CtrlDomini {
         else if (jugador1.equals("Maquina1")) {
             this.jugador1 = new Simple(1);
         }
+        else if (jugador1.equals("Maquina2")) {
+            this.jugador1 = new Complexa(1);
+        }
 
         if (jugador2.equals("Huma")) {
             this.jugador2 = new Huma(2);
         } else if (jugador2.equals("Maquina1")) {
             this.jugador2 = new Simple(2);
         }
+        else if (jugador2.equals("Maquina2")) {
+            this.jugador2 = new Complexa(2);
+        }
+
         Pair<Integer, Boolean> tornMat = this.problema.getTornMat();
         if (tornMat.getValue()) {
             this.partida = new Partida(this.problema, this.jugador1, this.jugador2);

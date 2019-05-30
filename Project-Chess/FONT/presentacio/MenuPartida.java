@@ -54,5 +54,16 @@ public class MenuPartida extends JFrame{
                 dispose();
             }
         });
+
+        DeathMatchButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                MenuDeathMatch frame = new MenuDeathMatch(ctrlDom);
+                frame.setLocation(getLocation());
+                setVisible(false);
+                dispose();
+                frame.setVisible(true);
+            }
+        });
     }
 }
