@@ -1,44 +1,36 @@
 package presentacio;
 
 import domini.CtrlDomini;
-import domini.CtrlDominiMantRanking;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
 import java.util.Vector;
 
-public class MenuRanking extends JFrame{
-    private JButton EnrereButton;
-    private JPanel MenuRanking;
-    private JTable tableRanking;
+public class ConsultarPerfils extends JFrame{
+    private JTable usersTable;
+    private JPanel panel;
     private JLabel Sessio;
-    private String username;
+    private JButton EnrereButton;
     private CtrlDomini ctrlDom;
-    private CtrlDominiMantRanking cdmr;
 
-    public MenuRanking(CtrlDomini ctrld) {
+    public ConsultarPerfils(CtrlDomini ctrld) throws FileNotFoundException {
         super("Chess PROP");
         ctrlDom = ctrld;
-        cdmr = ctrld.getCDMr();
-        Sessio.setText("Sessio iniciada amb: " +ctrld.getUser_name());
-
-        setContentPane(MenuRanking);
-        Dimension minDim = new Dimension(600, 300);
+        Sessio.setText("Sessio iniciada amb: " +ctrlDom.getUser_name());
+        setContentPane(panel);
+        Dimension minDim = new Dimension(300, 300);
         setMinimumSize(minDim);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
-        DefaultListModel listmodel = new DefaultListModel();
-        Vector<Vector<String>> files= cdmr.consultaRankings();
-
-
-        Object [] columnes = {"Nom:", "Problema:", "Temps:"};
+        Object [] columnes = {"Nom:", "Winrate:", "ProblemesJugats:"};
         DefaultTableModel model = new DefaultTableModel();
         model.setColumnIdentifiers(columnes);
-        Vector<Vector<String>> probs = cdmr.consultaRankings();
-        tableRanking.setModel(model);
+        Vector<Vector<String>> probs = ctrlDom.getUsers();
+        usersTable.setModel(model);
         Object[] fila = new Object[3];
         for (int i = 0; i < probs.size(); i++) {
             for (int j = 0; j < probs.get(i).size(); j++) {
@@ -46,7 +38,6 @@ public class MenuRanking extends JFrame{
             }
             model.addRow(fila);
         }
-
 
         EnrereButton.addActionListener(new ActionListener() {
             @Override
@@ -56,8 +47,8 @@ public class MenuRanking extends JFrame{
                 setVisible(false);
                 dispose();
                 frame.setVisible(true);
-
             }
         });
+
     }
 }

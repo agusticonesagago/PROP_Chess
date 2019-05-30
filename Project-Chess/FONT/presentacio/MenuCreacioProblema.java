@@ -87,6 +87,7 @@ public class MenuCreacioProblema extends JFrame{
                             MenuProblema frame = new MenuProblema(ctrlDom);
                             frame.setLocation(getLocation());
                             setVisible(false);
+                            dispose();
                             frame.setVisible(true);
                             break;
 
@@ -106,12 +107,14 @@ public class MenuCreacioProblema extends JFrame{
                     MenuConsultaProblemes frame = new MenuConsultaProblemes(ctrlDom);
                     frame.setLocation(getLocation());
                     setVisible(false);
+                    dispose();
                     frame.setVisible(true);
                 }
                 else {
                     MenuProblema frame = new MenuProblema(ctrlDom);
                     frame.setLocation(getLocation());
                     setVisible(false);
+                    dispose();
                     frame.setVisible(true);
                 }
             }

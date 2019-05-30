@@ -21,7 +21,6 @@ public class CtrlPersistenciaProblemes {
     private String path_tutorials = "C:\\Users\\enric\\Documents\\Enric\\Projecte-Prop\\Project-Chess\\EXE\\Dades\\Problemes.json";
 
 
-
     public  List<Problema> getProblemes() throws FileNotFoundException {
 
         Gson gson = new Gson();
@@ -61,9 +60,9 @@ public class CtrlPersistenciaProblemes {
     }
 
     public void eliminarProblema(Problema p) throws IOException {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
         List<Problema> cjtProblems = getProblemes();
         cjtProblems.remove(p);
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
         Writer writer = new FileWriter(path_problems);
         gson.toJson(cjtProblems,writer);
         writer.flush();

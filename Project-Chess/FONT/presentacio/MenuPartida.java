@@ -35,6 +35,7 @@ public class MenuPartida extends JFrame{
                 MainMenu frame = new MainMenu(ctrlDom);
                 frame.setLocation(getLocation());
                 setVisible(false);
+                dispose();
                 frame.setVisible(true);
             }
         });

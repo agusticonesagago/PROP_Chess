@@ -1,13 +1,17 @@
 package presentacio;
 
 import domini.CtrlDomini;
+import domini.CtrlDominiMantProblema;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Scanner;
+import java.util.Vector;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
@@ -60,6 +64,7 @@ public class PrimeraView extends JFrame {
                     MainMenu frame = new MainMenu(ctrlDom);
                     frame.setLocation(getLocation());
                     setVisible(false);
+                    dispose();
                     frame.setVisible(true);
                 }
             }
@@ -74,6 +79,44 @@ public class PrimeraView extends JFrame {
                 if(returnVal==JFileChooser.APPROVE_OPTION){
                     File file = fc.getSelectedFile();
                     arxiu.setText("Opening: " + file.getName());
+                    try {
+                        Scanner sc = new Scanner(file);
+                        String header = sc.nextLine();
+                        if (header.equals("Problemes:")) {
+                            System.out.println("categoria ");
+                            while(sc.hasNext()){
+                                Vector<String> dades = new Vector<>();
+                                String fen1 = sc.nextLine();
+                                String tema1 = sc.nextLine();
+                                String dificultat1 = sc.nextLine();
+                                dades.add(0,fen1);
+                                dades.add(1,tema1);
+                                dades.add(2,dificultat1);
+                                int error = ctrlDom.getCDMp().altaProblema(dades.get(0), dades);
+                                if (error == 0) System.out.println("El problema s'ha introduit correctament" );
+                                else if (error == 1) System.out.println("El problema que vols crear ja existeix ");
+                                else if (error == 2) System.out.println("L'identificador no coincideix amb les dades passades ");
+                                else if (error == 3) System.out.println("El problema no es pot resoldre ");
+                            }
+                        }
+                        else if (header.equals("Ranking:")) {
+                            while(sc.hasNext()){
+                                Vector<String> dades = new Vector<>();
+                                String nomj = sc.nextLine();
+                                String nomp = sc.nextLine();
+                                String temps = sc.nextLine();
+                                dades.add(0,nomj);
+                                dades.add(1,nomp);
+                                dades.add(2,temps);
+                                int error = ctrlDom.getCDMr().altaRanking(dades.get(0), dades);
+                                if (error == 0) System.out.println("La fila del ranking s'ha introduit correctament" );
+                                else if (error == 1) System.out.println("La fila del ranking que vols crear ja existeix " );
+                                else if (error == 2) System.out.println("L'identificador no coincideix amb les dades passades " );
+                            }
+                        }
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
                 }
                 else arxiu.setText("Open command cancelled by user" );
             }

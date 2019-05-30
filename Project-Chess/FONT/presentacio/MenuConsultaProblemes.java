@@ -51,6 +51,7 @@ public class MenuConsultaProblemes extends JFrame{
                 MenuProblema frame = new MenuProblema(ctrlDom);
                 frame.setLocation(getLocation());
                 setVisible(false);
+                dispose();
                 frame.setVisible(true);
             }
         });
@@ -64,6 +65,7 @@ public class MenuConsultaProblemes extends JFrame{
                             model.getValueAt(i,1).toString(), model.getValueAt(i,2).toString(), true);
                     frame.setLocation(getLocation());
                     setVisible(false);
+                    dispose();
                     frame.setVisible(true);
                 }
                 else JOptionPane.showMessageDialog(MenuConsulta,"No has seleccionat cap problema");

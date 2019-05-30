@@ -7,6 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.Vector;
 
@@ -110,6 +111,22 @@ public class CtrlDomini {
 
     public String getUser_name () {
         return sessio.getName();
+    }
+
+    public Vector<Vector<String>> getUsers() throws FileNotFoundException {
+        List<Huma> users= CPJ.getAllJugadors();
+        Vector<Vector<String>> resultat = new Vector<>();
+        if (!users.isEmpty()){
+            for(int i = 0; i < users.size(); i++) {
+                Vector<String> dades = new Vector<>();
+                dades.add(0, users.get(i).getName());
+                dades.add(1, users.get(i).getWinrate());
+                dades.add(2, users.get(i).getProblemesJugats());
+                resultat.add(dades);
+            }
+        }
+        return resultat;
+
     }
 
     ///////////////////////////////////////

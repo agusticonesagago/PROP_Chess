@@ -58,6 +58,10 @@ public class Huma extends Jugador {
         return name;
     }
 
+    public String getWinrate() {return winrate.toString();}
+
+    public String getProblemesJugats() {return Integer.toString(ProblemesJugats);}
+
     public void SetName (String name) {
         this.name = name;
     }
