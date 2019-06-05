@@ -20,7 +20,7 @@ public class PieceDragAndDropListener implements MouseListener, MouseMotionListe
     public void mouseClicked(MouseEvent e) {
         originRow = calculateFile(e);
         originCol = calculateRank(e);
-        if (chessboard.hasMainFrame()) {
+        if (chessboard.hasMainFrame() && chessboard.canPlay()) {
             if (chessboard.checkClick(originCol, originRow)) { // Comprova si es tracta de moviment o de demanar moviments d'una peca
                 // Mirar moviments D'una Peca
                 if (chessboard.checkMyPiece(originCol, originRow)) { // Mira si la peca es meva
@@ -34,8 +34,6 @@ public class PieceDragAndDropListener implements MouseListener, MouseMotionListe
                     chessboard.badMoveUpdate(chessboard.checkMove(originCol, originRow));
                 }
             }
-        } else if (chessboard.hasSecndFrame()) {
-            chessboard.paintSelectedPiece(originCol, originRow);
         }
     }
 

@@ -1,3 +1,0 @@
-Aquest joc de probes cosnsisteix en assegurar que la funcio per veure qui ha de guanyar i en quans torns funciona be.
-El driver llegira del fitxer "Dades" un problema (tres linies representant cada atribut) i imprimira qui ha de guanyar i
-en quants torns, i el resultat ha de concordar amb el atribut tema del problema.

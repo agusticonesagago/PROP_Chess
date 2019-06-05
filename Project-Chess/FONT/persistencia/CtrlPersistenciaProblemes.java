@@ -17,14 +17,24 @@ public class CtrlPersistenciaProblemes {
 
     private static final Type ProblemListType = new TypeToken<ArrayList<Problema>>(){}.getType();
     private static final Type TutorialListType = new TypeToken<ArrayList<Tutorial>>(){}.getType();
-    private String path_problems = "C:\\Users\\Usuario\\Desktop\\UPC\\Q6\\PROP\\Project\\Project-Chess\\FONT\\Dades\\Problemes.json";
-    private String path_tutorials = "C:\\Users\\Usuario\\Desktop\\UPC\\Q6\\PROP\\Project\\Project-Chess\\FONT\\Dades\\Tutorials.json";
 
+    private String globalPath = "data";
+    private String f_problems;
+    private String f_tutorial;
+
+    public CtrlPersistenciaProblemes() {
+        f_problems = globalPath;
+        f_problems = f_problems.concat("/");
+        f_problems = f_problems.concat("Problemes.json");
+        f_tutorial = globalPath;
+        f_tutorial = f_tutorial.concat("/");
+        f_tutorial = f_tutorial.concat("Tutorials.json");
+    }
 
     public  List<Problema> getProblemes() throws FileNotFoundException {
 
         Gson gson = new Gson();
-        JsonReader reader = new JsonReader(new FileReader(path_problems));
+        JsonReader reader = new JsonReader(new FileReader(f_problems));
         List<Problema> cjtProblems = gson.fromJson(reader, ProblemListType);
         if (cjtProblems == null) System.out.println("EMPTY LIST");
         else {
@@ -38,7 +48,7 @@ public class CtrlPersistenciaProblemes {
 
     public List<Tutorial> getTutorials () throws FileNotFoundException {
         Gson gson = new Gson();
-        JsonReader reader = new JsonReader(new FileReader(path_tutorials));
+        JsonReader reader = new JsonReader(new FileReader(f_tutorial));
         List<Tutorial> cjtTutorials = gson.fromJson(reader, TutorialListType);
         if (cjtTutorials == null) System.out.println("EMPTY LIST");
         else {
@@ -53,7 +63,7 @@ public class CtrlPersistenciaProblemes {
         Gson gson = new GsonBuilder().setPrettyPrinting().create(); // Dona el format ordenat de JSON
         List<Problema> cjtProblems = getProblemes();
         cjtProblems.add(p);
-        Writer writer = new FileWriter(path_problems);
+        Writer writer = new FileWriter(f_problems);
         gson.toJson(cjtProblems,writer);
         writer.flush();
         writer.close();
@@ -63,7 +73,7 @@ public class CtrlPersistenciaProblemes {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         List<Problema> cjtProblems = getProblemes();
         cjtProblems.remove(p);
-        Writer writer = new FileWriter(path_problems);
+        Writer writer = new FileWriter(f_problems);
         gson.toJson(cjtProblems,writer);
         writer.flush();
         writer.close();

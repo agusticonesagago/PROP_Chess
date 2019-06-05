@@ -15,16 +15,23 @@ import java.util.Random;
 
 public class CtrlPersistenciaJugador {
     // PARAMS
-    private String path_huma = "C:\\Users\\Usuario\\Desktop\\UPC\\Q6\\PROP\\Project\\Project-Chess\\FONT\\Dades\\Users.json";
+    private String globalPath = "data";
+    private String path_huma = "Users.json";
+    private String path_totry;
 
     private static final Type HumansListType = new TypeToken<ArrayList<Huma>>(){}.getType();
     // FUNCTIONS
 
+    public CtrlPersistenciaJugador () {
+        String path = globalPath.concat("/");
+        path = path.concat("Users.json");
+        path_totry = path;
+    }
 
     public List<Huma> getAllJugadors () throws FileNotFoundException {
 
         Gson gson = new Gson();
-        JsonReader reader = new JsonReader(new FileReader(path_huma));
+        JsonReader reader = new JsonReader(new FileReader(path_totry));
         List<Huma> cjtHumans = gson.fromJson(reader, HumansListType);
         return cjtHumans;
     }
@@ -42,7 +49,7 @@ public class CtrlPersistenciaJugador {
         List<Huma> cjtHumas = getAllJugadors();
         int ind = cjtHumas.indexOf(h);
         cjtHumas.get(ind).guardarPartida(p);
-        Writer writer = new FileWriter(path_huma);
+        Writer writer = new FileWriter(path_totry);
         gson.toJson(cjtHumas,writer);
         writer.flush();
         writer.close();
@@ -66,7 +73,7 @@ public class CtrlPersistenciaJugador {
         Huma session = getJugador(jugador);
         session.guardarPartida(p);
         cjtHumans.set(a,session);
-        Writer writer = new FileWriter(path_huma, false);
+        Writer writer = new FileWriter(path_totry, false);
         gson.toJson(cjtHumans,writer);
         writer.flush();
         writer.close();
@@ -80,7 +87,7 @@ public class CtrlPersistenciaJugador {
         Huma to_add = new Huma(new_id);
         to_add.SetName(name);
         cjtHumans.add(to_add);
-        Writer writer = new FileWriter(path_huma);
+        Writer writer = new FileWriter(path_totry);
         gson.toJson(cjtHumans,writer);
         writer.flush();
         writer.close();

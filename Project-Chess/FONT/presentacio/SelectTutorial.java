@@ -72,7 +72,7 @@ public class SelectTutorial extends JFrame {
                 Tutorial t = cDom.getCDMp().findTutorial(vs.get(2));
                 cDom.setTutorial(t);
                 cDom.setProblema(cDom.getTutorial());
-                cDom.conf_partida_p("Huma", "Maquina1");
+                cDom.conf_partida_p("Huma", "Huma");
                 JugarTutorial frame = new JugarTutorial(cDom);
                 frame.setLocation(getLocation());
                 setVisible(false);

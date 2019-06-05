@@ -143,7 +143,11 @@ public class timePanel extends JPanel implements Observer {
         this.setPreferredSize(new Dimension(400,150));
     }
 
-
+    public void setSaved(String savedTime, String savedTorn) {
+        totalTime = Time.valueOf(savedTime);
+        timerText.setText(totalTime.toString());
+        TornText.setText(savedTorn);
+    }
     @Override
     public void update(Observable o, Object arg) {
 
@@ -180,4 +184,6 @@ public class timePanel extends JPanel implements Observer {
         tf += (hr + mn + sc);
         return tf;
     }
+
+
 }

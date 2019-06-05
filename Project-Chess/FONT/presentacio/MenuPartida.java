@@ -34,14 +34,20 @@ public class MenuPartida extends JFrame{
         setMinimumSize(minDim);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
+
+        Component aux = this;
         CarregarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JugarPartida frame = new JugarPartida(ctrlDom);
-                frame.setLocation(getLocation());
-                setVisible(false);
-                dispose();
-                frame.setVisible(true);
+                if (ctrlDom.getPartida() != null) {
+                    JugarPartida frame = new JugarPartida(ctrlDom);
+                    frame.setLocation(getLocation());
+                    setVisible(false);
+                    dispose();
+                    frame.setVisible(true);
+                } else {
+                    JOptionPane.showMessageDialog(aux,"No tens cap partida guardad, prem jugar per comencar una nova");
+                }
             }
         });
 

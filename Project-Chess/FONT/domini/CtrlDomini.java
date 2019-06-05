@@ -21,6 +21,9 @@ public class CtrlDomini {
     private Jugador jugador2;
     private Partida partida;
 
+    private String save_Torns;
+    private String save_Temps;
+
     public CtrlDomini () {
         try {
             CDMp = new CtrlDominiMantProblema();
@@ -38,6 +41,23 @@ public class CtrlDomini {
         jugador1 = null;
         jugador2 = null;
         sessio = null;
+    }
+
+
+    public void setSavedTime (String temps){
+        save_Temps = temps;
+    }
+
+    public String getSavedTime () {
+        return save_Temps;
+    }
+
+    public void setSavedTorn (String torns){
+        save_Torns = torns;
+    }
+
+    public String getSavedTorn () {
+        return save_Torns;
     }
 
     public void configurarPartida(Vector <String> problema, String jugador1, String jugador2) {

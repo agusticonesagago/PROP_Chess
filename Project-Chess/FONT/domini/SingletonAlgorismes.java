@@ -6,6 +6,9 @@ import java.util.ArrayList;
 
 import static java.lang.Integer.min;
 
+
+
+
 public class SingletonAlgorismes {
     private static SingletonAlgorismes ourInstance = new SingletonAlgorismes();
 
@@ -68,7 +71,6 @@ public class SingletonAlgorismes {
         return millorMoviment;
     }
 
-
     public int evaluataullel(Taulell taulell, boolean jugantCom, boolean QuiMou, int alpha, int beta,  int torns) {
 
         if (torns == 0) {
@@ -90,7 +92,7 @@ public class SingletonAlgorismes {
                     if (jugantCom) return -1000;
                     else return 1000;
                 } else { // STANDARD CASE
-                   return calculTaulell(taulell);
+                    return calculTaulell(taulell);
                 }
             }
         }
@@ -157,7 +159,6 @@ public class SingletonAlgorismes {
         }
     }
 
-
     public int calculTaulell(Taulell taulell) {
         int total = 0;
         for(int i=0; i < 8; ++i) {
@@ -185,13 +186,11 @@ public class SingletonAlgorismes {
         return total;
     }
 
-
-
     public int evaluataullelM2(Taulell taulell, boolean jugantCom, boolean QuiMou,  int alpha, int beta, int torns, int pare,boolean noaprofundir) {
         if (torns == 0) {
-            /* Cas Basic, en aquest cas evaluem el taullel segons l'assignació de valors esmentada en el document respectiu
-            a la descripció de l'algorisme
-             */
+        /* Cas Basic, en aquest cas evaluem el taullel segons l'assignació de valors esmentada en el document respectiu
+        a la descripció de l'algorisme
+         */
             if (taulell.findKing(jugantCom) == null){
                 if (jugantCom) return -1000;
                 else return 1000;
@@ -297,7 +296,6 @@ public class SingletonAlgorismes {
         }
     }
 
-
     public Pair<Pair<Integer, Integer>, Pair<Integer, Integer>> moviment_esperadelreposo3prof(Partida ptd,boolean jugantCom, int minim){
         Taulell t = ptd.getTaulell();
         ArrayList<Taulell> posiblesTaulells = new ArrayList<>();
@@ -311,7 +309,7 @@ public class SingletonAlgorismes {
             for (int j = 0; j < 8; ++j) {
                 if (t.PosOcupada(i, j) && t.getBoard()[i][j].getcolor() == jugantCom) { // if pos ocupada i es una peca meva
                     ArrayList<Pair<Integer, Integer>> movs =  t.validarMoviments(t.getBoard()[i][j].posicionsposible(),
-                            t.getBoard()[i][j].getClass().getName(), t.getBoard()[i][j]); 
+                            t.getBoard()[i][j].getClass().getName(), t.getBoard()[i][j]);
 
                     for (int z = 0; z < movs.size(); ++z) {
                         Taulell x = new Taulell(t);
@@ -369,7 +367,8 @@ public class SingletonAlgorismes {
         for (int i = 0; i < 8; ++i) {
             for (int j = 0; j < 8; ++j) {
                 if (t.PosOcupada(i, j) && t.getBoard()[i][j].getcolor() == jugantCom) { // if pos ocupada i es una peca meva
-                    ArrayList<Pair<Integer, Integer>> movs =  t.getBoard()[i][j].posicionsposible();
+                    ArrayList<Pair<Integer, Integer>> movs =  t.validarMoviments(t.getBoard()[i][j].posicionsposible(),
+                            t.getBoard()[i][j].getClass().getName(), t.getBoard()[i][j]);
 
                     for (int z = 0; z < movs.size(); ++z) {
                         Taulell x = new Taulell(t);
@@ -440,7 +439,8 @@ public class SingletonAlgorismes {
             for (int j = 0; j < 8; ++j) {
                 if (t.PosOcupada(i, j) && t.getBoard()[i][j].getcolor() == jugantCom) { // if pos ocupada i es una peca meva
                     if(t.getBoard()[i][j].getClass().getName()=="domini.Queen"){
-                        ArrayList<Pair<Integer, Integer>> movs =  t.getBoard()[i][j].posicionsposible();
+                        ArrayList<Pair<Integer, Integer>> movs =  t.validarMoviments(t.getBoard()[i][j].posicionsposible(),
+                                t.getBoard()[i][j].getClass().getName(), t.getBoard()[i][j]);
 
                         for (int z = 0; z < movs.size(); ++z) {
                             Taulell x = new Taulell(t);
@@ -453,7 +453,8 @@ public class SingletonAlgorismes {
                         }
                     }
                     else if(t.getBoard()[i][j].getClass().getName()=="domini.Rook"){
-                        ArrayList<Pair<Integer, Integer>> movs =  t.getBoard()[i][j].posicionsposible();
+                        ArrayList<Pair<Integer, Integer>> movs = t.validarMoviments(t.getBoard()[i][j].posicionsposible(),
+                                t.getBoard()[i][j].getClass().getName(), t.getBoard()[i][j]);
 
                         for (int z = 0; z < movs.size(); ++z) {
                             Taulell x = new Taulell(t);
@@ -466,7 +467,8 @@ public class SingletonAlgorismes {
                         }
                     }
                     else if(t.getBoard()[i][j].getClass().getName()=="domini.King"){
-                        ArrayList<Pair<Integer, Integer>> movs =  t.getBoard()[i][j].posicionsposible();
+                        ArrayList<Pair<Integer, Integer>> movs =  t.validarMoviments(t.getBoard()[i][j].posicionsposible(),
+                                t.getBoard()[i][j].getClass().getName(), t.getBoard()[i][j]);
 
                         for (int z = 0; z < movs.size(); ++z) {
                             Taulell x = new Taulell(t);
@@ -479,7 +481,8 @@ public class SingletonAlgorismes {
                         }
                     }
                     else if(t.getBoard()[i][j].getClass().getName()=="domini.Knight"){
-                        ArrayList<Pair<Integer, Integer>> movs =  t.getBoard()[i][j].posicionsposible();
+                        ArrayList<Pair<Integer, Integer>> movs =  t.validarMoviments(t.getBoard()[i][j].posicionsposible(),
+                                t.getBoard()[i][j].getClass().getName(), t.getBoard()[i][j]);
 
                         for (int z = 0; z < movs.size(); ++z) {
                             Taulell x = new Taulell(t);
@@ -492,7 +495,8 @@ public class SingletonAlgorismes {
                         }
                     }
                     else if(t.getBoard()[i][j].getClass().getName()=="domini.Bishop"){
-                        ArrayList<Pair<Integer, Integer>> movs =  t.getBoard()[i][j].posicionsposible();
+                        ArrayList<Pair<Integer, Integer>> movs =  t.validarMoviments(t.getBoard()[i][j].posicionsposible(),
+                                t.getBoard()[i][j].getClass().getName(), t.getBoard()[i][j]);
 
                         for (int z = 0; z < movs.size(); ++z) {
                             Taulell x = new Taulell(t);
@@ -505,7 +509,8 @@ public class SingletonAlgorismes {
                         }
                     }
                     else if(t.getBoard()[i][j].getClass().getName()=="domini.Pawn"){
-                        ArrayList<Pair<Integer, Integer>> movs =  t.getBoard()[i][j].posicionsposible();
+                        ArrayList<Pair<Integer, Integer>> movs =  t.validarMoviments(t.getBoard()[i][j].posicionsposible(),
+                                t.getBoard()[i][j].getClass().getName(), t.getBoard()[i][j]);
 
                         for (int z = 0; z < movs.size(); ++z) {
                             Taulell x = new Taulell(t);
@@ -589,7 +594,3 @@ public class SingletonAlgorismes {
         return millorMoviment;
     }
 }
-
-
-
-

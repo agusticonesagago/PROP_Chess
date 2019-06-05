@@ -1,0 +1,51 @@
+[
+  {
+    "Tema": "Moviment de la torre",
+    "Dificultat": "facil",
+    "FEN" : "7k/8/8/3R2p1/8/8/8/7K w KQkq –",
+    "Camp": "Moviment Torre",
+    "Body": "La Torre se juega en línea recta siempre. Tanto en dirección horizontal como vertical, es decir por columnas o por filas, y cualquier número de casillas, siempre en la misma dirección. No  puede pasar por encima de ninguna pieza."
+  },
+  {
+    "Tema": "Moviment de l'alfil",
+    "Dificultat": "facil",
+    "FEN" : "1k6/8/2r5/8/4B3/8/8/1K6 w KQkq –",
+    "Camp": "Moviment Alfil",
+    "Body": "El Alfil mueve en diagonal, y al igual que la torre, cualquier numero de casillas, siempre en la misma dirección. Como consecuencia de ello, un alfil colocado en una casilla blanca nunca podrá jugarse a ninguna casilla negra. No  puede pasar por encima de ninguna pieza."
+  },
+  {
+    "Tema": "Moviment de la dama",
+    "Dificultat": "facil",
+    "FEN" : "1k2n3/8/8/8/4Q3/8/8/1K6 w KQkq –",
+    "Camp": "Moviment Dama",
+    "Body": "Es la pieza que tiene mayor movilidad, pues puede moverse como una Torre o como un Alfil. Es decir, puede mover tanto en diagonal como por filas o columnas, y siempre cualquier número de casillas. No  puede pasar por encima de ninguna pieza."
+  },
+  {
+    "Tema": "Moviment del rey",
+    "Dificultat": "facil",
+    "FEN" : "1k6/8/8/8/8/8/2p5/1K6 w KQkq –",
+    "Camp": "Moviment Rey",
+    "Body": "El Rey, al igual que la Dama, mueve en todas las direcciones. Pero hay una gran diferencia, ya que solo puede hacerlo a una casilla de distancia. Debido a esta limitación de movimientos, el rey es una pieza de poco poder, sin embargo es la pieza mas importante del ajedrez, ya que su pérdida significa la pérdida de la partida. No  puede pasar por encima de ninguna pieza."
+  },
+  {
+    "Tema": "Moviment del cavall",
+    "Dificultat": "facil",
+    "FEN" : "1k6/8/8/3N4/5p2/8/8/1K6 w - -",
+    "Camp": "Moviment Cavall",
+    "Body": "El Caballo es la pieza que mayores dificultades presenta para comprender su movimiento. Dicho movimiento, a diferencia de las otras piezas, no es rectilíneo: salta formando una \"L\" de dos casillas por un lado y una casilla por el otro. Es muy importante notar que el caballo cambia en cada jugada el color de la casilla en que se encuentra, es decir si está en una casilla blanca solo puede saltar a casillas negras y viceversa. Es la única pieza que puede pasar por encima de cualquier otra."
+  },
+  {
+    "Tema": "Moviment del peó",
+    "Dificultat": "facil",
+    "FEN" : "1k6/8/8/8/8/4p3/3P4/1K6 w - -",
+    "Camp": "Moviment Peó",
+    "Body": "El Peón mueve en dirección vertical, una casilla adelante en la columna en que se halla situado. Al contrario de las restantes piezas, el Peón siempre avanza, no puede retroceder. Excepcionalmente, cuando un peón se encuentra en su casilla de origen --la segunda línea-- puede avanzar uno o dos pasos, según convenga al jugador. A partir de ahí, sólo podrá avanzar un paso en las jugadas futuras que realice.  Solo se puede mover en diagonal en caso de que haya una pieza adversaria. No puede pasar por encima de ninguna pieza."
+  },
+  {
+    "Tema": "Jaque mate",
+    "Dificultat": "facil",
+    "FEN" : "6k1/p1p2rpp/1q6/2p5/4P3/PQ6/1P4PP/3R3K w - - 0 1",
+    "Camp": "Jaque mate",
+    "Body": "Es una posición del ajedrez en la que el rey se encuentra amenazado (en jaque) y esta situación no puede cambiarse mediante ninguna jugada legal. El jugador que consiga poner en jaque mate al rey adversario, será el ganador de la partida."
+  }
+]

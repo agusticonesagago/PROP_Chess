@@ -10,36 +10,41 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.Vector;
 
 public class JugarPartida extends JFrame implements Observer {
 
    // Atributes From domini
     public CtrlDomini cDom;
-    protected Partida p;
+    public Partida p;
+    public boolean paused;
+    public Timer TotalTimer;
 
-    protected Timer TotalTimer;
-
-    protected chessboardPanel chessboard;
-    protected timePanel temporizador;
-    protected JLabel fenText;
-    protected HistorialPanel HistorialMovs;
-    protected JButton exit;
+    public chessboardPanel chessboard;
+    public timePanel temporizador;
+    public JLabel fenText;
+    public HistorialPanel HistorialMovs;
+    public JButton exit;
 
     public JugarPartida(CtrlDomini cDom) {
         super(cDom.getProblema().getTema());
         this.cDom = cDom;
         this.p = cDom.getPartida();
+        this.paused = true;
         this.chessboard = new chessboardPanel(cDom);
         this.chessboard.setJugarPartida(this);
         this.temporizador = new timePanel(cDom, this);
+        if (cDom.getSavedTime() != null && cDom.getSavedTorn() != null){
+            this.temporizador.setSaved(cDom.getSavedTime(), cDom.getSavedTorn());
+        }
         this.HistorialMovs = new HistorialPanel(cDom);
 
         TotalTimer = new Timer(1000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("HOLA");
                 temporizador.TimerClock();
             }
         });
@@ -48,10 +53,12 @@ public class JugarPartida extends JFrame implements Observer {
 
     public void pauseTimer () {
         TotalTimer.stop();
+        this.paused = true;
     }
 
     public void startTimer () {
         TotalTimer.start();
+        this.paused = false;
         toMove();
     }
 
@@ -66,7 +73,7 @@ public class JugarPartida extends JFrame implements Observer {
         this.setResizable(true);
         this.pack();
         this.setLocation(0,0);
-        this.setMinimumSize(new Dimension(1000,700));
+        this.setMinimumSize(new Dimension(1100,700));
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setVisible(true);
         this.pauseTimer();
@@ -141,19 +148,33 @@ public class JugarPartida extends JFrame implements Observer {
         exit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String[] opts = {"Save", "Exit without Saving"};
-                int res = JOptionPane.showOptionDialog(aux,"Vols guardar la partida abans de marxar?",
-                        "Exiting", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE
-                         , null, opts, opts[0]);
-                if (res == 1){
+                if (!temporizador.getTornText().equals("  0")) {
+                    String[] opts = {"Save", "Exit without Saving"};
+                    int res = JOptionPane.showOptionDialog(aux, "Vols guardar la partida abans de marxar?",
+                            "Exiting", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE
+                            , null, opts, opts[0]);
+                    if (res == 1) {
+                        cDom.setPartida(null);
+                        cDom.setSavedTime(null);
+                        cDom.setSavedTorn(null);
+                        MainMenu frame = new MainMenu(cDom);
+                        setVisible(false);
+                        dispose();
+                        frame.setVisible(true);
+                    } else {
+                        cDom.setPartida(p);
+                        cDom.setSavedTime(temporizador.getTime());
+                        cDom.setSavedTorn(temporizador.getTornText());
+                        MainMenu frame = new MainMenu(cDom);
+                        setVisible(false);
+                        dispose();
+                        frame.setVisible(true);
+                    }
+                } else {
                     cDom.setPartida(null);
                     MainMenu frame = new MainMenu(cDom);
                     setVisible(false);
-                    frame.setVisible(true);
-                } else {
-                    cDom.setPartida(p);
-                    MainMenu frame = new MainMenu(cDom);
-                    setVisible(false);
+                    dispose();
                     frame.setVisible(true);
                 }
             }
@@ -183,7 +204,15 @@ public class JugarPartida extends JFrame implements Observer {
 
                 if (cDom.getPartida().getBlanques() instanceof Huma) {
                     Ranking r = new Ranking(temporizador.getFloatTime(),cDom.getProblema().getFEN(),cDom.getUser_name());
-                    cDom.getCDMr().altaRanking_Full(r);//!
+                    Vector<String> vs = new Vector<>();
+                    vs.add(cDom.getUser_name());
+                    vs.add(cDom.getProblema().getFEN());
+                    vs.add(temporizador.getFloatTime().toString());
+                    try {
+                        cDom.getCDMr().altaRanking(cDom.getUser_name(),vs );//!
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
 
                 JOptionPane.showMessageDialog(this,victory_msg);
@@ -196,7 +225,15 @@ public class JugarPartida extends JFrame implements Observer {
 
                 if (cDom.getPartida().getBlanques() instanceof Huma) {
                     Ranking r = new Ranking(temporizador.getFloatTime(),cDom.getProblema().getFEN(),cDom.getUser_name());
-                    cDom.getCDMr().altaRanking_Full(r);
+                    Vector<String> vs = new Vector<>();
+                    vs.add(cDom.getUser_name());
+                    vs.add(cDom.getProblema().getFEN());
+                    vs.add(temporizador.getFloatTime().toString());
+                    try {
+                        cDom.getCDMr().altaRanking(cDom.getUser_name(),vs );//!
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
                 JOptionPane.showMessageDialog(this,"Guanyen les Negres   !!!!");
                 HistorialMovs.printMsg("VICTORIA NEGRA");
@@ -209,5 +246,9 @@ public class JugarPartida extends JFrame implements Observer {
 
     public void badMoveMsg(String checkMove) {
         HistorialMovs.printMsg(checkMove);
+    }
+
+    public boolean getIfStart() {
+        return !paused;
     }
 }

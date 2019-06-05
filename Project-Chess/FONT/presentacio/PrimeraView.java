@@ -1,19 +1,16 @@
 package presentacio;
 
 import domini.CtrlDomini;
-import domini.CtrlDominiMantProblema;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 import java.util.Vector;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 
 public class PrimeraView extends JFrame {
     private JButton GoOn;
@@ -31,6 +28,7 @@ public class PrimeraView extends JFrame {
     public PrimeraView(CtrlDomini ctrld) {
         super ("Chess PROP");
 
+        System.getProperty("user.id");
         String[] opciones ={"o"};
 
         GoOn.setFocusable(false);

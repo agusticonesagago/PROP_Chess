@@ -44,10 +44,7 @@ public class MenuProblema extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 Problema p = new Problema();
-                p.setFEN("8/8/8/8/8/8/8/8 w - - 0 1");
-                ctrlDom.setProblema(p);
-                ctrlDom.conf_partida_p("Huma","Huma");
-                CrearPartida frame = new CrearPartida(ctrlDom);
+                MenuCreacioProblema frame = new MenuCreacioProblema(ctrlDom, "", "", "", false);
                 setVisible(false);
                 dispose();
                 frame.setVisible(true);

@@ -1,4 +1,0 @@
-Aquest joc de probes esta pensat per a probar que es poden jugar partides M1 vs M1, M1 vs H, H vs M1, H vs H el driver
-llegira del fitxer "DadesCtrl" el problema per a jugar, i executara 2 partides: M1 vs M1, M1 vs H. Ja que el cas de H vs H
-podriem donar per bo si el cas de H vs M1 es correcte (ja que amb aquest ja comprobem que es puguin entrar be les dades
-de moviment huma). El Huma llegira els moviments a fer de fitxer "DadesStubHuma".

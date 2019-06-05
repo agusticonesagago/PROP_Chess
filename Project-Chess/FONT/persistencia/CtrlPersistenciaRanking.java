@@ -14,15 +14,20 @@ import java.util.List;
 public class CtrlPersistenciaRanking {
 
 
-    // PARAMS
-    private String path_ranking = "C:\\Users\\Usuario\\Desktop\\UPC\\Q6\\PROP\\Project\\Project-Chess\\FONT\\Dades\\Ranking.json";
-
     private static final Type RankingListType = new TypeToken<ArrayList<Ranking>>(){}.getType();
     // FUNCS
+    private String globalPath = "data";
+    private String f_ranking;
+
+    public CtrlPersistenciaRanking() {
+        f_ranking = globalPath;
+        f_ranking = f_ranking.concat("/");
+        f_ranking = f_ranking.concat("Ranking.json");
+    }
 
     public List<Ranking> getAllRankings () throws FileNotFoundException {
         Gson gson = new Gson();
-        JsonReader reader = new JsonReader(new FileReader(path_ranking));
+        JsonReader reader = new JsonReader(new FileReader(f_ranking));
         List<Ranking> cjtRankings = gson.fromJson(reader, RankingListType);
         return cjtRankings;
     }
@@ -50,7 +55,7 @@ public class CtrlPersistenciaRanking {
         Gson gson = new GsonBuilder().setPrettyPrinting().create(); // Dona el format ordenat de JSON
         List<Ranking> cjtRankings = getAllRankings();
         cjtRankings.add(r);
-        Writer writer = new FileWriter(path_ranking);
+        Writer writer = new FileWriter(f_ranking);
         gson.toJson(cjtRankings,writer);
         writer.flush();
         writer.close();
@@ -60,7 +65,7 @@ public class CtrlPersistenciaRanking {
         Gson gson = new GsonBuilder().setPrettyPrinting().create(); // Dona el format ordenat de JSON
         List<Ranking> cjtRankings = getAllRankings();
         cjtRankings.remove(r);
-        Writer writer = new FileWriter(path_ranking);
+        Writer writer = new FileWriter(f_ranking);
         gson.toJson(cjtRankings,writer);
         writer.flush();
         writer.close();
@@ -72,7 +77,7 @@ public class CtrlPersistenciaRanking {
         int ind = cjtRankings.indexOf(r);
         r.setTemps(time);
         cjtRankings.set(ind,r);
-        Writer writer = new FileWriter(path_ranking);
+        Writer writer = new FileWriter(f_ranking);
         gson.toJson(cjtRankings,writer);
         writer.flush();
         writer.close();

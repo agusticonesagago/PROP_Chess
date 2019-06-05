@@ -16,7 +16,6 @@ public class chessboardPanel extends JPanel implements Observer {
 
     private CtrlDomini cDom;
     private JugarPartida mainFrame;
-    private CrearPartida secnFrame;
     private JLabel pecaToPaint;
     private Partida p;
     private JPanel[][] sqaurePanels;
@@ -32,7 +31,6 @@ public class chessboardPanel extends JPanel implements Observer {
         this.p = cDom.getPartida();
         this.autoHelp = null;
         this.mainFrame = null;
-        this.secnFrame = null;
         this.origin = null;
         this.pecaToPaint = null;
         initializeBoardLayeredPane();
@@ -44,9 +42,6 @@ public class chessboardPanel extends JPanel implements Observer {
         this.mainFrame = mainFrame;
     }
 
-    public void setCrearPartida(CrearPartida mainFrame) {
-        this.secnFrame = mainFrame;
-    }
 
     private void initializeBoardLayeredPane() {
         boardPanel = new JPanel(new GridLayout(8,8));
@@ -225,9 +220,6 @@ public class chessboardPanel extends JPanel implements Observer {
         return mainFrame != null;
     }
 
-    public boolean hasSecndFrame() {
-        return secnFrame != null;
-    }
 
     public void paintSelectedPiece(int i, int j) {
         if (this.pecaToPaint != null) {
@@ -252,5 +244,9 @@ public class chessboardPanel extends JPanel implements Observer {
 
         initializePieces();
         this.repaint();
+    }
+
+    public boolean canPlay() {
+        return mainFrame.getIfStart();
     }
 }
